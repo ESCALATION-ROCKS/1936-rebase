@@ -1,0 +1,681 @@
+/obj/item/ammo_magazine/c762x51m
+	name = "magazine (7.62x51mm)"
+	desc = "A STANAG magazine that fits thirty 7.62x51mm rounds."
+	icon_state = "7.62x51mm"
+	mag_type = MAGAZINE
+	caliber = "762x51"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c762x51m/ap
+	name = "AP magazine (7.62x51mm)"
+	desc = "A STANAG magazine that fits thirty armor-piercing 7.62x51mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762x51/ap
+
+/obj/item/ammo_magazine/c762x51m/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x51s
+	name = "magazine (7.62x51mm)"
+	desc = "A STANAG magazine that fits twenty 7.62x51mm rounds."
+	icon_state = "7.62x51s"
+	mag_type = MAGAZINE
+	caliber = "762x51"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	max_ammo = 20
+	multiple_sprites = 1
+	load_delay = 7
+
+/obj/item/ammo_magazine/c762x51s/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x51wa
+	name = "WA2000 magazine (7.62x51mm)"
+	desc = "A WA2000 magazine that fits six 7.62x51mm rounds."
+	icon_state = "wa2000mag"
+	mag_type = MAGAZINE
+	caliber = "762x51"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	max_ammo = 6
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c762x51wa/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x51wa/ap
+	desc = "A WA2000 magazine that fits six armor-piercing 7.62x51mm rounds."
+	name = "AP magazine (7.62x51mm)"
+	ammo_type = /obj/item/ammo_casing/a762x51/ap
+
+/obj/item/ammo_magazine/c762x51b
+	name = "M60 belt box (7.62x51mm)"
+	desc = "An M60 box that fits one hundred 7.62x51mm rounds."
+	icon_state = "m60"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "762x51"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	max_ammo = 100
+	multiple_sprites = 1
+	load_delay = 30
+	slowdown_general = 0.1
+
+/obj/item/ammo_magazine/c762x51b/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x51b/ap
+	name = "M60 AP belt box (7.62x51mm)"
+	desc = "An M60 belt box that fits one hundred armor-piercing 7.62x51mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762x51/ap
+
+/obj/item/ammo_magazine/c762x39b
+	name = "large magazine (7.62x39mm)"
+	desc = "An AK-platform magazine that fits fourty 7.62x39mm rounds."
+	icon_state = "7.62x39mmb"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_NORMAL
+	caliber = "762x39"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	max_ammo = 40
+	multiple_sprites = 1
+	load_delay = 15
+	slowdown_general = 0.1
+
+/obj/item/ammo_magazine/c762x39b/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x39d
+	name = "RPD belt drum (7.62x39mm)"
+	desc = "An RPD belt drum that fits seventy five 7.62x39mm rounds."
+	icon_state = "rpdbaraban100"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "762x39"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	max_ammo = 75
+	multiple_sprites = 1
+	load_delay = 30
+
+/obj/item/ammo_magazine/c762x39d/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x39k
+	name = "drum magazine (7.62x39mm)"
+	desc = "An AK-platform drum magazine that fits seventy five 7.62x39mm rounds."
+	icon_state = "rpdbaraban"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "762x39"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	max_ammo = 75
+	multiple_sprites = 1
+	load_delay = 20
+
+/obj/item/ammo_magazine/c762x39k/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x51b/bdw
+	name = "MG3 belt box (7.62x51mm)"
+	desc = "An MG3 box that fits one hundred 7.62x51mm rounds."
+	icon_state = "mg3"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "762x51"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	max_ammo = 100
+	multiple_sprites = 1
+	load_delay = 30
+
+/obj/item/ammo_magazine/c762x51b/bdw/ap
+	name = "MG3 AP belt box (7.62x51mm)"
+	desc = "A belt box that fits one hundred armor-piercing 7.62x51mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762x39/ap
+
+/obj/item/ammo_magazine/c762x51b/bdw/drum
+	name = "MG3 belt drum (7.62x51mm)"
+	desc = "A belt drum that fits fifty 7.62x51mm rounds."
+	icon_state = "mg3s"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_NORMAL
+	caliber = "762x51"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	max_ammo = 50
+	multiple_sprites = 1
+	load_delay = 30
+
+/obj/item/ammo_magazine/c762x51b/bdw/drum/ap
+	name = "MG3 AP belt drum (7.62x51mm)"
+	desc = "A belt drum that fits fifty armor-piercing 7.62x51mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762x39/ap
+
+/obj/item/ammo_magazine/c762x51b/bdw/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x51b/en
+	name = "L7A2 belt box (7.62x51mm)"
+	desc = "An L7A2 belt box that fits one hundred 7.62x51mm rounds."
+	icon_state = "l7a2"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "762x51"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	max_ammo = 100
+	multiple_sprites = 1
+	load_delay = 30
+
+/obj/item/ammo_magazine/c762x51b/en/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c556x45b
+	name = "M249 belt box (5.56x45mm)"
+	desc = "An M249 belt box that fits one hundred 5.56x45mm rounds."
+	icon_state = "m249"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "556x45"
+	ammo_type = /obj/item/ammo_casing/a556x45
+	max_ammo = 100
+	multiple_sprites = 1
+	load_delay = 30
+
+/obj/item/ammo_magazine/c556x45b/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x39m
+	name = "magazine (7.62x39mm)"
+	desc = "An AK-platform magazine that fits thirty 7.62x39mm rounds."
+	icon_state = "7.62x39mm"
+	mag_type = MAGAZINE
+	caliber = "762x39"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	max_ammo = 30
+	multiple_sprites = 1
+	load_delay = 10
+
+/obj/item/ammo_magazine/c762x39m/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x39v
+	name = "magazine (7.62x39mm)"
+	desc = "An KK-62 magazine that fits thirty 7.62x39mm rounds."
+	icon_state = "kk62"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "762x39"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	max_ammo = 100
+	multiple_sprites = 1
+	load_delay = 30
+
+/obj/item/ammo_magazine/c762x39v/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x39m/ap
+	name = "AP magazine (7.62x39mm)"
+	desc = "An KK-62 magazine that fits thirty armor-piercing 7.62x39mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762x39/ap
+
+/obj/item/ammo_magazine/c762x39r
+	name = "large magazine (7.62x39mm)"
+	desc = "An AK-platform magazine that fits fourty five 7.62x39mm rounds."
+	icon_state = "7.62x39r"
+	mag_type = MAGAZINE
+	caliber = "762x39"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	max_ammo = 45
+	w_class = 3
+	multiple_sprites = 1
+	load_delay = 20
+
+/obj/item/ammo_magazine/c762x39r/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x39r/ap
+	name = "large AP magazine (7.62x39mm)"
+	desc = "An AK-platform magazine that fits fourty five armor-piercing 7.62x39mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762x39/ap
+
+/obj/item/ammo_magazine/c762x54s
+	name = "SVD magazine (7.62x54mm)"
+	desc = "A SVD magazine that fits ten 7x62x54mm rounds."
+	icon_state = "7.62x54s"
+	mag_type = MAGAZINE
+	caliber = "762x54"
+	ammo_type = /obj/item/ammo_casing/a762x54
+	max_ammo = 10
+	multiple_sprites = 1
+	load_delay = 7
+
+/obj/item/ammo_magazine/c762x54s/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c762x54s/ap
+	name = "SVD AP magazine (7.62x54mm)"
+	desc = "A SVD magazine that fits ten armor-piercing 7x62x54mm rounds."
+	ammo_type = /obj/item/ammo_casing/a762x54/ap
+
+/obj/item/ammo_magazine/c762x54b
+	name = "PKM belt box (7.62x54mm)"
+	desc = "A PKM belt box that fits one hundred 7.62x54mm rounds."
+	icon_state = "pkm"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "762x54"
+	ammo_type = /obj/item/ammo_casing/a762x54
+	max_ammo = 100
+	multiple_sprites = 1
+	load_delay = 30
+	slowdown_general = 0.1
+
+/obj/item/ammo_magazine/c762x54b/csla
+	name = "Vz. 59 belt box (7.62x54mm)"
+	desc = "A gray Vz.59 belt box that fits one hundred 7.62x54mm rounds."
+	icon_state = "vz59"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "762x54"
+	ammo_type = /obj/item/ammo_casing/a762x54
+	max_ammo = 100
+	multiple_sprites = 1
+	load_delay = 30
+
+/obj/item/ammo_magazine/c762x54b/ap
+	name = "PKM AP belt box (7.62x54mm)"
+	desc = "A PKM belt box that fits one hundred armor-piercing 7.62x54mm rounds. Rain death upon them."
+	icon_state = "7.62x39b"
+	ammo_type = /obj/item/ammo_casing/a762x54/ap
+
+/obj/item/ammo_magazine/c556x45m
+	name = "magazine (5.56x45mm)"
+	desc = "A STANAG magazine that fits thirty 5.56mm rounds."
+	icon_state = "5.56x45mm"
+	mag_type = MAGAZINE
+	caliber = "556x45"
+	ammo_type = /obj/item/ammo_casing/a556x45
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c556x45m/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c556x45m/ap
+	name = "AP magazine (5.56x45mm)"
+	desc = "A STANAG magazine that fits thirty armor-piercing 5.56mm rounds."
+	ammo_type = /obj/item/ammo_casing/a556x45/ap
+
+/obj/item/ammo_magazine/c545x39m
+	name = "magazine (5.45x39mm)"
+	desc = "An AK-platform magazine that fits thirty 5.45x39mm rounds. Made of bakelite."
+	icon_state = "5.45x39mm"
+	mag_type = MAGAZINE
+	caliber = "545x39"
+	ammo_type = /obj/item/ammo_casing/a545x39
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c545x39m/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c545x39m/ap
+	name = "AP magazine (5.45x39mm)"
+	desc = "An AK-platform magazine that fits thirty armor-piercing 5.45x39mm rounds. Made of bakelite."
+	ammo_type = /obj/item/ammo_casing/a545x39/ap
+
+/obj/item/ammo_magazine/c545x39b
+	name = "large magazine (5.45x39mm)"
+	desc = "An AK-platform magazine that fits fourty five 5.45x39mm rounds. Made of bakelite."
+	icon_state = "5.45x39b"
+	mag_type = MAGAZINE
+	caliber = "545x39"
+	ammo_type = /obj/item/ammo_casing/a545x39
+	max_ammo = 45
+	multiple_sprites = 1
+	w_class = 3
+	slowdown_general = 0.1
+
+/obj/item/ammo_magazine/c545x39b/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c545x39b/ap
+	name = "large AP magazine (5.45x39mm)"
+	desc = "An AK-platform magazine that fits fourty five armor-piercing 5.45x39mm rounds. Made of bakelite."
+	ammo_type = /obj/item/ammo_casing/a545x39/ap
+
+/obj/item/ammo_magazine/a9x19
+	name = "magazine (9x19mm)"
+	desc = "A P1 magazine that fits eight 9x19mm rounds."
+	icon_state = "9x19a"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x19
+	w_class = 1
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x19"
+	max_ammo = 8
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a9x19/ap
+	name = "AP magazine (9x19mm)"
+	desc = "A P1 magazine that fits eight armor-piercing 9x19mm rounds."
+	w_class = 1
+	ammo_type = /obj/item/ammo_casing/a9x19/ap
+
+/obj/item/ammo_magazine/a9x19b
+	name = "magazine (9x19mm)"
+	desc = "A Browning Hi-Power magazine that fits thirteen 9x19mm rounds."
+	icon_state = "9x19b"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x19
+	w_class = 1
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x19"
+	max_ammo = 13
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a9x18
+	name = "magazine (9x18mm)"
+	desc = "A Makarov magazine that fits eight 9x18mm rounds."
+	icon_state = "9x18a"
+	mag_type = MAGAZINE
+	w_class = 1
+	ammo_type = /obj/item/ammo_casing/a9x18
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x18"
+	max_ammo = 8
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a9x18b
+	name = "magazine (9x18mm)"
+	desc = "A Stechkin APS magazine that fits twenty 9x18mm rounds."
+	icon_state = "9x18b"
+	mag_type = MAGAZINE
+	w_class = 1
+	ammo_type = /obj/item/ammo_casing/a9x18
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x18"
+	max_ammo = 20
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/cz9x18
+	name = "magazine (9x18mm)"
+	desc = "A CZ85 magazine that fits eight 9x18mm rounds."
+	icon_state = "9x18a" //fix
+	w_class = 1
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x18
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x18"
+	max_ammo = 12
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a9x18/ap
+	name = "AP magazine (9x18mm)"
+	w_class = 1
+	desc = "A Makarov magazine that fits eight armor-piercing 9x18mm rounds."
+	ammo_type = /obj/item/ammo_casing/a9x18/ap
+
+/obj/item/ammo_magazine/c127x108b
+	name = "UTES belt box (12.7x108mm)"
+	desc = "A NSV Utes belt box that fits a hundred 12.7x108mm rounds."
+	icon_state = "utes"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "127x108mm"
+	ammo_type = /obj/item/ammo_casing/a127x108mm
+	max_ammo = 100
+	multiple_sprites = 1
+	slowdown_general = 0.1
+
+/obj/item/ammo_magazine/c556x45s
+	name = "magazine (5.56x45mm)"
+	desc = "A STANAG magazine that fits twenty 5.56x45mm rounds."
+	icon_state = "5.56x45s"
+	mag_type = MAGAZINE
+	caliber = "556x45"
+	ammo_type = /obj/item/ammo_casing/a556x45
+	max_ammo = 20
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c556x45s/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/c556x45s/ap
+	name = "AP magazine (5.56x45mm)"
+	desc = "A STANAG magazine that fits twenty armor-piercing 5.56x45mm rounds."
+	ammo_type = /obj/item/ammo_casing/a556x45/ap
+
+/obj/item/ammo_magazine/a4mm
+	name = "magazine box (4mm)"
+	icon_state = "4mm"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "4mm"
+	ammo_type = /obj/item/ammo_casing/a4mm
+	max_ammo = 400
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/ags30x29mm
+	name = "AGS belt box (VOG 30x29mm)"
+	desc = "An AGS Plamya belt box that fits thirty grenades."
+	icon_state = "ags30x29mm"
+	mag_type = MAGAZINE
+	w_class = ITEM_SIZE_LARGE
+	caliber = "30x29mm"
+	ammo_type = /obj/item/ammo_casing/ags30x29mm/shrapnel
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/mk19_40x53mm
+	name = "MK19 belt box (MK19 40x53mm)"
+	desc = "A MK19 box that fits thirty two grenades."
+	icon_state = "mk19ammo"
+	mag_type = MAGAZINE
+	caliber = "40x53mm"
+	ammo_type = /obj/item/ammo_casing/mk19_40x53mm/shrapnel
+	max_ammo = 32
+	multiple_sprites = 1
+	load_delay = 40
+
+/obj/item/ammo_magazine/box/paper/
+	max_ammo = 40
+
+/obj/item/ammo_magazine/box/paper/box545x39
+	name = "ammo box (5.45x39mm)"
+	desc = "A 40-round pack of 5.45x39mm ammunition."
+	icon_state = "sa_box"
+	ammo_type = /obj/item/ammo_casing/a545x39
+	caliber = "545x39"
+
+/obj/item/ammo_magazine/box/paper/box762x39
+	name = "ammo box (7.62x39mm)"
+	desc = "A 40-round pack of 7.62x39mm ammunition."
+	icon_state = "csla_box"
+	ammo_type = /obj/item/ammo_casing/a762x39
+	caliber = "762x39"
+
+/obj/item/ammo_magazine/box/paper/box762x54
+	name = "ammo box (7.62x54mm)"
+	desc = "A 40-round pack of 7.62x54mm ammunition."
+	icon_state = "csla_box"
+	ammo_type = /obj/item/ammo_casing/a762x54
+	caliber = "762x54"
+
+/obj/item/ammo_magazine/box/paper/box556x45
+	name = "ammo box (5.56x45mm)"
+	desc = "A 40-round pack of 5.56x45mm ammunition."
+	icon_state = "usmc_box"
+	ammo_type = /obj/item/ammo_casing/a556x45
+	caliber = "556x45"
+
+/obj/item/ammo_magazine/box/paper/box762x51
+	name = "ammo box (7.62x51mm)"
+	desc = "A 40-round pack of 7.62x51mm ammunition."
+	icon_state = "bdw_box"
+	ammo_type = /obj/item/ammo_casing/a762x51
+	caliber = "762x51"
+
+/obj/item/ammo_magazine/c50cal
+	name = "ammo box (.50 cal)"
+	desc = "A Browning box that fits a hundred .50 rounds."
+	icon_state = "m2ammo"
+	mag_type = MAGAZINE
+	w_class = 5
+	caliber = ".50"
+	ammo_type = /obj/item/ammo_casing/a50cal
+	max_ammo = 100
+	multiple_sprites = 1
+	load_delay = 30
+
+/obj/item/ammo_magazine/c50cals
+	name = "ammo box (.50 cal)"
+	desc = "A compact magazine for the M82 Barreta, fits ten .50 rounds."
+	icon_state = "50cal"
+	mag_type = MAGAZINE
+	w_class = 5
+	caliber = ".50"
+	ammo_type = /obj/item/ammo_casing/a50cal
+	max_ammo = 10
+	multiple_sprites = 1
+	load_delay = 30
+
+//SCW Boxes
+
+/obj/item/ammo_magazine/box/clip/a7x57
+	name = "stripper clip (7x57mm)"
+	desc = "A stripper clip that fits five 7x57mm rounds."
+	icon_state = "clip_mauser"
+	caliber = "7x57"
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 1
+	max_ammo = 5
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/box/clip/a7x57/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/box/clip/a762x54
+	name = "stripper clip (7.62x54mmR)"
+	desc = "A stripper clip that fits five 7.62x54mmR rounds."
+	icon_state = "clip_mauser"
+	caliber = "762x54"
+	ammo_type = /obj/item/ammo_casing/a762x54
+	w_class = 1
+	max_ammo = 5
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/box/clip/a762x54/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/box/clip/a303
+	name = "stripper clip (.303 British)"
+	desc = "A stripper clip that fits five .303 British rounds."
+	mag_type = SPEEDLOADER
+	icon_state = "clip_mauser"
+	caliber = "303"
+	ammo_type = /obj/item/ammo_casing/a303
+	w_class = 1
+	max_ammo = 5
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/box/clip/a303/empty
+	initial_ammo = 0
+
+
+
+/obj/item/ammo_magazine/a9x23n
+	name = "smg magazine (9x23mm)"
+	desc = "An MP-28 magazine that fits thirty-two 9x23mm 'Largo' rounds."
+	icon_state = "naranjero"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x23
+	w_class = 2
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x23"
+	max_ammo = 32
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a9x23s
+	name = "pistol magazine (9x23mm)"
+	desc = "An Astra 400 magazine that fits eight 9x23mm 'Largo' rounds."
+	icon_state = "astra400"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x23
+	w_class = 1
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x23"
+	max_ammo = 8
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a7x57m
+	name = "lmg magazine (7x57mm)"
+	desc = "A hotchkiss box magazine that fits thirty 7x57mm rounds."
+	icon_state = "hotchkiss_1922"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 3
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a7x57s
+	name = "small lmg magazine (7x57mm)"
+	desc = "A hotchkiss box magazine that fits fifteen 7x57mm rounds."
+	icon_state = "hotchkiss_1922_small"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 2
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 15
+	multiple_sprites = 1
+
+
+/obj/item/ammo_magazine/a7x57sl
+	name = "large lmg stripper clip (7x57mm)"
+	desc = "A hotchkiss stripper clip that fits thirty 7x57mm rounds."
+	icon_state = "hotchkiss_1922_striplarge"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a7x57sm
+	name = "lmg stripper clip (7x57mm)"
+	desc = "A hotchkiss stripper clip that fits twenty-four 7x57mm rounds."
+	icon_state = "hotchkiss_1922_stripmed"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 24
+	multiple_sprites = 1
+
+
+/obj/item/ammo_magazine/a7x57ss
+	name = "small lmg stripper clip (7x57mm)"
+	desc = "A hotchkiss stripper clip that fits fifteen 7x57mm rounds."
+	icon_state = "hotchkiss_1922_stripsmall"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 3
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 15
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a762x54maxim
+	name = "machinegeun ammo box (762x54Rmm)"
+	desc = "A maxim ammo belt in a metal box that holds two hundred 762x54Rmm rounds."
+	icon_state = "maxim"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a762x54
+	w_class = 5
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "762x54"
+	max_ammo = 200
+	multiple_sprites = 1
