@@ -1,0 +1,117 @@
+# FIRETEAM_NAME:FIRETEAM_FACTION
+# TYPE_OF_JOB, TYPE_OF_JOB, ETC...
+# Faction Tags: bund, cccp, csla, usmc
+# Example:
+# Motostrelki:cccp
+# /datum/job/escalation/cccp/rifleman
+# /datum/job/escalation/cccp/marksman
+# /datum/job/escalation/cccp/grenadier
+# @END@
+
+# WARPAC
+
+Primer Peloton:nacional
+/datum/job/escalation/nacional/natsl
+/datum/job/escalation/nacional/natslasst
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+@END@
+
+Segundo Peloton:nacional
+/datum/job/escalation/nacional/natsl
+/datum/job/escalation/nacional/natslasst
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+@END@
+
+Tercer Peloton:nacional
+/datum/job/escalation/nacional/natsl
+/datum/job/escalation/nacional/natslasst
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+/datum/job/escalation/nacional/natfusilero
+@END@
+
+Primera Escuadra:legion
+/datum/job/escalation/legion/legsl
+/datum/job/escalation/legion/legslasst
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+
+@END@
+
+Segunda Escuadra:legion
+/datum/job/escalation/legion/legsl
+/datum/job/escalation/legion/legslasst
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+@END@
+
+Tercera Escuadra:legion
+/datum/job/escalation/legion/legsl
+/datum/job/escalation/legion/legslasst
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+/datum/job/escalation/legion/legfusilero
+@END@
+
+Primer Peloton:popular
+/datum/job/escalation/popular/repsl
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+@END@
+
+Segundo Peloton:popular
+/datum/job/escalation/popular/repsl
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+@END@
+
+Tercer Peloton:popular
+/datum/job/escalation/popular/repsl
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+/datum/job/escalation/popular/repfusilero
+@END@
+
+ignore:ignore
+@END@
