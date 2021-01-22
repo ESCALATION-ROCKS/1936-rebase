@@ -465,7 +465,9 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
 	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 2,
-	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 4 ))
 
 /decl/hierarchy/outfit/job/gce/popular/surgeon
@@ -516,7 +518,9 @@
 	/obj/item/clothing/shoes/gce/zapatos/calcetines = 1 ))
 
 	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
-	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
 /decl/hierarchy/outfit/job/gce/popular/cabo
@@ -551,7 +555,9 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
 	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
-	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
 /decl/hierarchy/outfit/job/gce/popular/soldado
@@ -586,7 +592,9 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
 	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
-	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
 /decl/hierarchy/outfit/job/gce/popular/ametrallador
@@ -653,7 +661,9 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
 	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
-	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
+	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
 /decl/hierarchy/outfit/job/gce/legion/legpl

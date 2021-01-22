@@ -1,5 +1,11 @@
+emoats18 - Host
 MrGabol100 - Host
-Bundeswehr - Host
-cabostein - HeadDeveloper
-DanseMacabre - GameAdmin
-emoats18 - GameAdmin
+
+cabostein - Developer
+burnedsweetpotato - Developer
+realmagnum - Developer
+Sintyz - Developer
+
+Pete112 - Administrator
+verarch - Administrator
+I like D0nUts - Administrator
