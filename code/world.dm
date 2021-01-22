@@ -630,10 +630,10 @@ var/world_topic_spam_protect_time = world.timeofday
 	s += "<br>"
 	s += "An immersive combat experience set during the events of the Spanish Civil War."
 	s += "<br>"
-	s += "Join as an Observer while you apply on our DISCORD! - Thursdays and Fridays 19:00 CEST"
+	s += "You are able to join and observe while you apply for a whitelist on our Discord."
 	s += "<br>"
-	s += "<a href=\"https://discord.gg/hVCJDTA\">" //Change this to wherever you want the hub to link to.
-	s += "DISCORD WHITELIST REQUIRED"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "<a href=\"https://discord.gg/zQBbYAjNTz\">" //Change this to wherever you want the hub to link to.
+	s += "WHITELIST REQUIRED"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
 
 	var/list/features = list()
