@@ -19,7 +19,3 @@ __pycache__
 # ignore config, but not subdirs
 #config/*
 #!config/*/
-config/motd.txt
-config/dbconfig.txt
-config/config.txt
-baystation12.dme
