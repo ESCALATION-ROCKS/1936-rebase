@@ -20,7 +20,6 @@ __pycache__
 #config/*
 #!config/*/
 config/admins.txt
-config/whitelist_escalation.txt
 config/fireteams.txt
 config/motd.txt
 config/admins.txt
