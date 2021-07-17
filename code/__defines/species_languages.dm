@@ -65,3 +65,4 @@
 #define LANGUAGE_CZECH   "Czech"
 
 #define LANGUAGE_SPANISH "Spanish"
+#define LANGUAGE_TAMAZIGH "Tamazigh"

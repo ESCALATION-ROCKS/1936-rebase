@@ -57,7 +57,7 @@
 
 /obj/item/clothing/shoes/gce/alpargatas/legion
 	name = "alpargatas"
-	desc = "A pair of enclosed sandals common in Spain. The sole is made from woven straw and the upper from canvas. These ones have gaiters that attach to the legion's uniform."
+	desc = "A pair of enclosed sandals common in Spain. The sole is made from woven straw and the upper from canvas. These ones have gaiters that attach to the uniform."
 	item_state = "alpargatas_legion"
 	icon_state = "alpargatas_legion"
 

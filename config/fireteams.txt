@@ -113,5 +113,41 @@ Tercer Peloton:popular
 /datum/job/escalation/popular/repfusilero
 @END@
 
+Primer Peloton:republican
+/datum/job/escalation/republican/repsl
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+@END@
+
+Segundo Peloton:republican
+/datum/job/escalation/republican/repsl
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+@END@
+
+Tercer Peloton:republican
+/datum/job/escalation/republican/repsl
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repfusilero
+@END@
+
 ignore:ignore
 @END@

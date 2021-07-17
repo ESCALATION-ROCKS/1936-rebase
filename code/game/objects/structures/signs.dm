@@ -1445,6 +1445,12 @@ obj/structure/sign/noshitlers
 	icon_state = "republicano_flag"
 	desc = "That's the flag of the second Spanish republic."
 
+/obj/structure/sign/morocco_flag
+	name = "Moroccan flag"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "morocco_flag"
+	desc = "That's the flag of Morocco."
+
 /obj/structure/sign/nacional_flag
 	name = "Spanish flag"
 	icon = 'icons/obj/decorations.dmi'

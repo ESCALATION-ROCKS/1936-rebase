@@ -165,8 +165,20 @@ var/list/turf_edge_cache = list()
 /turf/unsimulated/ground/sand
 	name = "sand"
 	icon_state = "sand"
-	blend_with_neighbors = 4
+	blend_with_neighbors = 2
 	movement_delay = 0
+
+/turf/unsimulated/ground/sand/sandy
+	name = "sand"
+	icon_state = "sandy"
+	blend_with_neighbors = 10
+	movement_delay = 0
+
+/turf/unsimulated/ground/sand/desert
+	name = "desert"
+	icon_state = "desert"
+	blend_with_neighbors = 5
+	movement_delay = 1.5
 
 /turf/unsimulated/ground/grass
 	name = "grass"

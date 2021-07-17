@@ -21,3 +21,12 @@
 	language = "Spanish"
 	base_color = "blue"
 	fireteam_names = list("Escuadra #1", "Escuadra #2", "Escuadra #3", "Escuadra #4")
+
+/datum/army_faction/nationalists/berberguides
+	name = "Berber Locals"
+	enabled = 1
+	faction_tag = "berber"
+	flag_state = "berber"
+	language = "Tamazigh"
+	base_color = "yellow"
+	fireteam_names = list("Peloton #1", "Peloton #2", "Peloton #3", "Peloton #4")

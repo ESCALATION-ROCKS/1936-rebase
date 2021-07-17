@@ -46,6 +46,13 @@
 			H.add_language(LANGUAGE_SPANISH)
 			L = all_languages[LANGUAGE_SPANISH]
 
+		if("repub")
+			H.add_language(LANGUAGE_SPANISH)
+			L = all_languages[LANGUAGE_SPANISH]
+
+		if("berber")
+			H.add_language(LANGUAGE_TAMAZIGH)
+			L = all_languages[LANGUAGE_TAMAZIGH]
 
 	if(L)
 		H.default_language = L
@@ -117,3 +124,10 @@
 	colour = "spanish"
 	key = "s"
 	syllables = list("a", "te", "ta", "ca", "co", "to", "ra", "do", "ti", "ro", "na", "de", "ma", "re", "da", "la", "no", "mo", "se", "pa", "li", "so", "o", "sa", "ga", "men", "lo", "ne", "pe", "le", "dor", "cion", "ce", "es", "en", "ba", "ri", "me", "di", "ar", "za", "mi", "ci", "des", "ni", "in", "e", "si", "po", "con", "pi", "go", "bo", "fi", "que", "mien", "cu", "ble", "va", "lla", "tar", "car", "al", "zo", "bi", "tra", "vi", "vo", "tu", "ja", "cha", "dad", "du", "cia", "be", "ve", "nar", "quie", "res", "rra", "ya", "el", "ella", "cho", "gua", "mu", "per", "pu", "rro", "ci", "tre", "na", "dis")
+
+/datum/language/escalation/tamazigh
+	name = "Tamazigh"
+	desc = "This is the umbrella term for the conglomeration of languages spoken by the Amazigh, the berber tribes of North Africa."
+	colour = "spanish"
+	key = "s"
+	syllables = list("sbah", "khir", "el", "siwin", "netm", "az", "ul", "mreh", "aach", "med", "tag", "chaal")

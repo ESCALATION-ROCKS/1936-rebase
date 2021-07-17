@@ -120,3 +120,36 @@
 	desc = "An outdated surgical apron made from some kind of greenish rubber."
 	icon_state = "gceapron_green"
 	item_state = "gceapron_green"
+
+/obj/item/clothing/suit/gce/jacket
+	name = "field blouse"
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926"
+	item_state = "1926"
+	blood_overlay_type = "armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/gce/jacket/nat/pfc
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_pfc"
+	item_state = "1926_pfc"
+
+/obj/item/clothing/suit/gce/jacket/nat/cpl
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_cpl"
+	item_state = "1926_cpl"
+	
+/obj/item/clothing/suit/gce/jacket/nat/sgt
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_sgt"
+	item_state = "1926_sgt"
+
+/obj/item/clothing/suit/gce/jacket/nat/alf
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_officer_nalf"
+	item_state = "1926_officer_nalf"
+
+/obj/item/clothing/suit/gce/jacket/nat/lt
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_officer_nlt"
+	item_state = "1926_officer_nlt"

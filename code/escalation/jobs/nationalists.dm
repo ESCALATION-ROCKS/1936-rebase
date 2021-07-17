@@ -83,7 +83,7 @@
 	position = "team"
 	amount = 1
 	enabled = 1
-	whitelist_rank = "usa_nco"
+	whitelist_rank = "nco_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 5, LANGUAGE_GERMAN = 2)
 
 	equip(var/mob/living/carbon/human/H)
@@ -103,7 +103,7 @@
 	position = "team"
 	amount = 1
 	enabled = 1
-	whitelist_rank = "usa_enlisted"
+	whitelist_rank = "enlisted_nat"
 
 	equip(var/mob/living/carbon/human/H)
 		..()
@@ -122,7 +122,7 @@
 	position = "team"
 	enabled = 1
 	rank_number = 5
-	whitelist_rank = "usa_enlisted"
+	whitelist_rank = "enlisted_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 20, LANGUAGE_GERMAN = 5)
 
 	equip(var/mob/living/carbon/human/H)
@@ -162,7 +162,7 @@
 	position = "team"
 	amount = 3
 	enabled = 1
-	whitelist_rank = "usa_enlisted"
+	whitelist_rank = "enlisted_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 35, LANGUAGE_GERMAN = 10)
 
 	equip(var/mob/living/carbon/human/H)
@@ -183,7 +183,7 @@
 	amount = 1
 	leading = 1
 	enabled = 1
-	whitelist_rank = "usa_nco"
+	whitelist_rank = "nco_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 05, LANGUAGE_GERMAN = 1)
 
 	equip(var/mob/living/carbon/human/H)
@@ -203,7 +203,7 @@
 	position = "fireteam"
 	amount = 1
 	enabled = 1
-	whitelist_rank = "usa_nco"
+	whitelist_rank = "nco_nat"
 
 	equip(var/mob/living/carbon/human/H)
 		..()
@@ -222,7 +222,7 @@
 	position = "fireteam"
 	amount = 7
 	enabled = 1
-	whitelist_rank = "usa_enlisted"
+	whitelist_rank = "enlisted_nat"
 
 	equip(var/mob/living/carbon/human/H)
 		..()
@@ -313,7 +313,7 @@
 	position = "team"
 	amount = 1
 	enabled = 1
-	whitelist_rank = "usa_nco"
+	whitelist_rank = "nco_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 5, LANGUAGE_GERMAN = 2)
 
 	equip(var/mob/living/carbon/human/H)
@@ -333,7 +333,7 @@
 	position = "team"
 	amount = 1
 	enabled = 1
-	whitelist_rank = "usa_enlisted"
+	whitelist_rank = "enlisted_nat"
 
 	equip(var/mob/living/carbon/human/H)
 		..()
@@ -352,7 +352,7 @@
 	position = "team"
 	enabled = 1
 	rank_number = 5
-	whitelist_rank = "usa_nco"
+	whitelist_rank = "nco_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 05, LANGUAGE_GERMAN = 1)
 
 	equip(var/mob/living/carbon/human/H)
@@ -372,7 +372,7 @@
 	position = "team"
 	enabled = 1
 	rank_number = 6
-	whitelist_rank = "usa_enlisted"
+	whitelist_rank = "enlisted_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 20, LANGUAGE_GERMAN = 5)
 
 	equip(var/mob/living/carbon/human/H)
@@ -412,7 +412,7 @@
 	position = "team"
 	amount = 3
 	enabled = 1
-	whitelist_rank = "usa_enlisted"
+	whitelist_rank = "enlisted_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 35, LANGUAGE_GERMAN = 10)
 
 	equip(var/mob/living/carbon/human/H)
@@ -433,7 +433,7 @@
 	amount = 1
 	leading = 1
 	enabled = 1
-	whitelist_rank = "usa_nco"
+	whitelist_rank = "nco_nat"
 	also_known_languages = list(LANGUAGE_ENGLISH = 05, LANGUAGE_GERMAN = 1)
 
 	equip(var/mob/living/carbon/human/H)
@@ -453,7 +453,7 @@
 	position = "fireteam"
 	amount = 1
 	enabled = 1
-	whitelist_rank = "usa_nco"
+	whitelist_rank = "nco_nat"
 
 	equip(var/mob/living/carbon/human/H)
 		..()
@@ -472,7 +472,56 @@
 	position = "fireteam"
 	amount = 7
 	enabled = 1
-	whitelist_rank = "usa_enlisted"
+	whitelist_rank = "enlisted_nat"
+
+	equip(var/mob/living/carbon/human/H)
+		..()
+		H.add_skills(rand(1, 2), rand(1,2), 0, 0, rand(0,1), rand(0,1), rand(0,1), -1, 0, rand(0,1))
+
+/datum/job/escalation/berber
+	title = "Guias Bereber"
+	enabled = 0
+	faction_tag = "berber"
+	military_faction = NATIONALISTS
+	equip(var/mob/living/carbon/human/H)
+		..()
+		H.fraction = "NATIONALISTS"
+
+/datum/job/escalation/berber/guidelead
+	title = "ESP Jefe Bereber"
+	name = "Jefe Bereber"
+	english_name = "Berber Chief"
+	minimal_player_age = 21
+	economic_modifier = 5
+	ideal_character_age = 28
+	outfit_type = /decl/hierarchy/outfit/job/gce/moors/berber/chief
+	selection_color = "#979989"
+	amount = 1
+	rank_number = 0
+	position = "team"
+	enabled = 1
+	whitelist_rank = "nco_esp"
+	also_known_languages = list(LANGUAGE_SPANISH = 100)
+
+	equip(var/mob/living/carbon/human/H)
+		..()
+		H.add_skills(rand(1, 2), rand(1,2), 0, 0, rand(0,1), rand(0,1), rand(0,1), 2, 0, rand(0,1))
+
+/datum/job/escalation/berber/berberguide
+	title = "ESP Bereber"
+	name = "Bereber"
+	english_name = "Berber"
+	minimal_player_age = 21
+	economic_modifier = 5
+	ideal_character_age = 28
+	outfit_type = /decl/hierarchy/outfit/job/gce/moors/berber/guide
+	selection_color = "#4682B4"
+	rank_number = 5
+	position = "team"
+	amount = 3
+	enabled = 1
+	whitelist_rank = "enlisted_esp"
+	also_known_languages = list(LANGUAGE_SPANISH = 25)
 
 	equip(var/mob/living/carbon/human/H)
 		..()

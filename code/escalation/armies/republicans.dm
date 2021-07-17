@@ -12,3 +12,12 @@
 	language = "Spanish"
 	base_color = "red"
 	fireteam_names = list("Peloton #1", "Peloton #2", "Peloton #3", "Peloton #4")
+
+/datum/army_faction/republic/republican
+	name = "Ejercito de Tierra"
+	enabled = 1
+	faction_tag = "republican"
+	flag_state = "republican"
+	language = "Spanish"
+	base_color = "yellow"
+	fireteam_names = list("Peloton #1", "Peloton #2", "Peloton #3", "Peloton #4")
