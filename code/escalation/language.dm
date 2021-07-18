@@ -46,7 +46,7 @@
 			H.add_language(LANGUAGE_SPANISH)
 			L = all_languages[LANGUAGE_SPANISH]
 
-		if("repub")
+		if("republican")
 			H.add_language(LANGUAGE_SPANISH)
 			L = all_languages[LANGUAGE_SPANISH]
 
