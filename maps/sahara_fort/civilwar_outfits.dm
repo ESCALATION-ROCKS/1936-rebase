@@ -1016,7 +1016,7 @@
 	left_pouch = null
 	right_pouch = null
 	back_pouch = null
-	l_pocket = null
+	l_pocket = /obj/item/weapon/masterkey/lieutenant
 	r_pocket = null
 	l_hand = null
 	l_ear = /obj/item/device/binoculars/wp
@@ -1038,7 +1038,7 @@
 	left_pouch = null
 	right_pouch = null
 	back_pouch =null
-	l_pocket = null
+	l_pocket = /obj/item/weapon/masterkey/lieutenant
 	r_pocket = null
 	l_hand = null
 	l_ear = /obj/item/device/binoculars/wp
@@ -1059,7 +1059,8 @@
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
-	l_pocket = null
+	back = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
+	l_pocket = /obj/item/weapon/masterkey/sergeant
 	r_pocket = null
 	l_hand = null
 	l_ear = /obj/item/device/binoculars/wp
@@ -1086,7 +1087,7 @@
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
-	l_pocket = null
+	l_pocket = /obj/item/weapon/masterkey/mensajero
 	r_pocket = null
 	l_hand = null
 	l_ear = null
@@ -1153,7 +1154,8 @@
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
-	l_pocket = null
+	back = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
+	l_pocket = /obj/item/weapon/masterkey/cabo
 	r_pocket = null
 	l_hand = null
 	l_ear = null
@@ -1178,7 +1180,8 @@
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
-	l_pocket = null
+	back = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
+	l_pocket = /obj/item/weapon/masterkey/primera
 	r_pocket = null
 	l_hand = null
 	l_ear = null
@@ -1225,7 +1228,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Republicano")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
 	back_2 = /obj/item/weapon/storage/backpack/gce/macuto
-	back = /obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922
+	back = null
 	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -1281,6 +1284,7 @@
 	left_pouch = null
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
+	back = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
 	l_pocket = null
 	r_pocket = null
 	l_hand = null

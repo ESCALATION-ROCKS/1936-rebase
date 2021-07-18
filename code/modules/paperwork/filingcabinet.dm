@@ -106,3 +106,9 @@
 	desc = "What a mess..."
 	anchored = 1
 
+/obj/structure/hookah
+	name = "hookah"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "hookah"
+	desc = "A hookah loaded with Hashish."
+	anchored = 1

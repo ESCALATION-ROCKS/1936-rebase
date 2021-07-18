@@ -115,7 +115,7 @@ Tercer Peloton:popular
 
 Primer Peloton:republican
 /datum/job/escalation/republican/repsl
-/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repslasst
 /datum/job/escalation/republican/repfusilero
 /datum/job/escalation/republican/repfusilero
 /datum/job/escalation/republican/repfusilero
@@ -127,7 +127,7 @@ Primer Peloton:republican
 
 Segundo Peloton:republican
 /datum/job/escalation/republican/repsl
-/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repslasst
 /datum/job/escalation/republican/repfusilero
 /datum/job/escalation/republican/repfusilero
 /datum/job/escalation/republican/repfusilero
@@ -139,7 +139,7 @@ Segundo Peloton:republican
 
 Tercer Peloton:republican
 /datum/job/escalation/republican/repsl
-/datum/job/escalation/republican/repfusilero
+/datum/job/escalation/republican/repslasst
 /datum/job/escalation/republican/repfusilero
 /datum/job/escalation/republican/repfusilero
 /datum/job/escalation/republican/repfusilero

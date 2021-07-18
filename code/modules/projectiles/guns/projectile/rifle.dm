@@ -139,6 +139,7 @@
 	var/bayonet_type = null
 	var/bayonet_attachable = 0
 	var/obj/item/weapon/material/knife/bayonet/knife = null
+	starts_loaded = 0
 
 /obj/item/weapon/gun/projectile/rifle/gceboltaction/New()
 	..()

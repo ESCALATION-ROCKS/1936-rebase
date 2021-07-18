@@ -1299,10 +1299,13 @@ obj/random/hostilenew/spawn_choices()
 	icon_state = "grass2"
 	spawn_nothing_percentage = 95
 /obj/random/grass/spawn_choices()
-		return list(/obj/structure/flora/grass/both,\
-					/obj/structure/flora/grass/green,\
-					/obj/structure/flora/grass/brown,\
-					/obj/structure/flora/bush)
+		return list(/obj/structure/flora/bigrock = 1,
+					/obj/structure/flora/smallrock = 2,
+					/obj/structure/flora/bush = 3,
+					/obj/structure/flora/bush1 = 4,
+					/obj/structure/flora/bush2 = 5,
+					/obj/structure/flora/bush3 = 6,
+					/obj/structure/flora/bush4 = 8)
 
 
 
