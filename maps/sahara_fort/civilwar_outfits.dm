@@ -1021,12 +1021,13 @@
 	l_hand = null
 	l_ear = /obj/item/device/binoculars/wp
 	belt = /obj/item/weapon/storage/belt/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket/nat/lt
 
 /decl/hierarchy/outfit/job/gce/republican/teniente/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/breeches/lt = 3,
 	/obj/item/clothing/under/gce/nacional/fatigues/lt = 2 ))
+
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/lt, /obj/item/clothing/suit/gce/jacket/nat/khaki/lt))
 
 /decl/hierarchy/outfit/job/gce/republican/alferez
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Alferez Republicano")
@@ -1043,12 +1044,13 @@
 	l_hand = null
 	l_ear = /obj/item/device/binoculars/wp
 	belt = /obj/item/weapon/storage/belt/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket/nat/alf
 
 /decl/hierarchy/outfit/job/gce/republican/alferez/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/breeches/alf = 3,
 	/obj/item/clothing/under/gce/nacional/fatigues/alf ))
+
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/alf, /obj/item/clothing/suit/gce/jacket/nat/khaki/alf))
 
 /decl/hierarchy/outfit/job/gce/republican/sargento
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Sargento Republicano")
@@ -1065,7 +1067,6 @@
 	l_hand = null
 	l_ear = /obj/item/device/binoculars/wp
 	belt = /obj/item/weapon/storage/belt/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket/nat/sgt
 
 /decl/hierarchy/outfit/job/gce/republican/sargento/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -1078,6 +1079,8 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 3,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
 	/obj/item/clothing/shoes/gce/alpargatas/legion= 9 ))
+
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/sgt, /obj/item/clothing/suit/gce/jacket/nat/khaki/sgt))
 
 /decl/hierarchy/outfit/job/gce/republican/mensajero
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Mensajero Republicano")
@@ -1092,7 +1095,6 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pvt
 
 /decl/hierarchy/outfit/job/gce/republican/mensajero/pre_equip(mob/living/carbon/human/H)
@@ -1103,6 +1105,8 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 3,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
+
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket, /obj/item/clothing/suit/gce/jacket/khaki))
 
 /decl/hierarchy/outfit/job/gce/republican/surgeon
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Cirujano Republicano")
@@ -1125,7 +1129,6 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Camillero Republicano")
 	holster = null
 	back = /obj/item/weapon/storage/backpack/gce/medical
-	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = null
@@ -1134,7 +1137,6 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pvt
 
 /decl/hierarchy/outfit/job/gce/republican/camillero/pre_equip(mob/living/carbon/human/H)
@@ -1145,6 +1147,10 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 3,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
+
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket, /obj/item/clothing/suit/gce/jacket/khaki))
+
+	head = pickweight(list(/obj/item/clothing/head/gce/panama, /obj/item/clothing/head/gce/garcap/nacional))
 
 /decl/hierarchy/outfit/job/gce/republican/cabo
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Cabo Republicano")
@@ -1160,7 +1166,6 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket/nat/cpl
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/cpl
 
 /decl/hierarchy/outfit/job/gce/republican/cabo/pre_equip(mob/living/carbon/human/H)
@@ -1172,11 +1177,12 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
 
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/cpl, /obj/item/clothing/suit/gce/jacket/nat/khaki/cpl))
+
 /decl/hierarchy/outfit/job/gce/republican/primera
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Soldado de Primera Republicano")
 	holster = /obj/item/weapon/storage/belt/holster/sheath/gce/m1913
 	back = null
-	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -1198,12 +1204,15 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
 
+	head = pickweight(list(/obj/item/clothing/head/gce/panama, /obj/item/clothing/head/gce/garcap/nacional))
+
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/pfc, /obj/item/clothing/suit/gce/jacket/nat/khaki/pfc))
+
 /decl/hierarchy/outfit/job/gce/republican/soldado
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Fusilero Republicano")
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pvt
 	holster = /obj/item/weapon/storage/belt/holster/sheath/gce/m1913
 	back = null
-	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -1212,7 +1221,6 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pvt
 
 /decl/hierarchy/outfit/job/gce/republican/soldado/pre_equip(mob/living/carbon/human/H)
@@ -1224,12 +1232,15 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
 
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket, /obj/item/clothing/suit/gce/jacket/khaki))
+
+	head = pickweight(list(/obj/item/clothing/head/gce/panama, /obj/item/clothing/head/gce/garcap/nacional))
+
 /decl/hierarchy/outfit/job/gce/republican/ametrallador
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Republicano")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
 	back_2 = /obj/item/weapon/storage/backpack/gce/macuto
 	back = null
-	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = null
@@ -1238,7 +1249,6 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket/nat/pfc
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pfc
 
 /decl/hierarchy/outfit/job/gce/republican/ametrallador/pre_equip(mob/living/carbon/human/H)
@@ -1250,11 +1260,14 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
 
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/pfc, /obj/item/clothing/suit/gce/jacket/nat/khaki/pfc))
+
+	head = pickweight(list(/obj/item/clothing/head/gce/panama, /obj/item/clothing/head/gce/garcap/nacional))
+
 /decl/hierarchy/outfit/job/gce/republican/asistenteametrallador
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Asistente de Ametrallador Republicano")
 	holster = /obj/item/weapon/storage/belt/holster/sheath/gce/m1913
 	back = /obj/item/weapon/storage/backpack/gce/macuto
-	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -1263,7 +1276,6 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
-	suit = /obj/item/clothing/suit/gce/jacket
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pvt
 
 /decl/hierarchy/outfit/job/gce/republican/asistenteametrallador/pre_equip(mob/living/carbon/human/H)
@@ -1274,6 +1286,9 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 3,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
+
+	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket, /obj/item/clothing/suit/gce/jacket/khaki))
+	head = pickweight(list(/obj/item/clothing/head/gce/panama, /obj/item/clothing/head/gce/garcap/nacional))
 
 //Bereberes
 /decl/hierarchy/outfit/job/gce/moors/berber/chief
@@ -1292,6 +1307,7 @@
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
 	suit = /obj/item/clothing/suit/gce/jacket
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues
+	shoes = /obj/item/clothing/shoes/sandal
 
 /decl/hierarchy/outfit/job/gce/moors/berber/guide
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Guia Bereber")

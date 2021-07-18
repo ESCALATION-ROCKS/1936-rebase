@@ -153,3 +153,36 @@
 	desc = "A Spanish Army uniform jacket."
 	icon_state = "1926_officer_nlt"
 	item_state = "1926_officer_nlt"
+
+/obj/item/clothing/suit/gce/jacket/khaki
+	name = "field blouse"
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki"
+	item_state = "1926_khaki"
+	blood_overlay_type = "armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/pfc
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_pfc"
+	item_state = "1926_khaki_pfc"
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/cpl
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_cpl"
+	item_state = "1926_khaki_cpl"
+	
+/obj/item/clothing/suit/gce/jacket/nat/khaki/sgt
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_sgt"
+	item_state = "1926_khaki_sgt"
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/alf
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_officer_nalf"
+	item_state = "1926_khaki_officer_nalf"
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/lt
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_officer_nlt"
+	item_state = "1926_khaki_officer_nlt"

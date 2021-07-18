@@ -407,3 +407,8 @@
 	desc = "The standard issue helmet of the Spanish Army before the war. This one comes in green aswell as having a red crab painted on the front."
 	icon_state = "m26_green_cenao"
 	icon_state_unzipped = "m26_green_cenao-unzipped"
+
+/obj/item/clothing/head/gce/panama
+	name = "panama hat"
+	desc = "That's a panama hat, to protect your head from the sun."
+	icon_state = "repanama"
