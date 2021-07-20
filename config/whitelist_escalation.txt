@@ -72,6 +72,7 @@ Mikaelcg = {
 
 epicdwarf = {
 ::ALL::
+<<<<<<< Updated upstream
 }
 
 miguelin0411 = {
@@ -219,5 +220,175 @@ ReBull  = {
 }
 
 Balpindo  = {
+::ALL::
+=======
+}
+
+miguelin0411 = {
+::ALL::
+}
+
+McSpanky.com = {
+::ALL::
+}
+
+FireFryer = {
+::ALL::
+}
+
+Verarch = {
+::ALL::
+}
+
+Freiwillige = {
+::ALL::
+}
+
+DanseMacabre = {
+::ALL::
+}
+
+BoringCommunist = {
+::ALL::
+}
+
+The Secret Slav = {
+::ALL::
+}
+
+Billy Hays = {
+::ALL::
+}
+
+CeSium_Shark = {
+::ALL::
+}
+
+Zach666 = {
+::ALL::
+}
+
+Joooks = {
+::ALL::
+}
+
+ToroidalZer0 = {
+::ALL::
+}
+
+Eric066 = {
+::ALL::
+}
+
+NoBillyNotReally = {
+::ALL::
+}
+
+Wigglesworth Jones = {
+::ALL::
+}
+
+RUINEREK = {
+::ALL::
+}
+
+Sperky7933 = {
+::ALL::
+}
+
+Sha.SCT = {
+::ALL::
+}
+
+thechadnigge = {
+::ALL::
+}
+
+Cadet0 = {
+::ALL::
+}
+
+Chungus delux = {
+::ALL::
+}
+
+ConteudoGenerico = {
+::ALL::
+}
+
+TripleG = {
+::ALL::
+}
+
+Jackomago61  = {
+::ALL::
+}
+
+yung bruh = {
+::ALL::
+}
+
+LivonianGuy = {
+::ALL::
+}
+
+atlasrules87 = {
+::ALL::
+}
+
+EvenInDeathIStillServe = {
+::ALL::
+}
+
+Chalbo159 = {
+::ALL::
+}
+
+Burtyu  = {
+::ALL::
+}
+
+Taumanta   = {
+::ALL::
+}
+
+Kindadread  = {
+::ALL::
+}
+
+ChristReborn  = {
+::ALL::
+}
+
+Dudo  = {
+::ALL::
+}
+
+ReBull  = {
+::ALL::
+}
+
+Balpindo  = {
+::ALL::
+}
+
+Ondrej008 = {
+::ALL::
+}
+
+Rand4l = {
+::ALL::
+}
+
+LordeKilly = {
+::ALL::
+}
+
+Subaruuuuu = {
+all
+>>>>>>> Stashed changes
+}
+
+Corbe = {
 ::ALL::
 }
