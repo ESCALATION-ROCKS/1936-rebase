@@ -76,11 +76,9 @@ This saves us from having to call add_fingerprint() any time something is put in
 			return has_organ(BP_CHEST)
 		if(slot_wear_mask)
 			return has_organ(BP_HEAD)
-		if(slot_add_gun)
+		if(slot_gun_slot)
 			return has_organ(BP_CHEST)
 		if(slot_right_pouch)
-			return has_organ(BP_CHEST)
-		if(slot_back_pouch)
 			return has_organ(BP_CHEST)
 		if(slot_left_pouch)
 			return has_organ(BP_CHEST)
@@ -150,8 +148,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 			drop_from_inventory(left_pouch)
 		if (right_pouch)
 			drop_from_inventory(right_pouch)
-		if (back_pouch)
-			drop_from_inventory(back_pouch)
 		if (holster)
 			drop_from_inventory(holster)
 		belt = null
@@ -211,9 +207,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 	else if(W == right_pouch)
 		right_pouch = null
 		update_inv_wear_right_pouch()
-	else if(W == back_pouch)
-		back_pouch = null
-		update_inv_wear_back_pouch()
 	else if(W == left_pouch)
 		left_pouch = null
 		update_inv_wear_left_pouch()
@@ -275,7 +268,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 				update_inv_ears(0)
 			W.equipped(src, slot)
 			update_inv_wear_mask(redraw_mob)
-		if(slot_add_gun)//custom gun slot
+		if(slot_gun_slot)//custom gun slot
 			src.wear_gun = W
 			W.equipped(src, slot)
 			W.screen_loc = ui_gun_slot
@@ -295,11 +288,6 @@ This saves us from having to call add_fingerprint() any time something is put in
 			W.equipped(src, slot)
 			W.screen_loc = ui_right_pouch
 			update_inv_wear_right_pouch(redraw_mob)
-		if(slot_back_pouch)//custom gun slot
-			src.back_pouch = W
-			W.equipped(src, slot)
-			W.screen_loc = ui_back_pouch
-			update_inv_wear_back_pouch(redraw_mob)
 		if(slot_handcuffed)
 			src.handcuffed = W
 			drop_r_hand()
@@ -435,11 +423,10 @@ This saves us from having to call add_fingerprint() any time something is put in
 /mob/living/carbon/human/get_equipped_item(var/slot)
 	switch(slot)
 		if(slot_back)       return back
-		if(slot_add_gun)    return wear_gun
+		if(slot_gun_slot)    return wear_gun
 		if(slot_holster)    return holster
 		if(slot_right_pouch)return right_pouch
 		if(slot_left_pouch) return left_pouch
-		if(slot_right_pouch)return back_pouch
 		if(slot_handcuffed) return handcuffed
 		if(slot_l_store)    return l_store
 		if(slot_r_store)    return r_store

@@ -9,7 +9,7 @@ var/list/gamemode_cache = list()
 	var/log_ooc = 0						// log OOC channel
 	var/log_access = 0					// log login/logout
 	var/log_say = 0						// log client say
-	var/log_admin = 0					// log admin actions
+	var/log_admin = 1					// log admin actions
 	var/log_debug = 1					// log debug output
 	var/log_game = 0					// log game events
 	var/log_vote = 0					// log voting
@@ -60,7 +60,8 @@ var/list/gamemode_cache = list()
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
 	var/hostedby = null
-	var/respawn_delay = 0
+	var/respawn_delay = 3
+	var/useckeywhitelist = 0
 	var/guest_jobban = 1
 	var/usewhitelist = 0
 	var/kick_inactive = 10				//force disconnect for inactive players after this many minutes, if non-0
@@ -92,7 +93,7 @@ var/list/gamemode_cache = list()
 	var/limitalienplayers = 0
 	var/alien_to_human_ratio = 0.5
 	var/allow_extra_antags = 0
-	var/guests_allowed = 1
+	var/guests_allowed = 0
 	var/debugparanoid = 0
 
 	var/serverurl
@@ -189,12 +190,12 @@ var/list/gamemode_cache = list()
 	var/alien_eggs_allowed = 0
 	var/ninjas_allowed = 0
 	var/abandon_allowed = 1
-	var/ooc_allowed = 1
-	var/looc_allowed = 1
+	var/ooc_allowed = 0
+	var/looc_allowed = 0
 	var/ahelp_allowed = 1
 	var/dooc_allowed = 1
 	var/dsay_allowed = 1
-	var/aooc_allowed = 1
+	var/aooc_allowed = 0
 
 	var/starlight = 1	// Whether space turfs have ambient light or not
 	var/starlighta = 0.5	// Whether space turfs have ambient light or not
@@ -207,7 +208,7 @@ var/list/gamemode_cache = list()
 
 	var/aggressive_changelog = 0
 
-	var/list/language_prefixes = list(",","#","-")//Default language prefixes
+	var/list/language_prefixes = ","
 
 	var/ghosts_can_possess_animals = 0
 	var/delist_when_no_admins = FALSE
@@ -227,6 +228,9 @@ var/list/gamemode_cache = list()
 	var/error_silence_time = 6000 // How long a unique error will be silenced for
 	var/error_msg_delay = 50 // How long to wait between messaging admins about occurrences of a unique error
 	var/footstep_volume = 30
+
+	var/static/regex/ic_filter_regex //For the cringe filter.
+	var/radiation_material_resistance_divisor = 2 //A turf's possible radiation resistance is divided by this number, to get the real value.
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -479,6 +483,9 @@ var/list/gamemode_cache = list()
 				if ("usewhitelist")
 					config.usewhitelist = 1
 
+				if ("useckeywhitelist")
+					config.useckeywhitelist = 1
+
 				if ("feature_object_spell_system")
 					config.feature_object_spell_system = 1
 
@@ -622,6 +629,10 @@ var/list/gamemode_cache = list()
 
 				if("comms_password")
 					config.comms_password = value
+
+				if("radiation_material_resistance_divisor")
+					radiation_material_resistance_divisor = text2num(value)
+				if("radiation_lower_limit")
 
 				if("ban_comms_password")
 					config.ban_comms_password = value
@@ -816,6 +827,8 @@ var/list/gamemode_cache = list()
 	if(fps <= 0)
 		fps = initial(fps)
 
+	LoadChatFilter()
+
 /datum/configuration/proc/loadsql(filename)  // -- TLE
 	var/list/Lines = file2list(filename)
 	for(var/t in Lines)
@@ -892,3 +905,16 @@ var/list/gamemode_cache = list()
 
 	if (event_info)
 		custom_event_msg = event_info
+
+/datum/configuration/proc/LoadChatFilter()
+	GLOB.in_character_filter = list()
+
+	for(var/line in world.file2list("config/in_character_filter.txt"))
+		if(!line)
+			continue
+		if(findtextEx(line,"#",1,2))
+			continue
+		GLOB.in_character_filter += line
+
+	if(!ic_filter_regex && GLOB.in_character_filter.len)
+		ic_filter_regex = regex("\\b([jointext(GLOB.in_character_filter, "|")])\\b", "i")

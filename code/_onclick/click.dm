@@ -65,7 +65,7 @@
 		if(A.Adjacent(src) && !get_active_hand())
 			scramble(A)
 
-	if(stat || paralysis || stunned || weakened)
+	if(stat || paralysis || stunned || weakened || sleeping)
 		return
 
 	face_atom(A) // change direction to face what you clicked on
@@ -215,11 +215,32 @@
 
 /*
 	Middle click
-	Only used for swapping hands
+	Only used for callouts
 */
 /mob/proc/MiddleClickOn(var/atom/A)
-	swap_hand()
-	return
+	if(!A)
+		return
+	var/direction = get_dir(src, A)
+	var/saythis = "Here!"
+	switch(direction)
+		if(NORTH)
+			saythis = "North!"
+		if(NORTHEAST)
+			saythis = "Northeast!"
+		if(EAST)
+			saythis = "East!"
+		if(SOUTHEAST)
+			saythis = "Southeast!"
+		if(SOUTH)
+			saythis = "South!"
+		if(SOUTHWEST)
+			saythis = "Southwest!"
+		if(WEST)
+			saythis = "West!"
+		if(NORTHWEST)
+			saythis = "Northwest!"
+	say(message = saythis)
+
 
 // In case of use break glass
 /*
@@ -235,6 +256,7 @@
 /mob/proc/ShiftClickOn(var/atom/A)
 	A.ShiftClick(src)
 	return
+
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.client && user.client.eye == user)
 		user.examinate(src)

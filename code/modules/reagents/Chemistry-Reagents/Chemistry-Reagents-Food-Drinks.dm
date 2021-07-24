@@ -657,11 +657,11 @@
 	taste_description = "bitterness"
 	taste_mult = 1.3
 	color = "#482000"
-	adj_dizzy = -5
+	/*adj_dizzy = -5
 	adj_drowsy = -3
-	adj_sleepy = -2
+	adj_sleepy = -2*/
 	adj_temp = 25
-	overdose = 45
+	overdose = 200
 
 	glass_name = "coffee"
 	glass_desc = "Don't drop it, or you'll send scalding liquid and glass shards everywhere."
@@ -914,6 +914,58 @@
 	glass_desc = "Space Mountain Wind. As you know, there are no mountains in space, only wind."
 	glass_special = list(DRINK_FIZZ)
 
+/datum/reagent/drink/dr_pepper
+	name = "Dr. Pepper"
+	description = "You're pretty sure Dr. Pepper isn't licensed anymore."
+	taste_description = "cola, cherry and black licorice all at the same time"
+	reagent_state = LIQUID
+	color = "#140905"
+	adj_drowsy = -7
+	adj_temp = -1
+
+	glass_name = "Dr. Pepper"
+	glass_desc = "How do they fit all 23 flavours in one glass?"
+	glass_special = list(DRINK_FIZZ)
+
+/datum/reagent/drink/dr_pepper_fake
+	name = "Dr. Pibb"
+	description = "It goes down good."
+	taste_description = "spicy cherry cola with a hint of infringement"
+	reagent_state = LIQUID
+	color = "#140905"
+	adj_drowsy = -6
+	adj_temp = -2
+
+	glass_name = "Dr. Pibb"
+	glass_desc = "You swear this used to be called Peppo."
+	glass_special = list(DRINK_FIZZ)
+
+/datum/reagent/drink/sprite
+	name = "Sprite"
+	description = "Wanna unfunny joke? Of course you do."
+	taste_description = "lemon-lime dishsoap and aspartame"
+	reagent_state = LIQUID
+	color = "#f2f2f2"
+	adj_drowsy = -3
+	adj_temp = -7
+
+	glass_name = "Sprite"
+	glass_desc = "Reeks of aspartame."
+	glass_special = list(DRINK_FIZZ)
+
+/datum/reagent/drink/pepsi_cola
+	name = "Pepsi"
+	description = "You would've preferred coke."
+	taste_description = "cola and medicine"
+	reagent_state = LIQUID
+	color = "#331a00"
+	adj_drowsy = -5
+	adj_temp = -3
+
+	glass_name = "Pepsi"
+	glass_desc = "A glass of strangely medicinal cola."
+	glass_special = list(DRINK_FIZZ)
+
 /datum/reagent/drink/dr_gibb
 	name = "Dr. Gibb"
 	description = "A delicious blend of 42 different flavours"
@@ -928,7 +980,7 @@
 /datum/reagent/drink/space_up
 	name = "Space-Up"
 	description = "Tastes like a hull breach in your mouth."
-	taste_description = "a hull breach"
+	taste_description = "lemon lime dishsoap"
 	color = "#202800"
 	adj_temp = -8
 
@@ -939,13 +991,45 @@
 /datum/reagent/drink/lemon_lime
 	name = "Lemon Lime"
 	description = "A tangy substance made of 0.5% natural citrus!"
-	taste_description = "tangy lime and lemon soda"
+	taste_description = "tangy lime and lemon juice."
 	color = "#878f00"
 	adj_temp = -8
 
 	glass_name = "lemon lime soda"
 	glass_desc = "A tangy substance made of 0.5% natural citrus!"
 	glass_special = list(DRINK_FIZZ)
+
+/datum/reagent/drink/instanttea
+	name = "Instant Tea Powder"
+	description = "Add some water in it to make it into some tart black tea.!"
+	taste_description = "disgusting bitterness"
+	color = "#101000"
+	taste_mult = 0.2
+	overdose = 15
+
+/datum/reagent/drink/instantcoffee
+	name = "Instant Coffee Powder"
+	description = "Add some water in it to make it into some delicious coffee."
+	taste_description = "disgusting bitterness"
+	taste_mult = 0.2
+	color = "#482000"
+	overdose = 15
+
+/datum/reagent/drink/gatoradepowder
+	name = "Gatorade Lemon-Lime Powder"
+	description = "Add some water in it to make it into some sweet gatorade."
+	taste_description = "disgusting sweetness"
+	taste_mult = 0.2
+	color = "#e78108"
+	overdose = 30
+
+/datum/reagent/drink/instantcocoa
+	name = "Instant Cocoa Powder"
+	description = "Add some water in it to make it into some delicious cocoa."
+	taste_description = "disgusting bittersweetness"
+	taste_mult = 0.2
+	color = "#482000"
+	overdose = 15
 
 /datum/reagent/drink/doctor_delight
 	name = "The Doctor's Delight"

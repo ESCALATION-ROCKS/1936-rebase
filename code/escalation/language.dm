@@ -22,6 +22,10 @@
 			H.add_language(LANGUAGE_ENGLISH)
 			L = all_languages[LANGUAGE_ENGLISH]
 
+		if("baf")
+			H.add_language(LANGUAGE_ENGLISH)
+			L = all_languages[LANGUAGE_ENGLISH]
+
 		if("cccp")
 			H.add_language(LANGUAGE_RUSSIAN)
 			L = all_languages[LANGUAGE_RUSSIAN]
@@ -34,26 +38,25 @@
 			H.add_language(LANGUAGE_GERMAN)
 			L = all_languages[LANGUAGE_GERMAN]
 
-		if("nacional")
+		if("finn")
+			H.add_language(LANGUAGE_FINNISH)
+			L = all_languages[LANGUAGE_FINNISH]
+
+		if("csla")
+			H.add_language(LANGUAGE_CZECH)
+			L = all_languages[LANGUAGE_CZECH]
+
+		if("heer")
+			H.add_language(LANGUAGE_GERMAN)
+			L = all_languages[LANGUAGE_GERMAN]
+
+		if("esp")
 			H.add_language(LANGUAGE_SPANISH)
 			L = all_languages[LANGUAGE_SPANISH]
 
-		if("popular")
-			H.add_language(LANGUAGE_SPANISH)
-			L = all_languages[LANGUAGE_SPANISH]
-
-		if("legion")
-			H.add_language(LANGUAGE_SPANISH)
-			L = all_languages[LANGUAGE_SPANISH]
-
-		if("republican")
-			H.add_language(LANGUAGE_SPANISH)
-			L = all_languages[LANGUAGE_SPANISH]
-
-		if("berber")
-			H.add_language(LANGUAGE_TAMAZIGH)
-			L = all_languages[LANGUAGE_TAMAZIGH]
-
+		if("fra")
+			H.add_language(LANGUAGE_FRENCH)
+			L = all_languages[LANGUAGE_FRENCH]
 	if(L)
 		H.default_language = L
 
@@ -95,7 +98,7 @@
 	desc = "This is the languaged used by the Soviet Army."
 	colour = "russian"
 	key = "r"
-	syllables = list("��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "����", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "��", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���", "���")
+	syllables = list("al", "an", "bi", "ve", "vo", "go", "de", "el", "en", "er", "et", "ka", "ko", "la", "li", "lo", "l'", "na", "ne", "ni", "no", "ov", "ol", "on", "or", "slog", "ot", "po", "pr", "ra", "re", "ro", "st", "ta", "te", "to", "t'", "at'", "bil", "ver", "ego", "eni", "enn", "est", "kak", "l'n", "ova", "ogo", "ol'", "oro", "ost", "oto", "pri", "pro", "sta", "stv", "tor", "chto", "eto")
 
 /datum/language/escalation/czech
 	name = "Czech"
@@ -113,21 +116,38 @@
 
 /datum/language/escalation/german
 	name = "German"
-	desc = "This is the languaged used by the Bundeswehr."
+	desc = "This is the languaged used by the Bundeswehr, Bundesheer and the NVADDR."
 	colour = "german"
 	key = "g"
 	syllables = list("die", "das", "wein", "mir", "und", "wier", "ein", "nein", "gen", "en", "sauen", "bien", "nien", "rien", "rhein", "deut", "der", "lieb", "en", "stein", "nein", "ja", "wolle", "sil", "be")
 
+/datum/language/escalation/finnish
+	name = "Finnish"
+	desc = "This is the languaged used by the Finnish Militaria."
+	colour = "finnish"
+	key = "f"
+	syllables = list("mine", "sine", "hen", "me", "te", "he", "tame", "tuo", "se", "name", "nuo", "ne", "kuka", "mika", "ken", "kumpi", "joka", "mike", "toinen", "itse", "Ei", "Anteeksi", "Kiitos")
+
 /datum/language/escalation/spanish
 	name = "Spanish"
-	desc = "This is the language used by the Spanish."
+	desc = "This is the languaged used by the Spanish Army."
 	colour = "spanish"
-	key = "s"
-	syllables = list("a", "te", "ta", "ca", "co", "to", "ra", "do", "ti", "ro", "na", "de", "ma", "re", "da", "la", "no", "mo", "se", "pa", "li", "so", "o", "sa", "ga", "men", "lo", "ne", "pe", "le", "dor", "cion", "ce", "es", "en", "ba", "ri", "me", "di", "ar", "za", "mi", "ci", "des", "ni", "in", "e", "si", "po", "con", "pi", "go", "bo", "fi", "que", "mien", "cu", "ble", "va", "lla", "tar", "car", "al", "zo", "bi", "tra", "vi", "vo", "tu", "ja", "cha", "dad", "du", "cia", "be", "ve", "nar", "quie", "res", "rra", "ya", "el", "ella", "cho", "gua", "mu", "per", "pu", "rro", "ci", "tre", "na", "dis")
+	key = "l"
+	syllables = list("va", "que", "qi", "si", "non", "te", "ta", "juz", "gue", "vez", "fe", "he", "hi", "in", "is", "it", "la", "re", "tin", "pa", "sa", "arr", "vi", "va", "mie", "do", "ri", "tos", "tra", "ma", "ra", "jo", "ero", "dad", "ejo", "ala", "ches", "bol", "bras", "som", "san", "bre", "erpo", "feliz", "juevez", "yes", "oje", "nol", "esp", "co", "un", "dos", "tres", "favor", "por", "bien", "como", "luz", "del", "ahi", "ajos", "veo", "tor", "apia", "riza", "hombre", "dador", "pindejo")
 
-/datum/language/escalation/tamazigh
-	name = "Tamazigh"
-	desc = "This is the umbrella term for the conglomeration of languages spoken by the Amazigh, the berber tribes of North Africa."
-	colour = "spanish"
-	key = "s"
-	syllables = list("sbah", "khir", "el", "siwin", "netm", "az", "ul", "mreh", "aach", "med", "tag", "chaal")
+/datum/language/escalation/french
+	name = "French"
+	desc = "This is the languaged used by the French Army."
+	colour = "english"
+	key = "h"
+	syllables = list("voux", "que", "qi", "cha", "non", "une", "la", "le", "l'", "j'", "d'", "mer", "rea", "lite", "ite", "eta", "la", "moi", "toi", "nous", "et", "tu", "tou", "jours", "mains", "moin", "les", "mise", "tra", "ma", "ra", "je", "nom", "lier", "ejo", "jeu", "nesse", "che", "pere", "som", "san", "bre", "sou", "vent", "mer", "les", "eux", "aux", "oux", "iux", "tiere", "dos", "tres", "etre", "ne", "bien", "tous", "lus", "del", "j'etat", "est", "sans", "eils", "guerre", "oire", "noire", "beaucoup", "merci")
+
+/datum/language/escalation/polish
+	name = "Polish"
+	desc = "This is the languaged used by the Polish People's Republic."
+	colour = "finnish"
+	key = "p"
+	syllables = list("al", "an", "bi", "ve", "vo", "go", "de", "el", "en", "er", "et", "ka", "ko", "la", "li", "lo", "l'", "na", "ne", "ni", "no", "ov", "ol", "on", "or", "slog", "ot", "po", "pr", "ra", "re", "ro", "st", "ta", "te", "to", "t'", "at'", "bil", "ver", "ego", "eni", "enn", "est", "kak", "l'n", "ova", "ogo", "ol'", "oro", "ost", "oto", "pri", "pro", "sta", "stv", "tor", "chto", "eto")
+
+//////////NOTE: Make sure BAY12 does not use the hotkey that you are going to use for a new language
+////////// just search ( key = "" ) and you will find it

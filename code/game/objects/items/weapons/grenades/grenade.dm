@@ -2,16 +2,15 @@
 	name = "grenade"
 	desc = "A hand held grenade, with an adjustable timer."
 	w_class = ITEM_SIZE_SMALL
-	icon = 'icons/obj/grenade.dmi'
+	icon = 'icons/obj/coldwar/grenade.dmi'
 	icon_state = "grenade"
 	item_state = "grenade"
 	throw_speed = 4
 	throw_range = 20
 	flags = CONDUCT
-	slot_flags = SLOT_BELT
 	var/active = 0
 	var/det_time = 50
-	var/arm_sound = 'sound/effects/pinpull.wav'
+	var/arm_sound = 'sound/effects/pinpull.ogg'
 
 /obj/item/weapon/grenade/proc/clown_check(var/mob/living/user)
 	if((CLUMSY in user.mutations) && prob(50))
@@ -54,16 +53,20 @@
 
 
 /obj/item/weapon/grenade/attack_self(mob/user as mob)
-	if(!active)
-		if(clown_check(user))
-			to_chat(user, "<span class='warning'>You prime \the [name]! [det_time/10] seconds!</span>")
+	if (roundstarted == 0)
+		to_chat(user, "<span class='warning'>There is no reason to prime this grenade!</span>")
+		return
+	else
+		if(!active)
+			if(clown_check(user))
+				to_chat(user, "<span class='warning'>You prime \the [name]! [det_time/10] seconds!</span>")
 
-			activate(user)
-			add_fingerprint(user)
-			if(iscarbon(user))
-				var/mob/living/carbon/C = user
-				C.throw_mode_on()
-	return
+				activate(user)
+				add_fingerprint(user)
+				if(iscarbon(user))
+					var/mob/living/carbon/C = user
+					C.throw_mode_on()
+		return
 
 
 /obj/item/weapon/grenade/proc/activate(mob/user as mob)

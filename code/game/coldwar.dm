@@ -54,13 +54,23 @@ var/wlg_selected_cuttree = 0
 					continue
 				if(50 to 87)
 					wlg_selected_grass++
-					var/grass = pick(//obj/structure/flora/ausbushes/fullgrass,
-									//obj/structure/flora/ausbushes/sparsegrass,
-									//obj/structure/flora/ausbushes/pointybush,
+					/*var/grass = pick(/obj/structure/flora/snowbushes/snowgrassa, ///winter, deliberately tiny list
+									/obj/structure/flora/snowbushes/snowgrassb,
+									/obj/structure/flora/snowbushes/snowgrassc,
+									/obj/structure/flora/snowbushes/snowbush,
+									/obj/structure/flora/snowbushes/snowbushstump)
+					new grass(T)*/
+					var/grass = pick(/obj/structure/flora/ausbushes/fullgrass,       //summer
+									/obj/structure/flora/ausbushes/sparsegrass,
+									/obj/structure/flora/ausbushes/pointybush,
 									/obj/structure/flora/bush1,
 									/obj/structure/flora/bush2,
 									/obj/structure/flora/bush3,
-									/obj/structure/flora/bush4)
+									/obj/structure/flora/bush4,
+									/obj/structure/flora/ausbushes,
+									/obj/structure/flora/ausbushes/leafybush,
+									/obj/structure/flora/ausbushes/stalkybush,
+									/obj/structure/flora/ausbushes/genericbush)
 					new grass(T)
 				if(88 to 91)
 					wlg_selected_rock++
@@ -74,19 +84,25 @@ var/wlg_selected_cuttree = 0
 					new cuttree(T)
 				if(93)
 					wlg_selected_pine++
-					var/pine = pick(/obj/structure/flora/tree/summer,
-									/obj/structure/flora/tree/summer/alt1,
-									/obj/structure/flora/tree/summer/alt3,
-									/obj/structure/flora/tree/summer/alt2)
+					/*var/pine = pick(/obj/structure/flora/tree/pine)*/
+					var/pine = pick(/obj/structure/flora/tree/summer, 
+					/obj/structure/flora/tree/summer/alt1,    //change for summer
+					/obj/structure/flora/tree/summer/alt3,     //leave just pine for this ,lowchance tree generation is way more diverse!!!!!
+					/obj/structure/flora/tree/summer/alt2)
 					new pine(T)
 				if(94)
 					wlg_selected_deadtree++
-					var/deadtree = pick(/obj/structure/flora/summer/log1,
-									/obj/structure/flora/summer/log2)
+					var/deadtree = pick	(/obj/structure/flora/tree/summer/dead1,
+						/obj/structure/flora/tree/summer/dead2,    //summer
+						/obj/structure/flora/summer/log1,
+						/obj/structure/flora/summer/log2)
+					/*(/obj/structure/flora/tree/dead,
+					/obj/structure/flora/tree/winter/deadbig1,
+					/obj/structure/flora/tree/winter/deadbig2)*/
 					new deadtree(T)
 				else
 					wlg_selected_bush++
-					var/bushes = /obj/structure/flora/ausbushes
+					var/bushes = /obj/structure/flora/ausbushes /*snowbushes for winter, ausbushes for summer*/
 					new bushes(T)
 	return 1
 
@@ -97,7 +113,7 @@ var/wlg_selected_cuttree = 0
 	for(var/datum/fireteam/ft in job_master.all_fireteams)
 		if(!ft.is_full())
 			continue
-		if(ft.side == "WARPAC")
+		if(ft.side == "WARPACT")
 			ru_fireteams++
 		if(ft.side == "NATO")
 			en_fireteams++
@@ -107,12 +123,4 @@ var/wlg_selected_cuttree = 0
 		if(ft.name)
 			text += " called as \"[ft.name]\"."
 		world << "<font size=2>-[text]</font>"
-	return 1
-
-/proc/get_side_name(var/side)
-	if(side == "WARPAC")
-		return "Soviet Army"
-	if(side == "NATO")
-		return "USMC"
-	return null
-	*/
+	return 1*/

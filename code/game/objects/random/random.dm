@@ -142,10 +142,10 @@
 				/obj/item/weapon/storage/pill_bottle/citalopram = 2,
 				/obj/item/weapon/storage/box/pill_box/oxaprofen = 2,
 				/obj/item/weapon/storage/box/pill_box/tetracetam = 1,
-				/obj/item/weapon/storage/box/ampule_box/epinephrine = 2,
-				/obj/item/weapon/storage/box/ampule_box/morphine = 2,
-				/obj/item/weapon/storage/box/ampule_box/naltamine = 1,
-				/obj/item/weapon/storage/box/ampule_box/talotropine = 1,
+				/obj/item/weapon/storage/box/ampoule_box/epinephrine = 2,
+				/obj/item/weapon/storage/box/ampoule_box/morphine = 2,
+				/obj/item/weapon/storage/box/ampoule_box/naloxone = 1,
+				/obj/item/weapon/storage/box/ampoule_box/talotropine = 1,
 				/obj/item/weapon/reagent_containers/syringe/antiviral = 1,
 				/obj/item/weapon/storage/box/freezer = 1)
 
@@ -162,7 +162,7 @@
 				/obj/item/weapon/storage/pill_bottle/antidexafen = 2,
 				/obj/item/weapon/storage/pill_bottle/paracetamol = 2,
 				/obj/item/weapon/reagent_containers/glass/bottle/talotropine = 0.5,
-				/obj/item/weapon/reagent_containers/glass/bottle/naltamine = 0.5,
+				/obj/item/weapon/reagent_containers/glass/bottle/naloxone = 0.5,
 				/obj/item/stack/medical/splint = 1,
 				/obj/item/stack/medical/medispray = 1,
 				/obj/item/weapon/reagent_containers/hypospray/autoinjector = 1)
@@ -1153,7 +1153,7 @@ obj/random/hostile/spawn_choices()
 	return list(/mob/living/simple_animal/hostile/viscerator,
 				/mob/living/simple_animal/hostile/carp)
 
-
+/*
 /obj/random/hostilenew
 	name = "Random Hostile Mob"
 	desc = "This is a random hostile mob."
@@ -1166,6 +1166,7 @@ obj/random/hostilenew/spawn_choices()
 				/mob/living/simple_animal/hostile/posthuman/android = 4,
 				/mob/living/simple_animal/hostile/posthuman/androidfast = 2,
 				/mob/living/simple_animal/hostile/posthuman/android_barebeh = 1)
+*/
 
 /obj/random/surgery_tool
 	name = "random surgery tool"
@@ -1192,16 +1193,16 @@ obj/random/hostilenew/spawn_choices()
 	desc = "This is a random tree"
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "tree1"
-	spawn_nothing_percentage = 15
+	spawn_nothing_percentage = 30
 
 /obj/random/tree/spawn_choices()
 		return list(/obj/structure/flora/ausbushes/fullgrass = 3,
 					/obj/structure/flora/ausbushes/sparsegrass = 3,
-					/obj/structure/flora/ausbushes/pointybush = 3,
-					/obj/structure/flora/bush1 = 3,
-					/obj/structure/flora/bush2 = 3,
-					/obj/structure/flora/bush3 = 3,
-					/obj/structure/flora/bush4 = 3,
+					/obj/structure/flora/ausbushes/pointybush = 1,
+					/obj/structure/flora/bush1 = 2,
+					/obj/structure/flora/bush2 = 2,
+					/obj/structure/flora/bush3 = 2,
+					/obj/structure/flora/bush4 = 2,
 					/obj/structure/flora/smallrock = 5,
 					/obj/structure/flora/bigrock = 5,
 					/obj/structure/flora/cuttedtree = 2,
@@ -1209,104 +1210,149 @@ obj/random/hostilenew/spawn_choices()
 					/obj/structure/flora/tree/summer/alt1,
 					/obj/structure/flora/tree/summer/alt3,
 					/obj/structure/flora/tree/summer/alt2,
+					/obj/structure/flora/tree/summer/dead1,
+					/obj/structure/flora/tree/summer/dead2,
 					/obj/structure/flora/summer/log1 = 2,
 					/obj/structure/flora/summer/log2 = 2,
-					/obj/structure/flora/ausbushes = 3
+					/obj/structure/flora/ausbushes = 3,
+					/obj/structure/flora/summer/bigbush1 = 1,
+					/obj/structure/flora/summer/bigbush2 = 1,
+					/obj/structure/flora/ausbushes/ywflowers = 2
 					)
 
 /obj/random/treelowchance
-	name = "random tree (low chance)"
+	name = "Winter tree"
 	desc = "This is a random tree"
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "tree2"
-	spawn_nothing_percentage = 75
+	spawn_nothing_percentage = 50
 
 /obj/random/treelowchance/spawn_choices()
-		return list(/obj/structure/flora/ausbushes/fullgrass = 3,
-					/obj/structure/flora/ausbushes/sparsegrass = 3,
-					/obj/structure/flora/ausbushes/pointybush = 3,
-					/obj/structure/flora/bush1 = 3,
-					/obj/structure/flora/bush2 = 3,
-					/obj/structure/flora/bush3 = 3,
-					/obj/structure/flora/bush4 = 3,
-					/obj/structure/flora/smallrock = 5,
-					/obj/structure/flora/bigrock = 5,
-					/obj/structure/flora/cuttedtree = 2,
-					/obj/structure/flora/tree/summer,
-					/obj/structure/flora/tree/summer/alt1,
-					/obj/structure/flora/tree/summer/alt3,
-					/obj/structure/flora/tree/summer/alt2,
-					/obj/structure/flora/summer/log1 = 2,
-					/obj/structure/flora/summer/log2 = 2,
-					/obj/structure/flora/ausbushes = 3
-					)
+		return list(/obj/structure/flora/tree/winter/deadbig1,
+					/obj/structure/flora/tree/winter/deadbig2,
+					/*/obj/structure/flora/tree/winter/alt1, too thick*/
+					/obj/structure/flora/tree/pine,
+					/obj/structure/flora/tree/winter/alt2,
+					/obj/structure/flora/tree/winter/alt3,
+					/obj/structure/flora/snowbushes/snowgrassa = 2,
+					/obj/structure/flora/snowbushes/snowgrassb = 2,
+					/obj/structure/flora/snowbushes/snowgrassc = 2,
+					/obj/structure/flora/snowbushes/snowbush = 2,
+					/obj/structure/flora/snowbushes/snowbushstump = 2,
+					/obj/structure/flora/smallrock = 3,
+					/obj/structure/flora/bigrock = 3,
+					/obj/structure/flora/summer/log1 = 1,
+					/obj/structure/flora/summer/log2 = 1)
 
-/obj/random/spainlinefield/generic
-	name = "random high generic bush"
-	desc = "This is a random bush"
+
+/obj/random/mine/ozm72
+	name = "OZM72 minefield"
+	desc = "This is a OZM72 minefield"
 	icon = 'icons/mob/screen1.dmi'
-	icon_state = "bush"
-	spawn_nothing_percentage = 15
+	icon_state = "mineozm72"
+	spawn_nothing_percentage = 97
 
-/obj/random/spainlinefield/generic/spawn_choices()
-		return list(/obj/structure/flora/ausbushes/genericbush = 6,
-					/obj/structure/flora/ausbushes/genericbush/opaque = 6,
-					)
+/obj/random/mine/ozm7/spawn_choices()
+		return list(/obj/item/weapon/mine/ozm72/armed = 1)
 
-/obj/random/spainlinefield/pointy
-	name = "random high pointy bush"
-	desc = "This is a random bush"
+/obj/random/mine/ozm72high
+	name = "OZM72 minefield high"
+	desc = "This is a OZM72 minefield"
 	icon = 'icons/mob/screen1.dmi'
-	icon_state = "bush2"
-	spawn_nothing_percentage = 15
+	icon_state = "mineozm72high"
+	spawn_nothing_percentage = 70
 
-/obj/random/spainlinefield/pointy/spawn_choices()
-		return list(/obj/structure/flora/ausbushes/pointybush = 6,
-					/obj/structure/flora/ausbushes/pointybush/opaque = 6,
-					)
+/obj/random/mine/ozm72high/spawn_choices()
+		return list(/obj/item/weapon/mine/ozm72/armed = 1)
 
-/obj/random/spainlinefield/mixed
-	name = "random high mixed bush"
-	desc = "This is a random bush"
+/obj/random/mine/m16
+	name = "M16 minefield"
+	desc = "This is a M16 minefield"
 	icon = 'icons/mob/screen1.dmi'
-	icon_state = "bush3"
-	spawn_nothing_percentage = 15
+	icon_state = "minem16"
+	spawn_nothing_percentage = 97
 
-/obj/random/spainlinefield/mixed/spawn_choices()
-		return list(/obj/structure/flora/ausbushes/genericbush = 6,
-					/obj/structure/flora/ausbushes/pointybush = 6,
-					/obj/structure/flora/ausbushes/genericbush/opaque = 6,
-					/obj/structure/flora/ausbushes/pointybush/opaque = 6,
-					)
+/obj/random/mine/m16/spawn_choices()
+		return list(/obj/item/weapon/mine/m16/armed = 1)
+
+/obj/random/mine/m16high
+	name = "M16 minefield high"
+	desc = "This is a M16 minefield"
+	icon = 'icons/mob/screen1.dmi'
+	icon_state = "minem16high"
+	spawn_nothing_percentage = 70
+
+/obj/random/mine/m16high/spawn_choices()
+		return list(/obj/item/weapon/mine/m16/armed = 1)
+
+/obj/random/nofoliage
+	name = "No foliage"
+	desc = "nothing to see there"
+	icon = 'icons/mob/screen1.dmi'
+	icon_state = "notree"
+	spawn_nothing_percentage = 100
+
+
 
 /obj/random/grass
 	name = "random bush (low chance)"
 	desc = "This is a random tree"
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "grass1"
-	spawn_nothing_percentage = 75
+	spawn_nothing_percentage = 60
 /obj/random/grass/spawn_choices()
-		return list(/obj/structure/flora/grass/both,\
-					/obj/structure/flora/grass/green,\
-					/obj/structure/flora/grass/brown,\
-					/obj/structure/flora/bush,\
+		return list(/obj/structure/flora/ausbushes/fullgrass,
+					/obj/structure/flora/ausbushes/sparsegrass,
+					/obj/structure/flora/ausbushes/pointybush,
+					/obj/structure/flora/ausbushes/stalkybush,
+					/obj/structure/flora/ausbushes/genericbush,
+					/obj/structure/flora/bush3,
+					/obj/structure/flora/bush4,
 					/obj/structure/flora/smallrock)
 
+
 /obj/random/grasslow
-	name = "random bush (very low chance)"
+	name = "winter bush (low chance)"
 	desc = "This is a random tree"
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "grass2"
-	spawn_nothing_percentage = 95
-/obj/random/grass/spawn_choices()
-		return list(/obj/structure/flora/bigrock = 1,
-					/obj/structure/flora/smallrock = 2,
-					/obj/structure/flora/bush = 3,
-					/obj/structure/flora/bush1 = 4,
-					/obj/structure/flora/bush2 = 5,
-					/obj/structure/flora/bush3 = 6,
-					/obj/structure/flora/bush4 = 8)
+	spawn_nothing_percentage = 60
+/obj/random/grasslow/spawn_choices()
+		return list(/obj/structure/flora/snowbushes/snowgrassa = 2,
+					/obj/structure/flora/snowbushes/snowgrassb = 2,
+					/obj/structure/flora/snowbushes/snowgrassc = 2,
+					/obj/structure/flora/snowbushes/snowbush = 2,
+					/obj/structure/flora/snowbushes/snowbushstump = 2,
+					/obj/structure/flora/smallrock)
 
+/obj/random/grassswampy
+	name = "swamp bush"
+	desc = "This is a random tree"
+	icon = 'icons/mob/screen1.dmi'
+	icon_state = "swamp"
+	spawn_nothing_percentage = 5
+/obj/random/grassswampy/spawn_choices()
+		return list(/obj/structure/flora/ausbushes/fullgrass = 2,
+					/obj/structure/flora/ausbushes/sparsegrass = 2,
+					/obj/structure/flora/ausbushes/pointybush = 2,
+					/obj/structure/flora/ausbushes/reedbush = 2,
+					/obj/structure/flora/ausbushes/fernybush = 2,
+					/obj/structure/flora/ausbushes/grassybush = 2,
+					/obj/structure/flora/ausbushes/sunnybush = 2,
+					/obj/structure/flora/smallrock = 2)
+
+/obj/random/flower
+	name = "flowers"
+	desc = "This is a random flower"
+	icon = 'icons/mob/screen1.dmi'
+	icon_state = "flower"
+	spawn_nothing_percentage = 10
+/obj/random/flower/spawn_choices()
+		return list(/obj/structure/flora/ausbushes/ppflowers,
+					/obj/structure/flora/ausbushes/brflowers,
+					/obj/structure/flora/ausbushes/ywflowers,
+					/obj/structure/flora/ausbushes/lavendergrass
+					)
 
 
 /*

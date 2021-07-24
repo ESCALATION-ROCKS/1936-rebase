@@ -219,6 +219,15 @@
 		..()
 		reagents.add_reagent(/datum/reagent/ethanol/vodka, 100)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/finlandia
+	name = "'Finlandia' vodka"
+	desc = "Finnish quality in a bottle. Goes down like water"
+	icon_state = "finlandia"
+	center_of_mass = "x=17;y=3"
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/ethanol/vodka, 100)
+
 /obj/item/weapon/reagent_containers/food/drinks/bottle/andropovka
 	name = "Vodka"
 	desc = "Cheap as fuck - it costs only around five roubles and that fact makes it probably a best thing made in USSR during the during the Andropov's rule. Also known as Andropovka among the soviets for obvious reasons."
@@ -458,6 +467,7 @@
 	amount_per_transfer_from_this = 5
 	icon_state = "campingtee"
 	center_of_mass = "x=16;y=12"
+	isGlass = 0
 	icon = 'icons/obj/food.dmi'
 	drop_sound = null
 
@@ -476,3 +486,22 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale/New()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/ethanol/ale, 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/wornflask
+	name = "worn flask"
+	desc = "That one seems to be used a little bit."
+	amount_per_transfer_from_this = 5
+	icon_state = "wornflask"
+	volume = 60
+	isGlass = 0
+	center_of_mass = "x=15;y=4"
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/water, 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/wornflask/small
+	icon_state = "smallflask"
+	volume = 30
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/wornflask/nato
+	icon_state = "natoflask"

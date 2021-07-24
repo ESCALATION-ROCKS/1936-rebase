@@ -8,6 +8,8 @@
 
 	var/flags = 0			//see MC.dm in __DEFINES Most flags must be set on world start to take full effect. (You can also restart the mc to force them to process again)
 
+	var/suspended = FALSE
+
 	//set to 0 to prevent fire() calls, mostly for admin use or subsystems that may be resumed later
 	//	use the SS_NO_FIRE flag instead for systems that never fire to keep it from even being added to the list
 	var/can_fire = TRUE
@@ -69,6 +71,8 @@
 	can_fire = 0
 	flags |= SS_NO_FIRE
 	Master.subsystems -= src
+	..()
+	return QDEL_HINT_HARDDEL_NOW
 
 
 //Queue it to run.
@@ -217,3 +221,15 @@
 	if (var_value)
 		SS.next_fire = world.time + SS.wait
 	SS.can_fire = var_value
+
+// Suspends this subsystem.
+// 	Preferred over disable() for self-disabling subsystems.
+/datum/controller/subsystem/proc/suspend()
+	suspended = TRUE
+
+// Wakes a suspended subsystem.
+/datum/controller/subsystem/proc/wake()
+	if (suspended)
+		suspended = FALSE
+		if (can_fire)
+			next_fire = world.time + wait

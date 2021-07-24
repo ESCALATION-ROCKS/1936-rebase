@@ -8,7 +8,7 @@
 	name = "detective's badge"
 	desc = "A simple badge, made from gold."
 	icon_state = "goldbadge"
-	slot_flags = SLOT_BELT | SLOT_TIE
+	slot_flags = SLOT_TIE
 	slot = ACCESSORY_SLOT_INSIGNIA
 	var/stored_name
 	var/badge_string = "Private Investigator"
@@ -18,6 +18,16 @@
 	name = "faded badge"
 	desc = "A faded badge, backed with leather. Looks crummy."
 	icon_state = "badge_round"
+
+/*/obj/item/clothing/accessory/badge/natodogtag
+	name = "NATO dogtag"
+	desc = "A piece of stamped metal containing the identification for a NATO soldier."
+	icon_state = "natodog"
+
+/obj/item/clothing/accessory/badge/wpdogtag
+	name = "WARPACT dogtag"
+	desc = "A piece of stamped metal containing the identification for a WARPACT soldier."
+	icon_state = "wpdog"*/
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
 	stored_name = new_name

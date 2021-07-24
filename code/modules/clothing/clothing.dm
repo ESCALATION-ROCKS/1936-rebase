@@ -19,6 +19,30 @@
 	var/initial_slowdown = 0
 	var/insrank = null
 
+/obj/item/clothing/examine(mob/user)
+	. = ..()
+	var/has_some_sort_of_armor = FALSE
+	if(body_parts_covered)
+		for(var/poopshit in armor)
+			if(armor[poopshit])
+				has_some_sort_of_armor = TRUE
+		for(var/poopshit in armor_fullblock)
+			if(armor_fullblock[poopshit])
+				has_some_sort_of_armor = TRUE
+	if(has_some_sort_of_armor && length(armor_integrity))
+		switch(Floor(armor_integrity[armor_integrity[1]]/armor_integrity_starting * 100))
+			if(90 to INFINITY)
+				to_chat(user, "<span class='info'>It is in pristine condition.</span>")
+			if(75 to 90)
+				to_chat(user, "<span class='info'>It is in almost pristine condition.</span>")
+			if(50 to 75)
+				to_chat(user, "<span class='warning'>It is in poor condition.</span>")
+			if(25 to 50)
+				to_chat(user, "<span class='warning'>It is in very poor condition.</span>")
+			if(1 to 25)
+				to_chat(user, "<span class='danger'>It is in <b>awful</b> condition.</span>")
+			if(-INFINITY to 0)
+				to_chat(user, "<span class='danger'><b>It is absolutely ripped to shreds.</b></span>")
 
 // Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
@@ -67,14 +91,22 @@
 			src.attach_accessory(null, tie)
 
 
-//BS12: Species-restricted clothing check.
-/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = 0)
+////////escalation wearable clothing check
+/obj/item/clothing/mob_can_equip(M as mob)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
 		return 0
 
-	if(species_restricted && istype(M,/mob/living/carbon/human))
+	if(istype(M,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+
+		if(!wearable)
+			to_chat(H, "<span class='danger'>You shouldn't be wearing [src].</span>")
+			return 0
+	return 1
+
+	/*if(species_restricted && istype(M,/mob/living/carbon/human)) ////////old species check code
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
@@ -94,7 +126,7 @@
 				if(!disable_warning)
 					to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
-	return 1
+	return 1*/
 
 /obj/item/clothing/equipped(var/mob/user)
 	if(needs_vision_update())
@@ -473,6 +505,7 @@ BLIND     // can't see anything
 	var/down_body_parts_covered = 0
 	var/down_icon_state = 0
 	var/down_item_flags = 0
+	var/down_flags_inv = 0
 	var/pull_mask = 0
 	var/hanging = 0
 	blood_overlay_type = "maskblood"
@@ -494,8 +527,8 @@ BLIND     // can't see anything
 			overlay = GLOB.global_hud.science
 
 /obj/item/clothing/mask/New()
-	if(pull_mask)
-		action_button_name = "Adjust Mask"
+	/*if(pull_mask)
+		action_button_name = "Adjust Mask"*/
 	..()
 
 /obj/item/clothing/mask/update_clothing_icon()
@@ -526,14 +559,18 @@ BLIND     // can't see anything
 				body_parts_covered = down_body_parts_covered
 				icon_state = down_icon_state
 				item_flags = down_item_flags
+				flags_inv = down_flags_inv
 				to_chat(usr, "You pull the [src] below your chin.")
 			else
 				gas_transfer_coefficient = initial(gas_transfer_coefficient)
 				body_parts_covered = initial(body_parts_covered)
 				icon_state = initial(icon_state)
 				item_flags = initial(item_flags)
+				flags_inv = initial(flags_inv)
 				to_chat(usr, "You pull the [src] up to cover your face.")
 			update_clothing_icon()
+			if(ishuman(user))
+				user:update_hair()
 			user.update_action_buttons()
 
 /obj/item/clothing/mask/attack_self(mob/user)
@@ -696,7 +733,6 @@ BLIND     // can't see anything
 	var/displays_id = 1
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	var/jacket_removed = -1 //0 = unremoved, 1 = removed, -1 = cannot be toggled
 	sprite_sheets = list(
 		SPECIES_VOX = 'icons/mob/species/vox/uniform.dmi',
 		SPECIES_NABBER = 'icons/mob/species/nabber/uniform.dmi'
@@ -712,13 +748,10 @@ BLIND     // can't see anything
 	..()
 	update_rolldown_status()
 	update_rollsleeves_status()
-	update_removejacket_status()
 	if(rolled_down == -1)
 		verbs -= /obj/item/clothing/under/verb/rollsuit
 	if(rolled_sleeves == -1)
 		verbs -= /obj/item/clothing/under/verb/rollsleeves
-	if(jacket_removed == -1)
-		verbs -= /obj/item/clothing/under/verb/removejacket
 
 /obj/item/clothing/under/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
@@ -775,30 +808,6 @@ BLIND     // can't see anything
 		rolled_down = -1
 	if(H) update_clothing_icon()
 
-/obj/item/clothing/under/proc/update_removejacket_status()
-	var/mob/living/carbon/human/H
-	if(istype(src.loc, /mob/living/carbon/human))
-		H = src.loc
-
-
-	var/icon/under_icon
-	if(icon_override)
-		under_icon = icon_override
-	else if(H && sprite_sheets && sprite_sheets[H.species.get_bodytype(H)])
-		under_icon = sprite_sheets[H.species.get_bodytype(H)]
-	else if(item_icons && item_icons[slot_w_uniform_str])
-		under_icon = item_icons[slot_w_uniform_str]
-	else
-		under_icon = default_onmob_icons[slot_w_uniform_str]
-
-	// The _s is because the icon update procs append it.
-	if(("[worn_state]_j_s") in icon_states(under_icon))
-		if(jacket_removed != 1)
-			jacket_removed = 0
-	else
-		jacket_removed = -1
-	if(H) update_clothing_icon()
-
 /obj/item/clothing/under/proc/update_rollsleeves_status()
 	var/mob/living/carbon/human/H
 	if(istype(src.loc, /mob/living/carbon/human))
@@ -828,7 +837,7 @@ BLIND     // can't see anything
 		M.update_inv_w_uniform()
 
 
-/obj/item/clothing/under/examine(mob/user)
+/*/obj/item/clothing/under/examine(mob/user)
 	. = ..(user)
 	switch(src.sensor_mode)
 		if(0)
@@ -838,7 +847,7 @@ BLIND     // can't see anything
 		if(2)
 			to_chat(user, "Its vital tracker appears to be enabled.")
 		if(3)
-			to_chat(user, "Its vital tracker and tracking beacon appear to be enabled.")
+			to_chat(user, "Its vital tracker and tracking beacon appear to be enabled.")*/
 
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user
@@ -915,34 +924,9 @@ BLIND     // can't see anything
 	if(rolled_down)
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
 		item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
-		to_chat(usr, "<span class='notice'>You roll [src] down.</span>")
 	else
 		body_parts_covered = initial(body_parts_covered)
 		item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, "<span class='notice'>You roll [src] back up.</span>")
-	update_clothing_icon()
-
-/obj/item/clothing/under/verb/removejacket()
-	set name = "Toggle Jacket"
-	set category = "Object"
-	set src in usr
-	if(!istype(usr, /mob/living)) return
-	if(usr.stat) return
-
-	update_removejacket_status()
-	if(jacket_removed == -1)
-		to_chat(usr, "<span class='notice'>You need a jacket first!</span>")
-	if((rolled_sleeves == 1) && !(jacket_removed))
-		rolled_sleeves = 0
-		return
-
-	jacket_removed = !jacket_removed
-	if(jacket_removed)
-		item_state_slots[slot_w_uniform_str] = "[worn_state]_j"
-		to_chat(usr, "<span class='notice'>You take off the jacket.</span>")
-	else
-		item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, "<span class='notice'>You wear the jacket again.</span>")
 	update_clothing_icon()
 
 /obj/item/clothing/under/verb/rollsleeves()
@@ -954,21 +938,21 @@ BLIND     // can't see anything
 
 	update_rollsleeves_status()
 	if(rolled_sleeves == -1)
-		to_chat(usr, "<span class='notice'>You cannot roll up [src]'s sleeves!</span>")
+		to_chat(usr, "<span class='notice'>You cannot roll up your [src]'s sleeves!</span>")
 		return
 	if(rolled_down == 1)
-		to_chat(usr, "<span class='notice'>You must roll up [src] first!</span>")
+		to_chat(usr, "<span class='notice'>You must roll up your [src] first!</span>")
 		return
 
 	rolled_sleeves = !rolled_sleeves
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
 		item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
-		to_chat(usr, "<span class='notice'>You roll up [src]'s sleeves.</span>")
+		to_chat(usr, "<span class='notice'>You roll up your [src]'s sleeves.</span>")
 	else
 		body_parts_covered = initial(body_parts_covered)
 		item_state_slots[slot_w_uniform_str] = "[worn_state]"
-		to_chat(usr, "<span class='notice'>You roll down [src]'s sleeves.</span>")
+		to_chat(usr, "<span class='notice'>You roll down your [src]'s sleeves.</span>")
 	update_clothing_icon()
 
 /obj/item/clothing/under/rank/New()

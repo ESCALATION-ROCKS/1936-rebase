@@ -456,6 +456,11 @@ its easier to just keep the beam vertical.
 	if (!(flags & OBJ_CLIMBABLE) || !can_touch(user) || (!post_climb_check && (user in climbers)))
 		return 0
 
+	if(isitem(src))
+		var/obj/item/C = src
+		if(C.w_class < INFINITY)
+			return 0
+
 	if (!user.Adjacent(src))
 		to_chat(user, "<span class='danger'>You can't climb there, the way is blocked.</span>")
 		return 0
@@ -567,15 +572,3 @@ its easier to just keep the beam vertical.
 	return color
 
 /obj/screen/text/atm
-
-/client/MouseEntered(var/atom/a)
-	if(mob && ishuman(mob))
-		var/mob/living/carbon/human/H = mob
-		if(a.mouse_opacity)  // i spread this out to make it more "readable"
-			H.hovertext.maptext = "<center><span style=\"\
-			color: #188A01; \
-			font-family: 'Arial Black', Gadget, sans-serif; \
-			\">[uppertext(a.name)]\
-			</span></center>"
-		else
-			H.hovertext.maptext = ""  // ui is blank, sad!

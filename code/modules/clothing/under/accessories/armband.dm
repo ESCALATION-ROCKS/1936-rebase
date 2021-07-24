@@ -50,13 +50,3 @@
 	name = "military police armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is black with white letters MP."
 	icon_state = "mpband"
-
-/obj/item/clothing/accessory/armband/redcross
-	name = "red cross armband"
-	desc = "An armband with a red cross."
-	icon_state = "red_cross"
-
-/obj/item/clothing/accessory/armband/rep
-	name = "republican armband"
-	desc = "An armband with the colours of the republican flag."
-	icon_state = "rep"

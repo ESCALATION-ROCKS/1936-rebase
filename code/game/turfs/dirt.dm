@@ -1,5 +1,3 @@
-var/list/turf_edge_cache = list()
-
 
 /turf/Initialize()
 	if(outdoors)
@@ -33,9 +31,9 @@ var/list/turf_edge_cache = list()
 	dynamic_lighting = 1
 	icon = 'icons/turf/ground.dmi'
 	icon_state = "dirt"
-	blend_with_neighbors = 5
+	blend_with_neighbors = 4
 	permit_ao = 0
-	movement_delay = 2
+	movement_delay = 1.6
 	outdoors = 1
 	footstep_sounds = list("human" = list(
 		'sound/effects/footsteps/dirt1.wav',
@@ -112,6 +110,12 @@ var/list/turf_edge_cache = list()
 			S.update_icon()
 			S.working = 0
 
+	if (istype(C, /obj/item/weapon/carpentry/axe))
+		var/obj/structure/flora/tree/T = locate(/obj/structure/flora/tree, src)
+		if(T)
+			T.attackby(C, user)
+			return
+
 	if (istype(C, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
@@ -166,49 +170,155 @@ var/list/turf_edge_cache = list()
 	name = "sand"
 	icon_state = "sand"
 	blend_with_neighbors = 2
-	movement_delay = 0
+	movement_delay = 0.7
 
-/turf/unsimulated/ground/sand/sandy
-	name = "sand"
-	icon_state = "sandy"
-	blend_with_neighbors = 10
-	movement_delay = 0
-
-/turf/unsimulated/ground/sand/desert
-	name = "desert"
-	icon_state = "desert"
+/turf/unsimulated/coarse
+	name = "coarse"
+	dynamic_lighting = 1
+	icon = 'icons/turf/ground.dmi'
+	icon_state = "coarse"
+	movement_delay = 0.7
 	blend_with_neighbors = 5
+	permit_ao = 0
+	movement_delay = 0.7
+	outdoors = 1
+	footstep_sounds = list("human" = list(
+		'sound/effects/footsteps/dirt1.wav',
+		'sound/effects/footsteps/dirt2.wav',
+		'sound/effects/footsteps/dirt3.wav',
+		'sound/effects/footsteps/dirt4.wav',
+		'sound/effects/footsteps/dirt5.wav',
+		'sound/effects/footsteps/dirt6.wav',
+		'sound/effects/footsteps/dirt7.wav',
+		'sound/effects/footsteps/dirt8.wav'))
+
+/turf/unsimulated/stone
+	name = "stone"
+	dynamic_lighting = 1
+	icon = 'icons/turf/ground.dmi'
+	icon_state = "stone"
+	blend_with_neighbors = 3
+	permit_ao = 0
+	movement_delay = 0.7
+	outdoors = 1
+	footstep_sounds = list("human" = list(
+		'sound/effects/footsteps/concrete1.wav',
+		'sound/effects/footsteps/concrete2.wav',
+		'sound/effects/footsteps/concrete3.wav',
+		'sound/effects/footsteps/concrete4.wav',
+		'sound/effects/footsteps/concrete5.wav',
+		'sound/effects/footsteps/concrete6.wav',
+		'sound/effects/footsteps/concrete7.wav',
+		'sound/effects/footsteps/concrete8.wav'))
+
+/turf/unsimulated/stone/rock
+	name = "rock"
+	icon_state = "rock"
+	blend_with_neighbors = 2
 	movement_delay = 1.5
+
+/turf/unsimulated/blendingroad
+	name = "road"
+	dynamic_lighting = 1
+	icon = 'icons/turf/ground.dmi'
+	icon_state = "concreteroad"
+	movement_delay = 0.7
+	blend_with_neighbors = 3
+	permit_ao = 0
+	movement_delay = 0.7
+	outdoors = 1
+	footstep_sounds = list("human" = list(
+		'sound/effects/footsteps/concrete1.wav',
+		'sound/effects/footsteps/concrete2.wav',
+		'sound/effects/footsteps/concrete3.wav',
+		'sound/effects/footsteps/concrete4.wav',
+		'sound/effects/footsteps/concrete5.wav',
+		'sound/effects/footsteps/concrete6.wav',
+		'sound/effects/footsteps/concrete7.wav',
+		'sound/effects/footsteps/concrete8.wav'))
+
+/turf/unsimulated/bridge
+	name = "wooden"
+	dynamic_lighting = 1
+	icon = 'icons/turf/ground.dmi'
+	icon_state = "wood"
+	movement_delay = 0.7
+	blend_with_neighbors = 3
+	permit_ao = 0
+	outdoors = 1
+	footstep_sounds = list("human" = list(
+		'sound/effects/footsteps/wood1.wav',
+		'sound/effects/footsteps/wood2.wav',
+		'sound/effects/footsteps/wood3.wav',
+		'sound/effects/footsteps/wood4.wav',
+		'sound/effects/footsteps/wood5.wav',
+		'sound/effects/footsteps/wood6.wav',
+		'sound/effects/footsteps/wood7.wav',
+		'sound/effects/footsteps/wood8.wav'))
 
 /turf/unsimulated/ground/grass
 	name = "grass"
 	icon = 'icons/turf/ground.dmi'
 	icon_state = "grass1"
-	blend_with_neighbors = 2
-	movement_delay = 2
-
+	blend_with_neighbors = 4
+	movement_delay = 1.5
 
 /turf/unsimulated/ground/grass/New()
 	icon_state = "grass[rand(1,3)]"
 
-/turf/unsimulated/ground/sand/cearth
-	name = "dry ground"
+/turf/unsimulated/ground/snow
+	name = "snow"
 	icon = 'icons/turf/ground.dmi'
-	icon_state = "cearth1"
-	blend_with_neighbors = 1
-	movement_delay = 0
+	icon_state = "snow1"
+	blend_with_neighbors = 2
+	movement_delay = 2
+	footstep_sounds = list("human" = list(
+		'sound/effects/footsteps/snow1.wav',
+		'sound/effects/footsteps/snow2.wav',
+		'sound/effects/footsteps/snow3.wav',
+		'sound/effects/footsteps/snow4.wav',
+		'sound/effects/footsteps/snow5.wav',
+		'sound/effects/footsteps/snow6.wav',
+		'sound/effects/footsteps/snow7.wav',
+		'sound/effects/footsteps/snow8.wav'))
 
 
-/turf/unsimulated/ground/sand/cearth/New()
-	icon_state = "cearth[rand(1,6)]"
+/turf/unsimulated/ground/snow/New()
+	icon_state = "snow[rand(1,12)]"
 
-/turf/unsimulated/ground/grass/dearth
-	name = "ground"
+
+/turf/unsimulated/ground/snowgrass
+	name = "snowy grass"
 	icon = 'icons/turf/ground.dmi'
-	icon_state = "dearth1"
-	blend_with_neighbors = 6
+	icon_state = "snowgrass1"
+	blend_with_neighbors = 2
+	movement_delay = 2
+	footstep_sounds = list("human" = list(
+		'sound/effects/footsteps/snow1.wav',
+		'sound/effects/footsteps/snow2.wav',
+		'sound/effects/footsteps/snow3.wav',
+		'sound/effects/footsteps/snow4.wav',
+		'sound/effects/footsteps/snow5.wav',
+		'sound/effects/footsteps/snow6.wav',
+		'sound/effects/footsteps/snow7.wav',
+		'sound/effects/footsteps/snow8.wav'))
+
+
+/turf/unsimulated/ground/snowgrass/New()
+	icon_state = "snowgrass[rand(1,2)]"
+
+/turf/unsimulated/ground/gravsnow
+	name = "gravsnow"
+	icon = 'icons/turf/ground.dmi'
+	icon_state = "gravsnow"
+	blend_with_neighbors = 2
 	movement_delay = 1.5
-
-
-/turf/unsimulated/ground/grass/dearth/New()
-	icon_state = "dearth[rand(1,3)]"
+	footstep_sounds = list("human" = list(
+		'sound/effects/footsteps/snow1.wav',
+		'sound/effects/footsteps/snow2.wav',
+		'sound/effects/footsteps/snow3.wav',
+		'sound/effects/footsteps/snow4.wav',
+		'sound/effects/footsteps/snow5.wav',
+		'sound/effects/footsteps/snow6.wav',
+		'sound/effects/footsteps/snow7.wav',
+		'sound/effects/footsteps/snow8.wav'))

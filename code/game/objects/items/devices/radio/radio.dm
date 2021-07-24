@@ -1,9 +1,10 @@
 /obj/item/device/radio
-	icon = 'icons/obj/radio.dmi'
+	icon = 'icons/obj/coldwar/radio.dmi'
 	name = "shortwave radio"
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
 	item_state = "walkietalkie"
+	slot_flags = SLOT_BACK
 
 	var/on = 1 // 0 for off
 	var/last_transmission
@@ -19,7 +20,6 @@
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
 	var/badquality = 0
 	flags = CONDUCT
-	slot_flags = SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
 	w_class = ITEM_SIZE_SMALL
@@ -93,7 +93,7 @@
 	if(syndie)
 		data["useSyndMode"] = 1
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
 		ui.set_initial_data(data)
@@ -204,7 +204,7 @@
 		return 1
 
 	if(.)
-		GLOB.nanomanager.update_uis(src)
+		SSnano.update_uis(src)
 
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
@@ -347,7 +347,7 @@
 			// so that they can be logged even AFTER the mob is deleted or something
 
 		  // Other tags:
-			"compression" = rand(0,5), // compressed radio signal
+			"compression" = 1, // compressed radio signal
 			"message" = rhtml_decode(sanitize(message)), // the actual sent message
 			"connection" = connection, // the radio connection to use
 			"radio" = src, // stores the radio used for transmission
@@ -404,7 +404,7 @@
 		"vname" = M.voice_name, // the name to display if the voice wasn't understood
 		"vmask" = voicemask,	// 1 if the mob is using a voice gas mas
 
-		"compression" = 10, // uncompressed radio signal
+		"compression" = 0, // uncompressed radio signal
 		"message" = rhtml_decode(sanitize(message)), // the actual sent message
 		"connection" = connection, // the radio connection to use
 		"radio" = src, // stores the radio used for transmission
@@ -679,7 +679,7 @@
 		. = 1
 
 	if(.)
-		GLOB.nanomanager.update_uis(src)
+		SSnano.update_uis(src)
 
 /obj/item/device/radio/borg/interact(mob/user as mob)
 	if(!on)
@@ -708,7 +708,7 @@
 	data["has_subspace"] = 1
 	data["subspace"] = subspace_transmission
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
 		ui.set_initial_data(data)

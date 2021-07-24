@@ -1,13 +1,11 @@
 var/datum/planet/sif/planet_sif = null
 
 /datum/planet/sif
-	name = "Sif"
+	name = "Europe"
 
 /datum/planet/sif
-	name = "Sif"
-	desc = "Sif is a terrestrial planet in the Vir system. It is somewhat earth-like, in that it has oceans, a \
-	breathable atmosphere, a magnetic field, weather, and similar gravity to Earth. It is currently the capital planet of Vir. \
-	Its center of government is the equatorial city and site of first settlement, New Reykjavik." // Ripped straight from the wiki.
+	name = "Europe"
+	desc = null
 	current_time = new /datum/time/sif() // 32 hour clocks are nice.
 	expected_z_levels = list(1) // To be changed when real map is finished.
 	planetary_wall_type = /turf/unsimulated/wall/planetary/sif
@@ -121,8 +119,8 @@ var/datum/planet/sif/planet_sif = null
 		WEATHER_BLOOD_MOON	= new /datum/weather/sif/blood_moon()
 		)
 	roundstart_weather_chances = list(
-		WEATHER_CLEAR		= 100,
-//		WEATHER_OVERCAST	= 50
+		WEATHER_CLEAR		= 50,
+		WEATHER_OVERCAST	= 50
 //		WEATHER_LIGHT_SNOW	= 20,
 //		WEATHER_SNOW		= 5,
 //		WEATHER_BLIZZARD	= 5,
@@ -133,13 +131,11 @@ var/datum/planet/sif/planet_sif = null
 
 datum/weather/sif
 	name = "sif base"
-	temp_high = 313.15	// 40c
-	temp_low = 293.15	// 20c
+	temp_high = 283.15	// 10c
+	temp_low = 263.15	// -10c
 
 /datum/weather/sif/clear
 	name = "clear"
-	light_modifier = 1.20
-	light_color = "#fff4d6"
 	transition_chances = list(
 		WEATHER_CLEAR = 60,
 		WEATHER_OVERCAST = 40
@@ -301,7 +297,7 @@ datum/weather/sif
 					U.throw_at(get_edge_target_turf(U, pick(alldirs)), 8, 1, L)
 
 			L.water_act(2)*/
-			to_chat(L, "<span class='warning'>Rain falls on you, drenching you in water.</span>")
+			/*to_chat(L, "<span class='warning'>Rain falls on you, drenching you in water.</span>")*/
 
 	handle_lightning()
 

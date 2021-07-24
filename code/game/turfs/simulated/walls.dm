@@ -118,10 +118,13 @@
 		reinf_material = get_material_by_name(rmaterialtype)
 	update_material()
 	hitsound = material.hitsound
-	processing_turfs |= src
+
+/turf/simulated/wall/Initialize()
+	START_PROCESSING(SSturf, src) //Used for radiation.
+	. = ..()
 
 /turf/simulated/wall/Destroy()
-	processing_turfs -= src
+	STOP_PROCESSING(SSturf, src)
 	dismantle_wall(null,null,1)
 	. = ..()
 
@@ -134,10 +137,10 @@
 	var/obj/O = A
 	return (istype(O) && O.hides_under_flooring()) || ..()
 
-/turf/simulated/wall/process()
-	// Calling parent will kill processing
-	if(!radiate())
-		return PROCESS_KILL
+/turf/simulated/wall/Process(wait, times_fired)
+	var/how_often = max(round(2 SECONDS/wait), 1)
+	if(times_fired % how_often)
+		return //We only work about every 2 seconds
 
 /turf/simulated/wall/proc/get_material()
 	return material
@@ -348,16 +351,13 @@
 	return ..()
 
 /turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product)
-	if(istype(src, /turf/simulated/wall/woodalt || /turf/simulated/wall/tentcloth))
-		playsound(src, 'sound/items/woodbreak.ogg', 100, 0)
-	else
-		playsound(src, 'sound/items/concretebreak.ogg', 100, 1)
+	playsound(src, 'sound/items/concretebreak.ogg', 100, 1)
 	if(!no_product)
 		if(reinf_material)
 			reinf_material.place_dismantled_girder(src, reinf_material)
 		else
 			material.place_dismantled_girder(src)
-
+		material.place_dismantled_product(src,devastated)
 
 	for(var/obj/O in src.contents) //Eject contents!
 		if(istype(O,/obj/structure/sign/poster))
@@ -433,7 +433,7 @@
 	if(!total_radiation)
 		return
 
-	radiation_repository.radiate(src, total_radiation)
+	SSradiation.radiate(src, total_radiation)
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)

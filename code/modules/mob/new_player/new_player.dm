@@ -66,6 +66,8 @@ mob/new_player/proc/StatRand()
 	output +="<hr>"
 	output += "<center><p><a href='byond://?src=\ref[src];char_setup=1'>Setup Character</a></p></center>"
 
+	output += "<hr>Current character: <b>[client.prefs.real_name]</b>"
+
 	if(ticker && ticker.mode && ticker.mode.admin_enabled_joining)
 		output += "<center><p><a href='byond://?src=\ref[src];join=1'>Join Team!</A></p></center>"
 
@@ -76,7 +78,7 @@ mob/new_player/proc/StatRand()
 
 	output += "<center><p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p></center>"
 
-	if(src.client && src.client.holder && ticker && ticker.current_state == GAME_STATE_PREGAME) //Are they an admin?
+	if(src.client && src.client.holder) //Are they an admin?
 		output += "<center><p><a href='byond://?src=\ref[src];game_setup=1'>Game Setup</A></p></center>"
 
 	panel = new(src, "Welcome","<center>Welcome</center>", 240, 320, src)
@@ -86,8 +88,7 @@ mob/new_player/proc/StatRand()
 	return
 
 /mob/new_player/proc/new_player_show_teams()
-	if(!ticker || !ticker.mode) return //somehow
-	if(!ticker.mode.wargames) return //Must be escalation gamemode
+	if(!SSticker) return //somehow
 
 	var/out = "<center><p><b>[ticker.mode.name]</b></center></p>"
 	var/datum/army_faction/team = null
@@ -763,6 +764,9 @@ mob/new_player/proc/StatRand()
 	for(var/datum/job/job in job_master.occupations)
 		if(job && IsJobAvailable(job))
 			if(job.minimum_character_age && (client.prefs.age < job.minimum_character_age))
+				continue
+
+			if(job.sex_lock && job.sex_lock != src.client.prefs.gender)
 				continue
 
 			var/active = 0

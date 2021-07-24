@@ -5,20 +5,35 @@ var/list/mining_floors = list()
 /turf/unsimulated/mineral
 	name = "impassable rock"
 	icon = 'icons/turf/walls.dmi'
-	icon_state = "rock-dark1"
+	icon_state = "rock_dark"
 	blocks_air = 1
 	density = 1
+	opacity = 1
+
 
 /turf/unsimulated/mineral/New()
-	icon_state = "rock-dark[rand(1,6)]"
+//	icon_state = "rock-dark[rand(1,6)]"
+	update_icon()
+
+/turf/unsimulated/mineral/update_icon(var/update_neighbors) /////indestructible rock walls for esca
+
+	overlays.Cut()
+
+	var/list/step_overlays = list("s" = NORTH, "n" = SOUTH, "w" = EAST, "e" = WEST)
+	for(var/direction in step_overlays)
+		var/turf/turf_to_check = get_step(src,step_overlays[direction])
+		if(update_neighbors && istype(turf_to_check,/turf/unsimulated/stone/rock))
+			/*var/turf/unsimulated/stone/T = turf_to_check*/
+			var/image/rock_side = image('icons/turf/walls.dmi', "rock_side_dark", dir = turn(step_overlays[direction], 180))
+			rock_side.turf_decal_layerise()
+			turf_to_check.overlays += rock_side
+
 
 /turf/simulated/mineral //wall piece
 	name = "Rock"
 	icon = 'icons/turf/walls.dmi'
-	icon_state = "rock1"
-	initial_gas = null
+	icon_state = "rock_dark"
 	opacity = 1
-	permit_ao = 0
 	density = 1
 	blocks_air = 1
 	temperature = T0C
@@ -41,12 +56,11 @@ var/list/mining_floors = list()
 	has_resources = 1
 
 /turf/simulated/mineral/New()
-	icon_state = "rock[rand(1,6)]"
 	mining_walls += src
-//	spawn(0)
-//		MineralSpread()
-//	spawn(2)
-//		update_icon(1)
+	spawn(0)
+		MineralSpread()
+	spawn(2)
+		update_icon(1)
 
 /turf/simulated/mineral/Destroy()
 	mining_walls -= src
@@ -61,38 +75,22 @@ var/list/mining_floors = list()
 /turf/simulated/mineral/update_icon(var/update_neighbors)
 	if(!mineral)
 		name = "rock"
-		icon_state = "rock"
+		icon_state = "rock_dark"
 	else
 		name = "[mineral.display_name] deposit"
 
 	overlays.Cut()
 
-	for(var/direction in GLOB.cardinal)
-		var/turf/turf_to_check = get_step(src,direction)
+	var/list/step_overlays = list("s" = NORTH, "n" = SOUTH, "w" = EAST, "e" = WEST)
+	for(var/direction in step_overlays)
+		var/turf/turf_to_check = get_step(src,step_overlays[direction])
 		if(update_neighbors && istype(turf_to_check,/turf/simulated/floor/asteroid))
 			var/turf/simulated/floor/asteroid/T = turf_to_check
 			T.updateMineralOverlays()
 		else if(istype(turf_to_check,/turf/space) || istype(turf_to_check,/turf/simulated/floor))
-			var/image/rock_side = image('icons/turf/walls.dmi', "rock_side", dir = turn(direction, 180))
+			var/image/rock_side = image('icons/turf/walls.dmi', "rock_side", dir = turn(step_overlays[direction], 180))
 			rock_side.turf_decal_layerise()
-			switch(direction)
-				if(NORTH)
-					rock_side.pixel_y += world.icon_size
-					rock_side.plane = ABOVE_TURF_PLANE + 0.2
-					rock_side.layer = RUNE_LAYER + 0.2
-				if(SOUTH)
-					rock_side.pixel_y -= world.icon_size
-					rock_side.plane = ABOVE_TURF_PLANE + 0.1
-					rock_side.layer = RUNE_LAYER + 0.2
-				if(EAST)
-					rock_side.pixel_x += world.icon_size
-					rock_side.plane = ABOVE_TURF_PLANE + 0.1
-					rock_side.layer = RUNE_LAYER + 0.2
-				if(WEST)
-					rock_side.pixel_x -= world.icon_size
-					rock_side.plane = ABOVE_TURF_PLANE + 0.1
-					rock_side.layer = RUNE_LAYER + 0.2
-			overlays += rock_side
+			turf_to_check.overlays += rock_side
 
 	if(ore_overlay)
 		overlays += ore_overlay
@@ -156,7 +154,6 @@ var/list/mining_floors = list()
 /turf/simulated/mineral/proc/UpdateMineral()
 	clear_ore_effects()
 	ore_overlay = image('icons/obj/mining.dmi', "rock_[mineral.icon_tag]")
-	ore_overlay.appearance_flags = RESET_COLOR
 	ore_overlay.turf_decal_layerise()
 	update_icon()
 
@@ -329,7 +326,7 @@ var/list/mining_floors = list()
 				M.flash_eyes()
 				if(prob(50))
 					M.Stun(5)
-		radiation_repository.flat_radiate(src, 25, 200)
+		SSradiation.flat_radiate(src, 25, 200)
 	//Add some rubble,  you did just clear out a big chunk of rock.
 
 	var/turf/simulated/floor/asteroid/N = ChangeTurf(mined_turf)

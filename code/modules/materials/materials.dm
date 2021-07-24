@@ -116,8 +116,10 @@ var/list/name_to_material
 
 	// Noise when someone is faceplanted onto a table made of this material.
 	var/tableslam_noise = 'sound/weapons/tablehit1.ogg'
-	// Noise made when a simple door made of this material opens or closes.
+	// Noise made when a simple door made of this material opens.
 	var/dooropen_noise = 'sound/effects/stonedoor_openclose.ogg'
+	// Noise made when a simple door made of this material closes.
+	var/doorclose_noise = 'sound/effects/doors/door_close.ogg'
 	// Noise made when you hit structure made of this material.
 	var/hitsound = 'sound/weapons/genhit.ogg'
 	// Path to resulting stacktype. Todo remove need for this.
@@ -357,6 +359,7 @@ var/list/name_to_material
 	icon_colour = "#666666"
 	hitsound = 'sound/effects/doors/metal_door_impact.wav'
 	dooropen_noise = 'sound/effects/doors/metal_door_open.wav'
+	doorclose_noise = 'sound/effects/doors/metal_door_open.wav'
 	sheet_singular_name = "pile"
 	sheet_plural_name = "pile"
 
@@ -437,12 +440,14 @@ var/list/name_to_material
 	ignition_point = T0C+288
 	stack_origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	dooropen_noise = 'sound/effects/doors/wooden_door_open.wav'
+	doorclose_noise = 'sound/effects/doors/wooden_door_open.wav'
 	door_icon_base = "fancy"
 	destruction_desc = "splinters"
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
 	hitsound = 'sound/effects/woodhit.ogg'
 	conductive = 0
+	ignition_point = T0C+288
 
 /material/army
 	name = "army"
@@ -461,6 +466,7 @@ var/list/name_to_material
 	ignition_point = T0C+288
 	stack_origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	dooropen_noise = 'sound/effects/doors/wooden_door_open.wav'
+	doorclose_noise = 'sound/effects/doors/wooden_door_open.wav'
 	door_icon_base = "army"
 	destruction_desc = "splinters"
 	sheet_singular_name = "plank"
@@ -497,6 +503,8 @@ var/list/name_to_material
 	weight = 14
 	brute_armor = 1
 	burn_armor = 2
+	dooropen_noise = 'sound/effects/doors/sliding_door_open.ogg'
+	doorclose_noise = 'sound/effects/doors/sliding_door_close.ogg'
 	door_icon_base = "stone"
 	destruction_desc = "shatters"
 	window_options = list("One Direction" = 1, "Full Window" = 4)
@@ -729,7 +737,7 @@ var/list/name_to_material
 	icon_colour = "#824b28"
 	integrity = 50
 	icon_base = "solid"
-	explosion_resistance = 2
+	explosion_resistance = 5
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks
 	hardness = 15
@@ -739,6 +747,7 @@ var/list/name_to_material
 	ignition_point = T0C+288
 	stack_origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	dooropen_noise = 'sound/effects/doors/wooden_door_open.wav'
+	doorclose_noise = 'sound/effects/doors/wooden_door_open.wav'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
 	sheet_singular_name = "plank"
@@ -831,13 +840,13 @@ var/list/name_to_material
 	sheet_plural_name = "chunks"
 
 /material/stone/concrete
-	name = "concrete"
+	name = "concrete - BAY12 CONCRETE DON'T USE ME!!!!!!!!!!!!!"
 	icon_colour = "#bdbdbd"
 	weight = 40
 	hardness = 300
-	integrity = 1200
+	integrity = 2000
 	conductive = 0
-	explosion_resistance = 4
+	explosion_resistance = 2
 	icon_base = "concrete"
 	icon_reinf = "reinf_over"
 	stack_type = /obj/item/stack/material/concrete
@@ -856,7 +865,6 @@ var/list/name_to_material
 /material/aliumium/place_dismantled_girder(var/turf/target, var/material/reinf_material)
 	return
 
-//TODO PLACEHOLDERS:
 /material/leather
 	name = "leather"
 	icon_colour = "#5c4831"
@@ -875,31 +883,6 @@ var/list/name_to_material
 	conductive = 0
 	sheet_singular_name = "chunk"
 	sheet_plural_name = "chunks"
-
-/material/cloth_tent
-	name = "tent cloth"
-	icon_colour = "#5E5C4E"
-	use_name = "tent cloth"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	conductive = 0
-	icon_base = "tent"
-	icon_reinf = "reinf_over"
-	weight = 10
-	hardness = 10
-
-/material/carpet
-	name = "carpet"
-	display_name = "comfy"
-	use_name = "red upholstery"
-	icon_colour = "#da020a"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	sheet_singular_name = "tile"
-	sheet_plural_name = "tiles"
-	conductive = 0
 
 /material/cotton
 	name = "cotton"
@@ -989,62 +972,165 @@ var/list/name_to_material
 	sheet_plural_name = "chunks"
 	hitsound = 'sound/weapons/smash.ogg'
 
-/material/concretecolor
+
+/* severepwnage's guide to calculating explosive resistance for future generations
+material and parent explosive resistances stack (parent ones are currently 0 for walls)
+var/power = devastation_range * 2 + heavy_impact_range + light_impact_range
+so for satchels = 4+3+3 every afflicted turf consumes some out of 10 explosive power
+this explosive power goes on travelling until it hits a dead end
+recursive blasts work with PENETRATION and DAMAGE in tandem. power determines your PENETRATION.
+theres no ez-pz calculus for this so just go on localhost and test which HP amount and which resistance
+produces the intended effect for you. for example I dropped concretegrey HP from 4500 to 2000 to make it
+work properly (1 tile destroyed, rest damaged by RPG, 2-3 tiles with satchel). good luck*/
+
+//ESCALATION MATERIALS:
+
+
+/material/tentcloth
+	name = "tent cloth"
+	icon_colour = "#5E5C4E"
+	use_name = "tent cloth"
+	flags = MATERIAL_PADDING
+	ignition_point = T0C+232
+	melting_point = T0C+300
+	conductive = 0
+	integrity = 200
+	explosion_resistance = 2
+	icon_base = "tent"
+	icon_reinf = "reinf_over"
+	weight = 10
+	hardness = 10
+
+/material/tentcloth_black
+	name = "tent cloth black"
+	icon_colour = "#424242"
+	use_name = "tent cloth black"
+	flags = MATERIAL_PADDING
+	ignition_point = T0C+232
+	melting_point = T0C+300
+	conductive = 0
+	integrity = 200
+	explosion_resistance = 2
+	icon_base = "tent"
+	icon_reinf = "reinf_over"
+	weight = 10
+	hardness = 10
+
+/material/carpet
+	name = "carpet"
+	display_name = "comfy"
+	use_name = "red upholstery"
+	icon_colour = "#da020a"
+	flags = MATERIAL_PADDING
+	ignition_point = T0C+232
+	melting_point = T0C+300
+	sheet_singular_name = "tile"
+	sheet_plural_name = "tiles"
+	conductive = 0
+
+/material/concreteblack
 	name = "concreteblack"
 	icon_base = "concreteblack"
-	icon_reinf = "concreteblackr"
+	icon_reinf = "reinf_over"
 	icon_colour = null
-	explosion_resistance = 50
+	explosion_resistance = 1
 	brute_armor = 3
 	burn_armor = 15
 	hardness = 80
 	weight = 23
-	integrity = 4500
-	stack_type = /obj/item/stack/material/concrete
+	integrity = 2000
 	hitsound = 'sound/weapons/smash.ogg'
+	stack_type = /obj/item/stack/material/concreteblack
 
-/material/concretecolor/black
+/material/concreteblackr
 	name = "concreteblack"
 	icon_base = "concreteblack"
 	icon_reinf = "concreteblackr"
+	icon_colour = null
+	explosion_resistance = 1
+	brute_armor = 3
+	burn_armor = 15
+	hardness = 80
+	weight = 23
+	integrity = 2000
+	hitsound = 'sound/weapons/smash.ogg'
+	stack_type = /obj/item/stack/material/concreteblackr
 
-/material/concretecolor/pink
+/material/concretepink
 	name = "concretepink"
 	icon_base = "concretepink"
-	icon_reinf = "concreteblackr"
+	icon_reinf = "reinf_over"
+	icon_colour = null
+	explosion_resistance = 1
+	brute_armor = 3
+	burn_armor = 15
+	hardness = 80
+	weight = 23
+	integrity = 2000
+	hitsound = 'sound/weapons/smash.ogg'
+	stack_type = /obj/item/stack/material/concretepink
 
-/material/concretecolor/cian
+/material/concretecian
 	name = "concretecian"
 	icon_base = "concretecian"
-	icon_reinf = "concreteblackr"
+	icon_reinf = "reinf_over"
+	icon_colour = null
+	explosion_resistance = 1
+	brute_armor = 3
+	burn_armor = 15
+	hardness = 80
+	weight = 23
+	integrity = 2000
+	hitsound = 'sound/weapons/smash.ogg'
+	stack_type = /obj/item/stack/material/concretecian
 
-/material/concretecolor/grey
+/material/concretegrey
 	name = "concretegrey"
 	icon_base = "concretegrey"
-	icon_reinf = "concreteblackr"
+	icon_reinf = "reinf_over"
+	icon_colour = null
+	explosion_resistance = 1
+	brute_armor = 3
+	burn_armor = 15
+	hardness = 80
+	weight = 23
+	integrity = 2000
+	hitsound = 'sound/weapons/smash.ogg'
+	stack_type = /obj/item/stack/material/concretegrey
 
-/material/concretecolor/red
+/material/concretered
 	name = "concretered"
 	icon_base = "concretered"
-	icon_reinf = "concreteblackr"
+	icon_reinf = "reinf_over"
+	icon_colour = null
+	explosion_resistance = 1
+	brute_armor = 3
+	burn_armor = 15
+	hardness = 80
+	weight = 23
+	integrity = 2000
+	hitsound = 'sound/weapons/smash.ogg'
+	stack_type = /obj/item/stack/material/concretered
 
 /material/woodalt
 	name = "rich wood"
 	adjective_name = "wooden"
-	stack_type = /obj/item/stack/material/wood
+	stack_type = /obj/item/stack/material/r_wood
 	icon_colour = "#824B28"
-	integrity = 50
+	integrity = 5
 	icon_base = "woodalt"
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks
-	hardness = 15
+	hardness = 30
 	brute_armor = 1
 	weight = 18
+	integrity = 300
 	melting_point = T0C+300 //okay, not melting in this case, but hot enough to destroy wood
 	ignition_point = T0C+288
 	stack_origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	dooropen_noise = 'sound/effects/doors/wooden_door_open.wav'
+	doorclose_noise = 'sound/effects/doors/wooden_door_open.wav'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
 	sheet_singular_name = "plank"
@@ -1055,11 +1141,14 @@ var/list/name_to_material
 /material/brick
 	name = "brick"
 	icon_base = "brick"
-	explosion_resistance = 50
+	sheet_singular_name = "brick"
+	sheet_plural_name = "bricks"
+	integrity = 600
+	conductive = 0
+	explosion_resistance = 1
 	brute_armor = 10
 	burn_armor = 15
-	hardness = 80
+	hardness = 150
 	weight = 23
-	integrity = 2800
 	stack_type = /obj/item/stack/material/concrete
 	hitsound = 'sound/weapons/smash.ogg'

@@ -4,391 +4,423 @@
 # TITLE ROLE
 # }
 
-# STAFF
+############### HOST AND FRA
 
-MrGabol100 = {
+voncarstein = {
 ::ALL::
 }
 
-ExecutorPartner = {
-::ALL::
+echion = {
+ddr_officer
+ddr_nco
+ddr_enlisted
 }
 
-Jerman5 = {
-::ALL::
+kindadread = {
+ddr_officer
+ddr_nco
+ddr_enlisted
 }
 
-I like D0nUts = {
-::ALL::
+nightfang212 = {
+ddr_officer
+ddr_nco
+ddr_enlisted
 }
 
-TeknoKot = {
-::ALL::
+ezhlk = {
+ddr_nco
+ddr_enlisted
 }
 
-Bongosz = {
-::ALL::
+valot78 = {
+ddr_nco
+ddr_enlisted
 }
 
-Master8688 = {
-::ALL::
+jackomago61 = {
+ddr_nco
+ddr_enlisted
 }
 
-Lushsalmon123 = {
-::ALL::
+sivuha = {
+ddr_nco
+ddr_enlisted
 }
 
-Churro5 = {
-::ALL::
+softstone101 = {
+ddr_nco
+ddr_enlisted
 }
 
-SilverSZ = {
-::ALL::
+theflyingbananagaming = {
+ddr_nco
+ddr_enlisted
 }
 
-MadMrE = {
-::ALL::
+luke313 = {
+ddr_nco
+ddr_enlisted
 }
 
-Demkova = {
-::ALL::
+alexundrrrmkaroff = {
+ddr_nco
+ddr_enlisted
 }
 
-Sapu222 = {
-::ALL::
-}
-
-AlexUNDRRRMKaroff = {
-::ALL::
-}
-
-Akellzp = {
-::ALL::
-}
-
-Mikaelcg = {
-::ALL::
+nayser = {
+ddr_nco
+ddr_enlisted
 }
 
 epicdwarf = {
-::ALL::
-<<<<<<< Updated upstream
+ddr_enlisted
 }
 
-miguelin0411 = {
-::ALL::
+foxtail99 = {
+ddr_enlisted
 }
 
-McSpanky.com = {
-::ALL::
+protoszerg = {
+ddr_enlisted
 }
 
-FireFryer = {
-::ALL::
+bob46 = {
+ddr_enlisted
 }
 
-Verarch = {
-::ALL::
+sfele = {
+ddr_enlisted
 }
 
-Freiwillige = {
-::ALL::
+akellazp = {
+ddr_enlisted
 }
 
-DanseMacabre = {
-::ALL::
+mixanovr64 = {
+ddr_enlisted
 }
 
-BoringCommunist = {
-::ALL::
+thunderstorms = {
+ddr_enlisted
 }
 
-The Secret Slav = {
-::ALL::
+avgustfroch = {
+ddr_enlisted
 }
 
-Billy Hays = {
-::ALL::
+nikita588 = {
+ddr_enlisted
 }
 
-CeSium_Shark = {
-::ALL::
+cesarjunior233 = {
+ddr_enlisted
 }
 
-Zach666 = {
-::ALL::
+desgarradordeprostata = {
+ddr_enlisted
 }
 
-Joooks = {
-::ALL::
+mikaelcg = {
+ddr_enlisted
 }
 
-ToroidalZer0 = {
-::ALL::
+logankele = {
+ddr_enlisted
 }
 
-Eric066 = {
-::ALL::
+hsiwe = {
+ddr_enlisted
 }
 
-NoBillyNotReally = {
-::ALL::
+timtwoshoes = {
+ddr_enlisted
 }
 
-Wigglesworth Jones = {
-::ALL::
+moorishinfanteer = {
+ddr_enlisted
 }
 
-RUINEREK = {
-::ALL::
+yarnhut = {
+ddr_enlisted
 }
 
-Sperky7933 = {
-::ALL::
+geniyevgeniy = {
+ddr_enlisted
 }
 
-Sha.SCT = {
-::ALL::
+decebalstalin = {
+ddr_enlisted
 }
 
-thechadnigge = {
-::ALL::
+higherlife = {
+ddr_enlisted
 }
 
-Cadet0 = {
-::ALL::
+churro5 = {
+ddr_enlisted
 }
 
-Chungus delux = {
-::ALL::
+vulpesishot = {
+ddr_enlisted
 }
 
-ConteudoGenerico = {
-::ALL::
+0xdeed = {
+ddr_enlisted
 }
 
-TripleG = {
-::ALL::
+nopakizone = {
+ddr_enlisted
 }
 
-Jackomago61  = {
-::ALL::
+leothekiller = {
+ddr_enlisted
 }
 
-yung bruh = {
-::ALL::
+alex13t = {
+ddr_enlisted
 }
 
-LivonianGuy = {
-::ALL::
+oshibka = {
+ddr_enlisted
 }
 
-atlasrules87 = {
-::ALL::
+trevic = {
+ddr_enlisted
 }
 
-EvenInDeathIStillServe = {
-::ALL::
+jamessirk = {
+ddr_enlisted
 }
 
-Chalbo159 = {
-::ALL::
+thesecretslav = {
+ddr_enlisted
 }
 
-Burtyu  = {
-::ALL::
+ondrej008 = {
+ddr_enlisted
 }
 
-Taumanta   = {
-::ALL::
+chungusdelux = {
+ddr_enlisted
 }
 
-Kindadread  = {
-::ALL::
+boringcommunist = {
+bdw_officer
+bdw_nco
+bdw_enlisted
 }
 
-ChristReborn  = {
-::ALL::
+pete112 = {
+bdw_officer
+bdw_nco
+bdw_enlisted
 }
 
-Dudo  = {
-::ALL::
+lushsalmon123 = {
+bdw_officer
+bdw_nco
+bdw_enlisted
 }
 
-ReBull  = {
-::ALL::
+bongosz = {
+bdw_nco
+bdw_enlisted
 }
 
-Balpindo  = {
-::ALL::
-=======
+corbe = {
+bdw_nco
+bdw_enlisted
 }
 
-miguelin0411 = {
-::ALL::
+joooks = {
+bdw_nco
+bdw_enlisted
 }
 
-McSpanky.com = {
-::ALL::
+yungbruh = {
+bdw_nco
+bdw_enlisted
 }
 
-FireFryer = {
-::ALL::
+billyhays = {
+bdw_nco
+bdw_enlisted
 }
 
-Verarch = {
-::ALL::
+shasct = {
+bdw_nco
+bdw_enlisted
 }
 
-Freiwillige = {
-::ALL::
+themanwhosoldthehorns = {
+bdw_nco
+bdw_enlisted
 }
 
-DanseMacabre = {
-::ALL::
+b3anz = {
+bdw_nco
+bdw_enlisted
 }
 
-BoringCommunist = {
-::ALL::
+cadeto = {
+bdw_nco
+bdw_enlisted
 }
 
-The Secret Slav = {
-::ALL::
+yacobpo157 = {
+bdw_nco
+bdw_enlisted
 }
 
-Billy Hays = {
-::ALL::
+bobmancer343 = {
+bdw_enlisted
 }
 
-CeSium_Shark = {
-::ALL::
+egorium = {
+bdw_enlisted
 }
 
-Zach666 = {
-::ALL::
+xdyou = {
+bdw_enlisted
 }
 
-Joooks = {
-::ALL::
+master8688 = {
+bdw_enlisted
 }
 
-ToroidalZer0 = {
-::ALL::
+pappisherman = {
+bdw_enlisted
 }
 
-Eric066 = {
-::ALL::
+meem4902 = {
+bdw_enlisted
 }
 
-NoBillyNotReally = {
-::ALL::
+mrkieubas = {
+bdw_enlisted
 }
 
-Wigglesworth Jones = {
-::ALL::
+sugmus = {
+bdw_enlisted
 }
 
-RUINEREK = {
-::ALL::
+vlad3 = {
+bdw_enlisted
 }
 
-Sperky7933 = {
-::ALL::
+toroidalzer0 = {
+bdw_enlisted
 }
 
-Sha.SCT = {
-::ALL::
+chaoticagent = {
+bdw_enlisted
 }
 
-thechadnigge = {
-::ALL::
+rebull = {
+bdw_enlisted
 }
 
-Cadet0 = {
-::ALL::
+luftie = {
+bdw_enlisted
 }
 
-Chungus delux = {
-::ALL::
+rand4l = {
+bdw_enlisted
 }
 
-ConteudoGenerico = {
-::ALL::
+troy42506 = {
+bdw_enlisted
 }
 
-TripleG = {
-::ALL::
+subaruuuuu = {
+bdw_enlisted
 }
 
-Jackomago61  = {
-::ALL::
+commanderchris = {
+bdw_enlisted
 }
 
-yung bruh = {
-::ALL::
+mazenalmoraud = {
+bdw_enlisted
 }
 
-LivonianGuy = {
-::ALL::
+solarmacharius = {
+bdw_enlisted
 }
 
-atlasrules87 = {
-::ALL::
+tristan63 = {
+bdw_enlisted
 }
 
-EvenInDeathIStillServe = {
-::ALL::
+silencedmp5a5 = {
+bdw_enlisted
 }
 
-Chalbo159 = {
-::ALL::
+dudeman100 = {
+bdw_enlisted
 }
 
-Burtyu  = {
-::ALL::
+arbufy = {
+bdw_enlisted
 }
 
-Taumanta   = {
-::ALL::
+lordinquisitor228 = {
+bdw_enlisted
 }
 
-Kindadread  = {
-::ALL::
+balpindo = {
+bdw_enlisted
 }
 
-ChristReborn  = {
-::ALL::
+localizeddownpour = {
+bdw_enlisted
 }
 
-Dudo  = {
-::ALL::
+thecrazywolf = {
+bdw_enlisted
 }
 
-ReBull  = {
-::ALL::
+shmesser = {
+bdw_enlisted
 }
 
-Balpindo  = {
-::ALL::
+lynauhsororitas = {
+bdw_enlisted
 }
 
-Ondrej008 = {
-::ALL::
+demkova = {
+bdw_enlisted
 }
 
-Rand4l = {
-::ALL::
+omenVI = {
+bdw_enlisted
 }
 
-LordeKilly = {
-::ALL::
+lordkang45 = {
+bdw_enlisted
 }
 
-Subaruuuuu = {
-all
->>>>>>> Stashed changes
+mikt4743 = {
+bdw_enlisted
 }
 
-Corbe = {
-::ALL::
+booperkin343435 = {
+bdw_enlisted
+}
+
+thatonedude1 = {
+bdw_enlisted
+}
+
+1kajowsmol = {
+bdw_enlisted
+}
+
+xandimasculu = {
+bdw_enlisted
+}
+
+lol18 = {
+bdw_enlisted
 }

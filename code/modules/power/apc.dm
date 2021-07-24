@@ -825,7 +825,7 @@
 	)
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
 		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -1052,7 +1052,7 @@
 			var/draw = draw_power(cellused/CELLRATE) // draw the power needed to charge this cell
 			cell.give(draw * CELLRATE)
 		else		// no excess, and not enough per-apc
-			playsound(src.loc, 'sound/machines/apc_whine.wav', 5, 0)
+			playsound(src.loc, 'sound/machines/apc_whine.ogg', 5, 0)
 			if( (cell.charge/CELLRATE + excess) >= lastused_total)		// can we draw enough from cell+grid to cover last usage?
 				var/draw = draw_power(excess)
 				cell.charge = min(cell.maxcharge, cell.charge + CELLRATE * draw)	//recharge with what we can

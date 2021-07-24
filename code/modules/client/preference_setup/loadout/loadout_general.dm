@@ -1,16 +1,29 @@
-
-/datum/gear/cane
-	display_name = "cane"
-	path = /obj/item/weapon/cane
-
 /datum/gear/dice
 	display_name = "dice pack"
 	path = /obj/item/weapon/storage/pill_bottle/dice
 
+/datum/gear/dice/nerd
+	display_name = "dice pack (gaming)"
+	path = /obj/item/weapon/storage/pill_bottle/dice_nerd
+
 /datum/gear/cards
 	display_name = "deck of cards"
 	path = /obj/item/weapon/deck/cards
+
+/datum/gear/comb
+	display_name = "purple comb"
+	path = /obj/item/weapon/haircomb
+
 /*
+/datum/gear/cane
+	display_name = "cane"
+	path = /obj/item/weapon/cane
+
+/datum/gear/mug
+	display_name = "mug"
+	path = /obj/item/weapon/reagent_containers/food/drinks/coffeecup
+	flags = GEAR_HAS_TYPE_SELECTION
+
 /datum/gear/tarot
 	display_name = "deck of tarot cards"
 	path = /obj/item/weapon/deck/tarot
@@ -38,13 +51,6 @@
 	..()
 	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_ethanol_reagents())
 	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
-
-
-/datum/gear/coffeecup
-	display_name = "coffee cup"
-	path = /obj/item/weapon/reagent_containers/food/drinks/coffeecup
-	flags = GEAR_HAS_TYPE_SELECTION
-
 
 /datum/gear/boot_knife
 	display_name = "boot knife"

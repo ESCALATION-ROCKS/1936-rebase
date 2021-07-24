@@ -3,7 +3,6 @@
 	var/multi_z_scalar = 0.35
 	src = null	//so we don't abort once src is deleted
 	spawn(0)
-		var/start = world.timeofday
 		epicenter = get_turf(epicenter)
 		if(!epicenter) return
 
@@ -51,10 +50,10 @@
 						var/far_volume = Clamp(far_dist*3, 30, 50) // Volume is based on explosion size and dist
 						far_volume += (dist <= far_dist * 0.5 ? 50 : 0) // add 50 volume if the mob is pretty close to the explosion
 						if(devastation_range > 0)
-							M.playsound_local(epicenter, 'sound/effects/explosionfarnew.wav', far_volume * 2, 1, frequency, falloff = 5)
+							M.playsound_local(epicenter, 'sound/effects/explosionfarnew.ogg', far_volume * 2, 1, frequency, falloff = 5)
 							shake_camera(M, 5, 1)
 						else
-							M.playsound_local(epicenter, 'sound/effects/explosionsmallfarnew.wav', far_volume * 2, 1, frequency, falloff = 5)
+							M.playsound_local(epicenter, 'sound/effects/explosionsmallfarnew.ogg', far_volume * 2, 1, frequency, falloff = 5)
 
 		if(adminlog)
 			message_admins("Explosion with size ([devastation_range], [heavy_impact_range], [light_impact_range]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
@@ -66,7 +65,7 @@
 			defer_powernet_rebuild = 1
 
 		if(heavy_impact_range > 1)
-			
+
 			if(do_effects)
 				var/datum/effect/system/explosion/E = new/datum/effect/system/explosion()
 				E.set_up(epicenter)
@@ -102,16 +101,12 @@
 					if(AM && AM.simulated && !T.protects_atom(AM))
 						AM.ex_act(dist)
 
-		var/took = (world.timeofday-start)/10
-		//You need to press the DebugGame verb to see these now....they were getting annoying and we've collected a fair bit of data. Just -test- changes  to explosion code using this please so we can compare
-		if(Debug2) world.log << "## DEBUG: Explosion([x0],[y0],[z0])(d[devastation_range],h[heavy_impact_range],l[light_impact_range]): Took [took] seconds."
-
 		sleep(8)
 
 	return 1
 
 
-
 proc/secondaryexplosion(turf/epicenter, range)
 	for(var/turf/tile in range(range, epicenter))
 		tile.ex_act(2)
+

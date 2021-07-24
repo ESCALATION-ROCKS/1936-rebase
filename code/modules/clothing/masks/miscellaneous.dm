@@ -33,6 +33,7 @@
 	icon_state = "sterile"
 	item_state = "sterile"
 	w_class = ITEM_SIZE_SMALL
+	wearable = 1
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
@@ -260,8 +261,7 @@
 // Bandanas below
 /obj/item/clothing/mask/bandana
 	name = "black bandana"
-	desc = "A fine bandana with nanotech lining. Can be worn on the head or face."
-	flags_inv = HIDEFACE
+	desc = "A fine bandana made from fabric. Can be worn on the head or face."
 	slot_flags = SLOT_MASK|SLOT_HEAD
 	body_parts_covered = FACE
 	icon_state = "bandblack"

@@ -88,7 +88,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 /mob/observer/ghost/Topic(href, href_list)
 	if (href_list["track"])
 		if(istype(href_list["track"],/mob))
-			var/mob/target = locate(href_list["track"]) in GLOB.mob_list
+			var/mob/target = locate(href_list["track"]) in SSmobs.mob_list
 			if(target)
 				ManualFollow(target)
 		else
@@ -175,6 +175,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			return
 		resting = 1
 		var/turf/location = get_turf(src)
+		succumb()
 		message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 		log_game("[key_name_admin(usr)] has ghosted.")
 		var/mob/observer/ghost/ghost = ghostize(0)	//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3

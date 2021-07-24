@@ -105,7 +105,7 @@
 	if (usr != src)
 		return //something is terribly wrong
 
-	for(var/mob/living/L in GLOB.mob_list) //Simple check so you don't have dead people calling.
+	for(var/mob/living/L in SSmobs.mob_list) //Simple check so you don't have dead people calling.
 		if(src.client.prefs.real_name == L.real_name)
 			to_chat(src, "<span class='danger'>Your identity is already present in the game world.  Please load in a different character first.</span>")
 			return
@@ -138,7 +138,7 @@
 			exonet_messages.Add("<b>To [chosen_communicator]:</b><br>[text_message]")
 			log_pda("[usr] (COMM: [src]) sent \"[text_message]\" to [chosen_communicator]")
 			for(var/mob/M in GLOB.player_list)
-				if(M.stat == DEAD && M.is_preference_enabled(/datum/client_preference/ghost_ears))
+				if(M.stat == DEAD && M.get_preference_value(/datum/client_preference/ghost_ears) == GLOB.PREF_ALL_SPEECH)
 					if(istype(M, /mob/new_player))
 						continue
 					if(M == src)

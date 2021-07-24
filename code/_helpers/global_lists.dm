@@ -45,12 +45,15 @@ GLOBAL_LIST_INIT(body_marking_styles_list, list())		//stores /datum/sprite_acces
 
 GLOBAL_DATUM_INIT(underwear, /datum/category_collection/underwear, new())
 
-var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Brown Satchel", "Messenger Bag", "Black Satchel")
+var/global/list/backbaglist = list("Backpack", "Satchel - Buttpack") //"Large - unused"
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg)
 
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
+
+//ckey list
+var/global/list/ckey_whitelist = null
 
 // Runes
 var/global/list/rune_list = new()
@@ -79,6 +82,7 @@ var/global/list/string_part_flags = list(
 // Strings which corraspond to slot flags, useful for outputting what slot something is.
 var/global/list/string_slot_flags = list(
 	"back" = SLOT_BACK,
+	"gun slot" = SLOT_GUN_SLOT,
 	"face" = SLOT_MASK,
 	"waist" = SLOT_BELT,
 	"ID slot" = SLOT_ID,

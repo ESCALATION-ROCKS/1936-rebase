@@ -174,10 +174,11 @@
 	electric = 1
 
 /obj/item/clothing/glasses/regular
-	name = "spectacles"
-	desc = "Round shaped glasses."
+	name = "prescription glasses"
+	desc = "Made by Nerd. Co."
 	icon_state = "glasses"
 	item_state = "glasses"
+	wearable = 1
 	prescription = 7
 	body_parts_covered = 0
 
@@ -186,6 +187,7 @@
 	desc = "The Anti War movement is stronger than ever."
 	icon_state = "hipster_glasses"
 	item_state = "hipster_glasses"
+	wearable = 1
 	body_parts_covered = 0
 
 /obj/item/clothing/glasses/regular/scanners
@@ -200,6 +202,7 @@
 	desc = "Made by Uncool. Co."
 	icon_state = "hipster_glasses"
 	item_state = "hipster_glasses"
+	wearable = 1
 
 /obj/item/clothing/glasses/threedglasses
 	name = "3D glasses"
@@ -217,9 +220,10 @@
 
 /obj/item/clothing/glasses/sunglasses
 	name = "sunglasses"
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."
+	desc = "A neat lookin' pair of shades."
 	icon_state = "sun"
 	item_state = "sunglasses"
+	wearable = 1
 	darkness_view = -1
 	flash_protection = FLASH_PROTECTION_MODERATE
 
@@ -291,11 +295,13 @@
 /obj/item/clothing/glasses/sunglasses/prescription
 	name = "prescription sunglasses"
 	prescription = 5
+	wearable = 1
 
 /obj/item/clothing/glasses/sunglasses/big
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Larger than average enhanced shielding blocks many flashes."
+	desc = "A larger pair of sunglasses. Even neater!"
 	icon_state = "bigsunglasses"
 	item_state = "bigsunglasses"
+	wearable = 1
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUD sunglasses"

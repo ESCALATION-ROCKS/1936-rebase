@@ -15,12 +15,12 @@
 	handle_casings = HOLD_CASINGS
 	one_hand_penalty = 2
 	wielded_item_state = "gun_wielded"
-	picksound = 'sound/items/interactions/rifle_draw.wav'
+	picksound = 'sound/items/interactions/rifle_draw.ogg'
+	drop_sound = 'sound/items/interactions/drop_gun.ogg'
 	reload_sound = 'sound/weapons/gunhandling/shell_insert.wav'
-	var/recentpump = 0 // to prevent spammage
-	fire_sound = 'sound/weapons/gunshot/m3-1.wav'
+	fire_sound = 'sound/weapons/gunshot/m3-1.ogg'
 	empty_sound = 'sound/weapons/gunhandling/shotgun_empty.ogg'
-	jam_chance = 30
+	var/recentpump = 0 // to prevent spammage
 
 /obj/item/weapon/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
@@ -28,25 +28,30 @@
 	return null
 
 /obj/item/weapon/gun/projectile/shotgun/pump/attack_self(mob/living/user as mob)
-	if(world.time >= recentpump + 10)
+	if(world.time >= recentpump + 7)
 		pump(user)
 		recentpump = world.time
+	else
+		to_chat(user, "<span class='warning'>[src]'s action is not ready to be pumped again!</span>")
 
 /obj/item/weapon/gun/projectile/shotgun/pump/proc/pump(mob/M as mob)
 	playsound(M, 'sound/weapons/gunhandling/shotgunpump.wav', 60, 1)
 
-	if(chambered)//We have a shell in the chamber
+	if(chambered)//We have a shell in the chamber - Only updates icon_state because who gives a fuck otherwise
 		chambered.forceMove(get_turf(src))//Eject casing
 		if(LAZYLEN(chambered.casing_sound))
 			playsound(loc, chambered.casing_sound, 50, 1)
+		icon_state = "[initial(icon_state)]-empty"
 		chambered = null
 
 	if(loaded.len)
 		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
 		loaded -= AC //Remove casing from loaded list.
+		icon_state = "[initial(icon_state)]"
 		chambered = AC
 
 	update_icon()
+	update_held_icon()
 
 /obj/item/weapon/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
@@ -94,8 +99,8 @@
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
 	..(user, allow_dump=1)
 
-//this is largely hacky and bad :(	-Pete
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A as obj, mob/user as mob)
+//this is largely hacky and bad ----- Commented out by severepwnage XDDD
+/*/obj/item/weapon/gun/projectile/shotgun/doublebarrel/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(w_class > 3 && (istype(A, /obj/item/weapon/circular_saw) || istype(A, /obj/item/weapon/melee/energy) || istype(A, /obj/item/weapon/pickaxe/plasmacutter)))
 		to_chat(user, "<span class='notice'>You begin to shorten the barrel of \the [src].</span>")
 		if(loaded.len)
@@ -115,7 +120,7 @@
 			desc = "Omar's coming!"
 			to_chat(user, "<span class='warning'>You shorten the barrel of \the [src]!</span>")
 	else
-		..()
+		..()*/
 
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn
 	name = "sawn-off shotgun"
@@ -128,11 +133,3 @@
 	force = 5
 	one_hand_penalty = 0
 
-/obj/item/weapon/gun/projectile/shotgun/pump/redline
-	name = "pump shotgun"
-	desc = "SET DESC HERE."
-	icon_state = "redlineshotty"
-	item_state = "cshotgun"
-	max_shells = 5
-	ammo_type = /obj/item/ammo_casing/shotgun
-	one_hand_penalty = 2 //a little heavier than the regular shotgun

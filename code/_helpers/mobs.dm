@@ -56,6 +56,48 @@ proc/esc_random_name(gender, faction)
 			else
 				return capitalize(pick(first_names_male_cccp)) + " " + capitalize(pick(last_names_cccp))
 
+		if("usa")
+			if(gender == FEMALE)
+				return capitalize(pick(first_names_female_usmc)) + " " + capitalize(pick(last_names_usmc))
+			else
+				return capitalize(pick(first_names_male_usmc)) + " " + capitalize(pick(last_names_usmc))
+
+		if("baf")
+			if(gender == FEMALE)
+				return capitalize(pick(first_names_female_usmc)) + " " + capitalize(pick(last_names_usmc))
+			else
+				return capitalize(pick(first_names_male_usmc)) + " " + capitalize(pick(last_names_usmc))
+
+		if("finn")
+			if(gender == FEMALE)
+				return capitalize(pick(first_names_female_finn)) + " " + capitalize(pick(last_names_finn))
+			else
+				return capitalize(pick(first_names_male_finn)) + " " + capitalize(pick(last_names_finn))
+
+		if("csla")
+			if(gender == FEMALE)
+				return capitalize(pick(first_names_female_csla)) + " " + capitalize(pick(last_names_female_csla))
+			else
+				return capitalize(pick(first_names_male_csla)) + " " + capitalize(pick(last_names_csla))
+
+		if("heer")
+			if(gender == FEMALE)
+				return capitalize(pick(first_names_female_bund)) + " " + capitalize(pick(last_names_bund))
+			else
+				return capitalize(pick(first_names_male_bund)) + " " + capitalize(pick(last_names_bund))
+
+		if("esp")
+			if(gender == FEMALE)
+				return capitalize(pick(first_names_female_esp)) + " " + capitalize(pick(last_names_esp))
+			else
+				return capitalize(pick(first_names_male_esp)) + " " + capitalize(pick(last_names_esp))
+
+		if("fra")
+			if(gender == FEMALE)
+				return capitalize(pick(first_names_female_fra)) + " " + capitalize(pick(last_names_fra))
+			else
+				return capitalize(pick(first_names_male_fra)) + " " + capitalize(pick(last_names_fra))
+
 
 proc/random_hair_style(gender, species = SPECIES_HUMAN)
 	var/h_style = "Bald"
@@ -150,9 +192,9 @@ proc/age2agedescription(age)
 		if(0 to 1)			return "infant"
 		if(1 to 3)			return "toddler"
 		if(3 to 13)			return "child"
-		if(13 to 19)		return "teenager"
-		if(19 to 30)		return "young adult"
-		if(30 to 45)		return "adult"
+		if(13 to 18)		return "teenager"
+		if(18 to 24)		return "young adult"
+		if(24 to 45)		return "adult"
 		if(45 to 60)		return "middle-aged"
 		if(60 to 70)		return "aging"
 		if(70 to INFINITY)	return "elderly"
@@ -162,17 +204,17 @@ proc/age2agedescription(age)
 proc/ageAndGender2Desc(age, gender)//Used for the radio
 	if(gender == FEMALE)
 		switch(age)
-			if(0 to 15)			return "Girl"
-			if(15 to 25)		return "Young Woman"
-			if(25 to 60)		return "Woman"
-			if(60 to INFINITY)	return "Old Woman"
+			if(0 to 18)			return "Girl"
+			if(18 to 24)		return "Young Woman"
+			if(24 to 45)		return "Woman"
+			if(45 to INFINITY)	return "Old Woman"
 			else				return "Unknown"
 	else
 		switch(age)
-			if(0 to 15)			return "Boy"
-			if(15 to 25)		return "Young Man"
-			if(25 to 60)		return "Man"
-			if(60 to INFINITY)	return "Old Man"
+			if(0 to 18)			return "Boy"
+			if(18 to 24)		return "Young Man"
+			if(24 to 45)		return "Man"
+			if(45 to INFINITY)	return "Old Man"
 			else				return "Unknown"
 
 /proc/RoundHealth(health)

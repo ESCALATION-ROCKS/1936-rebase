@@ -97,7 +97,7 @@
 	data["injection"] = injection
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -175,7 +175,7 @@
 			im_list += list(list("address" = exonet.address, "to_address" = their_address, "im" = text))
 			log_pda("[usr] (COMM: [src]) sent \"[text]\" to [exonet.get_atom_from_address(their_address)]")
 			for(var/mob/M in GLOB.player_list)
-				if(M.stat == DEAD && M.is_preference_enabled(/datum/client_preference/ghost_ears))
+				if(M.stat == DEAD && M.get_preference_value(/datum/client_preference/ghost_ears) == GLOB.PREF_ALL_SPEECH)
 					if(istype(M, /mob/new_player))
 						continue
 					if(exonet.get_atom_from_address(their_address) == M)
@@ -231,5 +231,5 @@
 			note = ""
 			notehtml = note
 
-	GLOB.nanomanager.update_uis(src)
+	SSnano.update_uis(src)
 	add_fingerprint(usr)

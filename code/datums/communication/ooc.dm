@@ -18,8 +18,31 @@
 			return FALSE
 		if(findtext(message, "byond://"))
 			to_chat(C, "<B>Advertising other servers is not allowed.</B>")
-			log_and_message_admins("has attempted to advertise in [name]: [message]")
+			log_and_message_admins("has attempted to advertise a BYOND server in [name]: [message]")
 			return FALSE
+		if(findtext(message, "discord.gg/"))
+			to_chat(C, "<B>Advertising other discord servers is not allowed.</B>")
+			log_and_message_admins("has attempted to advertise a discord channel in [name]: [message]")
+			return FALSE
+
+	if(usr.talked == 2)
+		usr << "\red Your spam has been consumed for it's nutritional value."
+		return
+	if((usr.talked == 1) && (usr.chatWarn >= 5))
+		usr.talked = 2
+		usr << "\red You have been flagged for spam.  You may not speak for at least [usr.chatWarn] seconds (if you spammed alot this might break and never unmute you).  This number will increase each time you are flagged for spamming"
+		if(usr.chatWarn >10)
+			message_admins("[key_name(usr, usr.client)] is spamming like a dirty bitch, their current chatwarn is [usr.chatWarn].  Mute them and find out whats going on.")
+		spawn(usr.chatWarn*10)
+			usr.talked = 0
+			usr << "\blue You may now speak again."
+			usr.chatWarn++
+		return
+	else if(usr.talked == 1)
+		usr << "\blue You just said something, take a breath."
+		usr.chatWarn++
+		return
+
 
 /decl/communication_channel/ooc/do_communicate(var/client/C, var/message)
 	var/datum/admins/holder = C.holder
@@ -39,9 +62,9 @@
 	var/ooc_color = C.prefs.ooccolor
 
 	for(var/client/target in GLOB.clients)
-		if(target.is_key_ignored(C.key)) // If we're ignored by this person, then do nothing.
+		if(target.is_key_ignored(C.key)) // [country2chaticon(C.country)] right before <EM> for flags
 			continue
-		var/sent_message = "[create_text_tag("ooc", "OOC:", target)] <EM>[C.key]:</EM> <span class='message'>[message]</span>"
+		var/sent_message = "[create_text_tag("ooc", "OOC:", target)] [country2chaticon(C.country)]<EM>[C.key]:</EM> <span class='message'>[message]</span>"
 		if(can_badmin)
 			receive_communication(C, target, "<font color='[ooc_color]'><span class='ooc'>[sent_message]</font></span>")
 		else

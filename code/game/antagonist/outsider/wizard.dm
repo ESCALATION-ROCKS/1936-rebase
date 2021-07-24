@@ -81,9 +81,9 @@ var/datum/antagonist/wizard/wizards
 	wizard_mob.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(wizard_mob), slot_shoes)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe(wizard_mob), slot_wear_suit)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/clothing/head/wizard(wizard_mob), slot_head)
-	if(wizard_mob.backbag == 2) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(wizard_mob), slot_back)
-	if(wizard_mob.backbag == 3) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(wizard_mob), slot_back)
-	if(wizard_mob.backbag == 4) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(wizard_mob), slot_back)
+	if(wizard_mob.backbag == 1) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack(wizard_mob), slot_back)
+	if(wizard_mob.backbag == 1) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_norm(wizard_mob), slot_back)
+	if(wizard_mob.backbag == 1) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(wizard_mob), slot_back)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/box(wizard_mob), slot_in_backpack)
 	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/teleportation_scroll(wizard_mob), slot_r_store)
 	var/obj/item/I = new /obj/item/weapon/spellbook(get_turf(wizard_mob))
@@ -126,8 +126,9 @@ var/datum/antagonist/wizard/wizards
 	for(var/spell/spell_to_remove in mind.learned_spells)
 		remove_spell(spell_to_remove)
 
-obj/item/clothing
+/obj/item/clothing
 	var/wizard_garb = 0
+	var/wearable = 0
 
 // Does this clothing slot count as wizard garb? (Combines a few checks)
 /proc/is_wiz_garb(var/obj/item/clothing/C)

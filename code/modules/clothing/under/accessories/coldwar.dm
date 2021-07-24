@@ -1,12 +1,14 @@
-/obj/item/clothing/accessory/badge/dogtag
-	name = "dog tags"
-	desc = "Plain identification tags made from a durable metal. They are stamped with a variety of informational details."
+/obj/item/clothing/accessory/badge/natodogtag
+	name = "NATO dogtag"
+	desc = "A piece of stamped metal containing the identification for a NATO soldier."
 	gender = PLURAL
-	icon_state = "tags"
-	badge_string = "U.S.M.C."
-	slot_flags = SLOT_MASK | SLOT_TIE
+	icon = 'icons/obj/clothing/ties.dmi'
+	icon_state = "natodog"
+	badge_string = "NATO"
+	slot_flags = SLOT_TIE
+	wearable = 1
 
-/obj/item/clothing/accessory/badge/dogtag/Initialize()
+/obj/item/clothing/accessory/badge/natodogtag/Initialize()
 	. = ..()
 	var/mob/living/carbon/human/H
 	H = get_holder_of_type(src, /mob/living/carbon/human)
@@ -14,18 +16,40 @@
 		set_name(H.real_name)
 		set_desc(H)
 
-/obj/item/clothing/accessory/badge/dogtag/set_desc(var/mob/living/carbon/human/H)
+/obj/item/clothing/accessory/badge/natodogtag/set_desc(var/mob/living/carbon/human/H)
 	if(!istype(H))
 		return
-	desc = "[initial(desc)]\nName: [H.real_name]\nReligion: [H.religion]\nBlood type: [H.b_type]"
+	desc = "[initial(desc)]\nName: [H.real_name]\nBlood type: [H.b_type]"
 
+/obj/item/clothing/accessory/badge/wpdogtag
+	name = "WARPACT dogtag"
+	desc = "A piece of stamped metal containing the identification for a Warsaw Pact soldier."
+	icon_state = "wpdog"
+	icon = 'icons/obj/clothing/ties.dmi'
+	gender = PLURAL
+	badge_string = "WARPACT"
+	slot_flags = SLOT_TIE
+	wearable = 1
+
+/obj/item/clothing/accessory/badge/wpdogtag/Initialize()
+	. = ..()
+	var/mob/living/carbon/human/H
+	H = get_holder_of_type(src, /mob/living/carbon/human)
+	if(H)
+		set_name(H.real_name)
+		set_desc(H)
+
+/obj/item/clothing/accessory/badge/wpdogtag/set_desc(var/mob/living/carbon/human/H)
+	if(!istype(H))
+		return
+	desc = "[initial(desc)]\nName: [H.real_name]\nBlood type: [H.b_type]"
 
 /obj/item/clothing/accessory/insignia
 	name = "Insignia"
 	desc = "That's an insignia"
 	on_rolled = list("down" = "none")
-	on_jacket = list("removed" = "none")
 	var/rank = null
+	wearable = 1
 
 /obj/item/clothing/accessory/insignia/soviet/pvt
 	name = "'Ryadovoi' insignia"
@@ -210,6 +234,55 @@
 	icon_state = "bdw_oberleutnant"
 	rank = "Oberleutnant"
 
+/obj/item/clothing/accessory/insignia/bundesheer/soldat
+	name = "Schutze insignia"
+	icon_state = "bdw_soldat"
+	rank = "Schutze"
+
+/obj/item/clothing/accessory/insignia/bundesheer/gefr
+	name = "Gefreiter insignia"
+	icon_state = "bdw_gefreiter"
+	rank = "Gefreiter"
+
+/obj/item/clothing/accessory/insignia/bundesheer/obergefr
+	name = "Obergefreiter insignia"
+	icon_state = "bdw_obergefreiter"
+	rank = "Obergefreiter"
+
+/obj/item/clothing/accessory/insignia/bundesheer/hauptgefr
+	name = "Hauptgefreiter insignia"
+	icon_state = "bdw_hauptgefreiter"
+	rank = "Hauptgefreiter"
+
+/obj/item/clothing/accessory/insignia/bundesheer/stabsgefr
+	name = "Stabsgefreiter insignia"
+	icon_state = "bdw_stabsgefreiter"
+	rank = "Stabsgefreiter"
+
+/obj/item/clothing/accessory/insignia/bundesheer/oberstabsgefr
+	name = "Obertabsgefreiter insignia"
+	icon_state = "bdw_oberstabsgefreiter"
+	rank = "Obertabsgefreiter"
+
+/obj/item/clothing/accessory/insignia/bundesheer/unter
+	name = "Unteroffizier insignia"
+	icon_state = "bdw_unteroffizier"
+	rank = "Unteroffizier"
+
+/obj/item/clothing/accessory/insignia/bundesheer/stabsunter
+	name = "Stabsunteroffizier insignia"
+	icon_state = "bdw_stabsunteroffizier"
+	rank = "Stabsunteroffizier"
+
+/obj/item/clothing/accessory/insignia/bundesheer/leutnant
+	name = "Leutnant insignia"
+	icon_state = "bdw_leutnant"
+	rank = "Leutnant"
+
+/obj/item/clothing/accessory/insignia/bundesheer/oberleutnant
+	name = "Oberleutnant insignia"
+	icon_state = "bdw_oberleutnant"
+	rank = "Oberleutnant"
 
 /obj/item/clothing/accessory/insignia/nnaddr/soldat
 	name = "Soldat insignia"
@@ -257,21 +330,144 @@
 	icon_state = "squadpatch"
 	var/squad = null
 
+//uk
 
+/obj/item/clothing/accessory/insignia/baf/p
+	name = "Private"
+	icon_state = "usmc_pfc_insignia"
+	rank = "Private"
+
+/obj/item/clothing/accessory/insignia/baf/lcpl
+	name = "Lance Corporal insignia"
+	icon_state = "usmc_lcpl_insignia"
+	rank = "Lance Corporal"
+
+/obj/item/clothing/accessory/insignia/baf/cpl
+	name = "Corporal insignia"
+	icon_state = "usmc_cpl_insignia"
+	rank = "Corporal"
+
+/obj/item/clothing/accessory/insignia/baf/sgt
+	name = "Sergeant insignia"
+	icon_state = "usmc_sgt_insignia"
+	rank = "Sergeant"
+
+/obj/item/clothing/accessory/insignia/baf/frstsgt
+	name = "First Sergeant insignia"
+	icon_state = "usmc_1stsgt_insignia"
+	rank = "First Sergeant"
+
+/obj/item/clothing/accessory/insignia/baf/scndlt
+	name = "Second Lieutenant insignia"
+	icon_state = "usmc_2ndlt_insignia"
+	rank = "Second Lieutenant"
+
+/obj/item/clothing/accessory/insignia/baf/lt
+	name = "Lieutenant insignia"
+	icon_state = "usmc_1stlt_insignia"
+	rank = "Lieutenant"
+
+////////////////////////finland
+/obj/item/clothing/accessory/insignia/finn/p
+	name = "Sotamies insignia"
+	icon_state = "usmc_pfc_insignia"
+	rank = "Jakaari"
+
+/obj/item/clothing/accessory/insignia/finn/lcpl
+	name = "Korpraali insignia"
+	icon_state = "usmc_lcpl_insignia"
+	rank = "Korpraali"
+
+/obj/item/clothing/accessory/insignia/finn/cpl
+	name = "Alikersantti insignia"
+	icon_state = "usmc_cpl_insignia"
+	rank = "Alikersantti"
+
+/obj/item/clothing/accessory/insignia/finn/sgt
+	name = "Kersantti insignia"
+	icon_state = "usmc_sgt_insignia"
+	rank = "Kersantti"
+
+/obj/item/clothing/accessory/insignia/finn/ltdep
+	name = "Ylikersantti insignia"
+	icon_state = "usmc_1stsgt_insignia"
+	rank = "Ylikersantti"
+
+/obj/item/clothing/accessory/insignia/finn/surgeon
+	name = "Vanrikki insignia"
+	icon_state = "usmc_2ndlt_insignia"
+	rank = "Vanrikki"
+
+/obj/item/clothing/accessory/insignia/finn/lt
+	name = "Luutnantti insignia"
+	icon_state = "usmc_1stlt_insignia"
+	rank = "Luutnantti"
+
+
+//////////csla
+/obj/item/clothing/accessory/insignia/csla/svobodnik
+	name = "Svobodnik insignia"
+	icon_state = "nnaddr_soldat"
+	rank = "Svobodnik"
+
+/obj/item/clothing/accessory/insignia/csla/desatnik
+	name = "Desatnik insignia"
+	icon_state = "nnaddr_obergefreiter"
+	rank = "Desatnik"
+
+/obj/item/clothing/accessory/insignia/csla/cetar
+	name = "Cetar insignia"
+	icon_state = "nnaddr_unteroffizier"
+	rank = "Cetar"
+
+/obj/item/clothing/accessory/insignia/csla/rotny
+	name = "Rotny insignia"
+	icon_state = "nnaddr_unteroffizier"
+	rank = "Rotny"
+
+/obj/item/clothing/accessory/insignia/csla/subleutnant
+	name = "Subleutnant insignia"
+	icon_state = "nnaddr_feldwebel"
+	rank = "Subleutnant"
+
+/obj/item/clothing/accessory/insignia/csla/leutnant
+	name = "Leutnant insignia"
+	icon_state = "nnaddr_leutnant"
+	rank = "Leutnant"
+
+//////FRA
+/obj/item/clothing/accessory/insignia/fra/soldat
+	name = "Soldat insignia"
+	icon_state = "nnaddr_soldat"
+	rank = "Soldat"
+
+/obj/item/clothing/accessory/insignia/fra/caporal
+	name = "Caporal insignia"
+	icon_state = "nnaddr_obergefreiter"
+	rank = "Caporal"
+
+/obj/item/clothing/accessory/insignia/fra/capitaine
+	name = "Capitaine insignia"
+	icon_state = "usmc_1stlt_insignia"
+	rank = "Capitaine"
 
 //Storage Accessories
-/obj/item/clothing/accessory/storage/bandolier_nato
+
+/obj/item/clothing/accessory/storage/coldwar
+	wearable = 1
+
+/obj/item/clothing/accessory/storage/coldwar/bandolier_nato
 	name = "bandolier"
-	desc = "A generic nylon bandolier that can hold 5 items."
+	desc = "A generic nylon bandolier that can hold 4 items."
 	icon_state = "bandolier_nato"
 	gender = NEUTER
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_OCLOTHING
 	slot = ACCESSORY_SLOT_ARMOR_S
-	slots = 5
-	armor_slowdown = 0.0
+	slots = 4
+	//armor_slowdown = 0.0
 
-/obj/item/clothing/accessory/storage/bandolier_nato/filled/New()
+/obj/item/clothing/accessory/storage/coldwar/bandolier_nato/filled/New()
 	..()
 	new /obj/item/ammo_magazine/box/paper/box556x45(hold)
 	new /obj/item/ammo_magazine/box/paper/box556x45(hold)
@@ -279,7 +475,7 @@
 	new /obj/item/ammo_magazine/box/paper/box556x45(hold)
 	new /obj/item/ammo_magazine/box/paper/box556x45(hold)
 
-/obj/item/clothing/accessory/storage/vest
+/obj/item/clothing/accessory/storage/coldwar/vest
 	name = "Bandolier Vest"
 	desc = "A lightweight storage vest with 4 large pouches used by NATO personnel, provides no ballistic protection."
 	icon_state = "bandovest_nato"
@@ -288,13 +484,13 @@
 	slot_flags = SLOT_OCLOTHING
 	slot = ACCESSORY_SLOT_ARMOR_S
 	slots = 4
-	armor_slowdown = 0.0
+	//armor_slowdown = 0.0
 
-/obj/item/clothing/accessory/storage/vest/woodland
+/obj/item/clothing/accessory/storage/coldwar/vest/woodland
 	icon_state = "bandovest_nato_w"
 
-/obj/item/clothing/accessory/storage/lifchik
-	name = "makeshift webbing vest"
+/obj/item/clothing/accessory/storage/coldwar/lifchik
+	name = "'lifchik' vest"
 	desc = "Known by soviet forces as a 'lifchik', which translates to 'brassiere' in English. It seems to be knit from some kind of bag."
 	icon_state = "lifchik_1"
 	gender = NEUTER
@@ -302,147 +498,123 @@
 	slot_flags = SLOT_OCLOTHING
 	slot = ACCESSORY_SLOT_ARMOR_S
 	slots = 4
+	//armor_slowdown = 0.0
+
+/obj/item/clothing/accessory/storage/coldwar/kaz
+	name = "KAZ03 chest rig"
+	desc = "A chest rig used by the Bundesheer, meant to be attached on the flak vest."
+	icon_state = "bandovest_heer"
+	gender = NEUTER
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_OCLOTHING
+	slot = ACCESSORY_SLOT_ARMOR_S
+	slots = 4
+	//armor_slowdown = 0.0
+
+/obj/item/clothing/accessory/storage/coldwar/baf
+	name = "58 pattern webbing "
+	desc = "A chest rig used by the British Armed Forces."
+	icon_state = "bandovest_baf"
+	gender = NEUTER
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_OCLOTHING
+	slot = ACCESSORY_SLOT_ARMOR_S
+	slots = 3
+	//armor_slowdown = 0.0
+
+/obj/item/clothing/accessory/storage/coldwar/adt
+	name = "CCE Tactical Vest "
+	desc = "A chest rig used by the French Military"
+	icon_state = "bandovest_adt"
+	gender = NEUTER
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_OCLOTHING
+	slot = ACCESSORY_SLOT_ARMOR_S
+	slots = 4
 	armor_slowdown = 0.0
 
-/obj/item/clothing/accessory/storage/lifchik/alt
+/obj/item/clothing/accessory/storage/coldwar/lifchik/alt
 	icon_state = "lifchik_2"
 	slots = 2
 	max_w_class = ITEM_SIZE_NORMAL
-	armor_slowdown = 0.0
+	//armor_slowdown = 0.0
 
-//SCW
-/obj/item/clothing/accessory/scarf/cnt
-	name = "scarf"
-	desc = "A black and red cloth scarf belonging to the anarcho-syndicalists."
-	icon_state = "bufanda_cnt"
+/obj/item/clothing/accessory/storage/coldwar/lifchikblack
+	name = "webbing"
+	desc = "A black webbing vest used by the Suomen Maavoimat."
+	icon_state = "lifchikblack_1"
+	gender = NEUTER
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_OCLOTHING
+	slot = ACCESSORY_SLOT_ARMOR_S
+	slots = 4
+	//armor_slowdown = 0.0
 
-/obj/item/clothing/accessory/scarf/red
-	name = "scarf"
-	desc = "A red cloth scarf belonging to any of the socialist-aligned parties."
-	icon_state = "bufanda_roja"
+/obj/item/clothing/accessory/storage/coldwar/lifchikblack/alt
+	icon_state = "lifchikblack_2"
+	slots = 2
+	max_w_class = ITEM_SIZE_NORMAL
+	//armor_slowdown = 0.0
 
-//Divisas
 
-//Ejercito Nacional
+/obj/item/clothing/accessory/storage/coldwar/shellbandolier
+	name = "shell bandolier"
+	desc = "A generic nylon 12ga shell bandolier. It can hold up to thirty 12ga shells."
+	icon_state = "lifchikblack_1" //placeholder
+	gender = NEUTER
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_OCLOTHING
+	slot = ACCESSORY_SLOT_ARMOR_S
+	slots = 6
+	//armor_slowdown = 0.0
 
-/obj/item/clothing/accessory/insignia/nacional/pvt
-	name = "'Soldado' insignia"
-	icon_state = "nacional_pvt_insignia"
-	item_state = null
-	rank = "Soldado"
-	
-/obj/item/clothing/accessory/insignia/nacional/pfc
-	name = "'Soldado de Primera' insignia"
-	icon_state = "nacional_pfc_insignia"
-	item_state = "nacional_pfc_insignia"
-	rank = "Soldado de Primera"
+/obj/item/clothing/accessory/storage/coldwar/shellbandolier/New()
+	..()
+	hold.can_hold = list(/obj/item/ammo_magazine/box/clip/ga12)
 
-/obj/item/clothing/accessory/insignia/nacional/cpl
-	name = "'Cabo' insignia"
-	icon_state = "nacional_cpl_insignia"
-	item_state = "nacional_cpl_insignia"
-	rank = "Cabo"
+/*coats, these need up-down item states implemented*/
 
-/obj/item/clothing/accessory/insignia/nacional/sgt
-	name = "'Sargento' insignia"
-	icon_state = "nacional_sgt_insignia"
-	item_state = "nacional_sgt_insignia"
-	rank = "Sargento"
+/obj/item/clothing/accessory/storage/coldwar/palatka
+	name = "palash palatka"
+	desc = "Known by soviet forces as 'palash palatka', it is a half-tent that you can wear as a raincoat!."
+	icon_state = "palatka_t"
+	item_state = ""
+	/*down_icon_state = "palatka"*/
+	/*down_icon_flags = BLOCKHAIR */
+	/*down_body_parts_covered = HEAD*/
+	gender = NEUTER
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_OCLOTHING
+	slot = ACCESSORY_SLOT_ARMOR_S
+	slots = 4
+	//armor_slowdown = 0.0
 
-/obj/item/clothing/accessory/insignia/nacional/alf
-	name = "'Alferez' insignia"
-	icon_state = "nacional_alf_insignia"
-	item_state = "nacional_alf_insignia"
-	rank = "Alferez"
+/obj/item/clothing/accessory/storage/coldwar/zeltbahn
+	name = "zeltbahn"
+	desc = "Known by NVA forces as 'zeltbahn', it is a half-tent that you can wear as a raincoat!."
+	icon_state = "zeltbahn_t"
+	item_state = ""
+	/*down_icon_state = "zeltbahn"*/
+	/*down_icon_flags = BLOCKHAIR */
+	/*down_body_parts_covered = HEAD*/
+	gender = NEUTER
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_OCLOTHING
+	slot = ACCESSORY_SLOT_ARMOR_S
+	slots = 4
+	//armor_slowdown = 0.0
 
-/obj/item/clothing/accessory/insignia/nacional/lt
-	name = "'Teniente' insignia"
-	icon_state = "nacional_lt_insignia"
-	item_state = "nacional_lt_insignia"
-	rank = "Teniente"
-
-//Ejercito Popular
-
-/obj/item/clothing/accessory/insignia/popular/pvt
-	name = "'Soldado' insignia"
-	icon_state = "popular_pvt_insignia"
-	item_state = null
-	rank = "Soldado"
-
-/obj/item/clothing/accessory/insignia/popular/cpl
-	name = "'Cabo' insignia"
-	icon_state = "popular_cpl_insignia"
-	item_state = "popular_cpl_insignia"
-	rank = "Cabo"
-
-/obj/item/clothing/accessory/insignia/popular/sgt
-	name = "'Sargento' insignia"
-	icon_state = "popular_sgt_insignia"
-	item_state = "popular_sgt_insignia"
-	rank = "Sargento"
-
-/obj/item/clothing/accessory/insignia/popular/alf
-	name = "'Alferez' insignia"
-	icon_state = "popular_alf_insignia"
-	item_state = "popular_alf_insignia"
-	rank = "Alferez"
-
-/obj/item/clothing/accessory/insignia/popular/lt
-	name = "'Teniente' insignia"
-	icon_state = "popular_lt_insignia"
-	item_state = "popular_lt_insignia"
-	rank = "Teniente"
-
-/obj/item/clothing/accessory/insignia/popular/cc
-	name = "'Comisario' insignia"
-	icon_state = "popular_cc_insignia"
-	item_state = "popular_cc_insignia"
-	rank = "Comisario"
-
-/obj/item/clothing/accessory/insignia/popular/pd
-	name = "'Delegado Politico' insignia"
-	icon_state = "popular_pd_insignia"
-	item_state = "popular_pd_insignia"
-	rank = "Delegado Politico"
-
-/obj/item/clothing/accessory/insignia/legion/pvt
-	name = "'Legionario' insignia"
-	icon_state = "nacional_pvt_insignia"
-	item_state = "nacional_pvt_insignia"
-	rank = "Legionario"
-
-/obj/item/clothing/accessory/insignia/legion/pfc
-	name = "'Legionario de Primera' insignia"
-	icon_state = "nacional_pfc_insignia"
-	item_state = "nacional_pfc_insignia"
-	rank = "Legionario de Primera"
-
-/obj/item/clothing/accessory/insignia/legion/cpl
-	name = "'Cabo' insignia"
-	icon_state = "nacional_cpl_insignia"
-	item_state = "nacional_cpl_insignia"
-	rank = "Cabo"
-
-/obj/item/clothing/accessory/insignia/legion/sgt
-	name = "'Sargento' insignia"
-	icon_state = "nacional_sgt_insignia"
-	item_state = "nacional_sgt_insignia"
-	rank = "Sargento"
-
-/obj/item/clothing/accessory/insignia/legion/alf
-	name = "'Alferez' insignia"
-	icon_state = "nacional_alf_insignia"
-	item_state = "nacional_alf_insignia"
-	rank = "Alferez"
-
-/obj/item/clothing/accessory/insignia/legion/lt
-	name = "'Teniente' insignia"
-	icon_state = "nacional_lt_insignia"
-	item_state = "nacional_lt_insignia"
-	rank = "Teniente"
-
-/obj/item/clothing/accessory/insignia/legion/cpt
-	name = "'Capitan' insignia"
-	icon_state = "legion_cpt_insignia"
-	item_state = "legion_cpt_insignia"
-	rank = "Capitan"
+/obj/item/clothing/accessory/storage/coldwar/usmccoat
+	name = "marine winter coat"
+	desc = "A winter coat, issued by US forces."
+	icon_state = "usmc_win_t"
+	item_state = ""
+	/*down_icon_state = "usmc_win"*/
+	/*down_icon_flags = BLOCKHAIR */
+	/*down_body_parts_covered = HEAD*/
+	gender = NEUTER
+	w_class = ITEM_SIZE_LARGE
+	slot_flags = SLOT_OCLOTHING
+	slot = ACCESSORY_SLOT_ARMOR_S
+	slots = 4
+	//armor_slowdown = 0.0

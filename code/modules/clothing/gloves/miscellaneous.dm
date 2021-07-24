@@ -88,6 +88,7 @@
 	desc = "Sterile latex gloves."
 	icon_state = "latex"
 	item_state = "lgloves"
+	wearable = 1
 	siemens_coefficient = 1.1 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
@@ -96,10 +97,12 @@
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves"
 	icon_state = "nitrile"
+	wearable = 1
 	item_state = "ngloves"
 
 /obj/item/clothing/gloves/duty
 	desc = "These brown duty gloves are made from a durable synthetic."
+	wearable = 1
 	name = "work gloves"
 	icon_state = "work"
 	item_state = "wgloves"
@@ -130,6 +133,7 @@
 /obj/item/clothing/gloves/bdw
 	desc = "A pair of generic leather gloves."
 	name = "leather gloves"
+	wearable = 1
 	icon_state = "bdw_gloves"
 	item_state = "bdw_gloves"
 	force = 4
@@ -137,12 +141,35 @@
 	permeability_coefficient = 0.05
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
+/obj/item/clothing/gloves/tactical
+	desc = "A pair of leather gloves with missing fingertips. They have tough knuckle pads and pack a punch."
+	name = "tactical gloves"
+	wearable = 1
+	icon_state = "tactical_gloves"
+	item_state = "tactical_gloves"
+	force = 10
+	siemens_coefficient = 0.50
+	permeability_coefficient = 0.05
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
 /obj/item/clothing/gloves/usmc
 	desc = "A pair of combat gloves issued to the US Armed Forces."
 	name = "military gloves"
+	wearable = 1
 	icon_state = "usmc_gloves"
 	item_state = "usmc_gloves"
 	force = 4
+	siemens_coefficient = 0.50
+	permeability_coefficient = 0.05
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/gloves/mittens
+	desc = "A pair of generic gray mittens. Keeps your hands warm."
+	name = "mittens"
+	wearable = 1
+	icon_state = "mittens"
+	item_state = "mittens"
+	force = 3
 	siemens_coefficient = 0.50
 	permeability_coefficient = 0.05
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)

@@ -35,7 +35,7 @@
 		add_avail(power_gen * power_output)
 		UseFuel()
 		src.updateDialog()
-		playsound(src.loc, 'sound/machines/generator_loop.wav', 50, 2)
+		playsound(src.loc, 'sound/machines/generator_loop.ogg', 50, 2)
 	else
 		active = 0
 		handleInactive()
@@ -338,7 +338,7 @@
 
 
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "pacman.tmpl", src.name, 500, 560)
 		ui.set_initial_data(data)
@@ -383,7 +383,7 @@
 		if(href_list["action"] == "enable")
 			if(!active && HasFuel() && !IsBroken())
 				active = 1
-				playsound(get_turf(src), 'sound/machines/generator_start.wav', 50, 2)
+				playsound(get_turf(src), 'sound/machines/generator_start.ogg', 50, 2)
 				update_icon()
 		if(href_list["action"] == "disable")
 			if (active)
@@ -412,7 +412,7 @@
 /obj/machinery/power/port_gen/pacman/super/UseFuel()
 	//produces a tiny amount of radiation when in use
 	if (prob(rad_power*power_output))
-		radiation_repository.radiate(src, 2*rad_power)
+		SSradiation.radiate(src, 2*rad_power)
 	..()
 
 /obj/machinery/power/port_gen/pacman/super/update_icon()
@@ -433,7 +433,7 @@
 /obj/machinery/power/port_gen/pacman/super/explode()
 	//a nice burst of radiation
 	var/rads = rad_power*25 + (sheets + sheet_left)*1.5
-	radiation_repository.radiate(src, (max(20, rads)))
+	SSradiation.radiate(src, (max(20, rads)))
 
 	explosion(src.loc, rad_power+1, rad_power+1, rad_power*2, 3)
 	qdel(src)

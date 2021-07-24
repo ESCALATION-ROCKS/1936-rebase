@@ -66,6 +66,60 @@
 	unbreakable = 1
 	weapon_speed_delay = 4
 
+/obj/item/weapon/material/knife/attack_self(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(user.a_intent == I_HELP)
+			var/obj/item/organ/external/injured_area = H.get_organ(H.zone_sel.selecting)
+			if(!injured_area.implants)
+				to_chat(H, "<span class='warning'>You search for embedded shrapnel, but there is none to be found.</span>")
+				return	
+			for(var/obj/item/weapon/O in injured_area.implants)
+				if(istype(O, /obj/item/weapon/material/shard/shrapnel/))
+					for(var/datum/wound/W in injured_area.wounds)
+						var/shrap_removal_scale = W.embedded_objects.len
+						H.visible_message("<span class='warning'>[H] starts to dig the shrapnel in [injured_area] out.</span>",\
+		"You begin to dig out the shrapnel in [injured_area].")
+						if(!do_after(H, ((60*shrap_removal_scale)-(5*H.skill_medicine)), src)) 
+							to_chat(H, "<span class='userdanger'>You were interrupted.</span>")
+							return 
+						W.embedded_objects -= O
+						injured_area.implants -= O
+						O.forceMove(get_turf(H.loc)) // add bleeding if found how
+						injured_area.take_damage(5-H.skill_medicine, 0, (DAM_SHARP|DAM_EDGE), used_weapon = src)
+						to_chat(H, "<span class='warning'>You remove the shrapnel from [injured_area]. </span>")
+						return
+
+/obj/item/weapon/material/knife/attack(mob/M, mob/user, var/target_zone) // make a loop if possible
+	if(user.a_intent == I_HELP && user.skill_medicine >= 3) // only medics and doctors can do this 
+		var/mob/living/carbon/human/H = user
+		var/mob/living/carbon/human/T = M 
+		if(user.a_intent == I_HELP)
+			for(var/bodypart in BP_ALL_LIMBS)
+				var/obj/item/organ/external/injured_area = T.organs_by_name[bodypart]
+				if(!injured_area.implants)
+					to_chat(H, "<span class='warning'>You search for embedded shrapnel, but there is none to be found.</span>")
+					return	
+				for(var/obj/item/weapon/O in injured_area.implants)
+					if(istype(O, /obj/item/weapon/material/shard/shrapnel/))
+						for(var/datum/wound/W in injured_area.wounds)
+							var/shrap_removal_scale = W.embedded_objects.len
+							H.visible_message("<span class='warning'>[H] starts to dig the shrapnel out of [T]'s [injured_area]. </span>",\
+		"You begin to dig the shrapnel out of [T]'s [injured_area].")
+							if(!do_after(H, ((60*shrap_removal_scale)-(5*H.skill_medicine)), H)) 
+								to_chat(H, "<span class='userdanger'>You were interrupted.</span>")
+								return 
+							W.embedded_objects -= O
+							injured_area.implants -= O
+							O.forceMove(get_turf(H.loc))  // add bleeding if found how
+							injured_area.take_damage(5-H.skill_medicine, 0, (DAM_SHARP|DAM_EDGE), used_weapon = src)
+							to_chat(H, "<span class='warning'>You remove the shrapnel from [T]'s body. </span>")
+							return	
+		return  
+
+	else
+		return ..()
+
 /obj/item/weapon/material/knife/hook
 	name = "meat hook"
 	desc = "A sharp, metal hook what sticks into things."
@@ -95,62 +149,76 @@
 	sharp = 1
 	edge = 1
 	item_state = "knife"
+	icon = 'icons/obj/coldwar/items.dmi'
 	sharpness = 5
+	var/embed_chance = null
 
 /obj/item/weapon/material/knife/bayonet/sa/a6h4
 	name = "6h4 bayonet"
 	desc = "An AK74 bayonet with two sharp edges near the point."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "6h4"
 
 /obj/item/weapon/material/knife/bayonet/sa/a6h4/ddr
 	name = "Modell AK74 bayonet"
 	desc = "An AK74 bayonet with two sharp edges near the point."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "6h4_ddr"
 
 /obj/item/weapon/material/knife/bayonet/sa/a6h3
 	name = "6h3 bayonet"
 	desc = "An AKM bayonet with two sharp edges near the point."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "6h3"
 
 /obj/item/weapon/material/knife/bayonet/sa/a6h3/ddr
 	name = "Mehrzweckbajonett M1959"
 	desc = "An AKM bayonet with two sharp edges near the point."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "6h3_ddr"
 
 /obj/item/weapon/material/knife/bayonet/csla
-	name = "Vz.58 bayonet"
+	name = "Bodak vz.58"
 	desc = "A slim and sharp, but somewhat fragile Czechoslovakian bayonet."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "csla"
 
 /obj/item/weapon/material/knife/bayonet/usmc
 	name = "M7 bayonet"
 	desc = "A 12 inch bayonet with a carbon-steel blade. This one was manufacured in West Germany."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "usmc"
 
 /obj/item/weapon/material/knife/bayonet/bdw
 	name = "Kampfmesser M68"
 	desc = "Combat knife of the Bundeswehr forces. German quality."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "bdw"
 
-//SCW Bayonets
+/obj/item/weapon/material/knife/bayonet/baf
+	name = "L1A3 bayonet"
+	desc = "A 9 inch bayonet with a carbon-steel blade. Produced in Great Britain."
+	icon_state = "baf"
 
-/obj/item/weapon/material/knife/bayonet/gce/m1913
-	name = "Bayoneta M1913"
-	desc = "A quite long bayonet used by the Spanish Army. Fits on any model of mauser"
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "m1913"
-	sharpness = 4
-	force = 8
+/obj/item/weapon/material/knife/bayonet/finn
+	name = "M62 Valmet bayonet"
+	desc = "A bayonet based on Finnish 'puukko' knives."
+	icon_state = "finn"
 
-/obj/item/weapon/material/knife/bayonet/gce/m1893
-	name = "Bayoneta M1893"
-	desc = "A bayonet used by the Spanish Army. Fits on any model of mauser"
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "m1893"
+/obj/item/weapon/material/knife/bayonet/heer
+	name = "Feldmesser M78 bayonet"
+	desc = "Combat knife of the Bundesheer forces. German quality."
+	icon_state = "heer"
+
+/obj/item/weapon/material/knife/bayonet/esp
+	name = "Machete Bayoneta Modelo 1964"
+	desc = "A CETME bayonet with two sharp edges near the tip."
+	icon_state = "esp"
+
+/obj/item/weapon/material/knife/bayonet/fra
+	name = "M 1958 bayonet"
+	desc = "A FAMAS bayonet with two sharp edges near the tip."
+	icon_state = "fra"
+
+/obj/item/weapon/material/knife/bayonet/taiga
+	name = "'Taiga' machete"
+	desc = "A deadly Spetsnaz machete. Smart people would stay away from it."
+	icon_state = "taiga"
+	item_state = "taiga"
+	force_divisor = 2
+	sharp = 1
+	edge = 1
+	sharpness = 10

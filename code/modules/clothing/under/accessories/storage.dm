@@ -179,6 +179,41 @@
 	icon_state = "factoryworker-apron"
 	slots = 2
 
+//universal unremovable pockets to add two storage slots to the uniform as an accessory
+//made unremovable by making an exception in remove_accessory() proc in clothing_accessories.dm
+/obj/item/clothing/accessory/storage/uniform_pockets
+	name = "pockets"
+	desc = null
+	icon_state = null
+	slots = 2
+	wearable = 1
+
+/obj/item/clothing/accessory/storage/uniform_pockets/New()
+	..()
+	hold.can_hold = list(
+		/obj/item/ammo_magazine/a9x19,
+		/obj/item/ammo_magazine/a9x19b,
+		/obj/item/ammo_magazine/a9x18,
+		/obj/item/ammo_magazine/cz9x18,
+		/obj/item/ammo_magazine/a9x19g,
+		/obj/item/ammo_magazine/a45,
+		/obj/item/weapon/storage/fancy/cigarettes,
+		/obj/item/weapon/flame/lighter/,
+		/obj/item/weapon/storage/box/matches,
+		/obj/item/clothing/head/headband,
+		/obj/item/clothing/head/coldwar/garcap,
+		/obj/item/clothing/head/coldwar/fieldcap,
+		/obj/item/clothing/head/coldwar/ushanka,
+		/obj/item/clothing/head/coldwar/beret,
+		/obj/item/weapon/deck/cards,
+		/obj/item/weapon/haircomb,
+		/obj/item/weapon/storage/pill_bottle/dice,
+		/obj/item/clothing/glasses,
+		/obj/item/clothing/gloves,
+		/obj/item/clothing/mask/balaclava,
+		/obj/item/clothing/mask/tacticalmask
+	)
+
 /obj/item/clothing/accessory/storage/usmc_harness
 	name = "ALICE harness"
 	desc = "Can store some stuff."
@@ -190,7 +225,7 @@
 	new /obj/item/weapon/shovel/etool(hold)
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(hold)
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(hold)
-	new /obj/item/weapon/storage/firstaid/usmc_ifak(hold)
+	new /obj/item/weapon/storage/firstaid/ifak/nato(hold)
 
 /obj/item/clothing/accessory/storage/sa_harness
 	name = "harness"
@@ -217,7 +252,7 @@
 	..()
 	new /obj/item/weapon/shovel/etool(hold)
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(hold)
-	new /obj/item/weapon/storage/firstaid/usmc_ifak(hold)
+	new /obj/item/weapon/storage/firstaid/ifak/nato(hold)
 
 /obj/item/clothing/accessory/storage/nvaddr_harness
 	name = "harness"

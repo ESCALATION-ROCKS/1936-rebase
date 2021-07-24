@@ -3,16 +3,12 @@
 	underwear_name = "underwear"
 	underwear_type = /obj/item/underwear/bottom
 
+/*
 /datum/category_item/underwear/bottom/none
 	name = "None"
 	always_last = TRUE
 	underwear_type = null
-
-/*/datum/category_item/underwear/bottom/briefs
-	name = "Briefs"
-	underwear_name = "briefs"
-	icon_state = "briefs"
-	has_color = TRUE
+*/
 
 /datum/category_item/underwear/bottom/briefs/is_default(var/gender)
 	return gender != FEMALE
@@ -29,16 +25,17 @@
 	icon_state = "boxers_loveheart"
 
 /datum/category_item/underwear/bottom/boxers
+	is_default = TRUE
 	name = "Boxers"
 	underwear_name = "boxers"
 	icon_state = "boxers"
 	has_color = TRUE
 
-/datum/category_item/underwear/bottom/boxers_green_and_blue
+/*/datum/category_item/underwear/bottom/boxers_green_and_blue
 	name = "Boxers, green & blue striped"
 	underwear_name = "boxers"
-	icon_state = "boxers_green_and_blue"
-
+	icon_state = "boxers_green_and_blue"*/
+/*
 /datum/category_item/underwear/bottom/panties
 	name = "Panties"
 	underwear_name = "panties"
@@ -75,8 +72,8 @@
 	underwear_name = "thong"
 	icon_state = "thong"
 	has_color = TRUE
-
-/datum/category_item/underwear/bottom/expedition_pt_shorts
+*/
+/*/datum/category_item/underwear/bottom/expedition_pt_shorts
 	name = "PT shorts, 1"
 	icon_state = "expedition_shorts"
 
@@ -92,28 +89,11 @@
 	name = "Long John Bottoms"
 	underwear_name = "long johns"
 	icon_state = "ljonb"
-	has_color = TRUE */
+	has_color = TRUE*/
 
+	
 /datum/category_item/underwear/bottom/briefs
 	name = "Briefs"
 	underwear_name = "briefs"
 	icon_state = "briefs"
-
-/datum/category_item/underwear/bottom/briefs/is_default(var/gender)
-	return gender != FEMALE
-
-/datum/category_item/underwear/bottom/boxers_loveheart
-	name = "Boxers, Loveheart"
-	underwear_name = "boxers"
-	icon_state = "boxers_loveheart"
-
-/datum/category_item/underwear/bottom/boxers_green_and_blue
-	name = "Boxers, green & blue striped"
-	underwear_name = "boxers"
-	icon_state = "boxers_green_and_blue"
-
-/datum/category_item/underwear/bottom/boxers
-	name = "Boxers"
-	underwear_name = "boxers"
-	icon_state = "boxers"
 	has_color = TRUE

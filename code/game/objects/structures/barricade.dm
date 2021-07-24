@@ -1,10 +1,10 @@
 /obj/structure/sandbag
 	name = "sandbag"
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/coldwar/sandbags.dmi'
 	icon_state = "sandbag"
 	density = 1
 	//if(A.density && !A.throwpass) src.throw_impact(A,speed)
-	throwpass = 1//we can throw grenades despite its density
+	throwpass = 1 //we can throw grenades despite its density
 	anchored = 1
 	flags = OBJ_CLIMBABLE
 	var/basic_chance = 50
@@ -20,8 +20,8 @@
 		pixel_y = 7
 	..()
 
-/obj/structure/sandbag/New()
-	..()
+/obj/structure/sandbag/Initialize()
+	. = ..()
 	flags |= ON_BORDER
 	update_layers()
 	//to_world(" New(). Dir:[dir]; Layer:[layer]; plane:[plane]")
@@ -73,7 +73,7 @@
 		if(proj.firer && Adjacent(proj.firer))
 			return 1
 
-		if (get_dist(proj.starting, loc) <= 2)//allows to fire from 1 tile away of sandbag
+		if (get_dist(proj.starting, loc) <= 4)//allows to fire from 4 tile away of sandbag
 			return 1
 
 		return check_cover(mover, target)
@@ -156,10 +156,17 @@
 
 /obj/item/weapon/sandbag
 	name = "sandbags"
-	//icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/coldwar/items.dmi'
 	icon_state = "sandbag_empty"
 	w_class = 1
 	var/sand_amount = 0//how much piles of dirt on item's spawn
+
+/obj/item/weapon/sandbag/full
+	name = "sandbags"
+	//icon = 'icons/obj/weapons.dmi'
+	icon_state = "sandbag"
+	w_class = 4
+	sand_amount = 4
 
 //��������� ��������
 //if there are like 3-4 sandbags or they are placed in one directions and each of them will call CanPass for projectiles - very imbalanced
@@ -175,7 +182,7 @@
 
 //or there are any shit on turf you want to place sandbag
 /obj/item/weapon/sandbag/proc/check4struct(mob/user as mob)
-	if((locate(/obj/structure/chezh_hangehog) || \
+	if((locate(/obj/structure/hedgehog) || \
 		locate(/obj/structure/sandbag/concrete_block) || \
 		locate(/obj/structure/brutswehr)) in user.loc.contents \
 		)
@@ -193,6 +200,10 @@
 
 	if(check4sandbags(user) || check4struct(user))// 0 || 0
 		return
+
+	if(do_after(user, 30, src))
+		to_chat(user, "<span class='notice'>You finish setting up the sandbags!</span>")
+		if(!src) return
 
 	var/obj/structure/sandbag/bag = new(user.loc)//new (user.loc)
 	bag.set_dir(user.dir)
@@ -232,3 +243,13 @@
 		icon_state = "sandbag"
 	else
 		icon_state = "sandbag_empty"
+
+/obj/structure/sandbag/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/shovel) && health == 200)
+		to_chat(user, "<span class='notice'>Now taking down the sandbags...</span>")
+		playsound(src, 'sound/effects/empty_shovel.ogg', 50, 1)
+		if(do_after(user, 80 * W.toolspeed,src))
+			if(!src) return
+			to_chat(user, "<span class='notice'>You take down sandbags!</span>")
+			new /obj/item/weapon/sandbag/full(src.loc)
+			qdel(src)

@@ -8,7 +8,7 @@
 	name = "None"
 	underwear_type = null
 
-/*/datum/category_item/underwear/socks/normal
+/datum/category_item/underwear/socks/normal
 	name = "Normal"
 	icon_state = "socks_norm"
 	has_color = TRUE
@@ -68,25 +68,9 @@
 	name = "Knee, rainbow"
 	underwear_name = "knee highs"
 	icon_state = "rainbow_knee"
-
+/*
 /datum/category_item/underwear/socks/fishnet
 	name = "Fishnet"
 	underwear_name = "fishnet"
 	icon_state = "fishnet"
 */
-
-/datum/category_item/underwear/socks/normal
-	name = "Normal"
-	icon_state = "socks_norm"
-	has_color = TRUE
-
-/datum/category_item/underwear/socks/short
-	name = "Short"
-	icon_state = "socks_short"
-	has_color = TRUE
-
-/datum/category_item/underwear/socks/knee
-	name = "Knee"
-	underwear_name = "knee highs"
-	icon_state = "socks_knee"
-	has_color = TRUE

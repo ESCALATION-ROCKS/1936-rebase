@@ -365,7 +365,7 @@
 /obj/machinery/door/airlock/uranium/process()
 	if(world.time > last_event+20)
 		if(prob(50))
-			radiation_repository.radiate(src, rad_power)
+			SSradiation.radiate(src, rad_power)
 		last_event = world.time
 	..()
 
@@ -687,7 +687,7 @@ About the new airlock wires panel:
 
 	data["commands"] = commands
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "door_control.tmpl", "Door Controls", 450, 350, state = state)
 		ui.set_initial_data(data)

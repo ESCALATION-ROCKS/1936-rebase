@@ -101,6 +101,16 @@
 			return global.SSao;
 		if("TELEBLOCK")
 			return global.TELEBLOCK;
+		if("SSlighting")
+			return global.SSlighting;
+		if("SSmachines")
+			return global.SSmachines;
+		if("SSmobs")
+			return global.SSmobs;
+		if("SSnano")
+			return global.SSnano;
+		if("SSobj")
+			return global.SSobj;
 		if("SSopen_space")
 			return global.SSopen_space;
 		if("TWITCHBLOCK")
@@ -191,8 +201,6 @@
 			return global.air_master;
 		if("air_processing_killed")
 			return global.air_processing_killed;
-		if("alarm_manager")
-			return global.alarm_manager;
 		if("alien_whitelist")
 			return global.alien_whitelist;
 		if("allCasters")
@@ -323,10 +331,6 @@
 			return global.checked_for_inactives;
 		if("chemical_reaction_logs")
 			return global.chemical_reaction_logs;
-		if("chemical_reactions_list")
-			return global.chemical_reactions_list;
-		if("chemistryProcess")
-			return global.chemistryProcess;
 		if("chicken_count")
 			return global.chicken_count;
 		if("church_name")
@@ -397,6 +401,8 @@
 			return global.default_pai_software;
 		if("defer_powernet_rebuild")
 			return global.defer_powernet_rebuild;
+		if("SSmobs")
+			return global.SSmobs;
 		if("deity")
 			return global.deity;
 		if("delta_index")
@@ -611,20 +617,6 @@
 			return global.light_overlay_cache;
 		if("lighter_sound")
 			return global.lighter_sound;
-		if("lighting_overlays_initialised")
-			return global.lighting_overlays_initialised;
-		if("lighting_update_corners")
-			return global.lighting_update_corners;
-		if("lighting_update_corners_old")
-			return global.lighting_update_corners_old;
-		if("lighting_update_lights")
-			return global.lighting_update_lights;
-		if("lighting_update_lights_old")
-			return global.lighting_update_lights_old;
-		if("lighting_update_overlays")
-			return global.lighting_update_overlays;
-		if("lighting_update_overlays_old")
-			return global.lighting_update_overlays_old;
 		if("limb_icon_cache")
 			return global.limb_icon_cache;
 		if("list_of_ais")
@@ -647,8 +639,6 @@
 			return global.lunchables_lunches_;
 		if("lunchables_snacks_")
 			return global.lunchables_snacks_;
-		if("machinery_sort_required")
-			return global.machinery_sort_required;
 		if("magazine_icondata_keys")
 			return global.magazine_icondata_keys;
 		if("magazine_icondata_states")
@@ -845,8 +835,6 @@
 			return global.priv_syndicate_access;
 		if("processScheduler")
 			return global.processScheduler;
-		if("processing_turfs")
-			return global.processing_turfs;
 		if("prometheans")
 			return global.prometheans;
 		if("protected_objects")
@@ -855,8 +843,6 @@
 			return global.punch_sound;
 		if("rad_collectors")
 			return global.rad_collectors;
-		if("radiation_repository")
-			return global.radiation_repository;
 		if("radio_controller")
 			return global.radio_controller;
 		if("radiochannels")
@@ -1051,8 +1037,6 @@
 			return global.telecomms_list;
 		if("tertiary_mode")
 			return global.tertiary_mode;
-		if("text_tag_icons")
-			return global.text_tag_icons;
 		if("tg_admin_state")
 			return global.tg_admin_state;
 		if("tg_always_state")
@@ -1081,14 +1065,10 @@
 			return global.tg_self_state;
 		if("tg_z_state")
 			return global.tg_z_state;
-		if("tgui_process")
-			return global.tgui_process;
 		if("tick_multiplier")
 			return global.tick_multiplier;
 		if("ticker")
 			return global.ticker;
-		if("tickerProcess")
-			return global.tickerProcess;
 		if("ticket_panels")
 			return global.ticket_panels;
 		if("tickets")
@@ -1151,8 +1131,6 @@
 			return global.whitelisted_species;
 		if("wireColours")
 			return global.wireColours;
-		if("wirelessProcess")
-			return global.wirelessProcess;
 		if("wizards")
 			return global.wizards;
 		if("world_topic_spam_protect_ip")
@@ -1268,6 +1246,20 @@
 			global.SSgarbage=newval;
 		if("SSlegacy")
 			global.SSlegacy=newval;
+		if("SSlighting")
+			global.SSlighting=newval;
+		if("SSmachines")
+			global.SSmachines=newval;
+		if("SSmobs")
+			global.SSmobs=newval;
+		if("SSnano")
+			global.SSnano=newval;
+		if("SSobj")
+			global.SSobj=newval;
+		if("SSopen_space")
+			global.SSopen_space=newval;
+		if("SSprocessing")
+			global.SSprocessing=newval;
 		if("SStimer")
 			global.SStimer=newval;
 		if("SSao")
@@ -1276,6 +1268,8 @@
 			global.TELEBLOCK=newval;
 		if("TWITCHBLOCK")
 			global.TWITCHBLOCK=newval;
+		if("SSmobs")
+			global.SSmobs=newval;
 		if("Tier1Runes")
 			global.Tier1Runes=newval;
 		if("Tier2Runes")
@@ -1362,8 +1356,6 @@
 			global.air_master=newval;
 		if("air_processing_killed")
 			global.air_processing_killed=newval;
-		if("alarm_manager")
-			global.alarm_manager=newval;
 		if("alien_whitelist")
 			global.alien_whitelist=newval;
 		if("allCasters")
@@ -1486,10 +1478,6 @@
 			global.checked_for_inactives=newval;
 		if("chemical_reaction_logs")
 			global.chemical_reaction_logs=newval;
-		if("chemical_reactions_list")
-			global.chemical_reactions_list=newval;
-		if("chemistryProcess")
-			global.chemistryProcess=newval;
 		if("chicken_count")
 			global.chicken_count=newval;
 		if("church_name")
@@ -1772,20 +1760,6 @@
 			global.license_to_url=newval;
 		if("lighter_sound")
 			global.lighter_sound=newval;
-		if("lighting_overlays_initialised")
-			global.lighting_overlays_initialised=newval;
-		if("lighting_update_corners")
-			global.lighting_update_corners=newval;
-		if("lighting_update_corners_old")
-			global.lighting_update_corners_old=newval;
-		if("lighting_update_lights")
-			global.lighting_update_lights=newval;
-		if("lighting_update_lights_old")
-			global.lighting_update_lights_old=newval;
-		if("lighting_update_overlays")
-			global.lighting_update_overlays=newval;
-		if("lighting_update_overlays_old")
-			global.lighting_update_overlays_old=newval;
 		if("limb_icon_cache")
 			global.limb_icon_cache=newval;
 		if("list_of_ais")
@@ -1809,7 +1783,6 @@
 		if("lunchables_snacks_")
 			global.lunchables_snacks_=newval;
 		if("machinery_sort_required")
-			global.machinery_sort_required=newval;
 		if("magazine_icondata_keys")
 			global.magazine_icondata_keys=newval;
 		if("magazine_icondata_states")
@@ -2006,8 +1979,6 @@
 			global.priv_syndicate_access=newval;
 		if("processScheduler")
 			global.processScheduler=newval;
-		if("processing_turfs")
-			global.processing_turfs=newval;
 		if("prometheans")
 			global.prometheans=newval;
 		if("protected_objects")
@@ -2016,8 +1987,6 @@
 			global.punch_sound=newval;
 		if("rad_collectors")
 			global.rad_collectors=newval;
-		if("radiation_repository")
-			global.radiation_repository=newval;
 		if("radio_controller")
 			global.radio_controller=newval;
 		if("radiochannels")
@@ -2212,8 +2181,6 @@
 			global.telecomms_list=newval;
 		if("tertiary_mode")
 			global.tertiary_mode=newval;
-		if("text_tag_icons")
-			global.text_tag_icons=newval;
 		if("tg_admin_state")
 			global.tg_admin_state=newval;
 		if("tg_always_state")
@@ -2242,14 +2209,10 @@
 			global.tg_self_state=newval;
 		if("tg_z_state")
 			global.tg_z_state=newval;
-		if("tgui_process")
-			global.tgui_process=newval;
 		if("tick_multiplier")
 			global.tick_multiplier=newval;
 		if("ticker")
 			global.ticker=newval;
-		if("tickerProcess")
-			global.tickerProcess=newval;
 		if("ticket_panels")
 			global.ticket_panels=newval;
 		if("tickets")
@@ -2312,8 +2275,6 @@
 			global.whitelisted_species=newval;
 		if("wireColours")
 			global.wireColours=newval;
-		if("wirelessProcess")
-			global.wirelessProcess=newval;
 		if("wizards")
 			global.wizards=newval;
 		if("world_topic_spam_protect_ip")
@@ -2384,6 +2345,13 @@
 	"SSao",
 	"TELEBLOCK",
 	"TWITCHBLOCK",
+	"SSlighting",
+	"SSmachines",
+	"SSmapping",
+	"SSmisc_late",
+	"SSmobs",
+	"SSnano",
+	"SSobj",
 	"SSopen_space",
 	"Tier1Runes",
 	"Tier2Runes",
@@ -2586,6 +2554,7 @@
 	"fusion_reactions",
 	"game_id",
 	"game_version",
+	"SSmobs",
 	"game_year",
 	"gamemode_cache",
 	"gas_data",

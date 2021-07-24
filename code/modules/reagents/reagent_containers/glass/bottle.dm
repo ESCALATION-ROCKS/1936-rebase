@@ -211,19 +211,6 @@
 	reagents.add_reagent(/datum/reagent/diethylamine, 60)
 	update_icon()
 
-
-/obj/item/weapon/reagent_containers/glass/bottle/doxicycline
-	name = "doxicycline bottle"
-	desc = "A broad spectrum antibiotic to fight against infections."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-2"
-
-/obj/item/weapon/reagent_containers/glass/bottle/doxicycline/New()
-	..()
-	reagents.add_reagent(/datum/reagent/doxicycline, 30)
-	update_icon()
-
-
 /obj/item/weapon/reagent_containers/glass/bottle/pacid
 	name = "Polytrinic Acid Bottle"
 	desc = "A small bottle. Contains a small amount of Polytrinic Acid."
@@ -272,71 +259,3 @@
 	reagents.add_reagent(/datum/reagent/frostoil, 60)
 	update_icon()
 
-////////
-
-/obj/item/weapon/reagent_containers/glass/bottle/talotropine
-	name = "talotropine bottle"
-	desc = "A small bottle. Contains talotropine."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-1"
-
-/obj/item/weapon/reagent_containers/glass/bottle/talotropine/New()
-	..()
-	reagents.add_reagent(/datum/reagent/talotropine, 30)
-	update_icon()
-
-
-/obj/item/weapon/reagent_containers/glass/bottle/tetracetam
-	name = "tetracetam bottle"
-	desc = "A small bottle. Contains tetracetam."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-3"
-
-/obj/item/weapon/reagent_containers/glass/bottle/tetracetam/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tetracetam, 30)
-	update_icon()
-
-
-/obj/item/weapon/reagent_containers/glass/bottle/morphine
-	name = "morphine bottle"
-	desc = "A small bottle. Contains Morphine, A Strong painkiller with a quick metabolization speed. Meant for life threatening injuries. WARNING! Do not administer orally!"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-4"
-
-/obj/item/weapon/reagent_containers/glass/bottle/morphine/New()
-	..()
-	reagents.add_reagent(/datum/reagent/morphine, 60)
-	update_icon()
-
-/obj/item/weapon/reagent_containers/glass/bottle/naltamine
-	name = "naltamine bottle"
-	desc = "An opioid antagonist meant to neutralize the effects of morphine and prevent overdose. "
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-4"
-
-/obj/item/weapon/reagent_containers/glass/bottle/naltamine/New()
-	..()
-	reagents.add_reagent(/datum/reagent/naltamine, 30)
-	update_icon()
-
-
-/obj/item/weapon/reagent_containers/glass/bottle/salbutamol
-	name = "salbutamol bottle"
-	desc = "A small bottle which contains a strong bronchodilator. Intended for patients who have their bronches or airways obstructed by helping them breathe.."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-4"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/salbutamol, 60)
-		update_icon()
-
-/obj/item/weapon/reagent_containers/glass/bottle/aminocap
-	name = "aminocaproic acid bottle"
-	desc = "A small bottle which contains Aminocaproic Acid. An anti-hemmorhage drug intended to stop acute bleeding and assist in blood clotting."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bottle-4"
-	New()
-		..()
-		reagents.add_reagent(/datum/reagent/aminocaproic, 60)
-		update_icon()

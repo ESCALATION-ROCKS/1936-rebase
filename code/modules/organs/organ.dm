@@ -88,11 +88,17 @@ var/list/organ_cache = list()
 	if(owner && vital)
 		owner.death()
 
-/obj/item/organ/process()
+//should be replaced by organ/internal
+/obj/item/organ/proc/break_organ()
+	damage = max_damage
+	status |= ORGAN_BROKEN
 
+/obj/item/organ/process()
 	if(loc != owner)
 		owner = null
-
+	//check if we've hit max_damage
+	if(damage >= max_damage)
+		break_organ()
 	//dead already, no need for more processing
 	if(status & ORGAN_DEAD)
 		return
@@ -123,10 +129,6 @@ var/list/organ_cache = list()
 		handle_rejection()
 		handle_germ_effects()
 
-	//check if we've hit max_damage
-	if(damage >= max_damage)
-		die()
-
 /obj/item/organ/proc/is_preserved()
 	if(istype(loc,/obj/item/organ))
 		var/obj/item/organ/O = loc
@@ -144,7 +146,7 @@ var/list/organ_cache = list()
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
-	var/antibiotics = owner.reagents.get_reagent_amount(/datum/reagent/doxicycline)
+	var/antibiotics = owner.reagents.get_reagent_amount(/datum/reagent/doxycycline)
 
 	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(owner.virus_immunity()*0.3))
 		germ_level--
@@ -212,7 +214,7 @@ var/list/organ_cache = list()
 /obj/item/organ/proc/handle_antibiotics()
 	var/antibiotics = 0
 	if(owner)
-		antibiotics = owner.reagents.get_reagent_amount(/datum/reagent/doxicycline)
+		antibiotics = owner.reagents.get_reagent_amount(/datum/reagent/doxycycline)
 
 	if (!germ_level || antibiotics < 5)
 		return

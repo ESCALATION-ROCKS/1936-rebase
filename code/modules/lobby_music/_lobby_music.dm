@@ -11,8 +11,8 @@
 /lobby_music/proc/play_to(var/listener)
 	if(!song)
 		return
-	to_chat(listener, "<span class='good'>Now Playing: [title].</span>")
-	to_chat(listener, "<span class='good'>[artist ? " by [artist]" : ""][album ? " ([album])" : ""]</span>")
+	to_chat(listener, "<span class='good'>Now Playing: Escalation: 1984.</span>")
+	to_chat(listener, "<span class='good'>[title][artist ? " by [artist]" : ""][album ? " ([album])" : ""]</span>")
 	if(url)
 		to_chat(listener, url)
 	if(license)

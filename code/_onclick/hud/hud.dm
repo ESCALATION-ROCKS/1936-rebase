@@ -37,8 +37,12 @@
 	var/obj/screen/movable/action_button/hide_toggle/hide_actions_toggle
 	var/action_buttons_hidden = 0
 
+	var/obj/screen/screentip/screentip_text
+
 /datum/hud/New(mob/owner)
 	mymob = owner
+	screentip_text = new(mymob)
+	LAZYADD(adding, screentip_text)
 	instantiate()
 	..()
 
@@ -53,6 +57,7 @@
 	other = null
 	hotkeybuttons = null
 	mymob = null
+	QDEL_NULL(screentip_text)
 
 /datum/hud/proc/hidden_inventory_update()
 	if(!mymob) return
@@ -124,7 +129,7 @@
 						if(H.l_store) H.l_store.screen_loc = hud_data["loc"]
 					if(slot_r_store)
 						if(H.r_store) H.r_store.screen_loc = hud_data["loc"]
-					if(slot_add_gun)
+					if(slot_gun_slot)
 						if(H.wear_gun) H.wear_gun.screen_loc = hud_data["loc"]
 			else
 				switch(hud_data["slot"])
@@ -140,7 +145,7 @@
 						if(H.l_store) H.l_store.screen_loc = null
 					if(slot_r_store)
 						if(H.r_store) H.r_store.screen_loc = null
-					if(slot_add_gun)
+					if(slot_gun_slot)
 						if(H.wear_gun) H.wear_gun.screen_loc = null
 
 
@@ -253,8 +258,8 @@
 			src.client.screen += src.hud_used.hotkeybuttons
 		if(src.internals)
 			src.client.screen |= src.internals
-			src.client.screen |= src.hydratation_icon
-			src.client.screen |= src.nutrition_icon
+		src.client.screen |= src.hydratation_icon
+		src.client.screen |= src.nutrition_icon
 		src.hud_used.action_intent.screen_loc = ui_acti //Restore intent selection to the original position
 
 	hud_used.hidden_inventory_update()

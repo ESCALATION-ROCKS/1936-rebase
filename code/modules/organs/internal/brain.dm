@@ -12,11 +12,11 @@
 	throw_range = 5
 	origin_tech = list(TECH_BIO = 3)
 	attack_verb = list("attacked", "slapped", "whacked")
-	relative_size = 60
+	relative_size = 90
 
 	var/can_use_mmi = TRUE
 	var/mob/living/carbon/brain/brainmob = null
-	var/const/damage_threshold_count = 60
+	var/const/damage_threshold_count = 10
 	var/damage_threshold_value
 	var/healed_threshold = 1
 	var/oxygen_reserve = 6
@@ -141,13 +141,6 @@
 /obj/item/organ/internal/brain/process()
 
 	if(owner)
-		if(damage > max_damage / 2 && healed_threshold)
-			spawn()
-				alert(owner, "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
-			healed_threshold = 0
-
-//	if(owner.ear_damage > 5)
-//			sound_to(owner, sound("sound/effects/concussion.ogg",repeat = 0, volume = 85, channel = 1))
 		if(damage < (max_damage / 4))
 			healed_threshold = 1
 		handle_disabilities()
@@ -170,9 +163,15 @@
 			//Effects of bloodloss
 			switch(blood_volume)
 
-				if(BLOOD_VOLUME_OKAY to INFINITY)
+				if(BLOOD_VOLUME_SAFE to INFINITY)
 					if(can_heal)
 						damage--
+				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+					if(prob(1))
+						to_chat(owner, "<span class='warning'>You feel [pick("dizzy","woozy","faint")]...</span>")
+					damprob = owner.chem_effects[CE_STABLE] ? 30 : 60
+					if(!past_damage_threshold(2) && prob(damprob))
+						take_damage(1)
 				if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 40 : 80
@@ -185,7 +184,7 @@
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
 					if(!past_damage_threshold(6) && prob(damprob))
-						take_damage(1)
+						take_damage(2)
 					if(!owner.paralysis && prob(15/owner.sstatmodifier(owner.end)))
 						owner.Paralyse(3,5)
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
@@ -193,10 +192,17 @@
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
 					if(prob(damprob))
-						take_damage(1)
+						take_damage(2)
 					if(prob(damprob))
 						take_damage(1)
 	..()
+
+/obj/item/organ/internal/brain/take_damage(var/damage, var/silent)
+	. = ..()
+	//That's a lot of damage
+	if(damage >= 20 && prob(damage*2.5))
+		//5 seconds of unconsciousness for each 20 damage is not that bad
+		owner.Paralyse(damage/4)
 
 /obj/item/organ/internal/brain/proc/handle_disabilities()
 	if(owner.stat)

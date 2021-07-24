@@ -69,7 +69,7 @@ for reference:
 /obj/structure/barricade/New(var/newloc, var/material_name)
 	..(newloc)
 	if(!material_name)
-		material_name = "wood"
+		material_name = "steel"
 	material = get_material_by_name("[material_name]")
 	if(!material)
 		qdel(src)
@@ -141,7 +141,7 @@ for reference:
 		return 0
 
 /obj/structure/barricade/metal
-	name = "metal bars"
+	name = "barricade"
 	icon_state = "barricade_metal"
 	material = DEFAULT_WALL_MATERIAL
 	flags = OBJ_CLIMBABLE

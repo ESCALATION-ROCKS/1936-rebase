@@ -71,7 +71,7 @@
 		icon_state = icon_state_closed
 	else
 		icon_state = icon_state_open
-	radiation_repository.resistance_cache.Remove(get_turf(src))
+	SSradiation.resistance_cache.Remove(get_turf(src))
 	return
 
 // Proc: force_open()
@@ -260,7 +260,7 @@
 				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [W] with no visible effect.</span>")
 			else
 				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
-				playsound(src, 'sound/effects/bhit_helmet-1.wav', 100, 1)
+				playsound(src, 'sound/effects/bhit_helmet-1.ogg', 100, 1)
 				take_damage(W.force)
 		return
 

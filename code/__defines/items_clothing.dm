@@ -16,16 +16,15 @@
 #define SLOT_NHOLSTER	0x100
 #define SLOT_BELT       0x200
 #define SLOT_BACK       0x400
-#define SLOT_BACK_GUN   0x600
 #define SLOT_POCKET     0x800  // This is to allow items with a w_class of 3 or 4 to fit in pockets.
 #define SLOT_DENYPOCKET 0x1000  // This is to  deny items with a w_class of 2 or 1 from fitting in pockets.
 #define SLOT_TWOEARS    0x2000
 #define SLOT_TIE        0x4000
-#define SLOT_HOLSTER	0x8000 //16th bit - higher than this will overflow
-#define SLOT_LPOUCH		0x16000 //16th bit - higher than this will overflow
-#define SLOT_RPOUCH		0x32000 //16th bit - higher than this will overflow
-#define SLOT_BPOUCH		0x32000 //16th bit - higher than this will overflow
-#define SLOT_ID			0x64000
+#define SLOT_GUN_SLOT   0x8000 /////WHOEVER SET THIS TO 600 INITIALLY I HOPE YOUR MOM GETS FUCKED BY A NIGGER COCK -SEVERE
+#define SLOT_HOLSTER	0x16000
+#define SLOT_LPOUCH		0x32000 //16th bit - higher than this will overflow
+#define SLOT_RPOUCH		0x64000 //16th bit - higher than this will overflow
+#define SLOT_ID			0x63000 ///unused so putting in some bullshit number. will stay unused
  //16th bit - higher than this will overflow
 
 #define ACCESSORY_SLOT_UTILITY  "Utility"
@@ -80,9 +79,8 @@
 #define HIDEEARS 0x2 // Headsets and such.
 #define HIDEEYES 0x4 // Glasses.
 #define HIDEFACE 0x8 // Dictates whether we appear as "Unknown".
-
-#define BLOCKHEADHAIR   0x20    // Hides the user's hair overlay. Leaves facial hair.
-#define BLOCKHAIR       0x40    // Hides the user's hair, facial and otherwise.
+#define BLOCKHEADHAIR   0x10    // Hides the user's hair overlay. Leaves facial hair.
+#define BLOCKHAIR       0x20   // Hides the user's hair, facial and otherwise.
 
 // Slots.
 #define slot_first       1
@@ -109,11 +107,10 @@
 #define slot_legs        21
 #define slot_tie         22
 #define slot_last        26
-#define slot_add_gun     23
+#define slot_gun_slot    23
 #define slot_left_pouch  24
 #define slot_right_pouch 25
 #define slot_holster     26
-#define slot_back_pouch  27
 
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.
@@ -138,10 +135,9 @@
 #define slot_glasses_str  	"slot_glasses"
 #define slot_s_store_str	"slot_s_store"
 #define slot_tie_str		"slot_tie"
-#define slot_add_gun_str    "slot_add_gun"//aditional gun
+#define slot_gun_slot_str    "slot_gun_slot"
 #define slot_left_pouch_str "slot_left_pouch"
 #define slot_right_pouch_str "slot_right_pouch"
-#define slot_back_pouch_str "slot_back_pouch"
 #define slot_holster_str    "slot_holster"
 
 // Bitflags for clothing parts.
@@ -155,14 +151,15 @@
 #define LEGS        0x60   //  LEG_LEFT | LEG_RIGHT
 #define FOOT_LEFT   0x80
 #define FOOT_RIGHT  0x100
-#define FEET        0x180  // FOOT_LEFT | FOOT_RIGHT
-#define ARM_LEFT    0x200
-#define ARM_RIGHT   0x400
-#define ARMS        0x600 //  ARM_LEFT | ARM_RIGHT
-#define HAND_LEFT   0x800
-#define HAND_RIGHT  0x1000
-#define HANDS       0x1800 // HAND_LEFT | HAND_RIGHT
+#define FEET        0x200  // FOOT_LEFT | FOOT_RIGHT
+#define ARM_LEFT    0x400
+#define ARM_RIGHT   0x800
+#define ARMS        0x1000 //  ARM_LEFT | ARM_RIGHT
+#define HAND_LEFT   0x2000
+#define HAND_RIGHT  0x4000
+#define HANDS       0x8000 // HAND_LEFT | HAND_RIGHT
 #define FULL_BODY   0xFFFF
+
 
 // Bitflags for the percentual amount of protection a piece of clothing which covers the body part offers.
 // Used with human/proc/get_heat_protection() and human/proc/get_cold_protection().
@@ -267,8 +264,7 @@ var/list/default_onmob_icons = list(
 		slot_left_pouch_str = 'icons/mob/left_pouch.dmi',
 		slot_right_pouch_str = 'icons/mob/right_pouch.dmi',
 		slot_holster_str = 'icons/mob/holster.dmi',
-		slot_back_pouch_str = 'icons/mob/back_pouch.dmi',
 		slot_tie_str = 'icons/mob/ties.dmi',
-		slot_add_gun_str = 'icons/mob/gun_slot.dmi'
+		slot_gun_slot_str = 'icons/mob/gun_slot.dmi'
 		)
 

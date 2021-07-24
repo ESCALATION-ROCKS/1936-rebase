@@ -18,7 +18,7 @@
 	//How much blood this step can get on surgeon. 1 - hands, 2 - full body.
 	var/blood_level = 0
 	var/shock_level = 0	//what shock level will this step put patient on
-	var/delicate = 1  //if this step NEEDS stable optable or can be done on any valid surface with no penalty
+	var/delicate = 0  //if this step NEEDS stable optable or can be done on any valid surface with no penalty
 
 //returns how well tool is suited for this step
 /datum/surgery_step/proc/tool_quality(obj/item/tool)
@@ -43,7 +43,6 @@
 				return 0
 
 	return 1
-
 
 // checks whether this step can be applied with the given user and target
 /datum/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -78,9 +77,9 @@
 		. -= 10
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		. -= round(H.shock_stage * 0.5)
+		. -= round(H.shock_stage * 0.25)
 		if(H.eye_blurry)
-			. -= 20
+			. -= 15
 		if(H.eye_blind)
 			. -= 60
 	if(delicate)
@@ -91,27 +90,32 @@
 		var/turf/T = get_turf(target)
 		if(locate(/obj/machinery/optable, T))
 			. -= 0
+		else if(locate(/obj/structure/bed/roller, T))
+			. -= 10
 		else if(locate(/obj/structure/bed, T))
-			. -= 5
+			. -= 10
 		else if(locate(/obj/structure/table, T))
 			. -= 10
-		else if(locate(/obj/effect/rune/, T))
-			. -= 10
+		else if(locate(/obj/effect/rune, T)) ///if you manage to find a rune you deserve it
+			. -= 0
 	. = max(., 0)
 
+//this is fucking useless for now kind of
 /proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/human/user)
-	if(!istype(user) || !istype(E)) return
+	if(!istype(user) || !istype(E))
+		return
 
 	var/germ_level = user.germ_level
 	if(user.gloves)
 		germ_level = user.gloves.germ_level
 
-	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
+	if(germ_level)
+		E.germ_level += germ_level
 
 /obj/item/proc/do_surgery(mob/living/carbon/M, mob/living/user, fuckup_prob)
 	if(!istype(M))
 		return 0
-	if (user.a_intent == I_HURT)	//check for Hippocratic Oath
+	if(user.a_intent == I_HURT)	//check for Hippocratic Oath
 		return 0
 	var/zone = user.zone_sel.selecting
 	if(zone in M.op_stage.in_progress) //Can't operate on someone repeatedly.
@@ -127,7 +131,7 @@
 				M.op_stage.in_progress += zone
 				S.begin_step(user, M, zone, src)		//start on it
 				//We had proper tools! (or RNG smiled.) and user did not move or change hands.
-				if(prob(S.success_chance(user, M, src)) &&  do_mob(user, M, rand(S.min_duration, S.max_duration)) && (user.statscheck(user.skill_medicine, user.int, 8)))
+				if(prob(S.success_chance(user, M, src)) && do_mob(user, M, rand(S.min_duration, S.max_duration)))
 					S.end_step(user, M, zone, src)		//finish successfully
 				else if ((src in user.contents) && user.Adjacent(M))			//or
 					S.fail_step(user, M, zone, src)		//malpractice~
@@ -157,7 +161,7 @@
 				surgery_steps.Swap(i, gap + i)
 				swapped = 1
 
-/datum/surgery_status/
+/datum/surgery_status
 	var/eyes	=	0
 	var/face	=	0
 	var/head_reattach = 0

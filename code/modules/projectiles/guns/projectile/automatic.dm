@@ -11,12 +11,12 @@
 	ammo_type = /obj/item/ammo_casing/c9mm
 	multi_aim = 1
 	burst_delay = 2
-	picksound = 'sound/items/interactions/rifle_draw.wav'
+	picksound = 'sound/items/interactions/rifle_draw.ogg'
+	drop_sound = 'sound/items/interactions/drop_gun.ogg'
 	upg_bar = 1
 	upg_rap = 1
 	upg_aut = 1
 	upg_stb = 1
-	jam_chance = 3
 	//machine pistol, easier to one-hand with
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
@@ -290,7 +290,7 @@
 	..()
 
 
-//redline shit заебался сука делать эту хуйню убейте меня кто-нибудь плззззззззз
+//redline shit пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 /obj/item/weapon/gun/projectile/automatic/smg/mpistol
 	name = "machine pistol"

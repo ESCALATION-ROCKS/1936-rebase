@@ -8,7 +8,7 @@
 	max_w_class = ITEM_SIZE_NORMAL
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
-	var/show_above_suit = 1
+	var/show_above_suit = 0
 
 /obj/item/weapon/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
@@ -231,13 +231,13 @@
 	storage_slots = 3
 	can_hold = list(/obj/item/weapon/shovel/spadewp,
 	/obj/item/weapon/storage/belt/holster/flaskstorage/soviet,
-	/obj/item/weapon/storage/firstaid/sa_ifak)
+	/obj/item/weapon/storage/firstaid/ifak/soviet)
 
 /obj/item/weapon/storage/belt/harness/sa/New()
 	..()
 	new /obj/item/weapon/shovel/spadewp(src)
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
-	new /obj/item/weapon/storage/firstaid/sa_ifak(src)
+	new /obj/item/weapon/storage/firstaid/ifak/soviet(src)
 
 /obj/item/weapon/storage/belt/sa
 	name = "soviet belt"
@@ -251,21 +251,51 @@
 	..()
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
 
+
+/obj/item/weapon/storage/belt/harness/csla
+	name = "csla harness"
+	desc = "A cheap harness used by Warsaw Pact military forces."
+	icon_state = "sa_harness"
+	item_state = "sa_harness"
+	storage_slots = 3
+	can_hold = list(/obj/item/weapon/shovel/spadewp,
+	/obj/item/weapon/storage/belt/holster/flaskstorage/soviet,
+	/obj/item/weapon/storage/firstaid/ifak/soviet)
+
+/obj/item/weapon/storage/belt/harness/csla/New()
+	..()
+	new /obj/item/weapon/shovel/spadewp(src)
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+	new /obj/item/weapon/storage/firstaid/ifak/soviet(src)
+
+/obj/item/weapon/storage/belt/csla
+	name = "csla belt"
+	desc = "A belt used by Czech officers. An USSR Star is engraved on the buckle."
+	icon_state = "sa_officerharness"
+	item_state = "sa_officerharness"
+	storage_slots = 1
+	can_hold = list(/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)
+
+/obj/item/weapon/storage/belt/csla/New()
+	..()
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+
 /obj/item/weapon/storage/belt/harness/finn
 	name = "finnish harness"
 	desc = "A cheap harness used by Finnnish military forces."
 	icon_state = "sa_harness"
 	item_state = "sm_harness"
 	storage_slots = 3
+	show_above_suit = 1
 	can_hold = list(/obj/item/weapon/shovel/spadewp,
 	/obj/item/weapon/storage/belt/holster/flaskstorage/soviet,
-	/obj/item/weapon/storage/firstaid/sa_ifak)
+	/obj/item/weapon/storage/firstaid/ifak/soviet)
 
 /obj/item/weapon/storage/belt/harness/finn/New()
 	..()
 	new /obj/item/weapon/shovel/spadewp(src)
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
-	new /obj/item/weapon/storage/firstaid/sa_ifak(src)
+	new /obj/item/weapon/storage/firstaid/ifak/soviet(src)
 
 /obj/item/weapon/storage/belt/finn
 	name = "finnish belt"
@@ -291,6 +321,19 @@
 	..()
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
 
+
+/obj/item/weapon/storage/belt/heer
+	name = "bundesheer belt"
+	desc = "A pistol belt used by Bundesheer officers. A Bundesadler is engraved on the buckle"
+	icon_state = "bdw_belt"
+	item_state = "bdw_belt"
+	storage_slots = 1
+	can_hold = (/obj/item/weapon/storage/belt/holster/flaskstorage/nato)
+
+/obj/item/weapon/storage/belt/heer/New()
+	..()
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
+
 /obj/item/weapon/storage/belt/harness/bdw
 	name = "bundeswehr harness"
 	desc = "A generic harness used by Bundeswehr."
@@ -300,13 +343,48 @@
 	storage_slots = 3
 	can_hold = list(/obj/item/weapon/shovel/etool,
 	/obj/item/weapon/storage/belt/holster/flaskstorage/nato,
-	/obj/item/weapon/storage/firstaid/usmc_ifak)
+	/obj/item/weapon/storage/firstaid/ifak/nato)
 
 /obj/item/weapon/storage/belt/harness/bdw/New()
 	..()
 	new /obj/item/weapon/shovel/etool(src)
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
-	new /obj/item/weapon/storage/firstaid/usmc_ifak(src)
+	new /obj/item/weapon/storage/firstaid/ifak/nato(src)
+
+/obj/item/weapon/storage/belt/harness/heer
+	name = "bundesheer harness"
+	desc = "A generic harness used by Bundesheer."
+	icon_state = "heer_harness"
+	item_state = "bdw_harness"
+	show_above_suit = 1
+	storage_slots = 3
+	can_hold = list(/obj/item/weapon/shovel/etool,
+	/obj/item/weapon/storage/belt/holster/flaskstorage/nato,
+	/obj/item/weapon/storage/firstaid/ifak/nato)
+
+/obj/item/weapon/storage/belt/harness/heer/New()
+	..()
+	new /obj/item/weapon/shovel/etool(src)
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
+	new /obj/item/weapon/storage/firstaid/ifak/nato(src)
+
+/obj/item/weapon/storage/belt/harness/baf
+	name = "british harness"
+	desc = "A generic harness used by the BAF."
+	icon_state = "bdw_harness"
+	item_state = "bdw_harness"
+	show_above_suit = 1
+	storage_slots = 3
+	can_hold = list(/obj/item/weapon/shovel/etool,
+	/obj/item/weapon/storage/belt/holster/flaskstorage/nato,
+	/obj/item/weapon/storage/firstaid/ifak/nato)
+
+/obj/item/weapon/storage/belt/harness/baf/New()
+	..()
+	new /obj/item/weapon/shovel/etool(src)
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
+	new /obj/item/weapon/storage/firstaid/ifak/nato(src)
+
 
 /obj/item/weapon/storage/belt/harness/nvaddr
 	name = "nationale volksarmee harness"
@@ -316,13 +394,13 @@
 	storage_slots = 3
 	can_hold = list(/obj/item/weapon/shovel/spadewp,
 	/obj/item/weapon/storage/belt/holster/flaskstorage/soviet,
-	/obj/item/weapon/storage/firstaid/sa_ifak)
+	/obj/item/weapon/storage/firstaid/ifak/soviet)
 
 /obj/item/weapon/storage/belt/harness/nvaddr/New()
 	..()
 	new /obj/item/weapon/shovel/spadewp(src)
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
-	new /obj/item/weapon/storage/firstaid/sa_ifak(src)
+	new /obj/item/weapon/storage/firstaid/ifak/soviet(src)
 
 /obj/item/weapon/storage/belt/nvaddr
 	name = "nationale volksarmee belt"
@@ -345,13 +423,13 @@
 	storage_slots = 3
 	can_hold = list(/obj/item/weapon/shovel/etool,
 	/obj/item/weapon/storage/belt/holster/flaskstorage/nato,
-	/obj/item/weapon/storage/firstaid/usmc_ifak)
+	/obj/item/weapon/storage/firstaid/ifak/nato)
 
 /obj/item/weapon/storage/belt/harness/usmc/New()
 	..()
 	new /obj/item/weapon/shovel/etool(src)
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
-	new /obj/item/weapon/storage/firstaid/usmc_ifak(src)
+	new /obj/item/weapon/storage/firstaid/ifak/nato(src)
 
 /obj/item/weapon/storage/belt/usmc
 	name = "ALICE belt"
@@ -365,52 +443,60 @@
 	..()
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
 
-//SCW Harnesses
 
-/obj/item/weapon/storage/belt/harness/gce/brown
-	name = "leather harness"
-	desc = "A leather harness, standard issue to the Spanish Army before the war. The leather on this one is chestnut brown as per infantry regulations."
-	icon_state = "arnes_brown"
-	item_state = "arnes_brown"
-	storage_slots = 2
-	can_hold = list (/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)  
+/obj/item/weapon/storage/belt/harness/fra
+	name = "french harness"
+	desc = "A generic leather harness used by the ADT."
+	icon_state = "sa_harness"
+	item_state = "sa_harness"
+	storage_slots = 3
+	can_hold = list(/obj/item/weapon/shovel/etool,
+	/obj/item/weapon/storage/belt/holster/flaskstorage/nato,
+	/obj/item/weapon/storage/firstaid/ifak/nato)
 
-/obj/item/weapon/storage/belt/harness/gce/brown/New()
+/obj/item/weapon/storage/belt/harness/fra/New()
 	..()
-	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+	new /obj/item/weapon/shovel/etool(src)
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
+	new /obj/item/weapon/storage/firstaid/ifak/nato(src)
 
-/obj/item/weapon/storage/belt/harness/gce/black
-	name = "leather harness"
-	desc = "A leather harness, standard issue to the Spanish Army before the war. The leather on this one has been dyed black, as per the regulations in some of the armed spanish institutions like the Legion or the police."
-	icon_state = "arnes_black"
-	item_state = "arnes_black"
-	storage_slots = 2
-	can_hold = list (/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)  
+/obj/item/weapon/storage/belt/fra
+	name = "french belt"
+	desc = "A belt used by French officers."
+	icon_state = "sa_officerharness"
+	item_state = "sa_officerharness"
+	storage_slots = 1
+	can_hold = list(/obj/item/weapon/storage/belt/holster/flaskstorage/nato)
 
-/obj/item/weapon/storage/belt/harness/gce/black/New()
+/obj/item/weapon/storage/belt/fra/New()
 	..()
-	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/nato(src)
 
-/obj/item/weapon/storage/belt/gce/brown
-	name = "leather belt"
-	desc = "A Sam Browne belt used by Spanish Army officers."
-	icon_state = "cinturon_brown"
-	item_state = "cinturon_brown"
+
+/obj/item/weapon/storage/belt/harness/esp
+	name = "spanish harness"
+	desc = "A cheap harness used by the Spanish forces."
+	icon_state = "esp_harness"
+	item_state = "esp_harness"
+	storage_slots = 3
+	can_hold = list(/obj/item/weapon/shovel/spadewp,
+	/obj/item/weapon/storage/belt/holster/flaskstorage/soviet,
+	/obj/item/weapon/storage/firstaid/ifak/soviet)
+
+/obj/item/weapon/storage/belt/harness/esp/New()
+	..()
+	new /obj/item/weapon/shovel/spadewp(src)
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+	new /obj/item/weapon/storage/firstaid/ifak/soviet(src)
+
+/obj/item/weapon/storage/belt/esp
+	name = "spanish belt"
+	desc = "A belt used by Spanish officers. A hammer and sickle is engraved on the buckle."
+	icon_state = "esp_officerharness"
+	item_state = "esp_officerharness"
 	storage_slots = 1
 	can_hold = list(/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)
 
-/obj/item/weapon/storage/belt/gce/brown/New()
-	..()
-	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
-
-/obj/item/weapon/storage/belt/gce/black
-	name = "black leather belt"
-	desc = "A Sam Browne belt used by Spanish Army officers. The leather on this one is dyed black."
-	icon_state = "cinturon_black"
-	item_state = "cinturon_black"
-	storage_slots = 1
-	can_hold = list(/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)
-
-/obj/item/weapon/storage/belt/gce/black/New()
+/obj/item/weapon/storage/belt/esp/New()
 	..()
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)

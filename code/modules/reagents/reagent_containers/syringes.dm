@@ -15,14 +15,14 @@
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 15
-	w_class = 2
-	slot_flags = SLOT_EARS
+	w_class = 1
+	slot_flags = null
 	sharp = 1
 	unacidable = 1 //glass
 	var/mode = SYRINGE_DRAW
 	var/image/filling //holds a reference to the current filling overlay
 	var/visible_name = "a syringe"
-	var/time = 30
+	var/time = 80
 	var/drawing = 0
 
 /obj/item/weapon/reagent_containers/syringe/on_reagent_change()
@@ -170,9 +170,9 @@
 					to_chat(user, "<span class='danger'>You cannot inject a robotic limb.</span>")
 					return
 
-			if(ismob(target) && target != user)
+			if(ismob(target))
 
-				var/injtime = time //Injecting through a hardsuit takes longer due to needing to find a port.
+				var/injtime = (time - (user.skill_medicine*25)) //Erryone has a delay now, how long it is is decided by their medical skill.
 
 				if(istype(H))
 					if(H.wear_suit)
@@ -347,11 +347,11 @@
 		update_icon()
 
 /obj/item/weapon/reagent_containers/syringe/antiviral
-	name = "Syringe (doxicycline)"
+	name = "Syringe (doxycycline)"
 	desc = "Contains antiviral agents."
 	New()
 		..()
-		reagents.add_reagent(/datum/reagent/doxicycline, 15)
+		reagents.add_reagent(/datum/reagent/doxycycline, 15)
 		mode = SYRINGE_INJECT
 		update_icon()
 
@@ -362,7 +362,6 @@
 		..()
 		reagents.add_reagent(/datum/reagent/space_drugs,  5)
 		reagents.add_reagent(/datum/reagent/mindbreaker,  5)
-		reagents.add_reagent(/datum/reagent/cryptobiolin, 5)
 		mode = SYRINGE_INJECT
 		update_icon()
 

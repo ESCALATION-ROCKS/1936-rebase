@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(garbage)
 	name = "Garbage"
 	priority = 15
 	wait = 5
-	flags = SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
+	flags = SS_POST_FIRE_TIMING | SS_BACKGROUND | SS_NO_INIT | SS_NEEDS_SHUTDOWN
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	var/collection_timeout = 3000 // deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
@@ -32,8 +32,6 @@ SUBSYSTEM_DEF(garbage)
 #ifdef TESTING
 	var/list/qdel_list = list()	// list of all types that have been qdel()eted
 #endif
-
-/datum/var/list/active_timers  //for SStimer
 
 /datum/controller/subsystem/garbage/stat_entry()
 	var/msg = list()
@@ -238,23 +236,6 @@ SUBSYSTEM_DEF(garbage)
 				SSgarbage.QueueForQueuing(D)
 	else if(D.gc_destroyed == GC_CURRENTLY_BEING_QDELETED)
 		CRASH("[D.type] destroy proc was called multiple times, likely due to a qdel loop in the Destroy logic")
-
-// Default implementation of clean-up code.
-// This should be overridden to remove all references pointing to the object being destroyed.
-// Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
-/datum/proc/Destroy(force=FALSE)
-	tag = null
-	GLOB.nanomanager && GLOB.nanomanager.close_uis(src)
-	var/list/timers = active_timers
-	active_timers = null
-	for(var/thing in timers)
-		var/datum/timedevent/timer = thing
-		if (timer.spent)
-			continue
-		qdel(timer)
-	return QDEL_HINT_QUEUE
-
-/datum/var/gc_destroyed //Time when this object was destroyed.
 
 #ifdef TESTING
 /datum/var/running_find_references

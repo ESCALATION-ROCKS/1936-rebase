@@ -118,6 +118,9 @@ var/global/datum/controller/occupations/job_master
 			if(!job.player_old_enough(player.client))
 				Debug("FOC player not old enough, Player: [player]")
 				continue
+			if(job.sex_lock && player.client.prefs.gender  != job.sex_lock)
+				Debug("FOC character wrong gender, Player: [player]")
+				continue
 			if(job.minimum_character_age && (player.client.prefs.age < job.minimum_character_age))
 				Debug("FOC character not old enough, Player: [player]")
 				continue
@@ -150,6 +153,9 @@ var/global/datum/controller/occupations/job_master
 
 			if(!job.player_old_enough(player.client))
 				Debug("GRJ player not old enough, Player: [player]")
+				continue
+
+			if(job.sex_lock && player.client.prefs.gender  != job.sex_lock)
 				continue
 
 			if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
@@ -460,7 +466,7 @@ var/global/datum/controller/occupations/job_master
 			for(var/thing in spawn_in_storage)
 				var/datum/gear/G = gear_datums[thing]
 				var/metadata = H.client.prefs.Gear()[G.display_name]
-				var/item = G.spawn_item(H, metadata)
+				var/obj/item = G.spawn_item(H, metadata)
 
 				var/atom/placed_in = H.equip_to_storage(item)
 				if(placed_in)
@@ -472,8 +478,8 @@ var/global/datum/controller/occupations/job_master
 				if(H.put_in_hands(item))
 					to_chat(H, "<span class='notice'>Placing \the [item] in your hands!</span>")
 					continue
-				to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
-				qdel(item)
+				to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, must be out of storage space. Dropped \the [item].</span>")
+				item.forceMove(H.loc)
 
 
 		if(istype(H)) //give humans wheelchairs, if they need them.
@@ -495,7 +501,7 @@ var/global/datum/controller/occupations/job_master
 		if(job.supervisors)
 			to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 
-		to_chat(H, "<b>You have no radio on your back. Find it or stay near you squad's radioman.</b>")
+		to_chat(H, "<b>Find/Use a radio or stay near your squads radioman.</b>")
 
 		if(job.req_admin_notify)
 			to_chat(H, "<b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b>")

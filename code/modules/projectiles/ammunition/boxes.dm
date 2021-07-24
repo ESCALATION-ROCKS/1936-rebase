@@ -79,6 +79,9 @@
 	name = "magazine (9mm flash)"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
+/obj/item/ammo_magazine/box
+	var/loading = 0
+
 /obj/item/ammo_magazine/box/c9mm
 	name = "ammunition box (9mm)"
 	icon_state = "9mm"
@@ -368,6 +371,7 @@
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
 	multiple_sprites = 1
+	var/key_name = "ammo box"
 	mag_type = AMMO_BOX
 
 /obj/item/ammo_magazine/box/paper/x762
@@ -414,17 +418,18 @@
 ////////////ammo cans
 
 /obj/item/weapon/storage/fancy/ammo_can
-	icon = 'icons/obj/ammocan.dmi'
+	icon = 'icons/obj/coldwar/ammocan.dmi'
 	icon_state = "ammocan"
 	name = "ammo can"
 	storage_slots = 10
 	max_w_class = ITEM_SIZE_SMALL
 	w_class = ITEM_SIZE_GARGANTUAN
+	can_hold = null
 	key_type = /obj/item/ammo_magazine/box
 	icon_state = "ammocan"
 
 /obj/item/weapon/storage/fancy/ammo_can/soviet/
-	var/sealed = 1
+	sealed = 1
 
 /obj/item/weapon/storage/fancy/ammo_can/soviet/MouseDrop()
 	if (sealed)
@@ -463,7 +468,7 @@
 
 
 /obj/item/weapon/storage/fancy/ammo_can/soviet/x762x54
-	name = "ammo can (7.62x54mm)"
+	name = "ammo can (7.62x54mmR)"
 	icon_state = "ammocan762lps"
 	startswith = list(
 		/obj/item/ammo_magazine/box/paper/box762x54 = 11
@@ -512,6 +517,18 @@
 	icon_state = "ammocan_band"
 	storage_slots = 5
 	max_w_class = ITEM_SIZE_NORMAL
-	key_type = /obj/item/clothing/accessory/storage/bandolier_nato
-	can_hold = /obj/item/clothing/accessory/storage/bandolier_nato
-	startswith = list(/obj/item/clothing/accessory/storage/bandolier_nato/filled = 5)
+	key_type = /obj/item/clothing/accessory/storage/coldwar/bandolier_nato
+	can_hold = /obj/item/clothing/accessory/storage/coldwar/bandolier_nato
+	startswith = list(/obj/item/clothing/accessory/storage/coldwar/bandolier_nato/filled = 5)
+
+/obj/item/weapon/storage/fancy/ammo_can/x919
+	name = "ammo box (9x19mm)"
+	icon_state = "ammocannine"
+	startswith = list(
+		/obj/item/ammo_magazine/box/paper/box9x19 = 5
+		)
+
+/obj/item/weapon/storage/fancy/ammo_can/x919/New()
+	..()
+	slowdown_per_slot[slot_l_hand] = 1.5
+	slowdown_per_slot[slot_r_hand] = 1.5

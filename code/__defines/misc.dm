@@ -94,6 +94,11 @@
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
 
+#define GLASS_MATERIAL 1
+#define WOODEN_MATERIAL 2
+#define STEEL_MATERIAL 3
+#define MARBLE_MATERIAL 4
+
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_WALL_MATERIAL "steel"
 
@@ -151,6 +156,7 @@
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
+#define PROJECTILE_DELETE -3 //projectile embedded, delete it
 
 //Camera capture modes
 #define CAPTURE_MODE_REGULAR 0 //Regular polaroid camera mode
@@ -313,3 +319,34 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define MATRIX_Achromatomaly 	list(0.62,	0.32, 	0.06, 	0.16, 	0.78, 	0.06, 	0.16, 	0.32, 	0.52)
 #define MATRIX_Vulp_Colorblind 	list(0.50,	0.40,	0.10,	0.50,	0.40,	0.10,	0,		0.20,	0.80)
 #define MATRIX_Taj_Colorblind 	list(0.40,	0.20,	0.40,	0.40,	0.60,	0,		0.20,	0.20,	0.60)
+
+// Adds I to L, initalizing L if necessary, if I is not already in L
+#define LAZYDISTINCTADD(L, I) if(!L) { L = list(); } L |= I;
+
+// binary search sorted insert
+// IN: Object to be inserted
+// LIST: List to insert object into
+// TYPECONT: The typepath of the contents of the list
+// COMPARE: The variable on the objects to compare
+#define BINARY_INSERT(IN, LIST, TYPECONT, COMPARE) \
+	var/__BIN_CTTL = length(LIST);\
+	if(!__BIN_CTTL) {\
+		LIST += IN;\
+	} else {\
+		var/__BIN_LEFT = 1;\
+		var/__BIN_RIGHT = __BIN_CTTL;\
+		var/__BIN_MID = (__BIN_LEFT + __BIN_RIGHT) >> 1;\
+		var/##TYPECONT/__BIN_ITEM;\
+		while(__BIN_LEFT < __BIN_RIGHT) {\
+			__BIN_ITEM = LIST[__BIN_MID];\
+			if(__BIN_ITEM.##COMPARE <= IN.##COMPARE) {\
+				__BIN_LEFT = __BIN_MID + 1;\
+			} else {\
+				__BIN_RIGHT = __BIN_MID;\
+			};\
+			__BIN_MID = (__BIN_LEFT + __BIN_RIGHT) >> 1;\
+		};\
+		__BIN_ITEM = LIST[__BIN_MID];\
+		__BIN_MID = __BIN_ITEM.##COMPARE > IN.##COMPARE ? __BIN_MID : __BIN_MID + 1;\
+		LIST.Insert(__BIN_MID, IN);\
+	}

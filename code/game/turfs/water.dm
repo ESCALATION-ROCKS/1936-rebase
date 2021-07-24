@@ -4,7 +4,7 @@
 	icon_state = "water"
 	blend_with_neighbors = 4
 	movement_delay = 10
-	layer = MOB_LAYER+0.2
+	layer = ABOVE_TURF_PLANE
 	outdoors = 1
 	footstep_sounds = list("human" = list(
 		'sound/effects/footsteps/wade1.wav',
@@ -25,7 +25,11 @@
 	overmob_overlay = image('icons/turf/flooring/water.dmi',src,"riverwater", "layer" = MOB_LAYER+0.1)
 	overlays += overmob_overlay
 */
-
+/turf/unsimulated/floor/river/Cross(var/atom/A)//People who are on fire go out.
+	if(isliving(A))
+		var/mob/living/L = A
+		L.ExtinguishMob()
+		
 /turf/unsimulated/floor/river/deep
 	name = "deep river"
 	icon_state = "waterdeep"

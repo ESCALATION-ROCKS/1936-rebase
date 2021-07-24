@@ -1067,9 +1067,9 @@
 
 		if(config.allow_admin_rev)
 			L.revive()
-			log_and_message_admins("healed / Rrvived [key_name(L)]")
+			log_and_message_admins("healed / Revived [key_name(L)]")
 		else
-			to_chat(usr, "Admin Rejuvinates have been disabled")
+			to_chat(usr, "Adminheals have been disabled")
 
 	else if(href_list["makeai"])
 		if(!check_rights(R_SPAWN))	return
@@ -1924,5 +1924,5 @@ mob/living/silicon/ai/can_centcom_reply()
 
 /client/get_admin_jump_link(var/atom/target, var/delimiter, var/prefix, var/sufix)
 	if(holder)
-		var/short_links = is_preference_enabled(/datum/client_preference/ghost_follow_link_length)
+		var/short_links = get_preference_value(/datum/client_preference/ghost_follow_link_length) == GLOB.PREF_SHORT
 		return admin_jump_link(target, src, delimiter, prefix, sufix, short_links)

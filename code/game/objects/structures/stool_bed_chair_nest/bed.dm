@@ -209,11 +209,12 @@
  */
 /obj/structure/bed/roller
 	name = "roller bed"
-	icon = 'icons/obj/rollerbed.dmi'
+	icon = 'icons/obj/coldwar/rollerbed.dmi'
 	icon_state = "down"
 	icon_state = "rbed"
 	anchored = 0
 	buckle_pixel_shift = "x=0;y=6"
+	var/obj/item/roller/folded_type = /obj/item/roller
 
 /obj/structure/bed/roller/update_icon()
 	return // Doesn't care about material or anything else.
@@ -226,7 +227,7 @@
 			user_unbuckle_mob(user)
 		else
 			visible_message("[user] collapses \the [src.name].")
-			new/obj/item/roller(get_turf(src))
+			new folded_type(get_turf(src))
 			spawn(0)
 				qdel(src)
 		return
@@ -235,14 +236,15 @@
 /obj/item/roller
 	name = "stretcher"
 	desc = "A collapsed roller bed that can be carried around."
-	icon = 'icons/obj/rollerbed.dmi'
+	icon = 'icons/obj/coldwar/rollerbed.dmi'
 	icon_state = "folded"
 	item_state = "rbed"
 	slot_flags = SLOT_BACK
-	w_class = ITEM_SIZE_HUGE // Can't be put in backpacks. Oh well. For now.
+	w_class = ITEM_SIZE_NORMAL // Fits in backpacks.
+	var/obj/structure/bed/roller/unfolded_type = /obj/structure/bed/roller
 
 /obj/item/roller/attack_self(mob/user)
-		var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
+		var/obj/structure/bed/roller/R = new unfolded_type(user.loc)
 		R.add_fingerprint(user)
 		qdel(src)
 
@@ -261,7 +263,7 @@
 /obj/item/roller_holder
 	name = "roller bed rack"
 	desc = "A rack for carrying a collapsed roller bed."
-	icon = 'icons/obj/rollerbed.dmi'
+	icon = 'icons/obj/coldwar/rollerbed.dmi'
 	icon_state = "folded"
 	var/obj/item/roller/held
 
@@ -314,19 +316,19 @@
 		if(!ishuman(usr))	return
 		if(buckled_mob)	return 0
 		visible_message("[usr] collapses \the [src.name].")
-		new/obj/item/roller(get_turf(src))
+		new folded_type(get_turf(src))
 		spawn(0)
 			qdel(src)
 		return
 
 
 /obj/structure/bed/roller/soviet
-	name = "stretcher"
-	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "sovrbed"
+	folded_type = /obj/item/roller/soviet
 
-/obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)
-	return
+/obj/item/roller/soviet
+	icon_state = "sovrbed-folded"
+	unfolded_type = /obj/structure/bed/roller/soviet
 
 
 
@@ -337,10 +339,12 @@
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bunkbed_soviet_folded"
 	item_state = "rbed"
-	w_class = ITEM_SIZE_HUGE // Can't be put in backpacks. Oh well. For now.
+	slot_flags = SLOT_BACK
+	w_class = ITEM_SIZE_NORMAL
+	var/obj/structure/bed/foldbed/unfolded_type = /obj/structure/bed/foldbed
 
 /obj/item/foldbed/attack_self(mob/user)
-	var/obj/structure/bed/foldbed/R = new /obj/structure/bed/foldbed(user.loc)
+	var/obj/structure/bed/foldbed/R = new unfolded_type(user.loc)
 	R.add_fingerprint(user)
 	qdel(src)
 
@@ -358,6 +362,7 @@
 	icon_state = "bunkbed_soviet"
 	anchored = 1
 	buckle_pixel_shift = "x=0;y=6"
+	var/obj/item/foldbed/folded_type = /obj/item/foldbed
 
 /obj/structure/bed/foldbed/update_icon()
 	return // Doesn't care about material or anything else.
@@ -382,88 +387,16 @@
 		if(!ishuman(usr))	return
 		if(buckled_mob)	return 0
 		visible_message("[usr] collapses \the [src.name].")
-		new/obj/item/foldbed(get_turf(src))
+		new folded_type(get_turf(src))
 		spawn(0)
 			qdel(src)
 		return
-
-
 
 ////nato foldbed
 /obj/structure/bed/foldbed/nato
 	icon_state = "bunkbed_nato"
-
-/obj/structure/bed/foldbed/nato/MouseDrop(over_object, src_location, over_location)
-	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		if(!ishuman(usr))	return
-		if(buckled_mob)	return 0
-		visible_message("[usr] collapses \the [src.name].")
-		new/obj/item/foldbed/nato(get_turf(src))
-		spawn(0)
-			qdel(src)
-		return
+	folded_type = /obj/item/foldbed/nato
 
 /obj/item/foldbed/nato
 	icon_state = "bunkbed_nato_folded"
-
-/obj/item/foldbed/attack_self(mob/user)
-	var/obj/structure/bed/foldbed/nato/R = new /obj/structure/bed/foldbed/nato(user.loc)
-	R.add_fingerprint(user)
-	qdel(src)
-
-//SCW Beds
-
-/obj/structure/bed/stretcher/
-	name = "stretcher bed"
-	icon = 'icons/obj/rollerbed.dmi'
-	icon_state = "stretcher"
-	item_state = "stretcher"
-	anchored = 0
-
-/obj/structure/bed/stretcher/update_icon()
-	return // Doesn't care about material or anything else.
-
-/obj/structure/bed/stretcher/proc/move_buckled()
-	if(buckled_mob)
-		if(buckled_mob.buckled == src)
-			buckled_mob.forceMove(src.loc)
-		else
-			buckled_mob = null
-
-/obj/structure/bed/stretcher/update_icon()
-	return // Doesn't care about material or anything else.
-
-/obj/structure/bed/stretcher/buckle_mob()
-	. = ..()
-	if(.)
-		GLOB.moved_event.register(src, src, /obj/structure/bed/stretcher/proc/move_buckled)
-
-/obj/structure/bed/stretcher/unbuckle_mob()
-	GLOB.moved_event.unregister(src, src)
-	return ..()
-
-/obj/structure/bed/stretcher/MouseDrop(over_object, src_location, over_location)
-	..()
-	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
-		if(!ishuman(usr))	return
-		if(buckled_mob)	return 0
-		visible_message("[usr] folds \the [src.name].")
-		new/obj/item/stretcher(get_turf(src))
-		spawn(0)
-			qdel(src)
-		return
-
-/obj/item/stretcher
-	name = "stretcher"
-	desc = "A collapsed stretcher bed that can be carried around."
-	icon = 'icons/obj/rollerbed.dmi'
-	icon_state = "stretcher_folded"
-	item_state = "stretcher"
-	slot_flags = SLOT_BACK
-	w_class = ITEM_SIZE_HUGE // Can't be put in backpacks. Oh well. For now.
-
-/obj/item/stretcher/attack_self(mob/user)
-		var/obj/structure/bed/stretcher/R = new /obj/structure/bed/stretcher(user.loc)
-		R.add_fingerprint(user)
-		qdel(src)
+	unfolded_type = /obj/structure/bed/foldbed/nato

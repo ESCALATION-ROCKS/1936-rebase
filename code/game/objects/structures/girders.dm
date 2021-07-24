@@ -58,7 +58,7 @@
 			if (M.lying)
 				chance += 20				//Lying down lets you catch less bullets
 		if(prob(chance))
-			health -= P.damage/4
+			health -= P.damage/2
 			visible_message("<span class='warning'>[P] hits [src]!</span>")
 			health_check()
 			return 0
@@ -313,11 +313,11 @@
 		dismantle()
 
 
-/obj/structure/concretegirder
+/obj/structure/girder/concrete
 	name = "concrete wreckage"
 	icon_state = "conwreckage"
 	anchored = 1
-	density = 1
+	density = 0
 	plane = OBJ_PLANE
 	layer = BELOW_OBJ_LAYER
 	w_class = ITEM_SIZE_NO_CONTAINER

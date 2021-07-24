@@ -358,40 +358,6 @@ var/list/floor_decals = list()
 	name = "L16"
 	icon_state = "L16"
 
-/obj/effect/floor_decal/sign
-	name = "floor sign"
-	icon_state = "white_1"
-
-/obj/effect/floor_decal/sign/two
-	icon_state = "white_2"
-
-/obj/effect/floor_decal/sign/a
-	icon_state = "white_a"
-
-/obj/effect/floor_decal/sign/b
-	icon_state = "white_b"
-
-/obj/effect/floor_decal/sign/c
-	icon_state = "white_c"
-
-/obj/effect/floor_decal/sign/d
-	icon_state = "white_d"
-
-/obj/effect/floor_decal/sign/ex
-	icon_state = "white_ex"
-
-/obj/effect/floor_decal/sign/m
-	icon_state = "white_m"
-
-/obj/effect/floor_decal/sign/cmo
-	icon_state = "white_cmo"
-
-/obj/effect/floor_decal/sign/v
-	icon_state = "white_v"
-
-/obj/effect/floor_decal/sign/p
-	icon_state = "white_p"
-
 /obj/effect/floor_decal/solarpanel
 	icon_state = "solarpanel"
 
@@ -584,6 +550,24 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/industrial/plaza/box
 	icon_state = "plazabox"
 
+/obj/effect/floor_decal/fancytile
+	name = "fancy tile"
+	icon = 'icons/turf/flooring/fancytile.dmi'
+	icon_state = "greylam"
+
+/obj/effect/floor_decal/fancytile/greylam
+	icon_state = "greylam"
+/obj/effect/floor_decal/fancytile/whitelam
+	icon_state = "whitelam"
+/obj/effect/floor_decal/fancytile/fftile
+	icon_state = "fftile"
+/obj/effect/floor_decal/fancytile/stone1
+	icon_state = "stone1"
+/obj/effect/floor_decal/fancytile/stone2
+	icon_state = "stone2"
+/obj/effect/floor_decal/fancytile/stone3
+	icon_state = "stone3"
+
 /obj/effect/floor_decal/turf/bloodbar
 	icon_state = "bloodbar"
 /obj/effect/floor_decal/turf/bloodbar/off
@@ -600,6 +584,9 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/turf/cafe2
 	icon_state = "cafe2"
 
+/obj/effect/floor_decal/turf/lino
+	icon_state = "linofull"
+
 /obj/effect/floor_decal/turf/shaft
 	icon_state = "shaft"
 /obj/effect/floor_decal/turf/coldroom
@@ -612,6 +599,30 @@ var/list/floor_decals = list()
 	icon_state = "platingalt2"
 /obj/effect/floor_decal/turf/marblealt
 	icon_state = "marblealt"
+/obj/effect/floor_decal/turf/woodalt
+	icon_state = "woodalt"
+/obj/effect/floor_decal/turf/woodalt2
+	icon_state = "woodalt2"
+/obj/effect/floor_decal/turf/woodalt3
+	icon_state = "woodalt3"
+/obj/effect/floor_decal/turf/woodalt4
+	icon_state = "woodalt4"
+/obj/effect/floor_decal/turf/woodalt5
+	icon_state = "woodalt5"
+/obj/effect/floor_decal/turf/woodalt6
+	icon_state = "woodalt6"
+/obj/effect/floor_decal/turf/woodalt7
+	icon_state = "woodalt7"
+/obj/effect/floor_decal/turf/woodalt8
+	icon_state = "woodalt8"
+/obj/effect/floor_decal/turf/woodalt9
+	icon_state = "woodalt9"
+/obj/effect/floor_decal/turf/woodalt10
+	icon_state = "woodalt10"
+/obj/effect/floor_decal/turf/woodalt11
+	icon_state = "woodalt11"
+/obj/effect/floor_decal/turf/woodalt12
+	icon_state = "woodalt12"
 /obj/effect/floor_decal/turf/aesculapius
 	icon_state = "aesculapius"
 /obj/effect/floor_decal/turf/aesculapius/mem
@@ -620,9 +631,7 @@ var/list/floor_decals = list()
 	icon_state = "mento"
 /obj/effect/floor_decal/turf/aesculapius/mori
 	icon_state = "mori"
-/obj/effect/floor_decal/turf/dirt
-	icon = 'icons/turf/ground.dmi'
-	icon_state = "dirt"
+
 /obj/effect/floor_decal/turf/plating
 	icon_state = "platingfull"
 
@@ -641,7 +650,7 @@ var/list/floor_decals = list()
 	icon_state = "blue2_edges"
 
 /obj/effect/floor_decal/carpet/purple
-	name = "orange carpet"
+	name = "purple carpet"
 	icon_state = "purple_edges"
 
 /obj/effect/floor_decal/carpet/orange
@@ -709,6 +718,9 @@ var/list/floor_decals = list()
 	icon = 'icons/turf/flooring/decals.dmi'
 	icon_state = "roadspline"
 
+/obj/effect/floor_decal/road/three
+	icon_state = "roadspline3"
+	
 /obj/effect/floor_decal/road/lyuk
 	icon = 'icons/turf/flooring/decals.dmi'
 	icon_state = "lyuk"
@@ -716,3 +728,6 @@ var/list/floor_decals = list()
 /obj/effect/floor_decal/road/sliv
 	icon = 'icons/turf/flooring/decals.dmi'
 	icon_state = "sliv"
+
+/obj/effect/floor_decal/road/sliv/three
+	icon_state = "sliv3"

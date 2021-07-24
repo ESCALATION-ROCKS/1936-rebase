@@ -23,7 +23,11 @@
 
 /decl/communication_channel/dsay/do_communicate(var/client/communicator, var/message, var/speech_method_type)
 	var/decl/dsay_communication/speech_method = decls_repository.get_decl(speech_method_type)
-
+	/*var/last_message_time = 0
+	if(world.time < last_message_time + 2 SECONDS)
+		to_chat(communicator, "<span class='warning'>Calm down with the salt, buddy.</span>")
+		return
+	..()*/
 	speech_method.adjust_channel(src)
 
 	for(var/mob/M in GLOB.player_list)
@@ -43,7 +47,7 @@
 /decl/dsay_communication/proc/can_receive(var/client/C, var/mob/M)
 	if(istype(C) && C.mob == M)
 		return TRUE
-	if(M.is_preference_disabled(/datum/client_preference/show_dsay))
+	if(M.get_preference_value(/datum/client_preference/show_dsay) == GLOB.PREF_HIDE)
 		return FALSE
 	if(istype(C) && M.is_key_ignored(C.key))
 		return FALSE

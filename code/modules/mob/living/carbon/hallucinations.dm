@@ -107,7 +107,7 @@
 
 /datum/hallucination/sound/danger
 	min_power = 30
-	sounds = list('sound/effects/Explosion1.ogg','sound/effects/Explosion2.ogg','sound/effects/Glassbr1.ogg','sound/effects/Glassbr2.ogg','sound/effects/Glassbr3.ogg','sound/weapons/smash.ogg')
+	sounds = list('sound/effects/explosion1.ogg','sound/effects/explosion2.ogg','sound/effects/Glassbr1.ogg','sound/effects/Glassbr2.ogg','sound/effects/Glassbr3.ogg','sound/weapons/smash.ogg')
 
 /datum/hallucination/sound/spooky
 	min_power = 50
@@ -269,7 +269,7 @@
 		to_chat(usr, "<span class = 'warning'>Chemicals in your blood prevent you from using your power!'</span>")
 
 	var/list/creatures = list()
-	for(var/mob/living/carbon/C in GLOB.mob_list)
+	for(var/mob/living/carbon/C in SSmobs.mob_list)
 		creatures += C
 	creatures -= usr
 	var/mob/target = input("Who do you want to project your mind to ?") as null|anything in creatures

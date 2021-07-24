@@ -21,16 +21,16 @@ var/global/floorIsLava = 0
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
 	for(var/client/C in GLOB.admins)
 		if(check_rights(R_INVESTIGATE, 0, C))
-			if(C.is_preference_enabled(/datum/client_preference/admin/show_attack_logs))
+			if(C.get_preference_value(/datum/client_preference/staff/show_attack_logs) == GLOB.PREF_SHOW)
 				var/msg = rendered
 				to_chat(C, msg)
 /proc/admin_notice(var/message, var/rights)
-	for(var/mob/M in GLOB.mob_list)
+	for(var/mob/M in SSmobs.mob_list)
 		if(check_rights(rights, 0, M))
 			to_chat(M, message)
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
-/datum/admins/proc/show_player_panel(var/mob/M in GLOB.mob_list)
+/datum/admins/proc/show_player_panel(var/mob/M in SSmobs.mob_list)
 	set category = "Admin"
 	set name = "Show Player Panel"
 	set desc="Edit player (respawn, ban, heal, etc)"
@@ -793,6 +793,28 @@ var/global/floorIsLava = 0
 	message_admins("[key_name_admin(usr)] toggled Dead OOC.", 1)
 	feedback_add_details("admin_verb","TDOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/datum/admins/proc/endnow()
+	set category = "Server"
+	set desc = "Ending game round"
+	set name = "End Round"
+	if(!usr.client.holder || !check_rights(R_ADMIN))
+		return
+
+	if(ticker.current_state == GAME_STATE_PREGAME)
+		to_chat(usr, "<span class='bigdanger'>The round has not started yet!</span>")
+		return
+
+	var/confirm = alert("End the game round?", "Game Ending", "Yes", "Cancel")
+	if(confirm == "Yes")
+		ticker.force_ending = 1
+		ticker.current_state = GAME_STATE_FINISHED
+		Master.SetRunLevel(RUNLEVEL_POSTGAME)
+		spawn
+			ticker.declare_completion()
+		log_and_message_admins("initiated a game ending.")
+		to_world("<span class='danger'>Game ending!</span> <span class='notice'>Initiated by [usr.key]!</span>")
+		feedback_add_details("admin_verb","ER") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /datum/admins/proc/togglehubvisibility()
 	set category = "Server"
 	set desc="Globally Toggles Hub Visibility"
@@ -868,7 +890,7 @@ var/global/floorIsLava = 0
 	if(config.abandon_allowed)
 		to_world("<B>You may now respawn.</B>")
 	else
-		to_world("<B>You may no longer respawn :(</B>")
+		to_world("<B>You may no longer respawn</B>")
 	log_and_message_admins("toggled respawn to [config.abandon_allowed ? "On" : "Off"].")
 	world.update_status()
 	feedback_add_details("admin_verb","TR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -970,7 +992,7 @@ var/global/floorIsLava = 0
 
 	world.Reboot()
 
-/datum/admins/proc/unprison(var/mob/M in GLOB.mob_list)
+/datum/admins/proc/unprison(var/mob/M in SSmobs.mob_list)
 	set category = "Admin"
 	set name = "Unprison"
 	if (isAdminLevel(M.z))
@@ -1111,7 +1133,7 @@ var/global/floorIsLava = 0
 	feedback_add_details("admin_verb","SA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-/datum/admins/proc/show_traitor_panel(var/mob/M in GLOB.mob_list)
+/datum/admins/proc/show_traitor_panel(var/mob/M in SSmobs.mob_list)
 	set category = "Admin"
 	set desc = "Edit mobs's memory and role"
 	set name = "Show Traitor Panel"
@@ -1335,7 +1357,7 @@ var/global/floorIsLava = 0
 
 /datum/admins/proc/output_ai_laws()
 	var/ai_number = 0
-	for(var/mob/living/silicon/S in GLOB.mob_list)
+	for(var/mob/living/silicon/S in SSmobs.mob_list)
 		ai_number++
 		if(isAI(S))
 			to_chat(usr, "<b>AI [key_name(S, usr)]'s laws:</b>")

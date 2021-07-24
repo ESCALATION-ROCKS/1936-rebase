@@ -55,6 +55,8 @@
 	else
 		name = "[material.display_name] [initial(name)]"
 		health = round(material.integrity/10)
+		if(applies_material_colour)
+			color = material.icon_colour
 		if(material.products_need_process())
 			GLOB.processing_objects |= src
 		if(material.conductive)

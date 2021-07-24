@@ -8,13 +8,14 @@
 	pixel_x = -16
 	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
-	var/chops = 0 //how many times it's been chopped. Gotta make them work for it!
+	var/chops = 3 //how many times it's been chopped. Gotta make them work for it!
 	var/small = 0
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/axe))
-		user << "<span class='notice'>You chop [src] with [I].</span>"
+		to_chat(user, "<span class='notice'>You chop [src] with [I].")
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, 'sound/effects/chopchop.ogg', 100, 1)
 
@@ -24,9 +25,7 @@
 		chops += 1
 
 		if(chops == 4 && small)
-			user << "<span class='notice'>[src] comes crashing down!</span>"
-
-			sleep(15)
+			user.visible_message("<span class='notice'>[src] comes crashing down!</span>")
 
 			playsound(src.loc, 'sound/effects/treefalling.ogg', 100, 1)
 			new /obj/structure/log(src.loc)
@@ -34,15 +33,11 @@
 			qdel(src)
 
 		else if(chops == 8)
-			user << "<span class='notice'>[src] comes crashing down!</span>"
-
-			sleep(15)
+			user.visible_message("<span class='notice'>[src] comes crashing down!</span>")
 
 			playsound(src.loc, 'sound/effects/treefalling.ogg', 100, 1)
 
-			new /obj/structure/log(get_step(src, NORTH))
-			new /obj/structure/log(src.loc)
-			var/obj/structure/log/L = new /obj/structure/log(get_step(src, NORTH))
+			var/obj/structure/log/L = new /obj/structure/log(src.loc)
 
 			L.y += 1
 
@@ -53,19 +48,28 @@
 /obj/structure/log
 	icon = 'icons/obj/wood.dmi'
 	icon_state = "log"
-	density = 1
+	density = 0
 	anchored = 0
 
 /obj/structure/log/attackby(var/obj/item/I, mob/user as mob)
 	if(istype(I, /obj/item/weapon/carpentry/saw))
-		user << "<span class='notice'>You saw the [src] with [I].</span>"
+		to_chat(user, "<span class='notice'>You saw the [src] with [I].</span>")
 
-		if(do_after(user, 20))
+		if(do_after(user, 80))
 
 			var/obj/item/stack/material/r_wood/W = new /obj/item/stack/material/r_wood(src.loc)
 
 			W.pixel_y = src.pixel_y
-			W.amount = rand(3,6) //going to mess with this value for a while, we'll see
+			W.amount = rand(3) //going to mess with this value for a while, we'll see
+
+			qdel(src)
+
+	if(istype(I, /obj/item/weapon/shovel))
+		user.visible_message("<span class='notice'>You start digging a fire pit with [I].</span>")
+
+		if(do_after(user, 150))
+
+			new /obj/structure/fire_source/hearth(src.loc)
 
 			qdel(src)
 
@@ -806,6 +810,7 @@
 	anchored = 1
 	density = 0
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/summer
 	name = "tree"
@@ -816,6 +821,7 @@
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/summer/alt1
 	icon = 'icons/obj/flora/96tree.dmi'
@@ -825,6 +831,7 @@
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/summer/alt2
 	icon = 'icons/obj/flora/96tree.dmi'
@@ -834,6 +841,7 @@
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/summer/alt3
 	icon = 'icons/obj/flora/96tree.dmi'
@@ -843,6 +851,7 @@
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/summer/log1
 	name = "wooden log"
@@ -857,6 +866,18 @@
 	density = 0
 	anchored = 1
 
+/obj/structure/flora/summer/bigbush1
+	icon = 'icons/obj/flora/miscflora48.dmi'
+	icon_state = "bigbush"
+	density = 0
+	anchored = 1
+
+/obj/structure/flora/summer/bigbush2
+	icon = 'icons/obj/flora/miscflora48.dmi'
+	icon_state = "bigbush2"
+	density = 0
+	anchored = 1
+
 /obj/structure/flora/tree/summer/dead1
 	name = "dead tree"
 	icon_state = "vhdtree152"
@@ -864,6 +885,7 @@
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/summer/dead2
 	name = "dead tree"
@@ -872,9 +894,20 @@
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 ////////////////////////////////////////////////winter trees
 /////////////////// /obj/structure/flora/tree/pine don't forget these exist too
+
+/obj/structure/flora/tree/winter
+	icon = 'icons/obj/flora/96tree.dmi'
+	icon_state = "96tree"
+	pixel_x = -32
+	density = 1
+	anchored = 1
+	alpha = 150
+	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/winter/deadbig1
 	name = "dead tree"
@@ -885,6 +918,7 @@
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/winter/deadbig1/New()
 	..()
@@ -899,6 +933,7 @@
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/winter/deadbig2/New()
 	..()
@@ -906,13 +941,14 @@
 
 /obj/structure/flora/tree/winter/alt1
 	name = "snowy tree"
-	icon = null
+	icon = 'icons/obj/flora/wintertrees.dmi'
 	icon_state = "wintertree1"
 	pixel_x = -32
 	density = 1
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/winter/alt1/New()
 	..()
@@ -920,13 +956,14 @@
 
 /obj/structure/flora/tree/winter/alt2
 	name = "snowy tree"
-	icon = null
+	icon = 'icons/obj/flora/wintertrees.dmi'
 	icon_state = "wintertree2"
 	pixel_x = -32
 	density = 1
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/winter/alt2/New()
 	..()
@@ -934,33 +971,15 @@
 
 /obj/structure/flora/tree/winter/alt3
 	name = "snowy tree"
-	icon = null
+	icon = 'icons/obj/flora/wintertrees.dmi'
 	icon_state = "wintertree3"
 	pixel_x = -32
 	density = 1
 	anchored = 1
 	alpha = 150
 	mouse_opacity = 0
+	explosion_resistance = 1
 
 /obj/structure/flora/tree/winter/alt3/New()
 	..()
 	icon_state = "wintertree3"
-
-
-/obj/structure/flora/ausbushes/genericbush/opaque
-	icon_state = "genericbush_1"
-	opacity = 1
-	mouse_opacity = 0
-
-/obj/structure/flora/ausbushes/genericbush/opaque/New()
-	..()
-	icon_state = "genericbush_[rand(1, 4)]"
-
-/obj/structure/flora/ausbushes/pointybush/opaque
-	icon_state = "pointybush_1"
-	opacity = 1
-	mouse_opacity = 0
-
-/obj/structure/flora/ausbushes/pointybush/opaque/New()
-	..()
-	icon_state = "pointybush_[rand(1, 4)]"

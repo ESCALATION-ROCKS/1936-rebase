@@ -16,7 +16,7 @@
 
 	var/icon_vend //Icon_state when vending
 	var/icon_deny //Icon_state when denying access
-	var/diona_spawn_chance = 1 //For admin shenanigans
+	var/diona_spawn_chance = 0 //For admin shenanigans
 
 	// Power
 	use_power = 1
@@ -174,7 +174,7 @@
 			src.vend(currently_vending, usr)
 			return
 		else if(handled)
-			GLOB.nanomanager.update_uis(src)
+			SSnano.update_uis(src)
 			return // don't smack that machine with your 2 credits
 
 	if (I || istype(W, /obj/item/weapon/spacecash))
@@ -187,7 +187,7 @@
 		if(src.panel_open)
 			src.overlays += image(src.icon, "[initial(icon_state)]-panel")
 
-		GLOB.nanomanager.update_uis(src)  // Speaker switch is on the main UI, not wires UI
+		SSnano.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
 	else if(istype(W, /obj/item/device/multitool)||istype(W, /obj/item/weapon/wirecutters))
 		if(src.panel_open)
@@ -203,7 +203,7 @@
 		coin = W
 		categories |= CAT_COIN
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
-		GLOB.nanomanager.update_uis(src)
+		SSnano.update_uis(src)
 		return
 	else if(attempt_to_stock(W, user))
 		return
@@ -379,7 +379,7 @@
 	else
 		data["panel"] = 0
 
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "vending_machine.tmpl", src.name, 440, 600)
 		ui.set_initial_data(data)
@@ -438,7 +438,7 @@
 			src.shut_up = !src.shut_up
 
 		src.add_fingerprint(usr)
-		GLOB.nanomanager.update_uis(src)
+		SSnano.update_uis(src)
 
 /obj/machinery/vending/proc/vend(var/datum/stored_items/vending_products/R, mob/user)
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
@@ -448,7 +448,7 @@
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
 	src.status_error = 0
-	GLOB.nanomanager.update_uis(src)
+	SSnano.update_uis(src)
 
 	if (R.category & CAT_COIN)
 		if(!coin)
@@ -492,7 +492,7 @@
 		src.status_error = 0
 		src.vend_ready = 1
 		currently_vending = null
-		GLOB.nanomanager.update_uis(src)
+		SSnano.update_uis(src)
 
 /**
  * Add item to the machine
@@ -506,10 +506,10 @@
 
 	if(R.add_product(W))
 		to_chat(user, "<span class='notice'>You insert \the [W] in the product receptor.</span>")
-		GLOB.nanomanager.update_uis(src)
+		SSnano.update_uis(src)
 		return 1
 
-	GLOB.nanomanager.update_uis(src)
+	SSnano.update_uis(src)
 
 /obj/machinery/vending/process()
 	if(stat & (BROKEN|NOPOWER))
@@ -703,23 +703,31 @@
 
 
 /obj/machinery/vending/cola
-	name = "Robust Softdrinks"
-	desc = "A softdrink vendor provided by Robust Industries, LLC."
+	name = "Coca Cola machine"
+	desc = "Coca Cola - Don't Forget The Ice."
 	icon_state = "Cola_Machine"
 	icon_vend = "Cola_Machine-vend"
 	vend_delay = 11
-	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
-	product_ads = "Refreshing!;Hope you're thirsty!;Over 1 million drinks sold!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
-	products = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 10,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 10, /obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 10)
-	contraband = list(/obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko = 5, /obj/item/weapon/reagent_containers/food/snacks/liquidfood = 6)
-	prices = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 1,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/dr_gibb = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 1,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle = 2,/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 1,
-					/obj/item/weapon/reagent_containers/food/drinks/cans/iced_tea = 1,/obj/item/weapon/reagent_containers/food/drinks/cans/grape_juice = 1)
+	product_slogans = ""
+	product_ads = ""
+	products = list(/obj/item/weapon/reagent_containers/food/drinks/cans/cola = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/dr_pepper_fake = 10,	/obj/item/weapon/reagent_containers/food/drinks/cans/sprite = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/starkist = 10)
+	contraband = null
+	prices = null
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+
+/obj/machinery/vending/pepsi
+	name = "Pepsi machine"
+	desc = "Catch that Pepsi spirit!"
+	icon_state = "pepsi"
+	icon_vend = "pepsi-vend"
+	vend_delay = 11
+	product_slogans = ""
+	product_ads = ""
+	products = list(/obj/item/weapon/reagent_containers/food/drinks/cans/pepsi = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
+					/obj/item/weapon/reagent_containers/food/drinks/cans/space_up = 10,/obj/item/weapon/reagent_containers/food/drinks/cans/dr_pepper = 10)
+	contraband = null
+	prices = null
+	idle_power_usage = null //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
 /obj/machinery/vending/fitness
 	name = "SweatMAX"

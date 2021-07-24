@@ -5,7 +5,7 @@
 	icon_state = "binoculars"
 
 	flags = CONDUCT
-	slot_flags = SLOT_BELT | SLOT_EARS
+	slot_flags = SLOT_EARS
 	force = 5.0
 	w_class = ITEM_SIZE_SMALL
 	throwforce = 5.0
@@ -24,9 +24,9 @@
 		xcoord = obfuscate_x(xcoord)
 		ycoord = obfuscate_y(ycoord)
 		if(do_after(user, 80, src))
-			to_chat(user, "<span class='notice'> You Calculate some Coordinates with the [src] <b>X[xcoord]:Y[ycoord]</b>.</span>")
+			to_chat(user, "<span class='notice'> You calculate the coordinates with the [src] <b>X[xcoord]:Y[ycoord]</b>.</span>")
 	else
-		to_chat(user, "<span class='warning'>You dont know how to calculate Coordinates without Map Tools</span>")
+		to_chat(user, "<span class='warning'>You can't calculate coordinates without proper equipment!</span>")
 		
 
 /obj/item/device/binoculars/proc/toggle_scope(mob/user, var/zoom_amount=14.0)
@@ -47,18 +47,21 @@
 /obj/item/device/binoculars/wp
 	name = "binoculars"
 	desc = "A pair of binoculars."
+	icon = 'icons/obj/coldwar/items.dmi'
 	icon_state = "wp_bino"
 	item_state = "wp_bino"
 
 /obj/item/device/binoculars/nato
 	name = "binoculars"
 	desc = "A pair of binoculars."
+	icon = 'icons/obj/coldwar/items.dmi'
 	icon_state = "nato_bino"
 	item_state = "nato_bino"
 
 /obj/item/weapon/maptool
-	name = "Map Tools"
-	desc = "A Foldable Paper Map of the Area and a bundle of Cartographic untensils. Use in combination with Binoculars to calculate Longitude and Latitude "
+	name = "Map tools"
+	desc = "A foldable map of the sector and a bundle of cartographic untensils. Used together with binoculars to calculate coordinates."
+	icon = 'icons/obj/coldwar/items.dmi'
 	icon_state = "maptools"
 	w_class = ITEM_SIZE_SMALL
 	slot_flags = SLOT_POCKET

@@ -5,22 +5,22 @@
 	/obj/item/stack/cable_coil = 60
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 50
+	max_duration = 75
 	can_infect = 1
 	blood_level = 1
-	min_duration = 70
-	max_duration = 90
+	min_duration = 45
+	max_duration = 70
 	shock_level = 40
 
 /datum/surgery_step/suture_wounds/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!istype(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!affected || affected.is_stump() || (affected.status & ORGAN_ROBOT))
+	if(!affected || affected.is_stump() || (affected.status & ORGAN_ROBOT) || ((affected.open() >= SURGERY_RETRACTED) && (affected.status & ORGAN_ARTERY_CUT|ORGAN_TENDON_CUT) ))
 		return 0
 	for(var/datum/wound/W in affected.wounds)
-		if(W.damage_type == CUT && W.damage)
+		if(W.damage_type in list(PIERCE, CUT) && W.damage)
 			return 1
 	return 0
 

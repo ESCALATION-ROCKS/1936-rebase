@@ -18,14 +18,12 @@
  */
 /obj/item/weapon/wrench
 	name = "wrench"
-	desc = "A good, durable combination wrench, with self-adjusting, universal open- and ring-end mechanisms to match a wide variety of nuts and bolts."
-	description_info = "This versatile tool is used for dismantling machine frames, anchoring or unanchoring heavy objects like vending machines and emitters, and much more. In general, if you want something to move or stop moving entirely, you ought to use a wrench on it."
-	description_fluff = "The classic open-end wrench (or spanner, if you prefer) hasn't changed significantly in shape in over 500 years, though these days they employ a bit of automated trickery to match various bolt sizes and configurations."
+	desc = "A good, durable, combination wrench."
+	description_fluff = "The classic"
 	description_antag = "Not only is this handy tool good for making off with machines, but it even makes a weapon in a pinch!"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
 	flags = CONDUCT
-	slot_flags = SLOT_BELT
 	force = 5.0
 	throwforce = 7.0
 	w_class = ITEM_SIZE_SMALL
@@ -69,7 +67,6 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver"
 	flags = CONDUCT
-	slot_flags = SLOT_BELT | SLOT_EARS
 	force = 5.0
 	w_class = ITEM_SIZE_TINY
 	throwforce = 5.0
@@ -154,15 +151,14 @@
  * Wirecutters
  */
 /obj/item/weapon/wirecutters
-	name = "wirecutters"
-	desc = "A special pair of pliers with cutting edges. Various brackets and manipulators built into the handle allow it to repair severed wiring."
-	description_info = "This tool will cut wiring anywhere you see it - make sure to wear insulated gloves! When used on more complicated machines or airlocks, it can not only cut cables, but repair them, as well."
+	name = "bolt cutters"
+	desc = "A pair of pliers with cutting edges."
+	description_info = "This tool will cut wiring anywhere you see it."
 	description_fluff = "With modern alloys, today's wirecutters can snap through cables of astonishing thickness."
 	description_antag = "These cutters can be used to cripple the power anywhere on the ship. All it takes is some creativity, and being in the right place at the right time."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters"
 	flags = CONDUCT
-	slot_flags = SLOT_BELT
 	force = 6.0
 	throw_speed = 2
 	throw_range = 9
@@ -196,8 +192,30 @@
 			C.buckled.unbuckle_mob()
 		C.update_inv_handcuffed()
 		return
-	else
-		..()
+
+	remove_shrapnel(C, user)
+
+		//..()
+
+/obj/item/proc/remove_shrapnel(mob/living/C as mob, mob/living/user as mob) //mattroks more like matt sucks cocks
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		var/mob/living/carbon/human/userr = user
+		if(userr.a_intent == I_HELP)
+			var/obj/item/organ/external/organ = H.get_organ(userr.zone_sel.selecting)
+			for(var/obj/item/O in organ.implants)
+				if(istype(O,/obj/item/weapon/material/shard/shrapnel))
+					H.visible_message("<span class='bnotice'>[userr] starts to remove \the [O.name] with \the [src].</span>")
+					if(do_after(userr, 40, src))
+						for(var/datum/wound/wound in organ.wounds)
+							wound.embedded_objects -= O
+						organ.implants -= O
+						O.forceMove(get_turf(H))
+						H.visible_message("<span class='bnotice'>[userr] successfully removes \the [O.name] with \the [src].</span>")
+						H.custom_pain("[pick("That hurts!", "God fucking damn it!", "Shit!")]", 70, affecting = organ)
+						return
+					else
+						return
 
 /obj/item/weapon/wirecutters/power
 	name = "jaws of life"
@@ -231,7 +249,6 @@
 	description_fluff = "One of many tools of ancient design, still used in today's busy world of engineering with only minor tweaks here and there. Compact machinery and innovations in fuel storage have allowed for conveniences like this one-piece, handheld welder to exist."
 	description_antag = "You can use a welder to rapidly seal off doors, ventilation ducts, and scrubbers. It also makes for a devastating weapon. Modify it with a screwdriver and stick some metal rods on it, and you've got the beginnings of a flamethrower."
 	flags = CONDUCT
-	slot_flags = SLOT_BELT
 	center_of_mass = "x=14;y=15"
 
 	//Amount of OUCH when it's thrown
@@ -700,7 +717,6 @@
 	weapon_speed_delay = 7
 	w_class = ITEM_SIZE_NORMAL
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
-	slot_flags = SLOT_BELT
 
 /obj/item/weapon/crowbar/prybar/Initialize()
 	icon_state = "prybar[pick("","_red","_green","_aubergine","_blue")]"

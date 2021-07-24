@@ -26,14 +26,14 @@ mob/living/carbon/proc/custom_pain(var/message, var/power, var/force, var/obj/it
 	// Anti message spam checks
 	if(force || (message != last_pain_message) || (world.time >= next_pain_time))
 		last_pain_message = message
-		if(power >= 70)
+		if(power >= 90)
 			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
-			if(prob(40 * mstatmodifier(end)))
+			if(prob(20 * mstatmodifier(end)))
 				emote("scream")
 				shake_camera(src, 10, 2)
 		else if(power >= 40)
 			to_chat(src, "<span class='danger'>[message]</span>")
-			if(prob(20 * mstatmodifier(end)))
+			if(prob(10 * mstatmodifier(end)))
 				emote("groan")
 				shake_camera(src, 5, 2)
 
@@ -51,8 +51,11 @@ mob/living/carbon/human/proc/handle_pain()
 	var/maxdam = 0
 	var/obj/item/organ/external/damaged_organ = null
 	for(var/obj/item/organ/external/E in organs)
-		if(!E.can_feel_pain()) continue
+		if(!E.can_feel_pain())
+			continue
 		var/dam = E.get_damage()
+		for(var/obj/item/organ/internal/I in E.internal_organs)
+			dam += I.damage
 		// make the choice of the organ depend on damage,
 		// but also sometimes use one of the less damaged ones
 		if(dam > maxdam && (maxdam == 0 || prob(70)) )
@@ -65,13 +68,23 @@ mob/living/carbon/human/proc/handle_pain()
 			drop_item()
 		var/burning = damaged_organ.burn_dam > damaged_organ.brute_dam
 		var/msg
-		switch(maxdam)
-			if(1 to 10)
+		switch(round(maxdam, 1))
+			if(1 to 50)
 				msg =  "Your [damaged_organ.name] [burning ? "burns" : "hurts"]."
-			if(11 to 90)
-				msg = "Your [damaged_organ.name] [burning ? "burns" : "hurts"] badly!"
-			if(91 to 10000)
+				emote("groan")
+			if(51 to 75)
+				msg = "Your[damaged_organ.name] [burning ? "burns" : "hurts"] badly!"
+				if(prob(20))
+					emote("scream")
+				else
+					emote(pick("cry", "whimper"))
+			if(76 to INFINITY)
 				msg = "OH GOD! Your [damaged_organ.name] is [burning ? "on fire" : "hurting terribly"]!"
+				if(prob(75))
+					emote("scream")
+				else
+					emote("cry")
+
 		custom_pain(msg, maxdam, prob(10), damaged_organ, TRUE)
 
 	// Damage to internal organs hurts a lot.
@@ -87,7 +100,6 @@ mob/living/carbon/human/proc/handle_pain()
 				pain = 50
 				message = "You feel a sharp pain in your [parent.name]"
 			src.custom_pain(message, pain, affecting = parent)
-
 
 	if(prob(1))
 		switch(getToxLoss())

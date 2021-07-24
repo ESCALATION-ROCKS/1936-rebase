@@ -31,7 +31,7 @@
 /obj/item/weapon/gun
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/coldwar/guns32x32.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi',
@@ -39,7 +39,7 @@
 	icon_state = "detective"
 	item_state = "gun"
 	flags =  CONDUCT
-	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	slot_flags = SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = ITEM_SIZE_NORMAL
 	throwforce = 5
@@ -50,7 +50,7 @@
 	time_to_unequip = 5
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("struck", "hit", "bashed")
-	zoomdevicename = "iron sights"
+	zoomdevicename = "scope"
 
 	var/empty_sound = 'sound/weapons/gunhandling/gen_empty.ogg'
 	var/burst = 1
@@ -73,6 +73,8 @@
 	var/fire_anim = null
 	var/safety = 1 //Whether or not the safety is on.
 	var/drawsound = 0
+	//var/painkilleraccuracy = 1 // ONE AS ITS DIVIDED BY ACCURACY FORMULA - dropped this idea to do screenshake alone
+	var/painkillershake = 0 //ZERO AS ITS MULTIPLIED BY SHAKE FORMULA
 
 	var/sel_mode = 1 //index of the currently selected mode
 	var/list/firemodes = list()
@@ -92,7 +94,10 @@
 	var/upg_stb = 0
 
 	var/blowout_chance = 0
-	var/condition = 100 //phleg
+	var/condition = 100 //Read below why I (severepwnage) didn't port in IS12 condition
+	//Gun balance is fine as it is and we don't need a fleshed out condition system that would make guns jam more
+	//In order for something like that to be realistic we would have to be firing 2000-3000 per game each person
+	//Thats why I can't be bothered to port it. Just set jam chances and roll with it
 
 	var/unload_sound 	= 'sound/weapons/flipblade.ogg'
 	var/reload_sound 	= null //We don't want these for guns that don't have them.
@@ -335,10 +340,13 @@
 				if(4 to INFINITY)
 					to_chat(user, "<span class='warning'>You struggle to hold \the [src] steady!</span>")
 
-	var/mob/living/carbon/human/H = user
+	var/mob/living/carbon/human/H = user //Very dumbass looking code but it works. I restricted this to ranged weapons because being high on meds and not being able to bandage yourself is fucking bad. I'm not sorry -severe
+	var/painkillershake = 0
+	if(H.chem_effects[CE_PAINKILLER])
+		painkillershake += 6
 	if(screen_shake || !H.arm_actuators)
 		spawn()
-			shake_camera(user, screen_shake/user.accstatmodifier(user.skill_ranged), screen_shake)
+			shake_camera(user, screen_shake/user.accstatmodifier(user.skill_ranged), screen_shake, painkillershake)
 	update_icon()
 
 
@@ -379,9 +387,14 @@
 			acc_mod += -ceil(one_hand_penalty/2)
 			disp_mod += one_hand_penalty*0.5 //dispersion per point of two-handedness
 
+
+	/*var/mob/living/carbon/human/H = src
+	if(H.chem_effects[CE_PAINKILLER])
+		painkilleraccuracy -= 3  */
+
 	//Accuracy modifiers
 	P.accuracy = (accuracy + acc_mod) * user.accstatmodifier(user.skill_ranged)
-	P.dispersion = disp_mod + (dispersion_modifyer / 2 / user.accstatmodifier(user.skill_ranged))//disp_mod see in click.dm
+	P.dispersion = disp_mod + (dispersion_modifyer / 2 / user.accstatmodifier(user.skill_ranged))
 
 	//accuracy bonus from aiming
 	if (aim_targets && (target in aim_targets))
@@ -429,7 +442,7 @@
 			playsound(user, 'sound/weapons/silencedshotgun.ogg', 50, 1, 1)
 		else
 			playsound(user, 'sound/weapons/silencedgun.ogg', 50, 1, 1)
-	
+
 	playsound(user, shot_sound, shot_sound_vol, 1)
 
 	if(istype(src,/obj/item/weapon/gun/launcher/oneuse/))
@@ -554,15 +567,19 @@
 	..()
 	if(!safety)
 		user.client.mouse_pointer_icon = file("icons/misc/pointer.dmi")
-
-/obj/item/weapon/gun/equipped(mob/user, var/slot)
-	..()
-	if(!safety && (slot == slot_l_hand || slot == slot_r_hand))
-		user.client.mouse_pointer_icon = file("icons/misc/pointer.dmi")
-	else
-		user.client.mouse_pointer_icon = null
-
+	update_icon()
 /obj/item/weapon/gun/dropped(mob/user)
 	..()
 	if(user.get_active_hand() != src)
 		user.client.mouse_pointer_icon = initial(user.client.mouse_pointer_icon)
+	update_icon()
+
+/obj/item/weapon/gun/equipped(mob/user, var/slot)
+	..()
+	if(slot == slot_gun_slot || slot == slot_back)
+		user.client.mouse_pointer_icon = null
+	if(!safety && (slot == user.get_active_hand()))
+		user.client.mouse_pointer_icon = file("icons/misc/pointer.dmi")
+	else
+		user.client.mouse_pointer_icon = null
+	update_icon()

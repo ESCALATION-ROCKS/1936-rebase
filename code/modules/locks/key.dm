@@ -4,6 +4,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "keys"
 	w_class = 1
+	slot_flags = SLOT_EARS
 	var/key_data = ""
 
 /obj/item/weapon/key/New()
@@ -34,23 +35,22 @@
 		qdel(src)
 	return ..()
 
-/obj/item/weapon/key/office
-	key_data = "office"
 
-/obj/item/weapon/key/armory
-	key_data = "armory"
+/obj/item/weapon/key/wpofficer
+	key_data = "wpofficer"
 
-/obj/item/weapon/key/telegram
-	key_data = "telegram"
+/obj/item/weapon/key/wpnco
+	key_data = "wpnco"
 
-/obj/item/weapon/key/toolshed
-	key_data = "toolshed"
+/obj/item/weapon/key/wpmed
+	key_data = "wpmed"
 
-/obj/item/weapon/key/headquarters
-	key_data = "headquarters"
+/obj/item/weapon/key/natoofficer
+	key_data = "natoofficer"
 
-/obj/item/weapon/key/jail
-	key_data = "jail"
+/obj/item/weapon/key/natonco
+	key_data = "natonco"
 
-/obj/item/weapon/key/gate
-	key_data = "gate"
+/obj/item/weapon/key/natomed
+	key_data = "natomed"
+

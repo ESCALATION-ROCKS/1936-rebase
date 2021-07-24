@@ -12,11 +12,11 @@
 	var/burn_point = null
 	var/burning = null
 	var/hitsound = null
-	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
+	var/slot_flags = null		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
 	var/emchance = 1		//chance of embedding obviously
 	pass_flags = PASSTABLE
-//	causeerrorheresoifixthis
+	//causeerrorheresoifixthis
 	var/obj/item/master = null
 	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
 	var/list/attack_verb = list("hit") //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
@@ -47,7 +47,6 @@
 	var/slowdown_general = 0 // How much clothing is slowing you down. Negative values speeds you up. This is a genera##l slowdown, no matter equipment slot.
 	var/slowdown_per_slot[slot_last] // How much clothing is slowing you down. Negative values speeds you up. This is an associative list: item slot - slowdown
 	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
-	var/list/armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	var/list/allowed = null //suit storage stuff.
 	var/obj/item/device/uplink/hidden_uplink = null // All items can have an uplink hidden inside, just remember to add the triggers.
 	var/zoomdevicename = null //name used for message when binoculars/scope is used
@@ -88,16 +87,12 @@
 	var/drop_sound = null
 	var/picksound = null
 
-/obj/item/proc/picksound(mob/user)
-	if(picksound)
-		playsound(user, picksound, 50, 1)
-
-
 /obj/item/New()
-	..()
+	. = ..()
 	if(randpixel && (!pixel_x && !pixel_y) && isturf(loc)) //hopefully this will prevent us from messing with mapper-set pixel_x/y
 		pixel_x = rand(-randpixel, randpixel)
 		pixel_y = rand(-randpixel, randpixel)
+	InitializeArmorIntegrity()
 
 /obj/item/Destroy()
 	qdel(hidden_uplink)
@@ -109,6 +104,10 @@
 		m.update_inv_l_hand()
 		src.loc = null
 	return ..()
+
+/obj/item/proc/picksound(mob/user)
+	if(picksound)
+		playsound(user, picksound, 50, 1)
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
@@ -305,10 +304,9 @@
 //Defines which slots correspond to which slot flags
 var/list/global/slot_flags_enumeration = list(
 	"[slot_wear_mask]" = SLOT_MASK,
-	"[slot_add_gun]" = SLOT_BACK_GUN,
+	"[slot_gun_slot]" = SLOT_GUN_SLOT,
 	"[slot_left_pouch]" = SLOT_LPOUCH,
 	"[slot_right_pouch]" = SLOT_RPOUCH,
-	"[slot_back_pouch]" = SLOT_BPOUCH,
 	"[slot_holster]" = SLOT_NHOLSTER,
 	"[slot_back]" = SLOT_BACK,
 	"[slot_wear_suit]" = SLOT_OCLOTHING,
@@ -381,7 +379,7 @@ var/list/global/slot_flags_enumeration = list(
 				return 0
 			if(get_storage_cost() == ITEM_SIZE_NO_CONTAINER)
 				return 0 //pockets act like storage and should respect ITEM_SIZE_NO_CONTAINER. Suit storage might be fine as is
-		if(slot_left_pouch, slot_right_pouch, slot_back_pouch)
+		if(slot_left_pouch, slot_right_pouch)
 			if(!H.belt && (slot_belt in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a harness before you can attach this [name].</span>")
@@ -403,12 +401,12 @@ var/list/global/slot_flags_enumeration = list(
 					allow = 1
 			if(!allow)
 				return 0
-		if(slot_add_gun)
+		if(slot_gun_slot)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
 				return 0
-			if(!(slot_flags & SLOT_BACK_GUN))
+			if(!(slot_flags & SLOT_GUN_SLOT))
 				to_chat(H, "<span class='warning'>You can't place [name] on your shoulder.</span>")
 				return 0
 			if(istype(src, typesof(/obj/item/)) )
@@ -666,7 +664,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				user.client.pixel_y = 0
 
 		user.visible_message("\The [user] peers through the [zoomdevicename ? "[zoomdevicename] of [src]" : "[src]"].")
-		playsound(src.loc, 'sound/effects/ironsight_on.wav', 20, 1, -1)
+		playsound(src.loc, 'sound/effects/ironsight_on.ogg', 20, 1, -1)
 		user.set_face_dir()
 		user.m_intent = "walk"
 
@@ -681,7 +679,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 		if(!cannotzoom)
 			user.visible_message("[zoomdevicename ? "\The [user] looks up from [src]" : "\The [user] lowers [src]"].")
-			playsound(src.loc, 'sound/effects/ironsight_off.wav', 20, 1, -1)
+			playsound(src.loc, 'sound/effects/ironsight_off.ogg', 20, 1, -1)
 			user.set_face_dir()
 			user.m_intent = "run"
 

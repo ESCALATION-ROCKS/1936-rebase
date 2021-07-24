@@ -1,11 +1,11 @@
 /obj/item/ammo_casing
 	name = "bullet casing"
 	desc = "A bullet casing."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/coldwar/ammo.dmi'
 	icon_state = "s-casing"
 	randpixel = 10
 	flags = CONDUCT
-	slot_flags = SLOT_BELT | SLOT_EARS
+	slot_flags = SLOT_EARS
 	throwforce = 1
 	w_class = ITEM_SIZE_TINY
 
@@ -14,7 +14,7 @@
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
-	var/casing_sound = 'sound/weapons/casings/casing_drop.ogg' //Todo: Shotgun shell sound.
+	var/casing_sound = "casing_drop" //Todo: Shotgun shell sound.
 	var/amount = 1
 	var/maxamount = 15
 
@@ -160,9 +160,8 @@
 	name = "magazine"
 	desc = "A magazine for some kind of gun."
 	icon_state = "357"
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/coldwar/ammo.dmi'
 	flags = CONDUCT
-	slot_flags = SLOT_BELT
 	item_state = "syringe_kit"
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
 	throwforce = 5
@@ -234,6 +233,8 @@
 
 	if(istype(W, /obj/item/ammo_magazine/box))
 		var/obj/item/ammo_magazine/box/L = W
+		if(L.loading)
+			return
 		if(L.caliber != caliber)
 			user << "<span class='warning'>The ammo in [L] does not fit into [src].</span>"
 			return
@@ -243,6 +244,10 @@
 		if(stored_ammo.len >= max_ammo)
 			user << "<span class='warning'>[src] is full!</span>"
 			return
+		L.loading = 1
+		if(!do_after(user, 3, src))
+			L.loading = 0
+			return
 		var/obj/item/ammo_casing/AC = L.stored_ammo[1] //select the next casing.
 		L.stored_ammo -= AC //Remove this casing from loaded list of the clip.
 		AC.loc = src
@@ -250,18 +255,36 @@
 		L.update_icon()
 		update_icon()
 		playsound(src.loc, 'sound/weapons/gunhandling/bulletin_mag.wav', 80, 1)
+		L.loading = 0
+		attackby(W, user) //autoloadin babyyy
 	update_icon()
 
 
 
 /obj/item/ammo_magazine/attack_self(mob/user)
+	. = ..()
+
 	if(!stored_ammo.len)
-		to_chat(user, "<span class='notice'>[src] is empty!</span>")
+		to_chat(user, "<span class='notice'>[src] weighs empty.</span>")
 		return
-	to_chat(user, "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!")
 
+	if(stored_ammo.len == max_ammo)
+		to_chat(user, "<span class='notice'>[src] weighs full.")
+		return
 
+	else if(stored_ammo.len <= max_ammo/3)
+		to_chat(user, "<span class='notice'>[src] weighs less than half full.")
+		return
+	
+	else if(stored_ammo.len <= max_ammo/2)
+		to_chat(user, "<span class='notice'>[src] weighs around half full.")
+		return
 
+	else if(stored_ammo.len <= max_ammo )
+		to_chat(user, "<span class='notice'>[src] weighs more than half full.")
+		return
+	
+	
 /obj/item/ammo_magazine/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		if(!stored_ammo.len)
@@ -286,9 +309,10 @@
 				new_state = ammo_states[idx]
 				break
 		icon_state = (new_state)? new_state : initial(icon_state)
+		
 /obj/item/ammo_magazine/examine(mob/user)
 	. = ..()
-	to_chat(user, "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!")
+	/*to_chat(user, "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!")*/
 
 //magazine icon state caching
 /var/global/list/magazine_icondata_keys = list()

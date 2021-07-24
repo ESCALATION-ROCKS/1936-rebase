@@ -61,178 +61,230 @@
 	desc = "A dual purpose grenade used by the Bundeswehr. This one has it's fragmentation jacket on."
 	throw_speed = 3
 	throw_range = 10
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/defensive)
+	num_fragments = 270  //total number of fragments produced by the grenade
+	explosion_size = 2
+
+///heer//////////////////////
+/////////////////////////////
+/obj/item/weapon/grenade/frag/hdgr78
+	name = "HDGr. 78 grenade"
+	desc = "A dual purpose grenade used by the Bundesheer."
+	icon_state = "hdgr78"
+	throw_speed = 4
+	throw_range = 13
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/offensive)
+	num_fragments = 190  //total number of fragments produced by the grenade
+	explosion_size = 3
+
+/obj/item/weapon/grenade/frag/hdgr73
+	name = "HDGr. 73 grenade"
+	icon_state = "hdgr73"
+	desc = "An outdated defensive grenade used by the Bundesheer."
+	throw_speed = 3
+	throw_range = 10
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/defensive)
 	num_fragments = 270  //total number of fragments produced by the grenade
 	explosion_size = 2
 
 //////czech/////////
 ////////////////////
 
-//they used f1 also as a offensive grenade
-
 /obj/item/weapon/grenade/frag/rg42
 	name = "RG-42 grenade"
-	desc = "That's a defensive grenade used by Czech army."
-	icon_state = "rg42grenade"
+	desc = "That's an offensive grenade used by Czech army."
+	icon_state = "rg42"
+	throw_speed = 3
+	throw_range = 13
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/defensive)
+	num_fragments = 170  //total number of fragments produced by the grenade
+	explosion_size = 4
+
+/obj/item/weapon/grenade/frag/urg86
+	name = "URG-86 grenade"
+	desc = "That's a defensive grenade used by Czech army. Has a weird shape."
+	icon_state = "urg86"
 	throw_speed = 2
-	throw_range = 8
-	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/strong)
-	num_fragments = 230  //total number of fragments produced by the grenade
+	throw_range = 10
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/offensive)
+	num_fragments = 290  //total number of fragments produced by the grenade
 	explosion_size = 2
+
+//////british/////////
+////////////////////
+
+/obj/item/weapon/grenade/frag/mills
+	name = "mills bomb"
+	desc = "An outdated grenade used by the BAF."
+	icon_state = "mills"
+	throw_speed = 2
+	throw_range = 10
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/defensive)
+	num_fragments = 190  //total number of fragments produced by the grenade
+	explosion_size = 2
+
+/obj/item/weapon/grenade/frag/l2
+	name = "L2 frag grenade"
+	desc = "A fragmentation grenade used by British forces."
+	icon_state = "l2grenade"
+	throw_speed = 3
+	throw_range = 8
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/offensive)
+	num_fragments = 290  //total number of fragments produced by the grenade
+	explosion_size = 3
+
+//////finnish/////////
+////////////////////
+/obj/item/weapon/grenade/frag/sirpalem43
+	name = "Sirpalekasikranaatti M43"
+	desc = "A fragmentation grenade used by the Finnish Army."
+	icon_state = "sirpalem43"
+	throw_speed = 2
+	throw_range = 10
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/offensive)
+	num_fragments = 180  //total number of fragments produced by the grenade
+	explosion_size = 2
+
+/obj/item/weapon/grenade/frag/sirpalem41
+	name = "Sirpalekasikranaatti M41"
+	desc = "An outdated fragmentation grenade used by the Finnish Army."
+	icon_state = "sirpalem41"
+	throw_speed = 3
+	throw_range = 12
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/defensive)
+	num_fragments = 220  //total number of fragments produced by the grenade
+	explosion_size = 2
+
+
+//////satchels/////////
+////////////////////
+
+/obj/item/weapon/grenade/frag/satchelnato
+	name = "C4 explosive satchel"
+	desc = "A pack of high explosives, used by NATO armies."
+	w_class = 3
+	icon_state = "satchelnato"
+	throw_speed = 1
+	throw_range = 2
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/offensive)
+	num_fragments = 70  //total number of fragments produced by the grenade
+	det_time = 100
+	explosion_size = 4
+
+/obj/item/weapon/grenade/frag/satchelnato/on_explosion(var/turf/O)
+	if(explosion_size)
+		explosion(O, 2, 3, explosion_size, round(explosion_size/3), 0)
+
+/obj/item/weapon/grenade/frag/satchelnato/attack_self(mob/user)
+	if (roundstarted == 0)
+		to_chat(user, "<span class='warning'>There is nothing to blow up yet!</span>")
+		return
+	else
+		message_admins("[key_name_admin(user)] activated a satchel charge. ([src.name]).")
+		log_game("[key_name_admin(user)] activated a satchel charge.")
+		..()
+
+/obj/item/weapon/grenade/frag/satchelnato/New()
+	..()
+	slowdown_per_slot[slot_l_hand] = 1.5
+	slowdown_per_slot[slot_r_hand] = 1.5
+
+/obj/item/weapon/grenade/frag/satchelwp
+	name = "explosive satchel"
+	desc = "A pack of high explosives, used by WP armies."
+	w_class = 3
+	icon_state = "satchelwp"
+	throw_speed = 1
+	throw_range = 2
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/offensive)
+	num_fragments = 70  //total number of fragments produced by the grenade
+	det_time = 100
+	explosion_size = 4
+
+/obj/item/weapon/grenade/frag/satchelwp/on_explosion(var/turf/O)
+	if(explosion_size)
+		explosion(O, 2, 3, explosion_size, round(explosion_size/3), 0)
+
+/obj/item/weapon/grenade/frag/satchelwp/attack_self(mob/user)
+	if (roundstarted == 0)
+		to_chat(user, "<span class='warning'>There is nothing to blow up yet!</span>")
+		return
+	else
+		message_admins("[key_name_admin(user)] activated a satchel charge. ([src.name]).")
+		log_game("[key_name_admin(user)] activated a satchel charge.")
+		..()
+
+/obj/item/weapon/grenade/frag/satchelwp/New()
+	..()
+	slowdown_per_slot[slot_l_hand] = 1.5
+	slowdown_per_slot[slot_r_hand] = 1.5
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////GP's vogs for soviet and muricans//////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/weapon/grenade/frag/shell40mm
+/obj/item/weapon/grenade/frag/ugl/shell40mm
 	name = "40x46mm 'M381 HE' grenade shell"
 	desc = "Cannot be thrown as the usual grenade, by the way."
 	icon_state = "M406"
-	num_fragments = 130 //less powerful than a regular frag grenade
-	//arm_sound = 'sound/weapons/gunshot/grenadelaunch.ogg'
-	throw_speed = 1
-	throw_range = 15
-	arm_sound = 'sound/weapons/grenlauncher.wav'
+	num_fragments = 130
+	throw_speed = 2
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/ugl)
+	explosion_size = 1
+	throw_range = 30
+	sharp = 1
+	edge =  1
+	arm_sound = 'sound/weapons/gunshot/m203.ogg'
 
 
-/obj/item/weapon/grenade/frag/shell40mm/attack_self(mob/user)
+/obj/item/weapon/grenade/frag/ugl/shell40mm/attack_self(mob/user)
 	return
 
-/obj/item/weapon/grenade/frag/vog25
+/obj/item/weapon/grenade/frag/ugl/vog25
 	name = "40x103mm 'VOG-25' grenade shell"
 	desc = "Cannot be thrown as the usual grenade, by the way."
 	icon_state = "40x103mmshell"
-	num_fragments = 160 //less powerful than a regular frag grenade
-	//arm_sound = 'sound/weapons/gunshot/grenadelaunch.ogg'
-	throw_speed = 1
-	throw_range = 15
-	arm_sound = 'sound/weapons/grenlauncher.wav'
+	num_fragments = 160
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/ugl)
+	explosion_size = 1
+	throw_speed = 2
+	throw_range = 30
+	sharp = 1
+	edge =  1
+	arm_sound = 'sound/weapons/gunshot/vog25.ogg'
 
-/obj/item/weapon/grenade/frag/vog25/attack_self(mob/user)
+/obj/item/weapon/grenade/frag/ugl/vog25/attack_self(mob/user)
 	return
 
+////////Note to future person - don't rebalance grenades around "bullet" armor value as the vest would then make them immune to shrapnel.
 
 /obj/item/projectile/bullet/pellet/fragment/defensive
 	agony = 12
-	armor_penetration = -7
+	armor_penetration = -4
 	check_armour = "bomb"
+	kill_count = 13
 
 	New()
-		damage = rand(12, 26)
+		damage = rand(11, 33)
 
 /obj/item/projectile/bullet/pellet/fragment/offensive
 	agony = 9
-	armor_penetration = -10
+	armor_penetration = -5
 	check_armour = "bomb"
+	kill_count = 6
 
 	New()
-		damage = rand(10, 22)
+		damage = rand(8, 29)
+
+/obj/item/projectile/bullet/pellet/fragment/ugl
+	agony = 8
+	armor_penetration = -5
+	check_armour = "bomb"
+	kill_count = 6
+
+	New()
+		damage = rand(5, 27)
 
 
 
 
-//SCW Nades
-/obj/item/weapon/grenade/frag/universalgrenade
-	name = "Granada 'Universal'"
-	desc = "A war-time production fragmentation grenade used by both sides of the conflict."
-	icon_state = "universal_grenade"
-	item_state = "universal_grenade"
-	throw_speed = 3
-	throw_range = 10
-	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/defensive)
-	num_fragments = 270  //total number of fragments produced by the grenade
-	explosion_size = 2
-	det_time = 35
-
-/obj/item/weapon/grenade/frag/lafitte
-	name = "Granada 'Lafitte' M1921"
-	desc = "An outdated and heavy hand grenade with little fragmentation to speak of, but loaded with an impressive amount of explosives."
-	icon_state = "lafitte"
-	item_state = "lafitte"
-	throw_speed = 7
-	throw_range = 6
-	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/offensive)
-	num_fragments = 70  //total number of fragments produced by the grenade
-	explosion_size = 4	
-
-/obj/item/weapon/grenade/frag/lafitte/on_explosion(var/turf/O)
-	if(explosion_size)
-		explosion(O, 1, 2, explosion_size, round(explosion_size/2), 0)
-
-// Dynamite
-
-/obj/item/weapon/dynamite
-	name = "dynamite"
-	desc = "A stick of dynamite."
-	w_class = ITEM_SIZE_SMALL
-	icon = 'icons/obj/grenade.dmi'
-	icon_state = "dynamite"
-	item_state = "dynamite"
-	throw_speed = 10
-	throw_range = 5
-	flags = CONDUCT
-	slot_flags = SLOT_BELT
-	var/active = 0
-	var/det_time = 70
-	var/arm_sound = 'sound/effects/fuse.ogg'
-	var/explosion_size = 5
-
-/obj/item/weapon/dynamite/proc/detonate()
-	var/turf/T = get_turf(src)
-	if(T)
-		T.hotspot_expose(700,125)
-
-/obj/item/weapon/dynamite/detonate()
-	..()
-
-	var/turf/O = get_turf(src)
-	if(!O) return
-
-	if(explosion_size)
-		on_explosion(O)
-
-	qdel(src)
-
-/obj/item/weapon/dynamite/examine(mob/user)
-	if(..(user, 0))
-		if(det_time > 1)
-			to_chat(user, "The fuse is about [det_time/10] seconds long.")
-			return
-		if(det_time == null)
-			return
-		to_chat(user, "\The [src] is set for instant detonation.")
-
-/obj/item/weapon/dynamite/proc/activate(mob/user as mob)
-	if(active)
-		return
-
-	if(user)
-		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
-
-	icon_state = initial(icon_state) + "_active"
-	active = 1
-	playsound(loc, arm_sound, 75, 0, -3)
-
-	spawn(det_time)
-		detonate()
-		return
-
-/obj/item/weapon/dynamite/proc/on_explosion(var/turf/O)
-	if(explosion_size)
-		explosion(O, 2, 3, explosion_size, round(explosion_size/2), 0)
-
-/obj/item/weapon/dynamite/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isflamesource(W))
-		if(!active)
-			to_chat(user, "<span class='warning'>You light \the [name] fuse! [det_time/10] seconds!</span>")
-			activate(user)
-			if(iscarbon(user))
-				var/mob/living/carbon/C = user
-				C.throw_mode_on()
-	..()
-	return
-
-/obj/item/weapon/dynamite/attack_hand()
-	walk(src, null, null)
-	..()
-	return

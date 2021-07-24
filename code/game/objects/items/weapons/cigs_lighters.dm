@@ -86,6 +86,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
 	body_parts_covered = 0
+	wearable = 1
 	var/lit = 0
 	var/icon_on
 	var/type_butt = null
@@ -548,7 +549,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	w_class = ITEM_SIZE_TINY
 	throwforce = 4
 	flags = CONDUCT
-	slot_flags = SLOT_BELT
 	attack_verb = list("burnt", "singed")
 	var/max_fuel = 5
 

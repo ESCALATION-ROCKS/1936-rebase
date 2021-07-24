@@ -73,7 +73,6 @@ h1.alert, h2.alert		{color: #000000;}
 .moderate				{color: #cc0000;}
 .disarm					{color: #990000;}
 .passive				{color: #660000;}
-
 .danger					{color: #ff0000; font-weight: bold;}
 .dangeryellow			{color: #f5f74d; font-weight: bold; font-size: 150%;}
 .yellow					{color: #f5f74d; font-style: italic;}
@@ -110,6 +109,10 @@ h1.alert, h2.alert		{color: #000000;}
 .english                {color: #6184d8;}
 .russian                {color: #d05050;}
 .german                 {color: #6dbf70;}
+.finnish                {color: #b200c9;}
+.czech                  {color: #999900;}
+.spanish                {color: #999900;}
+.french                  {color: #b200c9;}
 
 
 .interface				{color: #330033;}

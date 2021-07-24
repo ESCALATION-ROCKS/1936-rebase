@@ -17,12 +17,12 @@ var/list/admin_verbs_admin = list(
 	/client/proc/invisimin,				//allows our mob to go invisible/visible,
 //	/datum/admins/proc/show_traitor_panel,	//interface which shows a mob's mind, -Removed due to rare practical use. Moved to debug verbs ~Errorage,
 	/client/proc/set_daytime,
-	/client/proc/show_armies_tags,
-	/client/proc/show_separated_stat,
-	/client/proc/show_general_stat,	//allows us to set a custom colour for everythign we say in ooc,
+//	/client/proc/show_armies_tags,
+//	/client/proc/show_separated_stat,
+//	/client/proc/show_general_stat,	//allows us to set a custom colour for everythign we say in ooc,
 	/client/proc/add_to_esc_whitelist,
-	/client/proc/stop_art_shelling,
-	/client/proc/stop_arty_gib,
+//	/client/proc/stop_art_shelling,
+	///client/proc/stop_arty_gib,
 	/datum/admins/proc/show_game_mode,  //Configuration window for the current game mode.,
 	/datum/admins/proc/force_mode_latespawn, //Force the mode to try a latespawn proc,
 	/datum/admins/proc/toggleahelp,
@@ -100,8 +100,15 @@ var/list/admin_verbs_admin = list(
 	/client/proc/fixatmos,
 	/client/proc/list_traders,
 	/client/proc/add_trader,
+	/client/proc/show_battle_report,
 	/client/proc/remove_trader,
-	/datum/admins/proc/sendFax
+	/datum/admins/proc/sendFax,
+	/client/proc/announce_battle_start,
+	/client/proc/warpact_major,
+	/client/proc/nato_major,
+	/client/proc/draw_major,
+	/datum/admins/proc/ToggleCkeyWhitelist,
+	/datum/admins/proc/ReloadCkeyWhitelist,
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -142,14 +149,14 @@ var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
 	/client/proc/respawn_character,
-	/client/proc/virus2_editor,
-	/client/proc/spawn_chemdisp_cartridge
+	/client/proc/virus2_editor
 	)
 var/list/admin_verbs_server = list(
 	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,
 	/client/proc/ToRban,
 	/datum/admins/proc/startnow,
+	/datum/admins/proc/endnow,
 	/datum/admins/proc/restart,
 	/datum/admins/proc/delay,
 	/datum/admins/proc/toggleaban,
@@ -294,8 +301,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/debug_controller,
 	/client/proc/startSinglo,
 	/client/proc/cmd_debug_mob_lists,
-	/client/proc/stop_art_shelling,
-	/client/proc/stop_arty_gib,
+//	/client/proc/stop_art_shelling,
+	///client/proc/stop_arty_gib,
 	/client/proc/cmd_debug_del_all,
 	/client/proc/cmd_debug_tog_aliens,
 	/client/proc/air_report,
@@ -601,7 +608,7 @@ var/list/admin_verbs_mentor = list(
 	log_and_message_admins("created an admin explosion at [epicenter.loc].")
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/give_disease2(mob/T as mob in GLOB.mob_list) // -- Giacom
+/client/proc/give_disease2(mob/T as mob in SSmobs.mob_list) // -- Giacom
 	set category = "Fun"
 	set name = "Give Disease"
 	set desc = "Gives a Disease to a mob."
@@ -857,10 +864,10 @@ var/list/admin_verbs_mentor = list(
 		M.g_skin = hex2num(copytext(new_skin, 4, 6))
 		M.b_skin = hex2num(copytext(new_skin, 6, 8))
 
-	var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation")  as text
+	var/new_tone = input("Please select skin tone level: 1-90", "Character Generation")  as text
 
 	if (new_tone)
-		M.s_tone = max(min(round(text2num(new_tone)), 220), 1)
+		M.s_tone = max(min(round(text2num(new_tone)), 90), 1)
 		M.s_tone =  -M.s_tone + 35
 
 	// hair
@@ -938,7 +945,7 @@ var/list/admin_verbs_mentor = list(
 			to_chat(src, "<b>Enabled maint drones.</b>")
 			message_admins("Admin [key_name_admin(usr)] has enabled maint drones.", 1)
 
-/client/proc/man_up(mob/T as mob in GLOB.mob_list)
+/client/proc/man_up(mob/T as mob in SSmobs.mob_list)
 	set category = "Fun"
 	set name = "Man Up"
 	set desc = "Tells mob to man up and deal with it."
@@ -953,13 +960,13 @@ var/list/admin_verbs_mentor = list(
 	set name = "Man Up Global"
 	set desc = "Tells everyone to man up and deal with it."
 
-	for (var/mob/T as mob in GLOB.mob_list)
+	for (var/mob/T as mob in SSmobs.mob_list)
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
 		sound_to(T, 'sound/voice/ManUp1.ogg')
 
 	log_and_message_admins("told everyone to man up and deal with it.")
 
-/client/proc/give_spell(mob/T as mob in GLOB.mob_list) // -- Urist
+/client/proc/give_spell(mob/T as mob in SSmobs.mob_list) // -- Urist
 	set category = "Fun"
 	set name = "Give Spell"
 	set desc = "Gives a spell to a mob."
@@ -976,70 +983,110 @@ var/list/admin_verbs_mentor = list(
 
 	var/alive_usmc = 0
 	var/alive_sov = 0
+	var/alive_brit = 0
+	var/alive_fin = 0
+/*
 	var/alive_bdw = 0
 	var/alive_nvaddr = 0
-
+	var/alive_csla = 0
+	var/alive_obh = 0
+*/
 	var/heavily_injured_usmc = 0
 	var/heavily_injured_sov = 0
+	var/heavily_injured_brit = 0
+	var/heavily_injured_fin = 0
+/*
+	var/heavily_injured_csla = 0
+	var/heavily_injured_obh = 0
 	var/heavily_injured_bdw = 0
 	var/heavily_injured_nvaddr = 0
+*/
 
 	for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 		if(H.stat == DEAD)
 			continue
 		var/datum/job/job = job_master.GetJob(H.mind.assigned_role)
 		if(!job)
-			usr << "\red [H] have no job!"
+			to_chat(usr, "<span class='red'>[H] has no job!</span>")
 			continue
-		switch(job.department_flag)
+		switch(job.force)
+			if(USMCFORCE)
+				alive_usmc++
+			if(BRITFORCE)
+				alive_brit++
+			if(FINFORCE)
+				alive_fin++
 			if(SOVFORCE)
 				alive_sov++
+/*
 			if(DDRFORCE)
 				alive_nvaddr++
 			if(BDWFORCE)
 				alive_bdw++
-			if(USMCFORCE)
-				alive_usmc++
+			if(CSLAFORCE)
+				alive_csla++
+			if(OBHFORCE)
+				alive_obh++
+*/
 
-		if(H.health > 0)
+		if(H.health < 30)
 			continue
 
-		switch(job.department_flag)
+		switch(job.force)
+			if(USMCFORCE)
+				heavily_injured_usmc++
+			if(BRITFORCE)
+				heavily_injured_brit++
+			if(FINFORCE)
+				heavily_injured_fin++
 			if(SOVFORCE)
 				heavily_injured_sov++
+/*
 			if(DDRFORCE)
 				heavily_injured_nvaddr++
 			if(BDWFORCE)
 				heavily_injured_bdw++
-			if(USMCFORCE)
-				heavily_injured_usmc++
+			if(CSLAFORCE)
+				heavily_injured_csla++
+			if(OBHFORCE)
+				heavily_injured_obh++
+*/
 
 
-	usr << "NATO: [alive_usmc] alive and [heavily_injured_usmc] heavily injured in US Army. [alive_bdw] alive and [heavily_injured_bdw] heavily injured in Bundeswehr."
-	usr << "Warsaw Pact: [alive_sov] alive and [heavily_injured_sov] heavily injured in Soviet Army. [alive_nvaddr] alive and [heavily_injured_nvaddr] heavily injured in NVA DDR."
+	to_world("<b><font size=4>NATO:</font></b>")
+	to_world("<b>USMC:</b> [alive_usmc] alive, [heavily_injured_usmc] heavily injured.")
+	to_world("<b>British Army:</b> [alive_brit] alive, [heavily_injured_brit] heavily injured.")
+	to_world("<b><font size=4>Warsaw Pact:</font></b>")
+	to_world("<b>Sovetskaya Armiya:</b> [alive_sov] alive, [heavily_injured_sov] heavily injured.")
+	to_world("<b>Suomen Maavoimat:</b> [alive_fin] alive, [heavily_injured_fin] heavily injured.")
 
-	var/public = alert(usr, "Show it to public?",,"Yes", "No")
+	var/public = alert(usr, "Show it to the public?",,"Yes", "No")
 
 	if(public == "Yes")
-		world << "NATO: [alive_usmc] alive and [heavily_injured_usmc] heavily injured in US Army. [alive_bdw] alive and [heavily_injured_bdw] heavily injured in Bundeswehr."
-		world << "Warsaw Pact: [alive_sov] alive and [heavily_injured_sov] heavily injured in Soviet Army. [alive_nvaddr] alive and [heavily_injured_nvaddr] heavily injured in NVA DDR."
+		to_world("<b><font size=4>NATO:</font></b>")
+		to_world("<b>USMC:</b> [alive_usmc] alive, [heavily_injured_usmc] heavily injured.")
+		to_world("<b>British Army:</b> [alive_brit] alive, [heavily_injured_brit] heavily injured.")
+		to_world("<b><font size=4>Warsaw Pact:</font></b>")
+		to_world("<b>Sovetskaya Armiya:</b> [alive_sov] alive, [heavily_injured_sov] heavily injured.")
+		to_world("<b>Suomen Maavoimat:</b> [alive_fin] alive, [heavily_injured_fin] heavily injured.")
 
-
+/*
 /client/proc/show_general_stat()
 	set name = "Show generally armies stats"
-	set category = "EscAdmin"
+	set category = null ///"EscAdmin"
 	if(!holder)
 		return
-	world << show_statistic()
+	to_world(show_statistic())
 	feedback_add_details("admin_verb", "AKL")
 
 /client/proc/show_separated_stat()
 	set name = "Show separated stats"
-	set category = "EscAdmin"
+	set category = null //"EscAdmin"
 	if(!holder)
 		return
-	world << show_statistic_by_faction()
+	to_world(show_statistic_by_faction())
 	feedback_add_details("admin_verb", "AKLL")
+*/
 
 /client/proc/add_to_esc_whitelist()
 	set name = "Add to WL"
@@ -1055,10 +1102,11 @@ var/list/admin_verbs_mentor = list(
 		add_player_to_escalation_whitelist(WL_playerkey, WL_playerrank)
 		init_whitelist()
 		update_escpanels_for_all()
+		load_ckey_whitelist()
 
 	feedback_add_details("admin_verb", "ESCW")
 
-
+/*
 /client/proc/show_armies_tags()
 	set name = "Show armies' tags"
 	set category = "EscAdmin"
@@ -1066,10 +1114,11 @@ var/list/admin_verbs_mentor = list(
 		return
 	show_armies()
 	feedback_add_details("admin_verbs", "AKCV")
+*/
 
 /client/proc/set_daytime()
-	set category = "EscAdmin"
-	set name = "Set daytime"
+	set category = null ///"EscAdmin" DOESNT WORK AT ALL
+	set name = "Set starlight"
 
 	var/list/modes = list("Brighty day" = "#FFFFFF", "Cloudy day" = "#999999", "Very cloudy day" = "#777777", "Sunset" = "#FFC966", "Bright night" = "#444444", "Dark night" = "#111111", "Sunrise" = "#DEDF64", "Special" = "#FF77FF")
 
@@ -1078,49 +1127,12 @@ var/list/admin_verbs_mentor = list(
 	if(!daytime)
 		return
 
-	world << "Changing daytime and weather to [daytime]. This may take a while. Be patient."
+	to_world("Changing starlight to [daytime]. This may take a while.")
 	spawn(10)
 		for(var/turf/T)
 	//		if(T.z == 1)
 			T.update_starlight()
 //			world << "noice3"
-
-/*show_statistic()
-	//fraction live kill in action mortality rate
-	if(!ticker.mode.wargames)
-		return
-	var/dat = ""
-	if(!all_factions.len)
-		dat = "No factions in game!"
-		return dat
-	for(var/datum/army_faction/F in all_factions)
-		var/live = 0
-		var/dead = 0
-		var/mortality_rate = 0
-		for(var/mob/living/carbon/human/H in F.players)
-			if(H.stat == DEAD)
-				dead++
-			else
-				live++
-		mortality_rate = round(100 * (dead / live))
-		dat += "[F.name] : [live] alive, [dead] KIA. Mortality rate : [mortality_rate]% <br>"
-	return dat
-
-proc/show_armies()
-		//fraction live kill in action mortality rate
-	if(!ticker.mode.wargames)
-		return
-	var/dat = ""
-	if(!all_factions.len)
-		dat = "No factions in game!Show_armyes() fucked up!"
-		return dat
-	for(var/datum/army_faction/F in all_factions)
-		to_world("Army : [F.faction_tag]")
-
-
-//bund, usmc, csla, cccp
-//��� ���� �������� ��� ���� �� ���� �������� ~�������
-proc/show_statistic_by_fraction()*/
 
 var/global/list/global_colour_matrix = null
 /client/proc/change_colour_filter()
@@ -1139,3 +1151,50 @@ var/global/list/global_colour_matrix = null
 			global_colour_matrix = list(1, 0.33, 0.33,\
 										0, 0.33, 0.33,\
 										0, 0.33, 0.33)
+
+
+/client/proc/announce_battle_start()
+	set category = "EscAdmin"
+	set name = "Announce Battle Start"
+	var/startconfirm = alert("Are you sure you want to start the battle?", "Are you sure you want to start the battle?", "Yes", "No")
+	if(startconfirm == "Yes")
+		to_world("<b><font size=2>Enemy presence in the AO is confirmed. Operational readiness No. 1 has been declared.<font></b>")
+		to_world("<b><font size=2>Division command has authorized the company's advance.</font></b>")
+		sound_to(world, 'sound/effects/Evacuation.ogg')
+		log_and_message_admins("has set forth the end of the world.")
+		roundstarted = 1
+	else
+		return
+
+/client/proc/nato_major()
+	set category = "EscAdmin"
+	set name = "Announce BDW Victory"
+	var/victoryconfirm = alert("Are you sure you want to declare a BDW victory?", "Are you sure you want to declare a BDW victory?", "Yes", "No")
+	if(victoryconfirm == "Yes")
+		log_and_message_admins("has declared NATO Victory")
+		to_world("<b><font size=5>The Bundeswehr have secured held the American Embassy! Bundeswehr Vorwarts!</font></b>")
+		sound_to(world, 'sound/music/bdwwin.ogg')
+	else
+		return
+
+/client/proc/warpact_major()
+	set category = "EscAdmin"
+	set name = "Announce NVA Victory"
+	var/victoryconfirm = alert("Are you sure you want to declare a NVA victory?", "Are you sure you want to declare a NVA victory?", "Yes", "No")
+	if(victoryconfirm == "Yes")
+		log_and_message_admins("has declared WARPACT Victory")
+		to_world("<b><font size=5>The National Volkarmee have pushed the Bundeswehr back! Fur die Arbeiter!</font></b>")
+		sound_to(world, 'sound/music/nvawin.ogg')
+	else
+		return
+
+/client/proc/draw_major()
+	set category = "EscAdmin"
+	set name = "Announce Round Draw"
+	var/victoryconfirm = alert("Are you sure you want to declare a DRAW?", "Are you sure you want to declare a DRAW?", "Yes", "No")
+	if(victoryconfirm == "Yes")
+		log_and_message_admins("has declared a draw.")
+		to_world("<b><font size=4>The battlefield is deserted and the remaining troops from both sides have retreated.</font></b>")
+		sound_to(world, 'sound/music/bluemonday.ogg')
+	else
+		return

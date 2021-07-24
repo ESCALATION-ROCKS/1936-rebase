@@ -41,8 +41,7 @@
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchboxsmall"
 	item_state = "zippo"
-	w_class = 1
-	slot_flags = SLOT_BELT
+	w_class = ITEM_SIZE_SMALL
 	can_hold = list(/obj/item/weapon/flame/match)
 	startswith = list(/obj/item/weapon/flame/match = 5)
 	storage_slots = 5
@@ -340,12 +339,11 @@
 
 /obj/item/weapon/storage/box/matches
 	name = "matchbox"
-	desc = "A small box of 'Space-Proof' premium matches."
+	desc = "A small box of windproof matches."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "matchbox"
 	item_state = "zippo"
-	w_class = ITEM_SIZE_TINY
-	slot_flags = SLOT_BELT
+	w_class = ITEM_SIZE_SMALL
 	can_hold = list(/obj/item/weapon/flame/match)
 	startswith = list(/obj/item/weapon/flame/match = 10)
 

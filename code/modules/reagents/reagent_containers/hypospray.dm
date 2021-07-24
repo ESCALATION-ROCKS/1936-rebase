@@ -13,7 +13,7 @@
 	volume = 30
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
-	slot_flags = SLOT_BELT
+	slot_flags = null
 
 ///obj/item/weapon/reagent_containers/hypospray/New() //comment this to make hypos start off empty
 //	..()
@@ -119,7 +119,7 @@
 	icon_state = "syrette"
 	item_state = "autoinjector"
 	amount_per_transfer_from_this = 5
-	volume = 5
+	volume = 10
 	icon = 'icons/obj/syringe.dmi'
 	var/closed = 1
 
@@ -143,83 +143,83 @@
 
 /obj/item/weapon/reagent_containers/syrette/attack_self(mob/user as mob)
 	if(closed)
-		if(prob(20))
+		if(prob(40))
 			closed = 0
-			user << "<span class='warning'>You open the [src.name].</span>"
+			to_chat(user, "<span class='notice'>You open the [src.name].</span>")
 			update_icon()
 		else
-			user << "<span class='warning'>You tried to open the [src.name] but failed!</span>"
+			to_chat(user, "<span class='warning'>You tried to open the [src.name] but failed!</span>")
 	else
-		user << "<span class='warning'>[name] is already unpacked!</span>"
+		to_chat(user, "<span class='warning'>[name] is already unpacked!</span>")
 
 
 /obj/item/weapon/reagent_containers/syrette/examine(mob/user)
 	..(user)
 	if(reagents && reagents.reagent_list.len)
-		user << "<span class='notice'>It is currently loaded.</span>"
+		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else
-		user << "<span class='notice'>It is spent.</span>"
+		to_chat(user, "<span class='notice'>It is spent.</span>")
 
 /obj/item/weapon/reagent_containers/syrette/attack(mob/living/M as mob, mob/user as mob)
 	if(!reagents.total_volume)
-		user << "<span class='warning'>[src] is empty.</span>"
+		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 		return
 	if (!istype(M))
 		return
 	if (closed)
-		user << "<span class='warning'>[src] is closed.</span>"
+		to_chat(user, "<span class='warning'>[src] is closed.</span>")
 		return
 
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
 		user.setClickCooldown(30)
 		if(!do_after(user, 20, src))
-			user << "<span class='danger'>You must stand still to use the [src]!</span>"
+			to_chat(user, "<span class='danger'>You must stand still to use the [src]!</span>")
 			return
 		var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
 		if(!affected)
-			user << "<span class='danger'>\The [H] is missing that limb!</span>"
+			to_chat(user, "<span class='danger'>\The [H] is missing that limb!</span>")
 			return
 		else if(affected.robotic >= ORGAN_ROBOT)
-			user << "<span class='danger'>You cannot inject a robotic limb.</span>"
+			to_chat(user, "<span class='danger'>You cannot inject a robotic limb.</span>")
 			return
 
 		user.do_attack_animation(M)
-		user << "<span class='notice'>You inject [M] with [src].</span>"
-		M << "<span class='notice'>You feel a tiny prick!</span>"
+		to_chat(user, "<span class='notice'>You inject [M] with [src].</span>")
+		to_chat(M, "<span class='notice'>You feel a tiny prick!</span>")
 
 		if(M.reagents)
 			var/contained = reagentlist()
 			var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
 			admin_inject_log(user, M, src, contained, trans)
-			user << "<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>"
+			to_chat(user, "<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 
 		return
 
 /obj/item/weapon/reagent_containers/syrette/morphine
 	name = "morphine syrette"
-	desc = "Strong painkiller with a quick metabolization speed. Meant for life threatening injuries. WARNING! Do not administer orally!"
+	desc = "A strong painkiller with a quick metabolization speed, for life threatening injuries. Do NOT administer more than 10u or orally."
 
 	New()
 		..()
-		reagents.add_reagent(/datum/reagent/morphine, 5)
+		reagents.add_reagent(/datum/reagent/morphine, 10)
 
 
 
-/obj/item/weapon/reagent_containers/syrette/promedolum
+/*/obj/item/weapon/reagent_containers/syrette/promedolum
 	name = "promedolum syrette"
 
 	New()
 		..()
 		reagents.add_reagent(/datum/reagent/morphine, 2)
-		reagents.add_reagent(/datum/reagent/tramadol, 3)
+		reagents.add_reagent(/datum/reagent/tramadol, 3)*/
 
 //////////////////////////////
 ////Combat Injector Define////
 //////////////////////////////
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/combat
 	name = "combat autoinjector"
-	icon = 'icons/obj/medical.dmi'
+	icon = 'icons/obj/coldwar/medical.dmi'
 	icon_state = "injector_red"
 	volume = 5
 
@@ -269,7 +269,7 @@
 
 /obj/item/weapon/injector_cap
 	name = "injector cap"
-	icon = 'icons/obj/medical.dmi'
+	icon = 'icons/obj/coldwar/medical.dmi'
 	icon_state = "cap_red"
 
 /obj/item/weapon/injector_cap/New(var/loc, var/color)
@@ -300,14 +300,14 @@
 		..()
 		reagents.add_reagent("peridaxon", 5)
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/combat/promedolum
+/*/obj/item/weapon/reagent_containers/hypospray/autoinjector/combat/promedolum
 	name = "promedolum autoinjector"
 	cap_color = "green"
 
 	New()
 		..()
 		reagents.add_reagent(/datum/reagent/morphine, 5)
-		reagents.add_reagent(/datum/reagent/tramadol, 2)
+		reagents.add_reagent(/datum/reagent/tramadol, 2)*/
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/combat/epinephrine
 	name = "epinephrine autoinjector"

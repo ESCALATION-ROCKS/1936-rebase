@@ -75,6 +75,3 @@
 
 /mob/proc/update_inv_wear_right_pouch()
 	return
-
-/mob/proc/update_inv_wear_back_pouch()
-	return

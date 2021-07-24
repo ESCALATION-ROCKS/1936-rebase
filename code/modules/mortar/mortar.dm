@@ -3,7 +3,7 @@
 /obj/structure/mortar
 	name = "Mortar"
 	desc = "Mortar"
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/coldwar/mortar.dmi'
 	icon_state = "mortar_m402"
 	anchored = 1
 	density = 1
@@ -31,10 +31,15 @@
 		return
 	add_fingerprint(user)
 
+	var/area/A = get_area(src)
+	if(A.roofed)
+		to_chat(user, "<span class='warning'>You refrain from firing the [src] while indoors.</span>")
+		return
+
 	var/choice = alert(user, "Would you like to set the mortar's target coordinates?","Mortar Dialing", "Target","Dial" , "Cancel")
 	if (choice == "Cancel")
 		return
-	if (choice == "Target")	
+	if (choice == "Target")
 		var/temp_targ_x = input("Set longitude of strike.") as num
 		if(xdial + deobfuscate_x(temp_targ_x) > world.maxx || xdial + deobfuscate_x(temp_targ_x) < 0)
 			to_chat(user, "<span class='warning'>(You cannot aim at this coordinate, it is outside of the area of operations.</span>")
@@ -63,7 +68,7 @@
 			var/offset_y_max = round(abs((yinput + ydial) - y)/offset_per_turfs)
 			xoffset = rand(-offset_x_max, offset_x_max)
 			yoffset = rand(-offset_y_max, offset_y_max)
-		else 
+		else
 			busy = 0
 	if (choice == "Dial")
 		var/temp_dial_x = input("Set longitude adjustement from -10 to 10.") as num
@@ -103,6 +108,11 @@
 
 obj/structure/mortar/attackby(var/obj/item/O as obj, mob/user as mob)
 
+	var/area/A = get_area(src)
+	if(A.roofed)
+		to_chat(user, "<span class='warning'>You refrain from firing the [src] while indoors.</span>")
+		return
+
 	if(istype(O, /obj/item/mortar_shell))
 		var/obj/item/mortar_shell/mortar_shell = O
 		if(busy)
@@ -127,7 +137,7 @@ obj/structure/mortar/attackby(var/obj/item/O as obj, mob/user as mob)
 			"<span class='notice'>You load \a [mortar_shell.name] into [src].</span>")
 			visible_message("\icon[src] <span class='danger'>The [name] fires!</span>")
 			user.drop_item(mortar_shell, src)
-			playsound(loc, 'sound/effects/mortar_fire.wav', 50, 1)
+			playsound(loc, 'sound/effects/mortar_fire.ogg', 50, 1)
 			busy = 0
 			firing = 1
 			flick(icon_state + "_fire", src)
@@ -136,7 +146,7 @@ obj/structure/mortar/attackby(var/obj/item/O as obj, mob/user as mob)
 			for(var/mob/M in range(7))
 				shake_camera(M, 3, 1)
 			spawn(travel_time) //What goes up
-				playsound(T, 'sound/effects/mortar_falling.wav', 50, 1)
+				playsound(T, 'sound/effects/mortar_falling.ogg', 50, 1)
 				spawn(45) //Must go down //This should always be 45 ticks!
 					mortar_shell.detonate(T)
 					qdel(mortar_shell)
@@ -174,7 +184,7 @@ obj/structure/mortar/attackby(var/obj/item/O as obj, mob/user as mob)
 /obj/item/mortar_kit
 	name = "\improper M402 mortar portable kit"
 	desc = "A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first"
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/coldwar/mortar.dmi'
 	icon_state = "mortar_m402_carry"
 	unacidable = 1
 	w_class = 5
@@ -199,7 +209,7 @@ obj/structure/mortar/attackby(var/obj/item/O as obj, mob/user as mob)
 /obj/item/mortar_shell
 	name = "\improper 80mm mortar shell"
 	desc = "An unlabeled 80mm mortar shell, probably a casing."
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/coldwar/mortar.dmi'
 	icon_state = "mortar_ammo_cas"
 	w_class = 5
 	var/list/fragment_types = list(/obj/item/projectile/bullet/pellet/fragment = 1)
@@ -215,17 +225,17 @@ obj/structure/mortar/attackby(var/obj/item/O as obj, mob/user as mob)
 obj/item/mortar_shell/he
 	name = "\improper 80mm High Explosive mortar shell"
 	desc = "An 80mm mortar shell, loaded with a Highly Explosive Charge."
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/coldwar/mortar.dmi'
 	icon_state = "mortar_ammo_he"
 	spread_range = 0
 
-/obj/item/mortar_shell/he/detonate(var/turf/T)  
+/obj/item/mortar_shell/he/detonate(var/turf/T)
 	explosion(T, 2, 4, 6, 8)
 
 obj/item/mortar_shell/frag
 	name = "\improper 80mm Fragmentation mortar shell"
 	desc = "An 80mm mortar shell, loaded with a small charge surrounded by Deadly Metal Pellets."
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/coldwar/mortar.dmi'
 	icon_state = "mortar_ammo_he"
 	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/mortar)
 	num_fragments = 350  //total number of fragments produced by the grenade
@@ -323,6 +333,7 @@ obj/item/mortar_shell/frag
 /obj/structure/closet/crate/mortar_ammo/mortar_kit
 	name = "\improper mortar kit"
 	desc = "A crate containing a basic set of a mortar and some shells."
+	icon_state = "gencrate"
 
 /obj/structure/closet/crate/mortar_ammo/mortar_kit/New()
 	..()

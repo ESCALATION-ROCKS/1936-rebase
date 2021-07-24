@@ -1,6 +1,6 @@
 #define WORLD_ICON_SIZE 32
 
-/var/server_name = "Escalation: 1936"
+/var/server_name = "Escalation"
 
 /var/game_id = null
 /hook/global_init/proc/generate_gameid()
@@ -38,7 +38,7 @@
 
 	var/list/match = list()
 
-	for(var/mob/M in GLOB.mob_list)
+	for(var/mob/M in SSmobs.mob_list)
 		if(restrict_type && !istype(M, restrict_type))
 			continue
 		var/strings = list(M.name, M.ckey)
@@ -66,6 +66,7 @@
 
 	return match
 
+var/roundstarted = 0
 
 /world
 	mob = /mob/new_player
@@ -141,7 +142,6 @@
 	obfs_x = rand(-500, 500) //A number between -100 and 100
 	obfs_y = rand(-500, 500) //A number between -100 and 100
 
-	processScheduler.deferSetupFor(/datum/controller/process/ticker)
 	processScheduler.setup()
 	Master.Initialize(10, FALSE)
 
@@ -626,15 +626,12 @@ var/world_topic_spam_protect_time = world.timeofday
 	if (config && config.server_name)
 		s += "<b>[config.server_name]</b> &#8212; "
 
-	s += "<b>Escalation: 1936 - Spanish Civil War</b>";
+	s += "<b>ESCALATION 1983</b>";
 	s += "<br>"
-	s += "An immersive combat experience set during the events of the Spanish Civil War."
+	s += "An unforgiving, semi realistic mil-sim RP set in an alternate-universe Cold War."
 	s += "<br>"
-	s += "You are able to join and observe while you apply for a whitelist on our Discord."
+	s += "Get whitelisted in our Discord! https://discord.gg/usagARfE"
 	s += "<br>"
-	s += "<a href=\"https://discord.gg/zQBbYAjNTz\">" //Change this to wherever you want the hub to link to.
-	s += "WHITELIST REQUIRED"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
-	s += "</a>"
 
 	var/list/features = list()
 

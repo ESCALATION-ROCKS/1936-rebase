@@ -134,3 +134,64 @@
 	species_restricted = list(SPECIES_VOX)
 	filtered_gases = list("phoron", "sleeping_agent", "oxygen")
 	visor_color = 0
+
+
+////COLDWAR
+
+/obj/item/clothing/mask/gas/coldwar
+	name = "weird gas mask"
+	desc = "A weird gas mask. You should not be seeing this."
+	icon_state = "gp5_mask"
+	item_state = "gp5_mask"
+	wearable = 1
+	w_class = ITEM_SIZE_NORMAL
+	flags_inv = BLOCKHAIR
+	body_parts_covered = FACE|HEAD
+	down_body_parts_covered = HEAD
+	filtered_gases = list("phoron", "sleeping_agent", "smoke")
+	visor_color = 0
+	tint = TINT_NONE
+	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT
+	armor = list(melee = 5, bullet = 5, laser = 0, energy = 0, bomb = 0, bio = 100, rad = 0)
+
+/obj/item/clothing/mask/gas/coldwar/gp5 /////NVA
+	name = "GP-5 gas mask"
+	desc = "A gas mask used by the Soviet Army and other WARPACT countries."
+	icon_state = "gp5_mask"
+	item_state = "gp5_mask"
+
+/obj/item/clothing/mask/gas/coldwar/gp7 ///////SA
+	name = "GP-7 gas mask"
+	desc = "A gas mask used by the Soviet Army and other WARPACT countries."
+	icon_state = "gp7_mask"
+	item_state = "gp7_mask"
+
+/obj/item/clothing/mask/gas/coldwar/pmg ///////SA
+	name = "PMG gas mask"
+	desc = "A gas mask uncommonly used by the Soviet Army. This one is labeled 'J-12', you don't know what that means."
+	icon_state = "pmg_mask"
+	item_state = "pmg_mask"
+
+/obj/item/clothing/mask/gas/coldwar/m38 ///////BDW - BDH
+	name = "M38 gas mask"
+	desc = "A gas mask used by the Bundeswehr and other NATO counties."
+	icon_state = "m38_mask"
+	item_state = "m38_mask"
+
+/obj/item/clothing/mask/gas/coldwar/m17 ///////USMC - USA
+	name = "M17 gas mask"
+	desc = "A gas mask used by the USA and other NATO counties."
+	icon_state = "m17_mask"
+	item_state = "m17_mask"
+
+/obj/item/clothing/mask/gas/coldwar/m17 ///////SA
+	name = "GP-7VM gas mask"
+	desc = "A gas mask used by the Soviet Army and other WARPACT countries."
+	icon_state = "gp7vm_mask"
+	item_state = "gp7vm_mask"
+
+/obj/item/clothing/mask/gas/coldwar/m40 ///////USMC - USA
+	name = "M40 gas mask"
+	desc = "A gas mask used by the USA and other NATO counties."
+	icon_state = "m40_mask"
+	item_state = "m40_mask"

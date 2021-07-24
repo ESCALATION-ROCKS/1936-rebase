@@ -183,7 +183,7 @@
 	else
 		outputting = 0
 	if(outputting)
-		playsound(src, 'sound/machines/generator.wav', 50, 0)
+		playsound(src, 'sound/machines/generator.ogg', 50, 0)
 
 // called after all power processes are finished
 // restores charge level to smes if there was excess this ptick
@@ -374,7 +374,7 @@
 
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = GLOB.nanomanager.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
 		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm

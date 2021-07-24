@@ -37,7 +37,7 @@
 #define SPACE UNDERWATER
 
 var/list/shatter_sound = list('sound/effects/Glassbr1.ogg','sound/effects/Glassbr2.ogg','sound/effects/Glassbr3.ogg')
-var/list/explosion_sound = list('sound/effects/explosion1.wav','sound/effects/explosion2.wav','sound/effects/explosion3.wav','sound/effects/explosion4.wav','sound/effects/explosion5.wav','sound/effects/explosion6.wav')
+var/list/explosion_sound = list('sound/effects/explosion1.ogg','sound/effects/explosion2.ogg','sound/effects/explosion3.ogg','sound/effects/explosion4.ogg','sound/effects/explosion5.ogg','sound/effects/explosion6.ogg')
 var/list/spark_sound = list('sound/effects/sparks1.ogg','sound/effects/sparks2.ogg','sound/effects/sparks3.ogg','sound/effects/sparks4.ogg')
 var/list/rustle_sound = list('sound/effects/rustle1.ogg','sound/effects/rustle2.ogg','sound/effects/rustle3.ogg','sound/effects/rustle4.ogg','sound/effects/rustle5.ogg')
 var/list/punch_sound = list('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg')
@@ -63,10 +63,10 @@ var/list/drink = list('sound/vo/drink.1.wav','sound/vo/drink.2.wav', 'sound/vo/d
 var/list/bodysplat = list('sound/effects/body/bodysplat.wav','sound/effects/body/bodysplat2.wav')
 var/list/bonebreak = list('sound/effects/body/bonebreak.wav','sound/effects/body/bonebreak1.wav','sound/effects/body/bonebreak2.wav')
 var/list/bul_impact = list('sound/effects/body/bulletbodyimpact_1.wav','sound/effects/body/bulletbodyimpact_2.wav','sound/effects/body/bulletbodyimpact_4.wav','sound/effects/body/bulletbodyimpact_5.wav','sound/effects/body/bulletbodyimpact_6.wav')
-var/list/bullet_hit_object = list('sound/weapons/ric1.wav', 'sound/weapons/ric2.wav', 'sound/weapons/ric3.wav', 'sound/weapons/ric4.wav', 'sound/weapons/ric5.wav', 'sound/weapons/ric6.wav')
+var/list/bullet_hit_object = list('sound/weapons/ric1.ogg', 'sound/weapons/ric2.ogg', 'sound/weapons/ric3.ogg', 'sound/weapons/ric4.ogg', 'sound/weapons/ric5.ogg', 'sound/weapons/ric6.ogg')
 var/list/bodyscrape = list('sound/effects/bodyscrape-01.ogg','sound/effects/bodyscrape-02.ogg')
 var/list/serinjury = list('sound/effects/body/desceration-01.ogg','sound/effects/body/desceration-02.ogg','sound/effects/body/desceration-03.ogg','sound/effects/body/desceration-04.ogg')
-var/list/flop_sound = list('sound/effects/bodyfall1.ogg','sound/effects/bodyfall2.ogg','sound/effects/bodyfall3.ogg','sound/effects/bodyfall4.ogg')
+var/list/flop_sound = list('sound/effects/bodyfall1.ogg','sound/effects/bodyfall2.ogg','sound/effects/bodyfall3.ogg')
 var/list/bullet_flyby = list('sound/weapons/flyby/bulletflyby.ogg', 'sound/weapons/flyby/bulletflyby2.ogg', 'sound/weapons/flyby/bulletflyby3.ogg')
 var/list/explosion_small_sound = list('sound/effects/Explosion_small1.ogg', 'sound/effects/Explosion_small2.ogg', 'sound/effects/Explosion_small3.ogg')
 
@@ -75,6 +75,8 @@ var/list/armorstepsound = list('sound/effects/equipnoise/gear1.wav','sound/effec
 
 var/list/foliage = list('sound/effects/foliage_01.ogg','sound/effects/foliage_02.ogg', 'sound/effects/foliage_03.ogg', 'sound/effects/foliage_04.ogg', 'sound/effects/foliage_05.ogg')
 var/list/foliagedry = list('sound/effects/foliage_forest_01.ogg','sound/effects/foliage_forest_02.ogg', 'sound/effects/foliage_forest_03.ogg', 'sound/effects/foliage_forest_04.ogg', 'sound/effects/foliage_forest_05.ogg')
+
+var/list/casing_sound = list('sound/weapons/casings/casing_drop1.ogg','sound/weapons/casings/casing_drop2.ogg','sound/weapons/casings/casing_drop3.ogg')
 
 
 /proc/playsound(var/atom/source, soundin, vol as num, vary, extrarange as num, falloff, var/is_global, var/frequency, var/is_ambiance = 0)
@@ -95,7 +97,7 @@ var/list/foliagedry = list('sound/effects/foliage_forest_01.ogg','sound/effects/
 			continue
 		if(get_dist(M, turf_source) <= (world.view + extrarange) * 2)
 			var/turf/T = get_turf(M)
-			if(T && T.z == turf_source.z && (!is_ambiance || M.is_preference_enabled(/datum/client_preference/play_ambiance)))
+			if(T && T.z == turf_source.z && (!is_ambiance || M.get_preference_value(/datum/client_preference/play_ambiance) == GLOB.PREF_YES))
 				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global)
 
 var/const/FALLOFF_SOUNDS = 0.5
@@ -187,7 +189,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 	src << S
 
 /client/proc/playtitlemusic()
-	if(is_preference_enabled(/datum/client_preference/play_lobby_music))
+	if(get_preference_value(/datum/client_preference/play_lobby_music) == GLOB.PREF_YES)
 		GLOB.using_map.lobby_music.play_to(src)
 
 /proc/get_rand_frequency()
@@ -200,6 +202,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("explosion") soundin = pick(explosion_sound)
 			if ("sparks") soundin = pick(spark_sound)
 			if ("rustle") soundin = pick(rustle_sound)
+			if ("casing_drop") soundin = pick(casing_sound)
 			if ("punch") soundin = pick(punch_sound)
 			if ("clownstep") soundin = pick(clown_sound)
 			if ("swing_hit") soundin = pick(swing_hit_sound)

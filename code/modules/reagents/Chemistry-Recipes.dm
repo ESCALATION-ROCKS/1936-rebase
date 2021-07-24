@@ -363,9 +363,9 @@
 	required_reagents = list(/datum/reagent/cryoxadone = 1, /datum/reagent/sodium = 1, /datum/reagent/toxin/phoron = 0.1)
 	result_amount = 2
 
-/datum/chemical_reaction/doxicycline
-	name = "doxicycline"
-	result = /datum/reagent/doxicycline
+/datum/chemical_reaction/doxycycline
+	name = "doxycycline"
+	result = /datum/reagent/doxycycline
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/inaprovaline = 1)
 	result_amount = 2
 
@@ -522,6 +522,30 @@
 	result = /datum/reagent/noexcutite
 	required_reagents = list(/datum/reagent/tramadol/oxycodone = 1, /datum/reagent/dylovene = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/instanttea
+	name = "Instant Tea"
+	result = /datum/reagent/drink/tea
+	required_reagents = list(/datum/reagent/water = 15, /datum/reagent/drink/instanttea = 5)
+	result_amount = 20
+
+/datum/chemical_reaction/instantcoffee
+	name = "Instant Coffee"
+	result = /datum/reagent/drink/coffee
+	required_reagents = list(/datum/reagent/water = 15, /datum/reagent/drink/instantcoffee = 5)
+	result_amount = 20
+
+/datum/chemical_reaction/gatorade
+	name = "Gatorade Lemon-Lime"
+	result = /datum/reagent/drink/lemon_lime
+	required_reagents = list(/datum/reagent/water = 15, /datum/reagent/drink/gatoradepowder = 5)
+	result_amount = 20
+
+/datum/chemical_reaction/instantcocoa
+	name = "Instant Cocoa"
+	result = /datum/reagent/drink/hot_coco
+	required_reagents = list(/datum/reagent/water = 15, /datum/reagent/drink/instantcocoa = 5)
+	result_amount = 20
 
 /* Solidification */
 

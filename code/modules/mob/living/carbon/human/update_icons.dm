@@ -128,6 +128,7 @@ Please contact me on #coderbus IRC. ~Carn x
 #define TAIL_LAYER				14		//bs12 specific. this hack is probably gonna come back to haunt me
 #define HAIR_LAYER				15		//TODO: make part of head layer?
 #define GOGGLES_LAYER			16
+#define EARS_LAYER				17
 #define FACEMASK_LAYER			18
 #define GLASSES_LAYER			19
 #define HEAD_LAYER				20
@@ -135,16 +136,15 @@ Please contact me on #coderbus IRC. ~Carn x
 #define BACK_LAYER				22
 #define LEFT_POUCH_LAYER		23
 #define RIGHT_POUCH_LAYER		24
-#define BACK_POUCH_LAYER		25
-#define HOLSTER_LAYER			26
-#define ADD_GUN_LAYER			27 //NEW GUN SLOT
-#define EARS_LAYER				28
-#define HANDCUFF_LAYER			29
-#define L_HAND_LAYER			30
-#define R_HAND_LAYER			31
-#define FIRE_LAYER				32		//If you're on fire
-#define TARGETED_LAYER			33		//BS12: Layer for the target overlay from weapon targeting system
-#define TOTAL_LAYERS			34
+#define HOLSTER_LAYER			25
+#define ADD_GUN_LAYER			26 //NEW GUN SLOT
+#define HANDCUFF_LAYER			27
+#define L_HAND_LAYER			28
+#define R_HAND_LAYER			29
+#define FIRE_LAYER				30		//If you're on fire
+#define TARGETED_LAYER			31		//BS12: Layer for the target overlay from weapon targeting system
+#define SURRENDER_LAYER			32
+#define TOTAL_LAYERS			32
 
 /mob/living/carbon/human
 	var/list/overlays_standing[TOTAL_LAYERS]
@@ -381,6 +381,11 @@ var/global/list/damage_icon_parts = list()
 
 	if(update_icons)   update_icons()
 
+///LIPSTICK OVERLAY
+/mob/living/carbon/human/proc/update_lipstick(var/update_icons=1)
+	
+	stand_icon.Blend(new/icon('icons/mob/human_face.dmi', "camo_[lip_style]_s"), ICON_OVERLAY)
+
 //HAIR OVERLAY
 /mob/living/carbon/human/proc/update_hair(var/update_icons=1)
 	//Reset our hair
@@ -611,7 +616,7 @@ var/global/list/damage_icon_parts = list()
 
 /mob/living/carbon/human/update_inv_add_gun(var/update_icons=1)
 	if( wear_gun && ( istype(wear_gun, /obj/item) ) )
-		overlays_standing[ADD_GUN_LAYER] = wear_gun.get_mob_overlay(src,slot_add_gun_str)
+		overlays_standing[ADD_GUN_LAYER] = wear_gun.get_mob_overlay(src,slot_gun_slot_str)
 	else
 		overlays_standing[ADD_GUN_LAYER] = null
 
@@ -641,15 +646,6 @@ var/global/list/damage_icon_parts = list()
 		overlays_standing[RIGHT_POUCH_LAYER] = right_pouch.get_mob_overlay(src,slot_right_pouch_str)
 	else
 		overlays_standing[RIGHT_POUCH_LAYER] = null
-
-	if(update_icons)
-		update_icons()
-
-/mob/living/carbon/human/update_inv_wear_back_pouch(var/update_icons=1)
-	if(back_pouch && ( istype(back_pouch, /obj/item) ) )
-		overlays_standing[BACK_POUCH_LAYER] = back_pouch.get_mob_overlay(src,slot_back_pouch_str)
-	else
-		overlays_standing[BACK_POUCH_LAYER] = null
 
 	if(update_icons)
 		update_icons()
@@ -813,6 +809,15 @@ var/global/list/damage_icon_parts = list()
 	overlays_standing[SURGERY_LEVEL] = total
 	if(update_icons)   update_icons()
 
+/mob/living/carbon/human/update_surrender(var/update_icons=1)
+	overlays_standing[SURRENDER_LAYER] = null
+	if(surrendering)
+		var/image/surrender = overlay_image('icons/mob/france.dmi', "preview_f", RESET_COLOR)
+		overlays_standing[SURRENDER_LAYER] = surrender
+	if(update_icons)   update_icons()
+
+	addtimer(CALLBACK(src, /mob/living/proc/surrender_End), 200)
+
 //Human Overlays Indexes/////////
 #undef MUTATIONS_LAYER
 #undef DAMAGE_LAYER
@@ -838,4 +843,5 @@ var/global/list/damage_icon_parts = list()
 #undef R_HAND_LAYER
 #undef TARGETED_LAYER
 #undef FIRE_LAYER
+#undef SURRENDER_LAYER	
 #undef TOTAL_LAYERS

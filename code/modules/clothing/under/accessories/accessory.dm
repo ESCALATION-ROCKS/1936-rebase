@@ -17,7 +17,6 @@
 		SPECIES_NABBER = 'icons/mob/species/nabber/ties.dmi'
 		)
 	var/list/on_rolled = list()	//used when jumpsuit sleevels are rolled ("rolled" entry) or it's rolled down ("down"). Set to "none" to hide in those states.
-	var/list/on_jacket = list()
 	var/armor_slowdown = 0
 	var/high_visibility	//if it should appear on examine without detailed view
 /obj/item/clothing/accessory/Destroy()
@@ -51,8 +50,6 @@
 			var/obj/item/clothing/under/C = loc
 			if(on_rolled["down"] && C.rolled_down > 0)
 				tmp_icon_state = on_rolled["down"]
-			else if(on_jacket["removed"] && C.jacket_removed > 0)
-				tmp_icon_state = on_jacket["removed"]
 			else if(on_rolled["rolled"] && C.rolled_sleeves > 0)
 				tmp_icon_state = on_rolled["rolled"]
 

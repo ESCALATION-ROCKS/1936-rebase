@@ -50,10 +50,9 @@
 
 /obj/item/weapon/ore/glass
 	ore = /ore/glass
-	slot_flags = SLOT_HOLSTER
 
 // POCKET SAND!
-/obj/item/weapon/ore/glass/throw_impact(atom/hit_atom)
+/*/obj/item/weapon/ore/glass/throw_impact(atom/hit_atom)
 	..()
 	var/mob/living/carbon/human/H = hit_atom
 	if(istype(H) && H.has_eyes() && prob(85))
@@ -61,11 +60,10 @@
 		H.eye_blind += 5
 		H.eye_blurry += 10
 		spawn(1)
-			if(istype(loc, /turf/)) qdel(src)
+			if(istype(loc, /turf/)) qdel(src)*/
 
 /obj/item/weapon/ore/glass/
 	ore = /ore/glass
-	slot_flags = SLOT_HOLSTER
 
 /obj/item/weapon/ore/glass/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/shovel))
@@ -74,7 +72,7 @@
 			return
 		var/turf/T = get_turf(src)
 		for(var/obj/structure/S in T)
-			if(is_type_in_typecache(S, list(/obj/structure/chezh_hangehog = TRUE, /obj/structure/brutswehr = TRUE, /obj/structure/brutswehrincomplete = TRUE, /obj/structure/sandbag/concrete_block = TRUE)))
+			if(is_type_in_typecache(S, list(/obj/structure/hedgehog = TRUE, /obj/structure/brutswehr = TRUE, /obj/structure/brutswehrincomplete = TRUE, /obj/structure/sandbag/concrete_block = TRUE)))
 				to_chat(user, "<span class='warning'>There is no more space.</span>")
 				return FALSE
 		if(istype(src, /turf/unsimulated/floor/river/deep || /turf/unsimulated/floor/river))

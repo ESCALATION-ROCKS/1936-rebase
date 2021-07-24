@@ -42,7 +42,7 @@
 	..()
 
 	if(!uvi)
-		uvi = "�[rand(1,9)]"
+		uvi = " #[rand(1,20)]"
 	if(dna)
 		dna.ready_dna(src)
 		dna.real_name = real_name
@@ -115,9 +115,6 @@
 			else
 				var/atom/target = get_edge_target_turf(src, get_dir(src, get_step_away(src, src)))
 				throw_at(target, 200, 4)
-			//return
-//				var/atom/target = get_edge_target_turf(user, get_dir(src, get_step_away(user, src)))
-				//user.throw_at(target, 200, 4)
 
 		if (2.0)
 			b_loss = 60
@@ -723,11 +720,11 @@
 		b_eyes = hex2num(copytext(new_eyes, 6, 8))
 		update_eyes()
 
-	var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation", "[35-s_tone]")  as text
+	var/new_tone = input("Please select skin tone level: 1-90", "Character Generation", "[35-s_tone]")  as text
 
 	if (!new_tone)
 		new_tone = 35
-	s_tone = max(min(round(text2num(new_tone)), 220), 1)
+	s_tone = max(min(round(text2num(new_tone)), 90), 1)
 	s_tone =  -s_tone + 35
 
 	// hair
@@ -1018,12 +1015,11 @@
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
-	if(do_mob(usr, src, 60))
+	if(do_mob(usr, src, 20))
 		var/message = "<span class='notice'>[self ? "Your" : "[src]'s"] pulse is [src.get_pulse(GETPULSE_HAND)].</span>"
 		to_chat(usr, message)
 	else
 		to_chat(usr, "<span class='warning'>You failed to check the pulse. Try again.</span>")
-
 
 /mob/living/carbon/human/verb/lookup()
 	set name = "Look up"
@@ -1211,10 +1207,6 @@
 	if(!affecting)
 		to_chat(user, "<span class='warning'>They are missing that limb.</span>")
 		return 0
-
-/*	if(affecting.robotic >= ORGAN_ROBOT)
-		to_chat(user, "<span class='warning'>That limb is robotic.</span>")
-		return 0 */
 
 	. = CAN_INJECT
 	for(var/obj/item/clothing/C in list(head, wear_mask, w_uniform, gloves, shoes))
@@ -1640,7 +1632,7 @@
 var/list/rank_prefix = list(\
 
 //sa
-	"Leitenant" = "Leytenant.",\
+	"Leitenant" = "Leytenant",\
 	"Starshina" = "Starshina",\
 	"Sergant" = "Serzhant",\
 	"Efreitor" = "Efreitor",\
@@ -1661,7 +1653,7 @@ var/list/rank_prefix = list(\
 	"Sergeant" = "Sergeant",\
 	"Corporal" = "Corporal",\
 	"Lance Corporal" = "Lance Corporal",\
-	"Private Second Class" = "2nd Private",\
+	"Private Second Class" = "PV2",\
 	"Private First Class" = "PFC",\
 
 	"Master Sergeant" = "Master Sergeant",\
@@ -1676,7 +1668,7 @@ var/list/rank_prefix = list(\
 	"Sergeant" = "Sergeant",\
 	"Corporal" = "Corporal",\
 	"Specialist" = "Specialist",\
-	"Private Second Class" = "2nd Private",\
+	"Private Second Class" = "PV2",\
 	"Private First Class" = "PFC",\
 
 	"Master Sergeant" = "Master Sergeant",\
@@ -1703,30 +1695,31 @@ var/list/rank_prefix = list(\
 	"Luutnantti" = "Luutnantti",\
 	"Vanrikki" = "Vanrikki",\
 	"Ylikersantti" = "Ylikersantti",\
-	"Kersantti" = "Sgt.",\
-	"Alikersantti " = "Cpl.",\
-	"Korpraali " = "PV2.",\
-	"Jaakri" = "Pfc.",\
+	"Kersantti" = "Kersantti",\
+	"Alikersantti" = "Alikersantti",\
+	"Korpraali" = "Korpraali",\
+	"Jakaari" = "Jakaari",\
 
-//SCW
+//csla
+	"Svobodnik" = "Svobodnik",\
+	"Desatnik" = "Desatnik",\
+	"Cetar" = "Cetar",\
+	"Rotny" = "Rotny",\
+	"Soldat" = "Soldat",\
+	"Subleutnant" = "Subleutnant",\
+	"Leutnant" = "Leutnant",\
 
-//Ejercito Popular
-	"Soldado" = "Soldado",\
-	"Cabo" = "Cabo",\
-	"Sargento" = "Sargento",\
-	"Alferez" = "Alferez",\
-	"Teniente" = "Teniente",\
-	"Delegado Politico" = "Delegado",\
-	"Comisario" = "Comisario",\
+//british army
+	"Lieutenant" = "Lieutenant",\
+	"Second Lieutenant" = "2nd Lieutenant.",\
+	"First Sergeant" = "First Sergeant",\
+	"Sergeant" = "Sergeant",\
+	"Corporal" = "Corporal",\
+	"Lance Corporal" = "Lc. Corporal",\
+	"Private" = "Private",\
 
-//Ejercito Nacional
-	"Soldado" = "Soldado",\
-	"Soldado de Primera" = "Soldado de Primera",\
-	"Cabo" = "Cabo",\
-	"Sargento" = "Sargento",\
-	"Alferez" = "Alferez",\
-	"Teniente" = "Teniente",\
-	"Capitan" = "Capitan",\
-	"Legionario de Primera" = "Legionario de Primera",\
-	"Legionario" = "Legionario",\
-	)
+//FRA
+	"Soldat" = "Soldat",\
+	"Caporal" = "Caporal",\
+	"Capitaine" = "Capitaine",\
+)

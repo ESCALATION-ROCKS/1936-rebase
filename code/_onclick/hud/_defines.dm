@@ -34,7 +34,6 @@
 #define ui_holster "WEST+2:10, SOUTH+0:5"
 #define ui_left_pouch "WEST+3:12, SOUTH+0:5"
 #define ui_right_pouch "CENTER-2:14,SOUTH:5"
-#define ui_back_pouch "WEST+4:14,SOUTH+1:7"
 
 #define ui_alien_head "CENTER-3:12,SOUTH:5"		//aliens
 #define ui_alien_oclothing "CENTER-2:14,SOUTH:5"//aliens

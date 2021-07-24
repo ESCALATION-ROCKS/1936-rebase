@@ -7,7 +7,6 @@
 	var/has_nutrition = 1 // Draw the nutrition indicator.
 	var/has_hydratation = 1 // Draw the nutrition indicator.
 	var/has_bodytemp = 1  // Draw the bodytemp indicator.
-	var/hovertext = 1
 	var/has_hands = 1     // Set to draw hands.
 	var/has_drop = 1      // Set to draw drop button.
 	var/has_throw = 1     // Set to draw throw button.
@@ -33,12 +32,11 @@
 		"back" =         list("loc" = ui_back,      "name" = "Back",         "slot" = slot_back,      "state" = "back"),
 		"left_pouch" =   list("loc" = ui_left_pouch,"name" = "Left Pouch",   "slot" = slot_left_pouch,"state" = "left_pouch"),
 		"right_pouch" =  list("loc" = ui_right_pouch,"name" = "Right Pouch", "slot" = slot_right_pouch,"state" = "right_pouch"),
-		"back_pouch" =   list("loc" = ui_back_pouch,"name" = "Back Pouch",   "slot" = slot_back_pouch,"state" = "back_pouch"),
 		"holster" =      list("loc" = ui_holster,   "name" = "Holster",      "slot" = slot_holster,   "state" = "holster"),
 //		"id" =           list("loc" = ui_id,        "name" = "ID",           "slot" = slot_wear_id,   "state" = "id"),
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
-		"gun_slot" =     list("loc" = ui_gun_slot,  "name" = "Back",     "slot" = slot_add_gun,   "state" = "wear_gun"),
+		"gun_slot" =     list("loc" = ui_gun_slot,  "name" = "Gun Slot",     "slot" = slot_gun_slot,   "state" = "wear_gun"),
 		"belt" =         list("loc" = ui_belt,      "name" = "Belt",         "slot" = slot_belt,      "state" = "harness")
 		)
 

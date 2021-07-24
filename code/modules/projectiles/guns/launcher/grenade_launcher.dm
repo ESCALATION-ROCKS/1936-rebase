@@ -149,12 +149,14 @@ obj/item/weapon/gun/launcher/grenade/process_projectile(obj/item/projectile, mob
 	throw_distance = 40
 	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
 	whitelisted_grenades = list(
-		/obj/item/weapon/grenade/frag/shell40mm,
-		/obj/item/weapon/grenade/smokebomb/shell40mm
+		/obj/item/weapon/grenade/frag/ugl/shell40mm,
+		/obj/item/weapon/grenade/smokebomb/ugl/shell40mm,
+		/*/obj/item/device/grenade/flare/ugl/m203flare*/
 		)
+
 	blacklisted_grenades = list(
-		/obj/item/weapon/grenade/frag/vog25,
-		/obj/item/weapon/grenade/smokebomb/vog25,
+		/obj/item/weapon/grenade/frag/ugl/vog25,
+		/obj/item/weapon/grenade/smokebomb/ugl/vog25,
 		/obj/item/weapon/grenade/frag,
 		/obj/item/weapon/grenade/smokebomb
 		)
@@ -166,12 +168,13 @@ obj/item/weapon/gun/launcher/grenade/process_projectile(obj/item/projectile, mob
 	throw_distance = 40
 	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
 	whitelisted_grenades = list(
-		/obj/item/weapon/grenade/frag/vog25,
-		/obj/item/weapon/grenade/smokebomb/vog25,
+		/obj/item/weapon/grenade/frag/ugl/vog25,
+		/obj/item/weapon/grenade/smokebomb/ugl/vog25,
+		/*/obj/item/device/grenade/flare/ugl/gp25flare*/
 		)
 	blacklisted_grenades = list(
-		/obj/item/weapon/grenade/frag/shell40mm,
-		/obj/item/weapon/grenade/smokebomb/shell40mm,
+		/obj/item/weapon/grenade/frag/ugl/shell40mm,
+		/obj/item/weapon/grenade/smokebomb/ugl/shell40mm,
 		/obj/item/weapon/grenade/frag,
 		/obj/item/weapon/grenade/smokebomb
 		)
@@ -181,24 +184,26 @@ obj/item/weapon/gun/launcher/grenade/process_projectile(obj/item/projectile, mob
 	name = "HK69A1 grenade launcher"
 	desc = "That's a rifle grenade launcher used by Bundeswehr"
 	whitelisted_grenades = list(
-		/obj/item/weapon/grenade/frag/shell40mm,
-		/obj/item/weapon/grenade/smokebomb/shell40mm
+		/obj/item/weapon/grenade/frag/ugl/shell40mm,
+		/obj/item/weapon/grenade/smokebomb/ugl/shell40mm
+		/*/obj/item/device/grenade/flare/ugl/m203flare*/
 		)
 	blacklisted_grenades = list(
-		/obj/item/weapon/grenade/frag/vog25,
-		/obj/item/weapon/grenade/smokebomb/vog25,
+		/obj/item/weapon/grenade/frag/ugl/vog25,
+		/obj/item/weapon/grenade/smokebomb/ugl/vog25,
 		/obj/item/weapon/grenade/frag,
 		/obj/item/weapon/grenade/smokebomb
 		)
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/coldwar/guns32x32.dmi'
 	icon_state = "hk69"
 	item_state = "hk69"
 	w_class = 4
 	max_grenades = 0
 	screen_shake = 1
+	safety = 1
 	release_force = 2
 	throw_distance = 40
-	slot_flags =  SLOT_HOLSTER | SLOT_BACK_GUN | SLOT_BACK
+	slot_flags =  SLOT_HOLSTER | SLOT_GUN_SLOT | SLOT_BACK
 	var/cover_opened = FALSE
 
 /obj/item/weapon/gun/launcher/grenade/hk69/Initialize()
@@ -225,16 +230,16 @@ obj/item/weapon/gun/launcher/grenade/process_projectile(obj/item/projectile, mob
 
 	user.drop_from_inventory(G, src)
 	chambered = G
-	playsound(src, 'sound/weapons/gunporn/m203_insertgrenade.wav', 50, 1)
+	playsound(src, 'sound/weapons/gunporn/m203_insertgrenade.ogg', 50, 1)
 	update_icon()
 
 /obj/item/weapon/gun/launcher/grenade/hk69/unload(mob/user)
 	if(cover_opened)
-		playsound(src, 'sound/weapons/gunporn/m203_empty.wav', 50, 1)
+		playsound(src, 'sound/weapons/gunporn/m203_empty.ogg', 50, 1)
 
 	if(chambered)
 		user.put_in_hands(chambered)
-		playsound(src, 'sound/weapons/gunporn/m203_insertgrenade.wav', 50, 1)
+		playsound(src, 'sound/weapons/gunporn/m203_insertgrenade.ogg', 50, 1)
 		chambered = null
 		update_icon()
 	else
@@ -242,7 +247,7 @@ obj/item/weapon/gun/launcher/grenade/process_projectile(obj/item/projectile, mob
 
 /obj/item/weapon/gun/launcher/grenade/hk69/proc/toggle_cover(mob/user)
 	cover_opened = !cover_opened
-	playsound(src, 'sound/weapons/gunporn/m203_openbarrel.wav', 50, 1)
+	playsound(src, 'sound/weapons/gunporn/m203_openbarrel.ogg', 50, 1)
 	update_icon()
 
 /obj/item/weapon/gun/launcher/grenade/hk69/attack_self(mob/user as mob)

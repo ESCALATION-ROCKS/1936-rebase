@@ -1,8 +1,9 @@
 /obj/item/weapon/masterkey
-	slot_flags = SLOT_ID|SLOT_BELT
+	slot_flags = SLOT_ID
 	icon = 'icons/obj/items.dmi'
 	icon_state = "keyring"
 	name = "keyring"
+	slot_flags = SLOT_EARS
 	desc = "This holds your keys. Use this when you want to unlock something, dummy."
 	w_class = 2
 
@@ -65,37 +66,24 @@
 /obj/item/weapon/masterkey/Initialize()
 	update_icon_state()
 
-/obj/item/weapon/masterkey/lieutenant/New()
-	new /obj/item/weapon/key/office (src)
-	new /obj/item/weapon/key/armory (src)
-	new /obj/item/weapon/key/telegram (src)
-	new /obj/item/weapon/key/toolshed (src)
-	new /obj/item/weapon/key/headquarters (src)
-	new /obj/item/weapon/key/jail (src)
-	new /obj/item/weapon/key/gate (src)
+/obj/item/weapon/masterkey/natosurgeon/New()
+	new /obj/item/weapon/key/natomed (src)
+	new /obj/item/weapon/key/natoofficer (src)
 	update_icon_state()
 
-/obj/item/weapon/masterkey/sergeant/New()
-	new /obj/item/weapon/key/armory (src)
-	new /obj/item/weapon/key/telegram (src)
-	new /obj/item/weapon/key/toolshed (src)
-	new /obj/item/weapon/key/headquarters (src)
-	new /obj/item/weapon/key/jail (src)
-	new /obj/item/weapon/key/gate (src)
+/obj/item/weapon/masterkey/natopl/New()
+	new /obj/item/weapon/key/natoofficer (src)
+	new /obj/item/weapon/key/natonco (src)
+	new /obj/item/weapon/key/natomed (src)
 	update_icon_state()
 
-/obj/item/weapon/masterkey/mensajero/New()
-	new /obj/item/weapon/key/telegram (src)
-	new /obj/item/weapon/key/headquarters (src)
+/obj/item/weapon/masterkey/wpsurgeon/New()
+	new /obj/item/weapon/key/wpmed (src)
+	new /obj/item/weapon/key/wpofficer (src)
 	update_icon_state()
 
-/obj/item/weapon/masterkey/cabo/New()
-	new /obj/item/weapon/key/toolshed (src)
-	new /obj/item/weapon/key/jail (src)
-	new /obj/item/weapon/key/gate (src)
-	update_icon_state()
-
-/obj/item/weapon/masterkey/primera/New()
-	new /obj/item/weapon/key/toolshed (src)
-	new /obj/item/weapon/key/gate (src)
+/obj/item/weapon/masterkey/wppl/New()
+	new /obj/item/weapon/key/wpmed (src)
+	new /obj/item/weapon/key/wpofficer (src)
+	new /obj/item/weapon/key/wpnco (src)
 	update_icon_state()

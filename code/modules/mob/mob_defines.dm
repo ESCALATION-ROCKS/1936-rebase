@@ -96,6 +96,7 @@
 	var/default_pixel_y = 0
 
 	var/shakecamera = 0
+	var/painkillershake = 0
 	var/a_intent = I_HELP//Living
 	var/m_intent = "run"//Living
 	var/obj/buckled = null//Living
@@ -107,7 +108,6 @@
 	var/obj/item/weapon/gun/wear_gun = null//4AddGuns
 	var/obj/item/left_pouch = null//4AddGuns
 	var/obj/item/right_pouch = null//4AddGuns
-	var/obj/item/back_pouch = null//4AddGuns
 	var/obj/item/holster = null//4AddGuns
 
 
@@ -188,3 +188,5 @@
 
 	var/military_faction = 0
 
+	var/talked = 0
+	var/chatWarn = 0

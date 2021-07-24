@@ -181,7 +181,7 @@
 			var/obj/item/organ/external/hand = pick(affected.children)
 			grasp_name = hand.name
 
-		if(affected.can_feel_pain() || affected.status & ORGAN_TENDON_CUT)
+		if(affected.can_feel_pain() || affected.status & ORGAN_TENDON_CUT && prob(50))
 			emote("groan")
 			var/emote_scream = pick("screams in pain", "lets out a sharp cry", "cries out")
 			var/emote_scream_alt = pick("scream in pain", "let out a sharp cry", "cry out")
@@ -193,17 +193,6 @@
 			custom_pain("The sharp pain in your [affected.name] forces you to drop [thing]!", 30)
 		else
 			visible_message("<B>\The [src]</B> drops what they were holding in their [grasp_name]!")
-
-
-//Handles chem traces
-/mob/living/carbon/human/proc/handle_trace_chems()
-	for(var/T in chem_doses)
-		if(bloodstr.has_reagent(T) || ingested.has_reagent(T) || touching.has_reagent(T))
-			continue
-		var/datum/reagent/R = GLOB.chemical_reagents_list[T]
-		chem_doses[T] -= R.metabolism*2
-		if(chem_doses[T] <= 0)
-			chem_doses -= T
 
 /mob/living/carbon/human/proc/sync_organ_dna()
 	var/list/all_bits = internal_organs|organs

@@ -268,7 +268,7 @@
 			var/turf/ear = get_turf(M)
 			if(ear)
 				// Ghostship is magic: Ghosts can hear radio chatter from anywhere
-				if(speaker_coverage[ear] || (isghost(M) && M.is_preference_enabled(/datum/client_preference/ghost_radio)))
+				if(speaker_coverage[ear] || (isghost(M) && M.get_preference_value(/datum/client_preference/ghost_radio) == GLOB.PREF_ALL_CHATTER))
 					. |= M		// Since we're already looping through mobs, why bother using |= ? This only slows things down.
 	return .
 
@@ -286,7 +286,7 @@
 			hearturfs += get_turf(AM)
 
 	for(var/mob/M in GLOB.player_list)
-		if(checkghosts && M.stat == DEAD && M.is_preference_enabled(checkghosts))
+		if(checkghosts && M.stat == DEAD && M.get_preference_value(checkghosts) != GLOB.PREF_NEARBY)
 			mobs |= M
 		else if(get_turf(M) in hearturfs)
 			mobs |= M
@@ -362,7 +362,7 @@ proc/isInSight(var/atom/A, var/atom/B)
 			return get_step(start, EAST)
 
 /proc/get_mob_by_key(var/key)
-	for(var/mob/M in GLOB.mob_list)
+	for(var/mob/M in SSmobs.mob_list)
 		if(M.ckey == lowertext(key))
 			return M
 	return null
@@ -458,22 +458,6 @@ datum/projectile_data
 
 	return new /datum/projectile_data(src_x, src_y, time, distance, power_x, power_y, dest_x, dest_y)
 
-/proc/GetRedPart(const/hexa)
-	return hex2num(copytext(hexa,2,4))
-
-/proc/GetGreenPart(const/hexa)
-	return hex2num(copytext(hexa,4,6))
-
-/proc/GetBluePart(const/hexa)
-	return hex2num(copytext(hexa,6,8))
-
-/proc/GetHexColors(const/hexa)
-	return list(
-			GetRedPart(hexa),
-			GetGreenPart(hexa),
-			GetBluePart(hexa)
-		)
-
 /proc/MixColors(const/list/colors)
 	var/list/reds = list()
 	var/list/blues = list()
@@ -481,9 +465,9 @@ datum/projectile_data
 	var/list/weights = list()
 
 	for (var/i = 0, ++i <= colors.len)
-		reds.Add(GetRedPart(colors[i]))
-		blues.Add(GetBluePart(colors[i]))
-		greens.Add(GetGreenPart(colors[i]))
+		reds.Add(GETREDPART(colors[i]))
+		blues.Add(GETBLUEPART(colors[i]))
+		greens.Add(GETGREENPART(colors[i]))
 		weights.Add(1)
 
 	var/r = mixOneColor(weights, reds)

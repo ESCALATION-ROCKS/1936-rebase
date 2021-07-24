@@ -22,7 +22,7 @@ var/list/flooring_types
 	var/desc
 	var/icon
 	var/icon_base
-
+	var/movement_delay
 	var/has_base_range
 	var/has_damage_range
 	var/has_burn_range
@@ -52,6 +52,7 @@ var/list/flooring_types
 	damage_temperature = T0C+80
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = /obj/item/stack/tile/grass
+	movement_delay = 0.4
 
 /decl/flooring/asteroid
 	name = "coarse sand"
@@ -60,6 +61,7 @@ var/list/flooring_types
 	icon_base = "asteroid"
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = null
+	movement_delay = 0.4
 
 /decl/flooring/carpet
 	name = "brown carpet"
@@ -69,6 +71,7 @@ var/list/flooring_types
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
 	flags = TURF_HAS_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BURN
+	movement_delay = 0.6
 	footstep_sounds = list("human" = list(
 		'sound/effects/footsteps/carpet1.wav',
 		'sound/effects/footsteps/carpet2.wav',
@@ -106,6 +109,11 @@ var/list/flooring_types
 	icon_base = "red"
 	build_type = /obj/item/stack/tile/carpetred
 
+/decl/flooring/carpet/arcade
+	name = "arcade carpet"
+	icon_base = "arcade"
+	build_type = /obj/item/stack/tile/carpetred
+
 /decl/flooring/tiling
 	name = "floor"
 	desc = "Scuffed from the passage of countless greyshirts."
@@ -116,20 +124,29 @@ var/list/flooring_types
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
 	can_paint = 1
+	movement_delay = 0.6
 	footstep_sounds = list("human" = list(
 		'sound/effects/footsteps/tile1.wav',
 		'sound/effects/footsteps/tile2.wav',
 		'sound/effects/footsteps/tile3.wav',
 		'sound/effects/footsteps/tile4.wav'))
 
-/decl/flooring/linoleum
+/decl/flooring/tiling/linoleum
 	name = "linoleum"
 	desc = "It's like the 2390's all over again."
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_base = "lino"
-	can_paint = 1
 	build_type = /obj/item/stack/tile/linoleum
 	flags = TURF_REMOVE_SCREWDRIVER
+
+/decl/flooring/tiling/fancytiles
+	name = "tiles"
+	desc = "Fancy ornamented tiles arranged in beautiful shapes."
+	icon = 'icons/turf/flooring/whitelam.dmi'
+	icon_base = "whitelam"
+	build_type = /obj/item/stack/tile/floor_white
+	flags = TURF_REMOVE_SCREWDRIVER
+
 
 /decl/flooring/tiling/white
 	desc = "How sterile."
@@ -257,6 +274,7 @@ var/list/flooring_types
 	damage_temperature = T0C+200
 	descriptor = "planks"
 	can_paint = 1
+	movement_delay = 0.6
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER
 	footstep_sounds = list("human" = list(
@@ -278,6 +296,7 @@ var/list/flooring_types
 	apply_thermal_conductivity = 0.025
 	apply_heat_capacity = 325000
 	can_paint = 1
+	movement_delay = 0.5
 	footstep_sounds = list("human" = list(
 		'sound/effects/footsteps/metalgrate1.wav',
 		'sound/effects/footsteps/metalgrate2.wav',

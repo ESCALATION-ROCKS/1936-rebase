@@ -10,7 +10,7 @@
 	w_class = ITEM_SIZE_HUGE
 	one_hand_penalty=6
 	multi_aim = 1
-	burst_delay = 10
+	burst_delay = 3
 	burst = 3
 	move_delay = 4
 	accuracy = -1

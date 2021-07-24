@@ -3,9 +3,9 @@
 	organ_tag = BP_HEAD
 	icon_name = "head"
 	name = "head"
-	slot_flags = SLOT_BELT
-	max_damage = 150
-	min_broken_damage = 70
+	slot_flags = null
+	max_damage = 70
+	min_broken_damage = 30
 	w_class = ITEM_SIZE_NORMAL
 	body_part = HEAD
 	parent_organ = BP_CHEST
@@ -14,7 +14,7 @@
 	gendered_icon = 1
 	encased = "skull"
 	artery_name = "cartoid artery"
-	arterial_bleed_severity = 6
+	arterial_bleed_severity = 2
 
 	var/can_intake_reagents = 1
 	var/eye_icon = "eyes_s"
@@ -49,10 +49,10 @@
 /obj/item/organ/external/head/take_damage(brute, burn, damage_flags, used_weapon = null)
 	. = ..()
 	if (!disfigured)
-		if (brute_dam > 40)
+		if (brute_dam > 100)
 			if (prob(50))
 				disfigure("brute")
-		if (burn_dam > 40)
+		if (burn_dam > 100)
 			disfigure("burn")
 
 /obj/item/organ/external/head/no_eyes

@@ -44,7 +44,7 @@
 		/obj/item/weapon/storage/pill_bottle/dexalin_plus,
 		/obj/item/weapon/storage/pill_bottle/dylovene,
 		/obj/item/weapon/storage/pill_bottle/tramadol,
-		/obj/item/weapon/storage/pill_bottle/doxicycline,
+		/obj/item/weapon/storage/pill_bottle/doxycycline,
 		/obj/item/stack/medical/splint,
 		)
 
@@ -85,7 +85,9 @@
 		/obj/item/weapon/bonegel,
 		/obj/item/weapon/FixOVein,
 		/obj/item/stack/medical/advanced/bruise_pack,
-		/obj/item/stack/nanopaste
+		/obj/item/stack/nanopaste,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/clothing/gloves/latex/nitrile,
 		)
 
 	startswith = list(
@@ -99,6 +101,7 @@
 		/obj/item/weapon/bonegel,
 		/obj/item/weapon/FixOVein,
 		/obj/item/stack/medical/advanced/bruise_pack,
+		/obj/item/clothing/gloves/latex/nitrile,
 		)
 
 /*
@@ -166,11 +169,11 @@
 
 	startswith = list(/obj/item/weapon/reagent_containers/pill/kelotane = 7)
 
-/obj/item/weapon/storage/pill_bottle/doxicycline
-	name = "bottle of doxicycline pills"
+/obj/item/weapon/storage/pill_bottle/doxycycline
+	name = "bottle of doxycycline pills"
 	desc = "A theta-lactam antibiotic. Effective against many diseases likely to be encountered in space."
 
-	startswith = list(/obj/item/weapon/reagent_containers/pill/doxicycline = 7)
+	startswith = list(/obj/item/weapon/reagent_containers/pill/doxycycline = 7)
 
 /obj/item/weapon/storage/pill_bottle/tramadol
 	name = "bottle of Tramadol pills"
@@ -203,13 +206,6 @@
 
 	startswith = list(/obj/item/weapon/reagent_containers/pill/antidexafen = 7)
 
-/obj/item/weapon/storage/pill_bottle/paracetamol
-	name = "bottle of paracetamol"
-	desc = "Weak painkiller with a very slow metabolization speed. Meant for trivial injuries."
-
-	startswith = list(/obj/item/weapon/reagent_containers/pill/paracetamol = 7)
-
-
 /obj/item/weapon/storage/firstaid/docbag
 	name = "medical bag"
 	desc = "Contains some medical tools and medical supplies."
@@ -220,77 +216,178 @@
 	max_storage_space = null
 
 	startswith = list(
-		/obj/item/weapon/scalpel,
-		/obj/item/weapon/storage/pill_bottle/paracetamol,
-		/obj/item/stack/medical/splint,
+		/obj/item/weapon/scalpel = 1,
+		/obj/item/weapon/storage/pill_bottle/paracetamol = 1,
+		/obj/item/stack/medical/splint = 1,
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 1,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/pain = 2,
-		/obj/item/weapon/storage/pill_bottle/antidexafen,
-		/obj/item/suture,
-		/obj/item/stack/medical/medispray = 1
+		/obj/item/weapon/storage/pill_bottle/antidexafen = 1,
+		/obj/item/suture = 1,
+		/obj/item/stack/medical/medispray = 1,
+		/obj/item/clothing/gloves/latex/nitrile = 1,
 		)
 
 /obj/item/weapon/storage/firstaid/docbag/advanced
 	startswith = list(
-		/obj/item/weapon/scalpel,
-		/obj/item/weapon/reagent_containers/glass/bottle/talotropine,
-		/obj/item/stack/medical/splint,
+		/obj/item/weapon/scalpel = 1,
+		/obj/item/weapon/reagent_containers/glass/bottle/talotropine = 1,
+		/obj/item/stack/medical/splint = 1,
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 1,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/pain = 2,
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/combatpain = 2,
-		/obj/item/suture,
+		/obj/item/suture = 1,
 		/obj/item/stack/medical/medispray = 1,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/ethanol = 10
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/ethanol = 10,
+		/obj/item/clothing/gloves/latex/nitrile = 1,
 		)
 
-/obj/item/weapon/storage/firstaid/usmc_ifak
+/obj/item/weapon/storage/firstaid/ifak
 	name = "IFAK"
-	desc = "That's the Individual First Aid Kit, a standard-issued NATO first aid kit ."
+	desc = "That's the Individual First Aid Kit."
 	icon_state = "usmc_ifak"
-	storage_slots = 3
+	storage_slots = 5
+	item_state = null
+	w_class = 2
+	startswith = null
+
+	can_hold = list(
+		/obj/item/weapon/reagent_containers/syrette/morphine,
+		/obj/item/stack/medical/tourniquet,
+		/obj/item/weapon/gauze_pack/gauze,
+		/obj/item/weapon/gauze_pack/ipp,
+		/obj/item/stack/medical/splint/ifak,
+		/obj/item/weapon/gauze_pack/woundseal/nato,
+		/obj/item/weapon/gauze_pack/woundseal/wp,
+		/obj/item/stack/medical/bruise_pack/gauze,
+		/obj/item/stack/medical/tourniquet/woundseal,
+		/obj/item/suture,
+		)
+
+/obj/item/weapon/storage/firstaid/ifak/nato
+	desc = "That's the Individual First Aid Kit, a standard-issued NATO first aid kit."
+	icon_state = "usmc_ifak"
+	startswith = list(
+		/obj/item/weapon/reagent_containers/syrette/morphine,
+		/obj/item/stack/medical/tourniquet/nato,
+		/obj/item/weapon/gauze_pack/gauze,
+		/obj/item/stack/medical/splint/ifak,
+		)
+
+/obj/item/weapon/storage/firstaid/ifak/soviet
+	desc = "That's a standard-issued Soviet first aid kit ."
+	icon_state = "soviet_ifak"
+	startswith = list(
+		/obj/item/weapon/reagent_containers/syrette/morphine,
+		/obj/item/stack/medical/tourniquet,
+		/obj/item/weapon/gauze_pack/ipp,
+		/obj/item/stack/medical/splint/ifak,
+		)
+
+/obj/item/weapon/storage/firstaid/cms
+	name = "CMS"
+	desc = "Compact surgical kit for treatment of bullet wounds and other serious injuries."
+	icon_state = "surgeon_faid"
+	storage_slots = 12
+	item_state = null
+	w_class = 2
+	max_w_class = ITEM_SIZE_HUGE
+	max_storage_space = null
+	slot_flags = SLOT_ID
+	startswith = list(
+		/obj/item/weapon/FixOVein,
+		/obj/item/weapon/hemostat,
+		/obj/item/weapon/bonesetter,
+		/obj/item/suture,
+		/obj/item/weapon/circular_saw,
+		/obj/item/weapon/retractor,
+		/obj/item/weapon/scalpel,
+		/obj/item/weapon/cautery,
+		/obj/item/weapon/reagent_containers/spray/sterilizine,
+		/obj/item/clothing/gloves/latex/nitrile,
+		/obj/item/weapon/setofplates,
+		)
+
+	can_hold = list(
+		/obj/item/weapon/gauze_pack/,
+		/obj/item/stack/medical/bruise_pack,
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/weapon/reagent_containers/pill,
+		/obj/item/weapon/storage/box/pill_box,
+		/obj/item/weapon/pill_pack,
+		/obj/item/weapon/reagent_containers/syrette,
+		/obj/item/stack/medical/tourniquet,
+		/obj/item/weapon/FixOVein,
+		/obj/item/weapon/hemostat,
+		/obj/item/weapon/bonesetter,
+		/obj/item/suture,
+		/obj/item/weapon/circular_saw,
+		/obj/item/weapon/retractor,
+		/obj/item/weapon/scalpel,
+		/obj/item/weapon/cautery,
+		/obj/item/weapon/reagent_containers/spray/sterilizine,
+		/obj/item/clothing/gloves/latex,
+		/obj/item/clothing/gloves/latex/nitrile,
+		/obj/item/weapon/gauze_pack,
+		/obj/item/weapon/setofplates,
+		)
+
+/*
+/obj/item/weapon/storage/firstaid/gauze
+	name = "gauze satchel"
+	desc = "A small container you can place bandages and bandage packs in."
+	icon_state = "nato_gauze"
+	storage_slots = 4
 	item_state = null
 	w_class = 2
 	slot_flags = SLOT_ID
 	startswith = list(
-		/obj/item/weapon/reagent_containers/syrette/morphine,
-		/obj/item/stack/medical/tourniquet/nato,
+		/obj/item/weapon/gauze_pack/gauze,
+		/obj/item/weapon/gauze_pack/gauze,
+		/obj/item/weapon/gauze_pack/gauze,
 		/obj/item/weapon/gauze_pack/gauze
 		)
 
 	can_hold = list(
-		/obj/item/weapon/gauze_pack/,
-		/obj/item/stack/medical/bruise_pack,
-		/obj/item/weapon/storage/pill_bottle,
-		/obj/item/weapon/reagent_containers/pill,
-		/obj/item/weapon/storage/box/pill_box,
-		/obj/item/weapon/pill_pack,
-		/obj/item/weapon/reagent_containers/syrette,
-		/obj/item/stack/medical/tourniquet/nato
+		/obj/item/weapon/gauze_pack,
+		/obj/item/stack/medical/bruise_pack/
 		)
 
-/obj/item/weapon/storage/firstaid/sa_ifak
-	name = "IFAK"
-	desc = "That's the Individual First Aid Kit, a standard-issued Soviet first aid kit ."
-	icon_state = "soviet_ifak"
-	storage_slots = 3
+/obj/item/weapon/storage/firstaid/gauze/wp
+	icon_state = "soviet_gauze"
+	startswith = list(
+		/obj/item/weapon/gauze_pack/ipp,
+		/obj/item/weapon/gauze_pack/ipp,
+		/obj/item/weapon/gauze_pack/ipp,
+		/obj/item/weapon/gauze_pack/ipp
+		)
+
+/obj/item/weapon/storage/firstaid/tour
+	name = "tourniquet satchel"
+	desc = "A small container you can place tourniquets in."
+	icon_state = "nato_tour"
+	storage_slots = 4
 	item_state = null
 	w_class = 2
 	slot_flags = SLOT_ID
 	startswith = list(
-		/obj/item/weapon/reagent_containers/syrette/morphine,
-		/obj/item/stack/medical/tourniquet,
-		/obj/item/weapon/gauze_pack/ipp
+		/obj/item/stack/medical/tourniquet/nato,
+		/obj/item/stack/medical/tourniquet/nato,
+		/obj/item/stack/medical/tourniquet/nato,
+		/obj/item/stack/medical/tourniquet/nato
 		)
 
 	can_hold = list(
-		/obj/item/weapon/gauze_pack/,
-		/obj/item/stack/medical/bruise_pack,
-		/obj/item/weapon/storage/pill_bottle,
-		/obj/item/weapon/reagent_containers/pill,
-		/obj/item/weapon/storage/box/pill_box,
-		/obj/item/weapon/pill_pack,
-		/obj/item/weapon/reagent_containers/syrette,
 		/obj/item/stack/medical/tourniquet
 		)
+
+/obj/item/weapon/storage/firstaid/tour/wp
+	icon_state = "soviet_tour"
+	startswith = list(
+		/obj/item/stack/medical/tourniquet,
+		/obj/item/stack/medical/tourniquet,
+		/obj/item/stack/medical/tourniquet,
+		/obj/item/stack/medical/tourniquet
+		)
+*/

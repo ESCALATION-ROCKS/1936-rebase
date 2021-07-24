@@ -41,6 +41,35 @@
 		to_chat(user, "There [key_count == 1? "is" : "are"] [key_count] [key_name]\s in the box.")
 
 /*
+ * Flare Pack
+ */
+
+/obj/item/weapon/storage/fancy/flare_pack
+	name = "flare pack"
+	desc = "A small pack of flares."
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "flarepacknato"
+	storage_slots = 4
+	max_w_class = ITEM_SIZE_SMALL
+	w_class = ITEM_SIZE_NORMAL
+
+	key_type = /obj/item/device/flashlight/flare/
+	can_hold = /obj/item/device/flashlight/flare/
+	startswith = list(/obj/item/device/flashlight/flare/ = 4)
+
+/obj/item/weapon/storage/fancy/flare_pack/nato
+	icon_state = "flarepacknato"
+	key_type = /obj/item/device/flashlight/natoflare/
+	can_hold = /obj/item/device/flashlight/natoflare/
+	startswith = list(/obj/item/device/flashlight/natoflare/ = 4)
+
+/obj/item/weapon/storage/fancy/flare_pack/wp
+	icon_state = "flarepackwarpact"
+	key_type = /obj/item/device/flashlight/wpflare/
+	can_hold = /obj/item/device/flashlight/wpflare/
+	startswith = list(/obj/item/device/flashlight/wpflare/ = 4)
+
+/*
  * Egg Box
  */
 
@@ -78,7 +107,6 @@
 	w_class = ITEM_SIZE_SMALL
 	max_w_class = ITEM_SIZE_TINY
 	max_storage_space = 5
-	slot_flags = SLOT_BELT
 
 	key_type = /obj/item/weapon/flame/candle
 	startswith = list(/obj/item/weapon/flame/candle = 5)
@@ -127,7 +155,6 @@
 	max_w_class = ITEM_SIZE_TINY
 	max_storage_space = 6
 	throwforce = 2
-	slot_flags = SLOT_BELT
 
 	key_type = /obj/item/clothing/mask/smokable/cigarette
 	startswith = list(/obj/item/clothing/mask/smokable/cigarette = 6)
@@ -241,7 +268,6 @@
 	max_w_class = ITEM_SIZE_TINY
 	max_storage_space = 6
 	throwforce = 2
-	slot_flags = SLOT_BELT
 	storage_slots = 7
 
 	key_type = /obj/item/clothing/mask/smokable/cigarette/cigar
@@ -364,10 +390,28 @@
 	/obj/item/weapon/key/hospital)
 
 */
+/obj/item/weapon/storage/fancy/cigarettes/rolo //////////making this a cigarette cuz it works exactly the way i want it to
+	name = "pack of Rolo"
+	desc = "That's Rolo, a pack of caramel chocolate candy."
+	icon_state = "rolo"
+	item_state = "Dpacket"
+
+	key_type = /obj/item/weapon/reagent_containers/food/snacks/rolo
+	startswith = list(/obj/item/weapon/reagent_containers/food/snacks/rolo = 6)
+
 /obj/item/weapon/storage/fancy/cigarettes/luckystrikegreen
 	name = "pack of Lucky Strike Green"
 	desc = "That's the mentol Lucky Strike's."
 	icon_state = "lsgreen"
+	item_state = "Dpacket"
+
+	key_type = /obj/item/clothing/mask/smokable/cigarette/menthol
+	startswith = list(/obj/item/clothing/mask/smokable/cigarette/menthol = 6)
+
+/obj/item/weapon/storage/fancy/cigarettes/newports
+	name = "pack of Newports"
+	desc = "Alive with Pleasure."
+	icon_state = "newports"
 	item_state = "Dpacket"
 
 	key_type = /obj/item/clothing/mask/smokable/cigarette/menthol
@@ -417,12 +461,12 @@
 
 /obj/item/weapon/storage/fancy/syringe
 	w_class = 2
-	max_w_class = 2
+	max_w_class = 1
 	name = "syringe case"
 	desc = "That's a small case used for sterile syringes."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "syringe_case"
-	max_storage_space = 6
+	max_storage_space = 3
 	key_type = /obj/item/weapon/reagent_containers/syringe
 	startswith = list(
 		/obj/item/weapon/reagent_containers/syringe,

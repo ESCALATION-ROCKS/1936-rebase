@@ -15,7 +15,6 @@
 #define CRIT_SUCCESS 2
 #define CRIT_FAILURE 3
 
-
 //I am aware this is probably the worst possible way of doing it but I'm using this method till I get a better one. - Matt
 /mob
 	var/str = 8    //strength - used for hitting and lifting.
@@ -34,8 +33,6 @@
 	var/skill_leadership = 0
 	var/skill_science = 0
 	var/skill_cooking = 0
-
-
 
 	//crit shit
 	var/crit_success_chance = CRIT_SUCCESS_NORM
@@ -60,10 +57,10 @@
 
 
 /mob/proc/statscheck(var/specskill, var/specstat, var/requirement, var/show_message, var/message = "I have failed to do this.")
-	var/H = (roll("2d6") + statadder(specstat) + specskill)// our "dice"
+	var/M = (roll("2d6") + statadder(specstat) + specskill)// our "dice"
 	if(specskill == -1)
-		H -= 3
-	if(requirement <= H)//Rolling that d20
+		M -= 3
+	if(requirement <= M)//Rolling that d20
 		//world << "Rolled and passed."
 		return 1
 	else
@@ -206,7 +203,7 @@ proc/statadder(var/stat)
 		if(13 to INFINITY)
 			return  1.2
 
-/mob/proc/add_skills(var/melee, var/ranged, var/mechanic, var/engineering, var/medicine, var/engineering, var/athlethics, var/leadership, var/science, var/cooking)//To make adding skills quicker.
+/mob/proc/add_skills(var/melee, var/ranged, var/mechanic, var/engineering, var/medicine, var/athlethics, var/leadership, var/cooking)//To make adding skills quicker.
 	if(melee)
 		skill_melee = melee
 	if(ranged)
@@ -221,7 +218,9 @@ proc/statadder(var/stat)
 		skill_athlethics = athlethics
 	if(leadership)
 		skill_leadership = leadership
+/*
 	if(science)
 		skill_science = science
+*/
 	if(cooking)
 		skill_cooking = cooking

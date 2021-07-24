@@ -89,6 +89,10 @@
 	name = "MRE"
 	icon_state = "mre"
 
+/obj/item/trash/orp
+	name = "ORP"
+	icon_state = "orp"
+
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return
 
@@ -133,6 +137,14 @@
 	name = "tin can"
 	icon_state = "buckwheat_empty"
 
+/obj/item/trash/tincan/beefmushrooms
+	name = "tin can"
+	icon_state = "beefmushrooms_empty"
+
+/obj/item/trash/tincan/chickencurry
+	name = "tin can"
+	icon_state = "chickencurry_empty"
+
 /obj/item/trash/plasticpack
 	name = "plastic pack"
 	icon_state = "plasticpacket"
@@ -144,3 +156,15 @@
 /obj/item/trash/campingtee
 	name = "drink pouch"
 	icon_state = "campingtee"
+
+/obj/item/trash/karlfazer
+	name = "chocolate wrapping"
+	icon_state = "karlfazer"
+
+/obj/item/trash/finnoats
+	name = "chocolate wrapping"
+	icon_state = "finnoats"
+
+/obj/item/trash/crispbread
+	name = "bread wrapping"
+	icon_state = "crispbread"
