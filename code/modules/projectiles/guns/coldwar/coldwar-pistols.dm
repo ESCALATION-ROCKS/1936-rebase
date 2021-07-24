@@ -339,7 +339,6 @@
 	unload_sound = 'sound/weapons/gunporn/pistol_magout.ogg'
 	reload_sound = 'sound/weapons/gunporn/pistol_magin.ogg'
 	cocked_sound = 'sound/weapons/gunporn/pistol_sliderelease.ogg'
-	jam_chance = 0.6
 	dist_shot_sound = 'sound/weapons/gunshot/dist/pistol_dist.wav'
 	accuracy = 1.2
 

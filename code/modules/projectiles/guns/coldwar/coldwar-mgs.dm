@@ -1053,7 +1053,7 @@
 	w_class = 5
 	load_method = MAGAZINE
 	caliber = "7x57"
-	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	slot_flags = SLOT_GUN_SLOT | SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/a7x57
 	allowed_magazines = list(/obj/item/ammo_magazine/a7x57m,
 	/obj/item/ammo_magazine/a7x57s
@@ -1061,7 +1061,6 @@
 	magazine_type = null
 	accuracy = 2
 	wielded_item_state = "hotchkiss_1922-wielded"
-	jam_chance = 1.15
 	slowdown_general = 1
 	fire_sound = 'sound/weapons/gunshot/m60.ogg'
 	unload_sound = 'sound/weapons/gunporn/m249_boxremove.ogg'
@@ -1091,7 +1090,7 @@
 	w_class = 5
 	load_method = MAGAZINE
 	caliber = "7x57"
-	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	slot_flags = SLOT_GUN_SLOT | SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/a7x57
 	allowed_magazines = list(/obj/item/ammo_magazine/a7x57sl,
 	/obj/item/ammo_magazine/a7x57sm,
@@ -1101,7 +1100,6 @@
 	auto_eject = 1
 	accuracy = 2
 	wielded_item_state = "hotchkiss_1922_stripfed-wielded"
-	jam_chance = 1.15
 	slowdown_general = 1
 	fire_sound = 'sound/weapons/gunshot/m60.ogg'
 	unload_sound = 'sound/weapons/gunhandling/bpistol_magout.wav'

@@ -21,8 +21,6 @@
 	picksound = 'sound/items/interactions/rifle_draw.wav'
 	reload_sound = 'sound/weapons/gunhandling/brifle_magin.wav'
 	cocked_sound = 'sound/weapons/gunhandling/brifle_cock.wav'
-	jam_chance = 0.2
-	jam_chance = 20
 
 /obj/item/weapon/gun/projectile/rifle/boltaction/update_icon()
 	..()
@@ -120,7 +118,6 @@
 	unload_sound = 'sound/weapons/gunhandling/rifle_magout.wav'
 	reload_sound = 'sound/weapons/gunhandling/rifle_magin.wav'
 	cocked_sound = 'sound/weapons/gunhandling/rifle_boltback.wav'
-	jam_chance = 20
 
 /obj/item/weapon/gun/projectile/rifle/update_icon()
 	..()
@@ -134,7 +131,7 @@
 //Bayonet Code
 
 /obj/item/weapon/gun/projectile/rifle/gceboltaction/
-	slot_flags = SLOT_BACK_GUN
+	slot_flags = SLOT_GUN_SLOT
 	var/bolt_open = 0
 	var/bayonet_type = null
 	var/bayonet_attachable = 0
@@ -162,7 +159,7 @@
 /obj/item/weapon/gun/projectile/rifle/gceboltaction/update_icon()
 	..()
 	if(knife)
-		var/image/I = image('icons/obj/bayonets.dmi', src, knife.icon_state)
+		var/image/I = image('icons/obj/coldwar/bayonets.dmi', src, knife.icon_state)
 		I.pixel_x += 10
 		I.pixel_y += 10
 		overlays += I
@@ -245,7 +242,6 @@
 	reload_sound = 'sound/weapons/gunhandling/brifle_magin.wav'
 	cocked_sound = 'sound/weapons/gunhandling/brifle_cock.wav'
 	dist_shot_sound = 'sound/weapons/gunshot/dist/rifle_dist.wav'
-	jam_chance = 0.4
 	slowdown_general = 0.45
 	bayonet_type = /obj/item/weapon/material/knife/bayonet/gce/m1913
 	bayonet_attachable = 1
@@ -279,7 +275,6 @@
 	reload_sound = 'sound/weapons/gunhandling/brifle_magin.wav'
 	cocked_sound = 'sound/weapons/gunhandling/brifle_cock.wav'
 	dist_shot_sound = 'sound/weapons/gunshot/dist/rifle_dist.wav'
-	jam_chance = 0.55
 	slowdown_general = 0.3
 	bayonet_type = /obj/item/weapon/material/knife/bayonet/gce/m1913
 	bayonet_attachable = 1
@@ -332,7 +327,6 @@
 	reload_sound = 'sound/weapons/gunhandling/brifle_magin.wav'
 	cocked_sound = 'sound/weapons/gunhandling/brifle_cock.wav'
 	dist_shot_sound = 'sound/weapons/gunshot/dist/rifle_dist.wav'
-	jam_chance = 0.75
 	slowdown_general = 0.35
 	weapon_speed_delay = 12
 
@@ -384,7 +378,6 @@
 	reload_sound = 'sound/weapons/gunhandling/brifle_magin.wav'
 	cocked_sound = 'sound/weapons/gunhandling/brifle_cock.wav'
 	dist_shot_sound = 'sound/weapons/gunshot/dist/rifle_dist.wav'
-	jam_chance = 0.360
 	slowdown_general = 0.35
 	bayonet_attachable = 0
 	weapon_speed_delay = 14
@@ -417,7 +410,6 @@
 	reload_sound = 'sound/weapons/gunhandling/brifle_magin.wav'
 	cocked_sound = 'sound/weapons/gunhandling/brifle_cock.wav'
 	dist_shot_sound = 'sound/weapons/gunshot/dist/rifle_dist.wav'
-	jam_chance = 0.395
 	slowdown_general = 0.35
 	bayonet_attachable = 0
 

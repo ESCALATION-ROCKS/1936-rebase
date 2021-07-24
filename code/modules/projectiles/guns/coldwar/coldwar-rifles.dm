@@ -2130,13 +2130,12 @@
 	w_class = 4
 	load_method = MAGAZINE
 	caliber = "9x23"
-	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	slot_flags = SLOT_GUN_SLOT | SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/a9x23
 	allowed_magazines = list(/obj/item/ammo_magazine/a9x23n)
 	magazine_type = null
 	accuracy = 0.6
 	wielded_item_state = "naranjero-wielded"
-	jam_chance = 1.85
 	slowdown_general = 0.5
 	fire_sound = 'sound/weapons/gunshot/waltherp1.ogg'
 	unload_sound = 'sound/weapons/gunporn/sterling_magout.ogg'

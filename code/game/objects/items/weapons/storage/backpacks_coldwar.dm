@@ -768,12 +768,12 @@
 	reachable = 1
 	max_storage_space = 8
 	open_delay = 8
-	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	slot_flags = SLOT_GUN_SLOT | SLOT_BACK
 
 /obj/item/weapon/storage/backpack/gce/macuto/New()
 	..()
 	slowdown_per_slot[slot_back] = 0.15
-	slowdown_per_slot[slot_add_gun] = 0.15
+	slowdown_per_slot[slot_gun_slot] = 0.15
 
 /obj/item/weapon/storage/backpack/gce/macuto/black
 	icon_state = "macuto_black"
@@ -787,7 +787,7 @@
 	reachable = 1
 	max_storage_space = 15
 	open_delay = 9
-	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	slot_flags = SLOT_GUN_SLOT | SLOT_BACK
 
 	startswith = list(
 			/obj/item/weapon/storage/box/pill_box/doxycycline = 1,
@@ -803,12 +803,12 @@
 	reachable = 0
 	max_storage_space = 16
 	open_delay = 46
-	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	slot_flags = SLOT_GUN_SLOT | SLOT_BACK
 
 /obj/item/weapon/storage/backpack/gce/manta/New()
 	..()
 	slowdown_per_slot[slot_back] = 0.25
-	slowdown_per_slot[slot_add_gun] = 0.25
+	slowdown_per_slot[slot_gun_slot] = 0.25
 
 /obj/item/weapon/storage/backpack/gce/manta/darkbrown
 	name = "blanket"

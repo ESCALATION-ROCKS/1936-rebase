@@ -356,3 +356,57 @@
 
 /obj/item/projectile/bullet/rpgrocket/finn
 	icon_state = "finn"
+
+//SCW Bullets
+
+/obj/item/projectile/bullet/rifle/a7x57
+	penetrating = 1
+	armor_penetration = 28
+	penetration_modifier = 0.5
+	embed = 1
+	kill_count = 55
+	agony = 30
+
+	New()
+		damage = rand(37, 45)
+
+
+/obj/item/projectile/bullet/rifle/a9x19
+	armor_penetration = 12
+	penetration_modifier = 0.1
+	agony = 23
+
+	New()
+		damage = rand(25, 31)
+		penetrating = rand(0,1)
+
+/obj/item/projectile/bullet/rifle/a9x23
+	armor_penetration = 14
+	penetration_modifier = 0.1
+	agony = 21
+
+	New()
+		damage = rand(27, 33)
+		penetrating = rand(0,1)
+
+/obj/item/projectile/bullet/rifle/a762x54
+	penetrating = 1
+	armor_penetration = 31
+	penetration_modifier = 0.5
+	embed = 1
+	kill_count = 55
+	agony = 34
+
+	New()
+		damage = rand(37, 48)
+
+/obj/item/projectile/bullet/rifle/a303
+	penetrating = 1
+	armor_penetration = 28
+	penetration_modifier = 0.45
+	embed = 1
+	kill_count = 45
+	agony = 30
+
+	New()
+		damage = rand(34, 42)

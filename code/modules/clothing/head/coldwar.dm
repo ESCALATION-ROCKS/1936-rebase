@@ -680,6 +680,110 @@
 	desc = "A netting mesh for M56 helmets."
 	icon_state = "m56_netting"
 
+//SCW Soft Caps
+
+/obj/item/clothing/head/gce/beret
+	name = "beret"
+	desc = "That's a common black beret. Popular in Spain."
+	icon_state = "boina"
+
+/obj/item/clothing/head/gce/beret/popular
+	name = "beret"
+	desc = "That's a common black beret. Popular in Spain. This one has a red star."
+	icon_state = "boina_popular"
+
+/obj/item/clothing/head/gce/garcap/
+	var/icon_state_alt = null
+
+/obj/item/clothing/head/gce/garcap/attack_self(mob/user as mob)
+	if(icon_state == initial(icon_state))
+		icon_state = icon_state_alt
+		to_chat(user, "You adjust your cap.")
+	else
+		icon_state = initial(icon_state)
+		to_chat(user, "You adjust your cap, again.")
+
+/obj/item/clothing/head/gce/garcap/common
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the Spanish Army before the war. This one is missing the tassle aswell as the embroidery."
+	icon_state = "gorrilla"
+	icon_state_alt = "gorrilla_alt"
+
+/obj/item/clothing/head/gce/garcap/nacional
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the Spanish Army before the war. This one has a red tassle."
+	icon_state = "gorrillanacional"
+	icon_state_alt = "gorrillanacional_alt"
+
+/obj/item/clothing/head/gce/garcap/nacional/officer
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the Spanish Army before the war. This one has a red and gold tassle."
+	icon_state = "gorrillanacionaloficial"
+	icon_state_alt = "gorrillanacionaloficial_alt"
+
+/obj/item/clothing/head/gce/garcap/popular
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the Spanish Army before the war. This one is missing its tassle."
+	icon_state = "gorrillapopular"
+	icon_state_alt = "gorrillapopular_alt"
+
+/obj/item/clothing/head/gce/garcap/cnt
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the anarchists of the CNT and the FAI. Half black, half red."
+	icon_state = "gorrillacnt"
+	icon_state_alt = "gorrillacnt_alt"
+
+/obj/item/clothing/head/gce/garcap/cnt/alt
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the anarchists of the CNT and the FAI. Half black, half red."
+	icon_state = "gorrillacnt2"
+	icon_state_alt = "gorrillacnt2_alt"
+
+/obj/item/clothing/head/gce/garcap/legion
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the Spanish Army before the war. This one comes in the colours of the legion and has a red tassle."
+	icon_state = "gorrillalegion"
+	icon_state_alt = "gorrillalegion_alt"
+
+/obj/item/clothing/head/gce/garcap/legion/officer
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the Spanish Army before the war. This one comes in the colours of the legion and has a red and gold tassle."
+	icon_state = "gorrillalegionoficial"
+	icon_state_alt = "gorrillalegionoficial_alt"
+
+/obj/item/clothing/head/gce/garcap/azul
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the Spanish Army before the war. This one comes in blue and has a red tassle."
+	icon_state = "gorrillaazul"
+	icon_state_alt = "gorrillaazul_alt"
+
+/obj/item/clothing/head/gce/garcap/azul/alt
+	name = "'gorrillo'"
+	desc = "That's a garrison cap used by the Spanish Army before the war. This one comes in blue and has a white tassle."
+	icon_state = "gorrillaazul2"
+	icon_state_alt = "gorrillaazul2_alt"
+
+
+/obj/item/clothing/head/gce/officer
+	name = "officer cap"
+	desc = "An uniform headdress for officers."
+	body_parts_covered = HEAD
+
+/obj/item/clothing/head/gce/officer/popular
+	name = "officer cap"
+	desc = "An uniform headdress for officers."
+	icon_state = "popular_officer"
+	item_state = "popular_officer"
+	body_parts_covered = HEAD
+
+/obj/item/clothing/head/gce/officer/popular/commissar
+	name = "officer cap"
+	desc = "An uniform headdress for officers."
+	icon_state = "popular_commissar"
+	item_state = "popular_commissar"
+	body_parts_covered = HEAD
+
+
 //SCW Helmets
 
 /obj/item/clothing/head/helmet/gce/

@@ -500,3 +500,53 @@
 /obj/item/weapon/storage/belt/esp/New()
 	..()
 	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+
+//SCW Harnesses
+
+/obj/item/weapon/storage/belt/harness/gce/brown
+	name = "leather harness"
+	desc = "A leather harness, standard issue to the Spanish Army before the war. The leather on this one is chestnut brown as per infantry regulations."
+	icon_state = "arnes_brown"
+	item_state = "arnes_brown"
+	storage_slots = 2
+	can_hold = list (/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)
+
+/obj/item/weapon/storage/belt/harness/gce/brown/New()
+	..()
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+
+/obj/item/weapon/storage/belt/harness/gce/black
+	name = "leather harness"
+	desc = "A leather harness, standard issue to the Spanish Army before the war. The leather on this one has been dyed black, as per the regulations in some of the armed spanish institutions like the Legion or the police."
+	icon_state = "arnes_black"
+	item_state = "arnes_black"
+	storage_slots = 2
+	can_hold = list (/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)
+
+/obj/item/weapon/storage/belt/harness/gce/black/New()
+	..()
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+
+/obj/item/weapon/storage/belt/gce/brown
+	name = "leather belt"
+	desc = "A Sam Browne belt used by Spanish Army officers."
+	icon_state = "cinturon_brown"
+	item_state = "cinturon_brown"
+	storage_slots = 1
+	can_hold = list(/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)
+
+/obj/item/weapon/storage/belt/gce/brown/New()
+	..()
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)
+
+/obj/item/weapon/storage/belt/gce/black
+	name = "black leather belt"
+	desc = "A Sam Browne belt used by Spanish Army officers. The leather on this one is dyed black."
+	icon_state = "cinturon_black"
+	item_state = "cinturon_black"
+	storage_slots = 1
+	can_hold = list(/obj/item/weapon/storage/belt/holster/flaskstorage/soviet)
+
+/obj/item/weapon/storage/belt/gce/black/New()
+	..()
+	new /obj/item/weapon/storage/belt/holster/flaskstorage/soviet(src)

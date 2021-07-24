@@ -1560,7 +1560,7 @@
 //Stripper clip Pouches
 
 /obj/item/weapon/storage/backpack/gce/stripperpouch
-	slot_flags = SLOT_LPOUCH | SLOT_RPOUCH | SLOT_BPOUCH
+	slot_flags = SLOT_LPOUCH | SLOT_RPOUCH
 	open_delay = 10
 	reachable = 1
 	can_hold = list (/obj/item/ammo_magazine/box/clip/a7x57,

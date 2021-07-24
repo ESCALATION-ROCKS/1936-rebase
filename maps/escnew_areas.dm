@@ -31,17 +31,6 @@ var/list/interior_areas = list(/area/coldwar/house1,
 	requires_power = 0
 	dynamic_lighting = 1
 	base_turf = /turf/unsimulated/ground/
-	ambience = list (
-	'sound/ambience/coldwar/0Background0.wav',
-	'sound/ambience/coldwar/0Background1.wav',
-	'sound/ambience/coldwar/0Background2.wav',
-	'sound/ambience/coldwar/0Background3.wav',
-	'sound/ambience/coldwar/0Background4.wav',
-	'sound/ambience/coldwar/0Background5.wav',
-	'sound/ambience/coldwar/0Background6.wav',
-	'sound/ambience/coldwar/1Background1.wav',
-	'sound/ambience/coldwar/0Background2.wav',
-	)
 
 /area/coldwar/surrounding
 	name = "outside (right side)"

@@ -457,7 +457,6 @@
 	fire_sound = 'sound/weapons/gunshot/m60.ogg'
 	unload_sound = 'sound/weapons/gunhandling/bpistol_magout.wav'
 	reload_sound = 'sound/weapons/gunhandling/bpistol_magin.wav'
-	jam_chance = 0.95
 	accuracy = 1.45
 	auto_eject = 1
 
@@ -489,7 +488,6 @@
 	fire_sound = 'sound/weapons/gunshot/pkm.ogg'
 	unload_sound = 'sound/weapons/gunporn/m249_boxremove.ogg'
 	reload_sound = 'sound/weapons/gunporn/m249_boxinsert.ogg'
-	jam_chance = 0.80
 
 	firemodes = list(
 		list(mode_name="semiauto",  burst=1, fire_delay=6.4, burst_delay = 8.0, burst_accuracy=null, dispersion=null),
