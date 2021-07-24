@@ -679,3 +679,73 @@
 	name = "M56 netting cover"
 	desc = "A netting mesh for M56 helmets."
 	icon_state = "m56_netting"
+
+//SCW Helmets
+
+/obj/item/clothing/head/helmet/gce/
+	var/icon_state_unzipped = null
+
+/obj/item/clothing/head/helmet/gce/attack_self(mob/user as mob)
+	if(icon_state == initial(icon_state))
+		icon_state = icon_state_unzipped
+		to_chat(user, "You unzip your helmet strips.")
+	else
+		icon_state = initial(icon_state)
+		to_chat(user, "You zip your helmet strips.")
+
+
+/obj/item/clothing/head/helmet/gce/m26
+	name = "Casco M26"
+	desc = "The standard issue helmet of the Spanish Army before the war."
+	icon_state = "m26"
+	armor = list(melee = 44, bullet = 22, laser = 10, energy = 10, bomb = 50, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+	icon_state_unzipped = "m26-unzipped"
+
+/obj/item/clothing/head/helmet/gce/m26/green
+	name = "Casco M26"
+	desc = "The standard issue helmet of the Spanish Army before the war. This one comes in green."
+	icon_state = "m26_green"
+	icon_state_unzipped = "m26_green-unzipped"
+
+/obj/item/clothing/head/helmet/gce/m26/popular
+	name = "Casco M26"
+	desc = "The standard issue helmet of the Spanish Army before the war. This one has a red star painted on each side."
+	icon_state = "m26_green_popular"
+	icon_state_unzipped = "m26_green_popular-unzipped"
+
+/obj/item/clothing/head/helmet/gce/m26/falange
+	name = "Casco M26"
+	desc = "The standard issue helmet of the Spanish Army before the war. This one has the symbol of Falange painted in red on the front."
+	icon_state = "m26_falange"
+	armor = list(melee = 44, bullet = 22, laser = 10, energy = 10, bomb = 50, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+	icon_state_unzipped = "m26_falange-unzipped"
+
+/obj/item/clothing/head/helmet/gce/m26/falangewhite
+	name = "Casco M26"
+	desc = "The standard issue helmet of the Spanish Army before the war. This one has the symbol of Falange painted in white on the front."
+	icon_state = "m26_falange_white"
+	armor = list(melee = 44, bullet = 22, laser = 10, energy = 10, bomb = 50, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+	icon_state_unzipped = "m26_falange_white-unzipped"
+
+
+/obj/item/clothing/head/helmet/gce/m26/cnt
+	name = "Casco M26"
+	desc = "The standard issue helmet of the Spanish Army before the war. This one has a black and red flag painted on the front aswell as the words 'CNT-FAI'."
+	icon_state = "m26_cnt"
+	armor = list(melee = 44, bullet = 22, laser = 10, energy = 10, bomb = 50, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+	icon_state_unzipped = "m26_cnt-unzipped"
+
+/obj/item/clothing/head/helmet/gce/m26/cenao
+	name = "Casco M26"
+	desc = "The standard issue helmet of the Spanish Army before the war. This one comes in green aswell as having a red crab painted on the front."
+	icon_state = "m26_green_cenao"
+	icon_state_unzipped = "m26_green_cenao-unzipped"
+
+/obj/item/clothing/head/gce/panama
+	name = "panama hat"
+	desc = "That's a panama hat, to protect your head from the sun."
+	icon_state = "repanama"

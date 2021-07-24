@@ -437,3 +437,69 @@
 		icon_state = "mg3"
 	else
 		icon_state = "mg3-empty"
+
+//SCW HMGs
+
+/obj/item/weapon/gun/projectile/heavy_mg/hotchkiss
+	name = "M1914 Hotchkiss"
+	desc = "A Hotchkiss heavy machinegun, standard-issue in the Spanish Army before the war."
+	icon_state = "hotchkiss"
+	load_method = MAGAZINE//we do not have ammo box for it
+//	handle_casings = REMOVE_CASINGS//replace in EJECT later after tests and balancing
+	caliber = "7x57"//fix caliber
+	ammo_type = /obj/item/ammo_casing/a7x57 //fix
+	max_shells = 0
+	dist_shot_sound = 'sound/weapons/gunshot/dist/mg_dist.wav'
+	allowed_magazines = list(/obj/item/ammo_magazine/a7x57sl,
+	/obj/item/ammo_magazine/a7x57sm,
+	/obj/item/ammo_magazine/a7x57ss
+	)
+	fire_sound = 'sound/weapons/gunshot/m60.ogg'
+	unload_sound = 'sound/weapons/gunhandling/bpistol_magout.wav'
+	reload_sound = 'sound/weapons/gunhandling/bpistol_magin.wav'
+	jam_chance = 0.95
+	accuracy = 1.45
+	auto_eject = 1
+
+	firemodes = list(
+		list(mode_name="semiauto",  burst=1, fire_delay=6.5, burst_delay = 6.8, burst_accuracy=null, dispersion=null),
+		list(mode_name="short bursts", burst=3, fire_delay=4.0, burst_delay = 1.8, burst_accuracy=list(1,0,-1),       dispersion=list(0.3, 0.45, 0.6)),
+		list(mode_name="long bursts",   burst=5, fire_delay=4.0, burst_delay = 1.8, burst_accuracy=list(1,0,0,-1,-2), dispersion=list(0.3, 0.45, 0.6, 1.2, 1.5)),
+		)
+
+/obj/item/weapon/gun/projectile/heavy_mg/hotchkiss/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "hotchkiss"
+	else
+		icon_state = "hotchkiss-empty"
+
+/obj/item/weapon/gun/projectile/heavy_mg/maxim
+	name = "PM M1910/30"
+	desc = "A Maxim heavy machinegun, sold to the Popular Army by the Soviet Union."
+	icon_state = "maxim"
+	load_method = MAGAZINE//we do not have ammo box for it
+//	handle_casings = REMOVE_CASINGS//replace in EJECT later after tests and balancing
+	caliber = "762x54"//fix caliber
+	ammo_type = /obj/item/ammo_casing/a762x54 //fix
+	max_shells = 0
+	dist_shot_sound = 'sound/weapons/gunshot/dist/mg_dist.wav'
+	anchored = 0
+	allowed_magazines = list(/obj/item/ammo_magazine/a762x54maxim)
+	fire_sound = 'sound/weapons/gunshot/pkm.ogg'
+	unload_sound = 'sound/weapons/gunporn/m249_boxremove.ogg'
+	reload_sound = 'sound/weapons/gunporn/m249_boxinsert.ogg'
+	jam_chance = 0.80
+
+	firemodes = list(
+		list(mode_name="semiauto",  burst=1, fire_delay=6.4, burst_delay = 8.0, burst_accuracy=null, dispersion=null),
+		list(mode_name="short bursts", burst=3, fire_delay=4.0, burst_delay = 1.8, burst_accuracy=list(1,0,-1),       dispersion=list(0.3, 0.6, 0.6)),
+		list(mode_name="long bursts",   burst=5, fire_delay=4.0, burst_delay = 1.8, burst_accuracy=list(1,0,0,-1,-2), dispersion=list(0.4, 0.7, 0.8, 1.3, 1.6)),
+		)
+
+/obj/item/weapon/gun/projectile/heavy_mg/maxim/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "maxim"
+	else
+		icon_state = "maxim-empty"

@@ -697,3 +697,31 @@
 
 /obj/item/clothing/under/coldwar/fra/woodland/captain
 	starting_accessories = list(/obj/item/clothing/accessory/badge/natodogtag, /obj/item/clothing/accessory/insignia/fra/capitaine, /obj/item/clothing/accessory/storage/uniform_pockets)
+
+//SCW Civilian clothes
+
+/obj/item/clothing/under/gce/traje/khaki
+	name = "suit"
+	desc = "A pair of khaki pants with a white shirt."
+	icon_state = "cwsurgeon"
+	worn_state = "cwsurgeon"
+	slowdown_general = 0.5
+	has_sensor = 0
+
+/obj/item/clothing/accessory/toggleable/gce/brown_jacket
+	name = "brown suit jacket"
+	desc = "A brown suit jacket."
+	icon_state = "brown_jacket"
+
+/obj/item/clothing/under/gce/traje/black
+	name = "suit"
+	desc = "A white shirt with a pair of black pants and suspenders."
+	icon_state = "cwsurgeon_alt"
+	worn_state = "cwsurgeon_alt"
+	slowdown_general = 0.5
+	has_sensor = 0
+
+/obj/item/clothing/accessory/toggleable/gce/black_jacket
+	name = "black suit jacket"
+	desc = "A black suit jacket."
+	icon_state = "black_jacket"

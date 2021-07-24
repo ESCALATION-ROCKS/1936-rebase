@@ -286,5 +286,110 @@
 		damage = rand(5, 27)
 
 
+//SCW Nades
+/obj/item/weapon/grenade/frag/universalgrenade
+	name = "Granada 'Universal'"
+	desc = "A war-time production fragmentation grenade used by both sides of the conflict."
+	icon_state = "universal_grenade"
+	item_state = "universal_grenade"
+	throw_speed = 3
+	throw_range = 10
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/defensive)
+	num_fragments = 270  //total number of fragments produced by the grenade
+	explosion_size = 2
+	det_time = 35
+
+/obj/item/weapon/grenade/frag/lafitte
+	name = "Granada 'Lafitte' M1921"
+	desc = "An outdated and heavy hand grenade with little fragmentation to speak of, but loaded with an impressive amount of explosives."
+	icon_state = "lafitte"
+	item_state = "lafitte"
+	throw_speed = 7
+	throw_range = 6
+	fragment_types = list(/obj/item/projectile/bullet/pellet/fragment/offensive)
+	num_fragments = 70  //total number of fragments produced by the grenade
+	explosion_size = 4
+
+/obj/item/weapon/grenade/frag/lafitte/on_explosion(var/turf/O)
+	if(explosion_size)
+		explosion(O, 1, 2, explosion_size, round(explosion_size/2), 0)
+
+// Dynamite
+
+/obj/item/weapon/dynamite
+	name = "dynamite"
+	desc = "A stick of dynamite."
+	w_class = ITEM_SIZE_SMALL
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "dynamite"
+	item_state = "dynamite"
+	throw_speed = 10
+	throw_range = 5
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	var/active = 0
+	var/det_time = 70
+	var/arm_sound = 'sound/effects/fuse.ogg'
+	var/explosion_size = 5
+
+/obj/item/weapon/dynamite/proc/detonate()
+	var/turf/T = get_turf(src)
+	if(T)
+		T.hotspot_expose(700,125)
+
+/obj/item/weapon/dynamite/detonate()
+	..()
+
+	var/turf/O = get_turf(src)
+	if(!O) return
+
+	if(explosion_size)
+		on_explosion(O)
+
+	qdel(src)
+
+/obj/item/weapon/dynamite/examine(mob/user)
+	if(..(user, 0))
+		if(det_time > 1)
+			to_chat(user, "The fuse is about [det_time/10] seconds long.")
+			return
+		if(det_time == null)
+			return
+		to_chat(user, "\The [src] is set for instant detonation.")
+
+/obj/item/weapon/dynamite/proc/activate(mob/user as mob)
+	if(active)
+		return
+
+	if(user)
+		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+
+	icon_state = initial(icon_state) + "_active"
+	active = 1
+	playsound(loc, arm_sound, 75, 0, -3)
+
+	spawn(det_time)
+		detonate()
+		return
+
+/obj/item/weapon/dynamite/proc/on_explosion(var/turf/O)
+	if(explosion_size)
+		explosion(O, 2, 3, explosion_size, round(explosion_size/2), 0)
+
+/obj/item/weapon/dynamite/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	if(isflamesource(W))
+		if(!active)
+			to_chat(user, "<span class='warning'>You light \the [name] fuse! [det_time/10] seconds!</span>")
+			activate(user)
+			if(iscarbon(user))
+				var/mob/living/carbon/C = user
+				C.throw_mode_on()
+	..()
+	return
+
+/obj/item/weapon/dynamite/attack_hand()
+	walk(src, null, null)
+	..()
+	return
 
 

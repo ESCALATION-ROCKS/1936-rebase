@@ -31,7 +31,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x54
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
-	
+
 /obj/item/ammo_casing/a762x54/tr
 	desc = "A 7.62x54mmR match grade bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x54/tr
@@ -42,7 +42,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x53
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
-	
+
 /obj/item/ammo_casing/a762x53/tr
 	desc = "A 7.62x53mmR match grade bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x53/tr
@@ -53,7 +53,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x54
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
-	
+
 /obj/item/ammo_casing/a303/tr
 	desc = "A .303 British match grade bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a762x54/tr
@@ -102,7 +102,7 @@
 	desc = "A 9x18mm bullet casing."
 	caliber = "9x18"
 	projectile_type = /obj/item/projectile/bullet/rifle/a9x18
-	
+
 /obj/item/ammo_casing/a9x18/tr
 	desc = "A 9x18mm match grade bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a9x18/tr
@@ -269,7 +269,7 @@
 	if(istype(W, /obj/item/ammo_casing))
 		return
 	..()
-	
+
 //Cthulu fthagn
 /obj/item/ammo_casing/flamer
 	name = "fire"
@@ -278,3 +278,24 @@
 	spent_icon = "null"
 	caliber = "flamer"
 	projectile_type = /obj/item/projectile/flamer
+
+//SCW Bullets
+
+/obj/item/ammo_casing/a7x57
+	desc = "A 7x57mm bullet casing."
+	caliber = "7x57"
+	projectile_type = /obj/item/projectile/bullet/rifle/a7x57
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+
+/obj/item/ammo_casing/a303
+	desc = "A .303 British bullet casing."
+	caliber = "303"
+	projectile_type = /obj/item/projectile/bullet/rifle/a303
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+
+/obj/item/ammo_casing/a9x23
+	desc = "A 9x23mm bullet casing."
+	caliber = "9x23"
+	projectile_type = /obj/item/projectile/bullet/rifle/a9x23

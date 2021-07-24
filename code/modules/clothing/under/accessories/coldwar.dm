@@ -618,3 +618,140 @@
 	slot = ACCESSORY_SLOT_ARMOR_S
 	slots = 4
 	//armor_slowdown = 0.0
+
+//SCW
+/obj/item/clothing/accessory/scarf/cnt
+	name = "scarf"
+	desc = "A black and red cloth scarf belonging to the anarcho-syndicalists."
+	icon_state = "bufanda_cnt"
+
+/obj/item/clothing/accessory/scarf/red
+	name = "scarf"
+	desc = "A red cloth scarf belonging to any of the socialist-aligned parties."
+	icon_state = "bufanda_roja"
+
+//Divisas
+
+//Ejercito Nacional
+
+/obj/item/clothing/accessory/insignia/nacional/pvt
+	name = "'Soldado' insignia"
+	icon_state = "nacional_pvt_insignia"
+	item_state = null
+	rank = "Soldado"
+
+/obj/item/clothing/accessory/insignia/nacional/pfc
+	name = "'Soldado de Primera' insignia"
+	icon_state = "nacional_pfc_insignia"
+	item_state = "nacional_pfc_insignia"
+	rank = "Soldado de Primera"
+
+/obj/item/clothing/accessory/insignia/nacional/cpl
+	name = "'Cabo' insignia"
+	icon_state = "nacional_cpl_insignia"
+	item_state = "nacional_cpl_insignia"
+	rank = "Cabo"
+
+/obj/item/clothing/accessory/insignia/nacional/sgt
+	name = "'Sargento' insignia"
+	icon_state = "nacional_sgt_insignia"
+	item_state = "nacional_sgt_insignia"
+	rank = "Sargento"
+
+/obj/item/clothing/accessory/insignia/nacional/alf
+	name = "'Alferez' insignia"
+	icon_state = "nacional_alf_insignia"
+	item_state = "nacional_alf_insignia"
+	rank = "Alferez"
+
+/obj/item/clothing/accessory/insignia/nacional/lt
+	name = "'Teniente' insignia"
+	icon_state = "nacional_lt_insignia"
+	item_state = "nacional_lt_insignia"
+	rank = "Teniente"
+
+//Ejercito Popular
+
+/obj/item/clothing/accessory/insignia/popular/pvt
+	name = "'Soldado' insignia"
+	icon_state = "popular_pvt_insignia"
+	item_state = null
+	rank = "Soldado"
+
+/obj/item/clothing/accessory/insignia/popular/cpl
+	name = "'Cabo' insignia"
+	icon_state = "popular_cpl_insignia"
+	item_state = "popular_cpl_insignia"
+	rank = "Cabo"
+
+/obj/item/clothing/accessory/insignia/popular/sgt
+	name = "'Sargento' insignia"
+	icon_state = "popular_sgt_insignia"
+	item_state = "popular_sgt_insignia"
+	rank = "Sargento"
+
+/obj/item/clothing/accessory/insignia/popular/alf
+	name = "'Alferez' insignia"
+	icon_state = "popular_alf_insignia"
+	item_state = "popular_alf_insignia"
+	rank = "Alferez"
+
+/obj/item/clothing/accessory/insignia/popular/lt
+	name = "'Teniente' insignia"
+	icon_state = "popular_lt_insignia"
+	item_state = "popular_lt_insignia"
+	rank = "Teniente"
+
+/obj/item/clothing/accessory/insignia/popular/cc
+	name = "'Comisario' insignia"
+	icon_state = "popular_cc_insignia"
+	item_state = "popular_cc_insignia"
+	rank = "Comisario"
+
+/obj/item/clothing/accessory/insignia/popular/pd
+	name = "'Delegado Politico' insignia"
+	icon_state = "popular_pd_insignia"
+	item_state = "popular_pd_insignia"
+	rank = "Delegado Politico"
+
+/obj/item/clothing/accessory/insignia/legion/pvt
+	name = "'Legionario' insignia"
+	icon_state = "nacional_pvt_insignia"
+	item_state = "nacional_pvt_insignia"
+	rank = "Legionario"
+
+/obj/item/clothing/accessory/insignia/legion/pfc
+	name = "'Legionario de Primera' insignia"
+	icon_state = "nacional_pfc_insignia"
+	item_state = "nacional_pfc_insignia"
+	rank = "Legionario de Primera"
+
+/obj/item/clothing/accessory/insignia/legion/cpl
+	name = "'Cabo' insignia"
+	icon_state = "nacional_cpl_insignia"
+	item_state = "nacional_cpl_insignia"
+	rank = "Cabo"
+
+/obj/item/clothing/accessory/insignia/legion/sgt
+	name = "'Sargento' insignia"
+	icon_state = "nacional_sgt_insignia"
+	item_state = "nacional_sgt_insignia"
+	rank = "Sargento"
+
+/obj/item/clothing/accessory/insignia/legion/alf
+	name = "'Alferez' insignia"
+	icon_state = "nacional_alf_insignia"
+	item_state = "nacional_alf_insignia"
+	rank = "Alferez"
+
+/obj/item/clothing/accessory/insignia/legion/lt
+	name = "'Teniente' insignia"
+	icon_state = "nacional_lt_insignia"
+	item_state = "nacional_lt_insignia"
+	rank = "Teniente"
+
+/obj/item/clothing/accessory/insignia/legion/cpt
+	name = "'Capitan' insignia"
+	icon_state = "legion_cpt_insignia"
+	item_state = "legion_cpt_insignia"
+	rank = "Capitan"

@@ -133,3 +133,18 @@
 	id_g = "mg3"
 	slowdown_general = 3
 	need_type = /obj/item/weapon/gun/projectile/heavy_mg/mg3
+
+///SCW
+
+/obj/item/weapon/mg_tripod/hotchkiss
+	name = "M1914 Hotchkiss tripod"
+	icon_state = "hotchkiss-tripod" //  fix //FIX! ~JTB
+	id_g = "hck"
+	need_type = /obj/item/weapon/gun/projectile/heavy_mg/hotchkiss
+
+/obj/item/weapon/mg_tripod/maxim
+	name = "PM M1910/30 Carriage"
+	icon_state = "maxim-tripod" //  fix //FIX! ~JTB
+	id_g = "mxm"
+	need_type = /obj/item/weapon/gun/projectile/heavy_mg/maxim
+	anchored = 0

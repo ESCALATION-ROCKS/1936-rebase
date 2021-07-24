@@ -2119,3 +2119,41 @@
 		icon_state = "cetmec-empty"
 		wielded_item_state = "cetmec-wielded-empty"
 	update_held_icon()
+
+//SCW SMGs
+
+/obj/item/weapon/gun/projectile/automatic/rifle/naranjero
+	name = "MP-28 II 'Naranjero'"
+	desc = "A war time production copy of the German MP-28 with an added pistol grip. Rechambered for the spanish 9x23mm 'Largo' caliber."
+	icon_state = "naranjero"
+	item_state = "naranjero"
+	w_class = 4
+	load_method = MAGAZINE
+	caliber = "9x23"
+	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	ammo_type = /obj/item/ammo_casing/a9x23
+	allowed_magazines = list(/obj/item/ammo_magazine/a9x23n)
+	magazine_type = null
+	accuracy = 0.6
+	wielded_item_state = "naranjero-wielded"
+	jam_chance = 1.85
+	slowdown_general = 0.5
+	fire_sound = 'sound/weapons/gunshot/waltherp1.ogg'
+	unload_sound = 'sound/weapons/gunporn/sterling_magout.ogg'
+	reload_sound = 'sound/weapons/gunporn/sterling_magin.ogg'
+	cocked_sound = 'sound/weapons/gunporn/sterling_cock.ogg'
+	dist_shot_sound = 'sound/weapons/gunshot/dist/sterling_dist.wav'
+	firemodes = list(
+		list(mode_name="semiauto",     burst=1, fire_delay=3.6,    move_delay=null, one_hand_penalty=3, burst_accuracy=null,          dispersion=list(0.35, 0.45),                               automatic = 0),
+		list(mode_name="automatic",    burst=1, fire_delay=1,  move_delay=null, one_hand_penalty=5, burst_accuracy=null,              dispersion=list(0.55, 0.75, 1.1),                     automatic = 1),
+		)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/naranjero/update_icon()
+	..()
+	update_held_icon()
+	if(ammo_magazine)
+		icon_state = "naranjero"
+		wielded_item_state = "naranjero-wielded"
+	else
+		icon_state = "naranjero-empty"
+		wielded_item_state = "naranjero-wielded-empty"

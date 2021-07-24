@@ -46,3 +46,16 @@
 	icon_state = "mg3-disconnected"
 	slowdown_general = 3
 	id_g = "mg3"
+
+
+///SCW
+
+/obj/item/weapon/mg_disassembled/hotchkiss
+	name = "disassembled M1914 Hotchkiss"
+	icon_state = "hotchkiss-disconnected"
+	id_g = "hck"
+
+/obj/item/weapon/mg_disassembled/maxim
+	name = "disassembled PM M1910/30"
+	icon_state = "maxim-disconnected"
+	id_g = "mxm"

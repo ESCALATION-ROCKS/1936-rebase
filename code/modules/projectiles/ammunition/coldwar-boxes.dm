@@ -1147,3 +1147,145 @@
 
 /obj/item/ammo_magazine/flamer/attack_self(mob/user) //Can't empty out
 	return
+
+//SCW Boxes
+
+/obj/item/ammo_magazine/box/clip/a7x57
+	name = "stripper clip (7x57mm)"
+	desc = "A stripper clip that fits five 7x57mm rounds."
+	icon_state = "clip_mauser"
+	caliber = "7x57"
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 1
+	max_ammo = 5
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/box/clip/a7x57/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/box/clip/a762x54
+	name = "stripper clip (7.62x54mmR)"
+	desc = "A stripper clip that fits five 7.62x54mmR rounds."
+	icon_state = "clip_mauser"
+	caliber = "762x54"
+	ammo_type = /obj/item/ammo_casing/a762x54
+	w_class = 1
+	max_ammo = 5
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/box/clip/a762x54/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/box/clip/a303
+	name = "stripper clip (.303 British)"
+	desc = "A stripper clip that fits five .303 British rounds."
+	mag_type = SPEEDLOADER
+	icon_state = "clip_mauser"
+	caliber = "303"
+	ammo_type = /obj/item/ammo_casing/a303
+	w_class = 1
+	max_ammo = 5
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/box/clip/a303/empty
+	initial_ammo = 0
+
+
+
+/obj/item/ammo_magazine/a9x23n
+	name = "smg magazine (9x23mm)"
+	desc = "An MP-28 magazine that fits thirty-two 9x23mm 'Largo' rounds."
+	icon_state = "naranjero"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x23
+	w_class = 2
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x23"
+	max_ammo = 32
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a9x23s
+	name = "pistol magazine (9x23mm)"
+	desc = "An Astra 400 magazine that fits eight 9x23mm 'Largo' rounds."
+	icon_state = "astra400"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a9x23
+	w_class = 1
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "9x23"
+	max_ammo = 8
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a7x57m
+	name = "lmg magazine (7x57mm)"
+	desc = "A hotchkiss box magazine that fits thirty 7x57mm rounds."
+	icon_state = "hotchkiss_1922"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 3
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a7x57s
+	name = "small lmg magazine (7x57mm)"
+	desc = "A hotchkiss box magazine that fits fifteen 7x57mm rounds."
+	icon_state = "hotchkiss_1922_small"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 2
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 15
+	multiple_sprites = 1
+
+
+/obj/item/ammo_magazine/a7x57sl
+	name = "large lmg stripper clip (7x57mm)"
+	desc = "A hotchkiss stripper clip that fits thirty 7x57mm rounds."
+	icon_state = "hotchkiss_1922_striplarge"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 30
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a7x57sm
+	name = "lmg stripper clip (7x57mm)"
+	desc = "A hotchkiss stripper clip that fits twenty-four 7x57mm rounds."
+	icon_state = "hotchkiss_1922_stripmed"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 4
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 24
+	multiple_sprites = 1
+
+
+/obj/item/ammo_magazine/a7x57ss
+	name = "small lmg stripper clip (7x57mm)"
+	desc = "A hotchkiss stripper clip that fits fifteen 7x57mm rounds."
+	icon_state = "hotchkiss_1922_stripsmall"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a7x57
+	w_class = 3
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "7x57"
+	max_ammo = 15
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a762x54maxim
+	name = "machinegeun ammo box (762x54Rmm)"
+	desc = "A maxim ammo belt in a metal box that holds two hundred 762x54Rmm rounds."
+	icon_state = "maxim"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/a762x54
+	w_class = 5
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	caliber = "762x54"
+	max_ammo = 200
+	multiple_sprites = 1

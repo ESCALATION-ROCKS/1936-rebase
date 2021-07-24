@@ -759,3 +759,83 @@
 			/obj/item/ammo_casing/rpg_missile/smaw,
 			/obj/item/ammo_casing/rpg_missile/smaw,
 			)
+
+/obj/item/weapon/storage/backpack/gce/macuto
+	name = "cloth satchel"
+	desc = "That's a satchel commonly used used by the Spanish Army."
+	icon_state = "macuto"
+	item_state = "macuto"
+	reachable = 1
+	max_storage_space = 8
+	open_delay = 8
+	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+
+/obj/item/weapon/storage/backpack/gce/macuto/New()
+	..()
+	slowdown_per_slot[slot_back] = 0.15
+	slowdown_per_slot[slot_add_gun] = 0.15
+
+/obj/item/weapon/storage/backpack/gce/macuto/black
+	icon_state = "macuto_black"
+	item_state = "macuto_black"
+
+/obj/item/weapon/storage/backpack/gce/medical
+	name = "medical bag"
+	desc = "That's a medical bag."
+	icon_state = "summedsan"
+	item_state = "summedsan"
+	reachable = 1
+	max_storage_space = 15
+	open_delay = 9
+	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+
+	startswith = list(
+			/obj/item/weapon/storage/box/pill_box/doxycycline = 1,
+			/obj/item/weapon/storage/box/pill_box/phenazepam = 1,
+			/obj/item/weapon/storage/box/ampule_box/morphine = 1,
+			/obj/item/weapon/pill_pack/amidopyrinum = 2,
+			/obj/item/weapon/gauze_pack/ipp = 3,
+			/obj/item/stack/medical/ointment = 2)
+
+///SCW Bags
+
+/obj/item/weapon/storage/backpack/gce/manta/
+	reachable = 0
+	max_storage_space = 16
+	open_delay = 46
+	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+
+/obj/item/weapon/storage/backpack/gce/manta/New()
+	..()
+	slowdown_per_slot[slot_back] = 0.25
+	slowdown_per_slot[slot_add_gun] = 0.25
+
+/obj/item/weapon/storage/backpack/gce/manta/darkbrown
+	name = "blanket"
+	desc = "That's a wool blanket traditionally used for miscellaneous storage while on campaign. This one is comes in a dark shade of brown."
+	icon_state = "manta_darkbrown"
+	item_state = "manta_darkbrown"
+
+/obj/item/weapon/storage/backpack/gce/manta/brown
+	name = "blanket"
+	desc = "That's a wool blanket traditionally used for miscellaneous storage while on campaign. This one is comes in a light shade of brown."
+	icon_state = "manta_brown"
+	item_state = "manta_brown"
+
+/obj/item/weapon/storage/backpack/gce/manta/darkgreen
+	name = "blanket"
+	desc = "That's a wool blanket traditionally used for miscellaneous storage while on campaign. This one is comes in a dark shade of olive drab."
+	icon_state = "manta_darkgreen"
+	item_state = "manta_darkgreen"
+
+/obj/item/weapon/storage/backpack/gce/manta/khaki
+	name = "blanket"
+	desc = "That's a wool blanket traditionally used for miscellaneous storage while on campaign. This one is comes in a tan colour."
+	icon_state = "manta_khaki"
+	item_state = "manta_khaki"
+
+/obj/item/weapon/storage/backpack/gce/manta/black
+	name = "blanket"
+	desc = "That's a wool blanket traditionally used for miscellaneous storage while on campaign. This one is black."
+	icon_state = "manta_black"
+	item_state = "manta_black"

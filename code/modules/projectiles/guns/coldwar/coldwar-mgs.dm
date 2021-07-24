@@ -1042,3 +1042,83 @@
 		wielded_item_state = "kk62-wielded-empty"
 	update_held_icon()
 	..()
+
+//SCW LMGs
+
+/obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922
+	name = "Hotchkis M1922"
+	desc = "A standard issue Spanish Army light machinegun. Chambers 7x57mm rounds, top fed by a magazine."
+	icon_state = "hotchkiss_1922"
+	item_state = "hotchkiss_1922"
+	w_class = 5
+	load_method = MAGAZINE
+	caliber = "7x57"
+	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	ammo_type = /obj/item/ammo_casing/a7x57
+	allowed_magazines = list(/obj/item/ammo_magazine/a7x57m,
+	/obj/item/ammo_magazine/a7x57s
+	)
+	magazine_type = null
+	accuracy = 2
+	wielded_item_state = "hotchkiss_1922-wielded"
+	jam_chance = 1.15
+	slowdown_general = 1
+	fire_sound = 'sound/weapons/gunshot/m60.ogg'
+	unload_sound = 'sound/weapons/gunporn/m249_boxremove.ogg'
+	reload_sound = 'sound/weapons/gunporn/m249_boxinsert.ogg'
+	cocked_sound = 'sound/weapons/gunporn/m249_charge.ogg'
+	dist_shot_sound = 'sound/weapons/gunshot/dist/mg_dist.wav'
+	firemodes = list(
+		list(mode_name="automatic",    burst=1, fire_delay=1.5,  move_delay=null, one_hand_penalty=8, burst_accuracy=null,              dispersion=list(0.35, 0.45, 0.55),                   automatic = 1.5),
+		list(mode_name="automatic",    burst=1, fire_delay=1.5,  move_delay=null, one_hand_penalty=8, burst_accuracy=null,              dispersion=list(0.35, 0.45, 0.55),                   automatic = 1.5),
+		)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922/update_icon()
+	..()
+	update_held_icon()
+	if(ammo_magazine)
+		icon_state = "hotchkiss_1922"
+		wielded_item_state = "hotchkiss_1922-wielded"
+	else
+		icon_state = "hotchkiss_1922-empty"
+		wielded_item_state = "hotchkiss_1922-wielded-empty"
+
+/obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922/stripfed
+	name = "Trapote M1933"
+	desc = "A standard issue Spanish Army light machinegun. Based on the hotchkiss design, known as the 'Trapote' Chambers 7x57mm rounds, side fed by a stripper clip."
+	icon_state = "hotchkiss_1922_stripfed"
+	item_state = "hotchkiss_1922_stripfed"
+	w_class = 5
+	load_method = MAGAZINE
+	caliber = "7x57"
+	slot_flags = SLOT_BACK_GUN | SLOT_BACK
+	ammo_type = /obj/item/ammo_casing/a7x57
+	allowed_magazines = list(/obj/item/ammo_magazine/a7x57sl,
+	/obj/item/ammo_magazine/a7x57sm,
+	/obj/item/ammo_magazine/a7x57ss
+	)
+	magazine_type = null
+	auto_eject = 1
+	accuracy = 2
+	wielded_item_state = "hotchkiss_1922_stripfed-wielded"
+	jam_chance = 1.15
+	slowdown_general = 1
+	fire_sound = 'sound/weapons/gunshot/m60.ogg'
+	unload_sound = 'sound/weapons/gunhandling/bpistol_magout.wav'
+	reload_sound = 'sound/weapons/gunhandling/bpistol_magin.wav'
+	cocked_sound = 'sound/weapons/gunporn/g3_boltpull.wav'
+	dist_shot_sound = 'sound/weapons/gunshot/dist/mg_dist.wav'
+	firemodes = list(
+		list(mode_name="automatic",    burst=1, fire_delay=1.5,  move_delay=null, one_hand_penalty=8, burst_accuracy=null,              dispersion=list(0.35, 0.45, 0.55),                   automatic = 1.5),
+		list(mode_name="automatic",    burst=1, fire_delay=1.5,  move_delay=null, one_hand_penalty=8, burst_accuracy=null,              dispersion=list(0.35, 0.45, 0.55),                  automatic = 1.5),
+		)
+
+/obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922/stripfed/update_icon()
+	..()
+	update_held_icon()
+	if(ammo_magazine)
+		icon_state = "hotchkiss_1922_stripfed"
+		wielded_item_state = "hotchkiss_1922_stripfed-wielded"
+	else
+		icon_state = "hotchkiss_1922_stripfed-empty"
+		wielded_item_state = "hotchkiss_1922_stripfed-wielded-empty"

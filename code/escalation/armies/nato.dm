@@ -1,58 +1,32 @@
-/datum/army_faction/nato
-	group_name = "NATO"
+/datum/army_faction/nacional
+	group_name = "NATIONALISTS"
 	enabled = 0
+	language = "Spanish"
 //	fireteam_names = list("Alpha", "Bravo", "Charlie", "Delta")
 
-/datum/army_faction/nato/bund
-	name = "Bundeswehr"
+/datum/army_faction/nationalists/nacional
+	name = "Ejercito Nacional"
 	enabled = 1
-	faction_tag = "bund"
-	flag_state = "german"
-	language = "German"
-	base_color = "black"
-	fireteam_names = list("Gruppe #1", "Gruppe #2", "Gruppe #3", "Gruppe #4")
-
-/datum/army_faction/nato/heer
-	name = "Bundesheer"
-	enabled = 1
-	faction_tag = "heer"
-	flag_state = "german"
-	language = "German"
-	base_color = "black"
-	fireteam_names = list("Gruppe #1", "Gruppe #2", "Gruppe #3", "Gruppe #4")
-
-/datum/army_faction/nato/usmc
-	name = "United States Marine Corps"
-	enabled = 1
-	faction_tag = "usmc"
-	flag_state = "us"
-	language = "English"
+	faction_tag = "nacional"
+	flag_state = "nacional"
+	language = "Spanish"
 	base_color = "blue"
-	fireteam_names = list("Squad #1", "Squad #2", "Squad #3", "Squad #4")
+	fireteam_names = list("Peloton #1", "Peloton #2", "Peloton #3", "Peloton #4")
 
-/datum/army_faction/nato/usa
-	name = "United States Army"
+/datum/army_faction/nationalists/legion
+	name = "La Legion"
 	enabled = 1
-	faction_tag = "usa"
-	flag_state = "us"
-	language = "English"
-	base_color = "green"
-	fireteam_names = list("Squad #1", "Squad #2", "Squad #3", "Squad #4")
-
-/datum/army_faction/nato/baf
-	name = "British Armed Forces"
-	enabled = 1
-	faction_tag = "baf"
-	flag_state = "baf"
-	language = "English"
-	base_color = "purple"
-	fireteam_names = list("Squad #1", "Squad #2", "Squad #3", "Squad #4")
-
-/datum/army_faction/nato/fra
-	name = "Armee de Terre"
-	enabled = 1
-	faction_tag = "fra"
-	flag_state = "fra"
-	language = "French"
+	faction_tag = "legion"
+	flag_state = "legion"
+	language = "Spanish"
 	base_color = "blue"
-	fireteam_names = list("Groupe #1", "Groupe #2", "Groupe #3", "Groupe #4")
+	fireteam_names = list("Escuadra #1", "Escuadra #2", "Escuadra #3", "Escuadra #4")
+
+/datum/army_faction/nationalists/berberguides
+	name = "Berber Locals"
+	enabled = 1
+	faction_tag = "berber"
+	flag_state = "berber"
+	language = "Tamazigh"
+	base_color = "yellow"
+	fireteam_names = list("Peloton #1", "Peloton #2", "Peloton #3", "Peloton #4")

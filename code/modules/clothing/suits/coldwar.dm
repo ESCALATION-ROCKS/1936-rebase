@@ -234,3 +234,87 @@
 	desc = "An officer issue Soviet Army winter coat"
 	icon_state = "parkasaofficer"
 	item_state = "parkasaofficer"
+
+//SCW
+
+/obj/item/clothing/suit/gce/apron
+	name = "surgical apron"
+	desc = "An outdated surgical apron."
+	icon_state = "gceapron"
+	item_state = "gceapron"
+	blood_overlay_type = "armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	allowed = list(/obj/item/stack/medical, /obj/item/weapon/reagent_containers/dropper, /obj/item/weapon/reagent_containers/hypospray, /obj/item/weapon/reagent_containers/syringe, \
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank/emergency,/obj/item/weapon/scalpel,/obj/item/weapon/retractor,/obj/item/weapon/hemostat, \
+	/obj/item/weapon/cautery,/obj/item/weapon/bonegel,/obj/item/weapon/FixOVein)
+
+/obj/item/clothing/suit/gce/apron/green
+	desc = "An outdated surgical apron made from some kind of greenish rubber."
+	icon_state = "gceapron_green"
+	item_state = "gceapron_green"
+
+/obj/item/clothing/suit/gce/jacket
+	name = "field blouse"
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926"
+	item_state = "1926"
+	blood_overlay_type = "armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/gce/jacket/nat/pfc
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_pfc"
+	item_state = "1926_pfc"
+
+/obj/item/clothing/suit/gce/jacket/nat/cpl
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_cpl"
+	item_state = "1926_cpl"
+
+/obj/item/clothing/suit/gce/jacket/nat/sgt
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_sgt"
+	item_state = "1926_sgt"
+
+/obj/item/clothing/suit/gce/jacket/nat/alf
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_officer_nalf"
+	item_state = "1926_officer_nalf"
+
+/obj/item/clothing/suit/gce/jacket/nat/lt
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_officer_nlt"
+	item_state = "1926_officer_nlt"
+
+/obj/item/clothing/suit/gce/jacket/khaki
+	name = "field blouse"
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki"
+	item_state = "1926_khaki"
+	blood_overlay_type = "armor"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/pfc
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_pfc"
+	item_state = "1926_khaki_pfc"
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/cpl
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_cpl"
+	item_state = "1926_khaki_cpl"
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/sgt
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_sgt"
+	item_state = "1926_khaki_sgt"
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/alf
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_officer_nalf"
+	item_state = "1926_khaki_officer_nalf"
+
+/obj/item/clothing/suit/gce/jacket/nat/khaki/lt
+	desc = "A Spanish Army uniform jacket."
+	icon_state = "1926_khaki_officer_nlt"
+	item_state = "1926_khaki_officer_nlt"

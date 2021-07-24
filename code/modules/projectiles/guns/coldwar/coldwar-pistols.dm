@@ -321,3 +321,32 @@
 		icon_state = "mac50"
 	else
 		icon_state = "mac50-empty"
+
+//SCW Handguns
+
+/obj/item/weapon/gun/projectile/gce/astra400
+	name = "Astra 400"
+	desc = "That's a Astra 400 pistol. Uses 9x23mm Largo ammunition."
+	icon_state = "astra400"
+	item_state = "gun"
+	w_class = ITEM_SIZE_NORMAL
+	caliber = "9x23"
+	fire_delay = 2.85
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/a9x23s
+	allowed_magazines = /obj/item/ammo_magazine/a9x23s
+	fire_sound = 'sound/weapons/gunshot/waltherp1.ogg'
+	unload_sound = 'sound/weapons/gunporn/pistol_magout.ogg'
+	reload_sound = 'sound/weapons/gunporn/pistol_magin.ogg'
+	cocked_sound = 'sound/weapons/gunporn/pistol_sliderelease.ogg'
+	jam_chance = 0.6
+	dist_shot_sound = 'sound/weapons/gunshot/dist/pistol_dist.wav'
+	accuracy = 1.2
+
+
+/obj/item/weapon/gun/projectile/gce/astra400/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "astra400"
+	else
+		icon_state = "astra400-empty"

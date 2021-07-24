@@ -1501,3 +1501,137 @@
 	item_state = "fra_ammo"
 	use_sound = 'sound/items/interactions/natopouchopen.wav'
 	close_sound = 'sound/items/interactions/natopouchclose.wav'
+
+//SCW Holsters
+
+/obj/item/weapon/storage/belt/holster/gce/astra400
+	name = "pistol holster"
+	storage_slots = 3
+	holster_sound = 'sound/effects/holster/holsterin.ogg'
+	unholster_sound = 'sound/effects/holster/holsterout.ogg'
+	special_item = /obj/item/weapon/gun/projectile/gce/astra400
+	desc = "This holster can hold an Astra 400 pistol and one magazine."
+	special_item = /obj/item/weapon/gun/projectile/gce/astra400
+	item_state = "holster_brown"
+	icon_state = "astra400"
+	icon_closed = "astra400-empty"
+	startswith = list(
+		/obj/item/weapon/gun/projectile/gce/astra400,
+		/obj/item/ammo_magazine/a9x23s
+		)
+	can_hold = list(
+		/obj/item/weapon/gun/projectile/gce/astra400,
+		/obj/item/ammo_magazine/a9x23s
+		)
+
+/obj/item/weapon/storage/belt/holster/gce/astra400/black
+	item_state = "holster_black"
+	icon_state = "astra400b"
+	icon_closed = "astra400b-empty"
+
+
+//SMG pouches
+
+/obj/item/weapon/storage/belt/suit/ammo/gce/
+	slot_flags = SLOT_LPOUCH | SLOT_RPOUCH
+
+/obj/item/weapon/storage/belt/suit/ammo/gce/naranjero/brown
+	w_class = ITEM_SIZE_HUGE
+	name = "naranjero ammo pouch"
+	desc = "A four cell mag pouch. It has enough space to hold four MP-28 magazines."
+	can_hold = list (/obj/item/ammo_magazine/a9x23n)
+	icon_state = "naranjero_brown"
+	item_state = "naranjero_brown"
+	storage_slots = 4
+	use_sound = 'sound/items/interactions/natopouchopen.wav'
+	close_sound = 'sound/items/interactions/natopouchclose.wav'
+
+/obj/item/weapon/storage/belt/suit/ammo/gce/naranjero/black
+	w_class = ITEM_SIZE_HUGE
+	name = "naranjero ammo pouch"
+	desc = "A four cell mag pouch. It has enough space to hold four MP-28 magazines. This one has been dyed black."
+	can_hold = list (/obj/item/ammo_magazine/a9x23n)
+	icon_state = "naranjero_black"
+	item_state = "naranjero_black"
+	storage_slots = 4
+	use_sound = 'sound/items/interactions/natopouchopen.wav'
+	close_sound = 'sound/items/interactions/natopouchclose.wav'
+
+//Stripper clip Pouches
+
+/obj/item/weapon/storage/backpack/gce/stripperpouch
+	slot_flags = SLOT_LPOUCH | SLOT_RPOUCH | SLOT_BPOUCH
+	open_delay = 10
+	reachable = 1
+	can_hold = list (/obj/item/ammo_magazine/box/clip/a7x57,
+	    /obj/item/ammo_magazine/a7x57ss,
+		/obj/item/ammo_magazine/box/clip/a762x54,
+		/obj/item/ammo_magazine/box/clip/a303,
+		/obj/item/ammo_magazine/a7x57s,
+		/obj/item/weapon/storage/box/matches/small,
+		/obj/item/weapon/storage/box/large,
+		/obj/item/clothing/mask/smokable/cigarette/unfiltered,
+		/obj/item/weapon/flame/match
+	)
+	use_sound = 'sound/items/interactions/natopouchopen.wav'
+	close_sound = 'sound/items/interactions/natopouchclose.wav'
+
+/obj/item/weapon/storage/backpack/gce/stripperpouch/brown
+	w_class = ITEM_SIZE_HUGE
+	name = "mauser ammo pouch"
+	desc = "A single cell pouch, it has enough space to hold ten 7x57 stripper clips. The leather on this one is coloured a shade of chestnut brown."
+	icon_state = "mauser_brown"
+	item_state = "mauser_brown"
+	max_storage_space = 10
+
+/obj/item/weapon/storage/backpack/gce/stripperpouch/black
+	w_class = ITEM_SIZE_HUGE
+	name = "mauser ammo pouch"
+	desc = "A single cell pouch, it has enough space to hold ten 7x57 stripper clips. The leather on this one has been dyed black."
+	icon_state = "mauser_black"
+	item_state = "mauser_black"
+	max_storage_space = 10
+
+/obj/item/weapon/storage/backpack/gce/stripperpouch/black/legion
+	w_class = ITEM_SIZE_HUGE
+	name = "mauser ammo pouch"
+	desc = "Three single cell pouches, each one has enough space to hold five 7x57 stripper clips. The leather on these ones has been dyed black."
+	icon_state = "mauser_legion"
+	item_state = "mauser_legion"
+	can_hold = list (/obj/item/ammo_magazine/box/clip/a7x57,
+		/obj/item/weapon/storage/box/matches/small,
+		/obj/item/weapon/storage/box/large,
+		/obj/item/clothing/mask/smokable/cigarette/unfiltered,
+		/obj/item/weapon/flame/match)
+	max_storage_space = 15
+
+//SCW Bayonet Sheaths
+
+/obj/item/weapon/storage/belt/holster/sheath/gce/m1913
+	name = "Bayoneta modelo 1913 sheath"
+	desc = "This sheath can hold a M1913 long bayonet."
+	special_item = /obj/item/weapon/material/knife/bayonet/gce/m1913
+	holster_sound = 'sound/effects/holster/sheathin.ogg'
+	unholster_sound = 'sound/effects/holster/sheathout.ogg'
+	icon_state = "m1913_sheath"
+	icon_closed = "m1913_sheath_empty"
+	item_state = "m1913_sheath"
+	startswith = list(
+		/obj/item/weapon/material/knife/bayonet/gce/m1913)
+	can_hold = list(
+		/obj/item/weapon/material/knife/bayonet/gce/m1913)
+
+/obj/item/weapon/storage/belt/holster/sheath/gce/m1893
+	name = "Bayoneta modelo 1893 sheath"
+	desc = "This sheath can hold a M1893 bayonet."
+	special_item = /obj/item/weapon/material/knife/bayonet/gce/m1893
+	holster_sound = 'sound/effects/holster/sheathin.ogg'
+	unholster_sound = 'sound/effects/holster/sheathout.ogg'
+	icon_state = "m1893_sheath"
+	icon_closed = "m1893_sheath_empty"
+	item_state = "m1893_sheath"
+	startswith = list(
+		/obj/item/weapon/material/knife/bayonet/gce/m1893)
+	can_hold = list(
+		/obj/item/weapon/material/knife/bayonet/gce/m1893)
+

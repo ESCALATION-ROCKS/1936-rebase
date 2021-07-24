@@ -1,7 +1,7 @@
 //Very basic escalation 1983 gamemode. has no objectives, admins have to set everything.
 
 /datum/game_mode/wargames
-	name = "Europe 1984"
+	name = "Escalation 1936"
 	config_tag = "wargames"
 	required_players = 0
 	round_description = "Teams battle for supremacy."
