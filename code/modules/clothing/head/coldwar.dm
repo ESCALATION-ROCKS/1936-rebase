@@ -802,7 +802,10 @@
 	name = "Casco M26"
 	desc = "The standard issue helmet of the Spanish Army before the war."
 	icon_state = "m26"
-	armor = list(melee = 44, bullet = 22, laser = 10, energy = 10, bomb = 50, bio = 0, rad = 0)
+	armor = DEFAULT_ARMOR_NORMALBLOCK
+	armor_fullblock = DEFAULT_ARMOR_FULLBLOCK
+	sound_armor_damaged = ARMOR_DAMAGED_SOUNDS_METAL
+	sound_armor_broke = ARMOR_BROKE_SOUNDS_METAL
 	siemens_coefficient = 0.9
 	icon_state_unzipped = "m26-unzipped"
 
@@ -822,16 +825,12 @@
 	name = "Casco M26"
 	desc = "The standard issue helmet of the Spanish Army before the war. This one has the symbol of Falange painted in red on the front."
 	icon_state = "m26_falange"
-	armor = list(melee = 44, bullet = 22, laser = 10, energy = 10, bomb = 50, bio = 0, rad = 0)
-	siemens_coefficient = 0.9
 	icon_state_unzipped = "m26_falange-unzipped"
 
 /obj/item/clothing/head/helmet/gce/m26/falangewhite
 	name = "Casco M26"
 	desc = "The standard issue helmet of the Spanish Army before the war. This one has the symbol of Falange painted in white on the front."
 	icon_state = "m26_falange_white"
-	armor = list(melee = 44, bullet = 22, laser = 10, energy = 10, bomb = 50, bio = 0, rad = 0)
-	siemens_coefficient = 0.9
 	icon_state_unzipped = "m26_falange_white-unzipped"
 
 
@@ -839,8 +838,6 @@
 	name = "Casco M26"
 	desc = "The standard issue helmet of the Spanish Army before the war. This one has a black and red flag painted on the front aswell as the words 'CNT-FAI'."
 	icon_state = "m26_cnt"
-	armor = list(melee = 44, bullet = 22, laser = 10, energy = 10, bomb = 50, bio = 0, rad = 0)
-	siemens_coefficient = 0.9
 	icon_state_unzipped = "m26_cnt-unzipped"
 
 /obj/item/clothing/head/helmet/gce/m26/cenao
