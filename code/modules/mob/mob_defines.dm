@@ -108,6 +108,7 @@
 	var/obj/item/weapon/gun/wear_gun = null//4AddGuns
 	var/obj/item/left_pouch = null//4AddGuns
 	var/obj/item/right_pouch = null//4AddGuns
+	var/obj/item/back_pouch = null//4AddGuns
 	var/obj/item/holster = null//4AddGuns
 
 

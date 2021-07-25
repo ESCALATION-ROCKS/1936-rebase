@@ -790,10 +790,10 @@
 	slot_flags = SLOT_GUN_SLOT | SLOT_BACK
 
 	startswith = list(
-			/obj/item/weapon/storage/box/pill_box/doxycycline = 1,
-			/obj/item/weapon/storage/box/pill_box/phenazepam = 1,
-			/obj/item/weapon/storage/box/ampule_box/morphine = 1,
-			/obj/item/weapon/pill_pack/amidopyrinum = 2,
+			//obj/item/weapon/storage/box/pill_box/doxycycline = 1,
+			//obj/item/weapon/storage/box/pill_box/phenazepam = 1,
+			//obj/item/weapon/storage/box/ampule_box/morphine = 1,
+			//obj/item/weapon/pill_pack/amidopyrinum = 2,
 			/obj/item/weapon/gauze_pack/ipp = 3,
 			/obj/item/stack/medical/ointment = 2)
 

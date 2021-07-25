@@ -307,6 +307,7 @@ var/list/global/slot_flags_enumeration = list(
 	"[slot_gun_slot]" = SLOT_GUN_SLOT,
 	"[slot_left_pouch]" = SLOT_LPOUCH,
 	"[slot_right_pouch]" = SLOT_RPOUCH,
+	"[slot_back_pouch]" = SLOT_BPOUCH,
 	"[slot_holster]" = SLOT_NHOLSTER,
 	"[slot_back]" = SLOT_BACK,
 	"[slot_wear_suit]" = SLOT_OCLOTHING,
@@ -379,7 +380,7 @@ var/list/global/slot_flags_enumeration = list(
 				return 0
 			if(get_storage_cost() == ITEM_SIZE_NO_CONTAINER)
 				return 0 //pockets act like storage and should respect ITEM_SIZE_NO_CONTAINER. Suit storage might be fine as is
-		if(slot_left_pouch, slot_right_pouch)
+		if(slot_left_pouch, slot_right_pouch, slot_back_pouch)
 			if(!H.belt && (slot_belt in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a harness before you can attach this [name].</span>")

@@ -80,6 +80,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 			return has_organ(BP_CHEST)
 		if(slot_right_pouch)
 			return has_organ(BP_CHEST)
+		if(slot_back_pouch)
+			return has_organ(BP_CHEST)
 		if(slot_left_pouch)
 			return has_organ(BP_CHEST)
 		if(slot_holster)
@@ -148,6 +150,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 			drop_from_inventory(left_pouch)
 		if (right_pouch)
 			drop_from_inventory(right_pouch)
+		if (back_pouch)
+			drop_from_inventory(back_pouch)
 		if (holster)
 			drop_from_inventory(holster)
 		belt = null
@@ -210,6 +214,9 @@ This saves us from having to call add_fingerprint() any time something is put in
 	else if(W == left_pouch)
 		left_pouch = null
 		update_inv_wear_left_pouch()
+	else if(W == back_pouch)
+		back_pouch = null
+		update_inv_wear_back_pouch()
 	else if (W == r_store)
 		r_store = null
 		update_inv_pockets()
@@ -288,6 +295,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 			W.equipped(src, slot)
 			W.screen_loc = ui_right_pouch
 			update_inv_wear_right_pouch(redraw_mob)
+		if(slot_back_pouch)//custom gun slot
+			src.back_pouch = W
+			W.equipped(src, slot)
+			W.screen_loc = ui_back_pouch
+			update_inv_wear_back_pouch(redraw_mob)
 		if(slot_handcuffed)
 			src.handcuffed = W
 			drop_r_hand()

@@ -43,6 +43,7 @@ var/list/outfits_decls_by_type_
 	var/list/backpack_contents = list() // In the list(path=count,otherpath=count) format
 	var/left_pouch = null
 	var/right_pouch = null
+	var/back_pouch = null
 	var/holster = null
 
 	var/id_type
@@ -167,7 +168,7 @@ var/list/outfits_decls_by_type_
 			if(1) back = frabackpack
 			if(2) back = frasatchel
 			else back = null
-	
+
 /decl/hierarchy/outfit/proc/post_equip(mob/living/carbon/human/H)
 	if(flags & OUTFIT_HAS_JETPACK)
 		var/obj/item/weapon/tank/jetpack/J = locate(/obj/item/weapon/tank/jetpack) in H
@@ -252,6 +253,8 @@ var/list/outfits_decls_by_type_
 		H.equip_to_slot_or_del(new left_pouch(H),slot_left_pouch)
 	if(right_pouch)
 		H.equip_to_slot_or_del(new right_pouch(H),slot_right_pouch)
+	if(back_pouch)
+		H.equip_to_slot_or_del(new back_pouch(H),slot_back_pouch)
 	if(head)
 		H.equip_to_slot_or_del(new head(H),slot_head)
 	if(l_ear)

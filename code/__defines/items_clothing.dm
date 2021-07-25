@@ -111,6 +111,7 @@
 #define slot_left_pouch  24
 #define slot_right_pouch 25
 #define slot_holster     26
+#define slot_back_pouch  27
 
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.
@@ -138,6 +139,7 @@
 #define slot_gun_slot_str    "slot_gun_slot"
 #define slot_left_pouch_str "slot_left_pouch"
 #define slot_right_pouch_str "slot_right_pouch"
+#define slot_back_pouch_str "slot_back_pouch"
 #define slot_holster_str    "slot_holster"
 
 // Bitflags for clothing parts.
@@ -264,6 +266,7 @@ var/list/default_onmob_icons = list(
 		slot_left_pouch_str = 'icons/mob/left_pouch.dmi',
 		slot_right_pouch_str = 'icons/mob/right_pouch.dmi',
 		slot_holster_str = 'icons/mob/holster.dmi',
+		slot_back_pouch_str = 'icons/mob/back_pouch.dmi',
 		slot_tie_str = 'icons/mob/ties.dmi',
 		slot_gun_slot_str = 'icons/mob/gun_slot.dmi'
 		)
