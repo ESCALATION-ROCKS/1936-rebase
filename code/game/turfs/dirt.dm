@@ -322,3 +322,56 @@
 		'sound/effects/footsteps/snow6.wav',
 		'sound/effects/footsteps/snow7.wav',
 		'sound/effects/footsteps/snow8.wav'))
+
+//SCW Dirt
+
+/turf/unsimulated/ground/sand
+	name = "sand"
+	icon_state = "sand"
+	blend_with_neighbors = 2
+	movement_delay = 0
+
+/turf/unsimulated/ground/sand/sandy
+	name = "sand"
+	icon_state = "sandy"
+	blend_with_neighbors = 10
+	movement_delay = 0
+
+/turf/unsimulated/ground/sand/desert
+	name = "desert"
+	icon_state = "desert"
+	blend_with_neighbors = 5
+	movement_delay = 1.5
+
+/turf/unsimulated/ground/grass
+	name = "grass"
+	icon = 'icons/turf/ground.dmi'
+	icon_state = "grass1"
+	blend_with_neighbors = 2
+	movement_delay = 2
+
+
+/turf/unsimulated/ground/grass/New()
+	icon_state = "grass[rand(1,3)]"
+
+/turf/unsimulated/ground/sand/cearth
+	name = "dry ground"
+	icon = 'icons/turf/ground.dmi'
+	icon_state = "cearth1"
+	blend_with_neighbors = 1
+	movement_delay = 0
+
+
+/turf/unsimulated/ground/sand/cearth/New()
+	icon_state = "cearth[rand(1,6)]"
+
+/turf/unsimulated/ground/grass/dearth
+	name = "ground"
+	icon = 'icons/turf/ground.dmi'
+	icon_state = "dearth1"
+	blend_with_neighbors = 6
+	movement_delay = 1.5
+
+
+/turf/unsimulated/ground/grass/dearth/New()
+	icon_state = "dearth[rand(1,3)]"

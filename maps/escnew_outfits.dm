@@ -25,7 +25,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Teniente Nacional")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/nacional/officer
 	glasses = /obj/item/clothing/glasses/eyepatch
@@ -51,7 +51,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Alferez Nacional")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/nacional/officer
 	left_pouch = null
@@ -75,7 +75,7 @@
 /decl/hierarchy/outfit/job/gce/nacional/sargento
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Sargento Nacional")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/naranjero
 	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = null
@@ -96,7 +96,7 @@
 	/obj/item/clothing/under/gce/nacional/fatigues/dgreen/sgt,
 	/obj/item/clothing/under/gce/nacional/fatigues/sgt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 3,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/field = 3,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 2,
 	/obj/item/clothing/shoes/gce/zapatos,
 	/obj/item/clothing/shoes/gce/alpargatas/tall ))
@@ -128,7 +128,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 1,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 1,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 5,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 4 ))
 
@@ -137,7 +137,7 @@
 	uniform = /obj/item/clothing/under/gce/traje/black
 	shoes = /obj/item/clothing/shoes/gce/zapatos/negros
 	holster = null
-	back_2 = null
+	gun_slot = null
 	back = /obj/item/weapon/storage/backpack/gce/medical
 	head = null
 	left_pouch = null
@@ -178,7 +178,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2,
 	/obj/item/clothing/shoes/gce/zapatos/calcetines = 1 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 2,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 3 ))
 
@@ -211,7 +211,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 1,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -244,7 +244,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 1,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 1 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -278,14 +278,14 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 4,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
 /decl/hierarchy/outfit/job/gce/nacional/ametrallador
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Nacional")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/gce/macuto
+	gun_slot = /obj/item/weapon/storage/backpack/gce/macuto
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922
 	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -342,7 +342,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 4,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -352,7 +352,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Teniente Popular")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/officer/popular
 	left_pouch = null
@@ -378,7 +378,7 @@
 	uniform = /obj/item/clothing/under/gce/popular/fatigues/commissar/alt/cc
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/officer/popular/commissar
 	left_pouch = null
@@ -393,9 +393,9 @@
 /decl/hierarchy/outfit/job/gce/popular/delegado
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Delegado Politico")
 	uniform = /obj/item/clothing/under/gce/popular/fatigues/commissar/pd
-	shoes = /obj/item/clothing/shoes/soviet/field
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/field
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/officer/popular/commissar
 	left_pouch = null
@@ -410,7 +410,7 @@
 /decl/hierarchy/outfit/job/gce/popular/sargento
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Sargento Popular")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/naranjero
 	head = /obj/item/clothing/head/gce/garcap/popular
 	left_pouch = null
@@ -431,7 +431,7 @@
 	/obj/item/clothing/under/gce/popular/fatigues/green/sgt,
 	/obj/item/clothing/under/gce/popular/fatigues/lkhaki/sgt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 3,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 2,
 	/obj/item/clothing/shoes/gce/zapatos,
 	/obj/item/clothing/shoes/gce/alpargatas/tall ))
@@ -464,7 +464,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 2,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 2,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -475,7 +475,7 @@
 	shoes = /obj/item/clothing/shoes/gce/zapatos
 	uniform = /obj/item/clothing/under/gce/traje/khaki
 	holster = null
-	back_2 = null
+	gun_slot = null
 	back = /obj/item/weapon/storage/backpack/gce/medical
 	head = null
 	left_pouch = null
@@ -517,7 +517,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2,
 	/obj/item/clothing/shoes/gce/zapatos/calcetines = 1 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -526,7 +526,7 @@
 /decl/hierarchy/outfit/job/gce/popular/cabo
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Cabo Popular")
 	holster = /obj/item/weapon/storage/belt/holster/sheath/gce/m1913
-	back_2 = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
+	gun_slot = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/popular
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -554,7 +554,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 1,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -591,7 +591,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 4,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -601,7 +601,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Popular")
 	shoes = /obj/item/clothing/shoes/gce/zapatos/polainas
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/gce/macuto
+	gun_slot = /obj/item/weapon/storage/backpack/gce/macuto
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922/stripfed
 	head = /obj/item/clothing/head/gce/garcap/popular
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -660,7 +660,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 4,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -670,7 +670,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Teniente Legionario")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/legion/officer
 	glasses = null
@@ -692,7 +692,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Alferez Legionario")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/legion/officer
 	glasses = null
@@ -713,7 +713,7 @@
 /decl/hierarchy/outfit/job/gce/legion/legsgt
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Sargento Legionario")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/naranjero
 	head = /obj/item/clothing/head/gce/garcap/legion/officer
 	glasses = null
@@ -731,7 +731,7 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/sgt,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/sgt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 6,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/field = 6,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 4,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 2,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
@@ -740,7 +740,7 @@
 /decl/hierarchy/outfit/job/gce/legion/legmg
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Legionario")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = /obj/item/weapon/storage/backpack/gce/macuto/black
+	gun_slot = /obj/item/weapon/storage/backpack/gce/macuto/black
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922
 	head = /obj/item/clothing/head/gce/garcap/legion
 	glasses = null
@@ -758,7 +758,7 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pfc = 1,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pfc = 4 ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 3,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/field = 3,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 4,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 2,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
@@ -784,14 +784,14 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pvt = 1,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pvt = 4 ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 6,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -815,13 +815,13 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/cpl = 2,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/cpl = 3 ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 4,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 5,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 5,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 5,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 5,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -845,20 +845,20 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pvt = 3,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pvt = 2 ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 6,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 8,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 6 ))
 
 /decl/hierarchy/outfit/job/gce/legion/legsurg
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Cirujano Legionario")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = null
+	gun_slot = null
 	back = /obj/item/weapon/storage/backpack/gce/medical
 	head = null
 	glasses = null
@@ -876,7 +876,7 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 7,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 4,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
@@ -903,13 +903,13 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/camillero = 1,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/camillero = 3))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 5,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 2 ))
 
@@ -933,13 +933,13 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/cpl,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/cpl ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 7,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 4,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 2 ))
 
@@ -963,13 +963,13 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pvt = 2,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pvt = 5))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 6,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 8,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 8,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -993,13 +993,13 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pvt = 2,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pvt = 5))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/legion = 6,
 	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
 	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 12,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 12,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -1033,7 +1033,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Teniente Nacional")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/nacional/officer
 	glasses = /obj/item/clothing/glasses/eyepatch
@@ -1059,7 +1059,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Alferez Nacional")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/nacional/officer
 	left_pouch = null
@@ -1083,7 +1083,7 @@
 /decl/hierarchy/outfit/job/gce/nacional/sargento
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Sargento Nacional")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/naranjero
 	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = null
@@ -1104,7 +1104,7 @@
 	/obj/item/clothing/under/gce/nacional/fatigues/dgreen/sgt,
 	/obj/item/clothing/under/gce/nacional/fatigues/sgt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 3,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 2,
 	/obj/item/clothing/shoes/gce/zapatos,
 	/obj/item/clothing/shoes/gce/alpargatas/tall ))
@@ -1136,7 +1136,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 1,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 1,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 5,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 4 ))
 
@@ -1145,7 +1145,7 @@
 	uniform = /obj/item/clothing/under/gce/traje/black
 	shoes = /obj/item/clothing/shoes/gce/zapatos/negros
 	holster = null
-	back_2 = null
+	gun_slot = null
 	back = /obj/item/weapon/storage/backpack/gce/medical
 	head = null
 	left_pouch = null
@@ -1186,7 +1186,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2,
 	/obj/item/clothing/shoes/gce/zapatos/calcetines = 1 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 2,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 3 ))
 
@@ -1219,7 +1219,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 1,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -1252,7 +1252,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 1,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 1 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -1286,14 +1286,14 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 4,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
 /decl/hierarchy/outfit/job/gce/nacional/ametrallador
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Nacional")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/gce/macuto
+	gun_slot = /obj/item/weapon/storage/backpack/gce/macuto
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922
 	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -1350,7 +1350,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 4,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 7,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -1360,7 +1360,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Teniente Popular")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/officer/popular
 	left_pouch = null
@@ -1386,7 +1386,7 @@
 	uniform = /obj/item/clothing/under/gce/popular/fatigues/commissar/alt/cc
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/officer/popular/commissar
 	left_pouch = null
@@ -1401,9 +1401,9 @@
 /decl/hierarchy/outfit/job/gce/popular/delegado
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Delegado Politico")
 	uniform = /obj/item/clothing/under/gce/popular/fatigues/commissar/pd
-	shoes = /obj/item/clothing/shoes/soviet/field
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/field
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/officer/popular/commissar
 	left_pouch = null
@@ -1418,7 +1418,7 @@
 /decl/hierarchy/outfit/job/gce/popular/sargento
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Sargento Popular")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/naranjero
 	head = /obj/item/clothing/head/gce/garcap/popular
 	left_pouch = null
@@ -1439,7 +1439,7 @@
 	/obj/item/clothing/under/gce/popular/fatigues/green/sgt,
 	/obj/item/clothing/under/gce/popular/fatigues/lkhaki/sgt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 3,
+	shoes = pickweight(list(/obj/item/clothing/shoes/coldwar/soviet/marching = 2,
 	/obj/item/clothing/shoes/gce/zapatos/polainas = 2,
 	/obj/item/clothing/shoes/gce/zapatos,
 	/obj/item/clothing/shoes/gce/alpargatas/tall ))
@@ -1472,7 +1472,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 2,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 2,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 2,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -1483,7 +1483,7 @@
 	shoes = /obj/item/clothing/shoes/gce/zapatos
 	uniform = /obj/item/clothing/under/gce/traje/khaki
 	holster = null
-	back_2 = null
+	gun_slot = null
 	back = /obj/item/weapon/storage/backpack/gce/medical
 	head = null
 	left_pouch = null
@@ -1525,7 +1525,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2,
 	/obj/item/clothing/shoes/gce/zapatos/calcetines = 1 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -1534,7 +1534,7 @@
 /decl/hierarchy/outfit/job/gce/popular/cabo
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Cabo Popular")
 	holster = /obj/item/weapon/storage/belt/holster/sheath/gce/m1913
-	back_2 = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
+	gun_slot = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/popular
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -1562,7 +1562,7 @@
 	/obj/item/clothing/shoes/gce/alpargatas = 1,
 	/obj/item/clothing/shoes/gce/alpargatas/short = 2 ))
 
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -1592,14 +1592,7 @@
 	/obj/item/clothing/under/gce/popular/fatigues/green/pvt,
 	/obj/item/clothing/under/gce/popular/fatigues/lkhaki/pvt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 1,
-	/obj/item/clothing/shoes/gce/zapatos = 2,
-	/obj/item/clothing/shoes/gce/zapatos/calcetines =1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 3,
-	/obj/item/clothing/shoes/gce/alpargatas = 4,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -1609,7 +1602,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Popular")
 	shoes = /obj/item/clothing/shoes/gce/zapatos/polainas
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/gce/macuto
+	gun_slot = /obj/item/weapon/storage/backpack/gce/macuto
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922/stripfed
 	head = /obj/item/clothing/head/gce/garcap/popular
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -1629,13 +1622,6 @@
 	/obj/item/clothing/under/gce/popular/fatigues/khaki/pvt,
 	/obj/item/clothing/under/gce/popular/fatigues/green/pvt,
 	/obj/item/clothing/under/gce/popular/fatigues/lkhaki/pvt ))
-
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 1,
-	/obj/item/clothing/shoes/gce/zapatos = 2,
-	/obj/item/clothing/shoes/gce/zapatos/calcetines =1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 3,
-	/obj/item/clothing/shoes/gce/alpargatas = 4,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
 
 /decl/hierarchy/outfit/job/gce/popular/asistenteametrallador
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Asistente de Ametrallador Popular")
@@ -1661,14 +1647,7 @@
 	/obj/item/clothing/under/gce/popular/fatigues/green/pvt,
 	/obj/item/clothing/under/gce/popular/fatigues/lkhaki/pvt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 1,
-	/obj/item/clothing/shoes/gce/zapatos = 2,
-	/obj/item/clothing/shoes/gce/zapatos/calcetines =1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 3,
-	/obj/item/clothing/shoes/gce/alpargatas = 4,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 4 ))
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/mosin = 16,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/enfield = 6,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 10,
@@ -1678,7 +1657,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Teniente Legionario")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/legion/officer
 	glasses = null
@@ -1700,7 +1679,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Alferez Legionario")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/legion/officer
 	glasses = null
@@ -1721,10 +1700,11 @@
 /decl/hierarchy/outfit/job/gce/legion/legsgt
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Sargento Legionario")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/naranjero
 	head = /obj/item/clothing/head/gce/garcap/legion/officer
 	glasses = null
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	left_pouch = null
 	right_pouch = null
 	back_pouch = null
@@ -1739,16 +1719,10 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/sgt,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/sgt ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 6,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 4,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
-
 /decl/hierarchy/outfit/job/gce/legion/legmg
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Legionario")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = /obj/item/weapon/storage/backpack/gce/macuto/black
+	gun_slot = /obj/item/weapon/storage/backpack/gce/macuto/black
 	back = /obj/item/weapon/gun/projectile/automatic/rifle/hotchkiss1922
 	head = /obj/item/clothing/head/gce/garcap/legion
 	glasses = null
@@ -1760,17 +1734,12 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/black
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/legion/legmg/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pfc = 1,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pfc = 4 ))
-
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 4,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
 /decl/hierarchy/outfit/job/gce/legion/legmgasst
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - MG Asst. Legionario")
@@ -1786,20 +1755,14 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/black
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/legion/legmgasst/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pvt = 1,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pvt = 4 ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 6,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
-
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -1817,19 +1780,14 @@
 	r_hand = /obj/item/weapon/carpentry/axe/legciaft
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/black
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/legion/legflag/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/cpl = 2,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/cpl = 3 ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 4,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 5,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 5,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 5,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 5,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -1853,20 +1811,14 @@
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pvt = 3,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pvt = 2 ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 6,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 8,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 6 ))
 
 /decl/hierarchy/outfit/job/gce/legion/legsurg
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Cirujano Legionario")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400/black
-	back_2 = null
+	gun_slot = null
 	back = /obj/item/weapon/storage/backpack/gce/medical
 	head = null
 	glasses = null
@@ -1878,17 +1830,12 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/gce/black
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/legion/legsurg/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt ))
-
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 7,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 4,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
 
 /decl/hierarchy/outfit/job/gce/legion/legmed
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Camillero Legionario")
@@ -1904,20 +1851,14 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/black
-
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/legion/legmed/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/camillero = 1,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/camillero = 3))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 5,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 2 ))
 
@@ -1935,19 +1876,14 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/black
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/legion/legsl/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/cpl,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/cpl ))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 7,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 4,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 10,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 4,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 2 ))
 
@@ -1965,19 +1901,14 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/black
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/legion/legslasst/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pvt = 2,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pvt = 5))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 6,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 8,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 8,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -1995,19 +1926,14 @@
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/black
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/legion/legfusilero/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/legion/pvt = 2,
 	/obj/item/clothing/under/gce/nacional/fatigues/legion/alt/pvt = 5))
 
-	shoes = pickweight(list(/obj/item/clothing/shoes/soviet/field = 2,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 6,
-	/obj/item/clothing/shoes/gce/zapatos/gaiters = 3,
-	/obj/item/clothing/shoes/gce/zapatos/negros/gaiters = 2,
-	/obj/item/clothing/shoes/gce/zapatos/polainas = 1, ))
-
-	back_2 = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 12,
+	gun_slot = pickweight(list(/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893 = 12,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1916 = 3,
 	/obj/item/weapon/gun/projectile/rifle/gceboltaction/m1895 = 1 ))
 
@@ -2017,7 +1943,7 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Teniente Republicano")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/nacional/officer
 	glasses = /obj/item/clothing/glasses/eyepatch
@@ -2041,13 +1967,13 @@
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Alferez Republicano")
 	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/nacional/officer
 	left_pouch = null
 	right_pouch = null
 	back_pouch =null
-	l_pocket = /obj/item/weapon/masterkey/lieutenant
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	r_pocket = null
 	l_hand = null
 	l_ear = /obj/item/device/binoculars/wp
@@ -2063,14 +1989,14 @@
 /decl/hierarchy/outfit/job/gce/republican/sargento
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Sargento Republicano")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/soviet_tabletbag
+	gun_slot = /obj/item/weapon/storage/backpack/soviet_tabletbag
 	back = null
 	head = /obj/item/clothing/head/gce/garcap/nacional
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
-	l_pocket = /obj/item/weapon/masterkey/sergeant
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	r_pocket = null
 	l_hand = null
 	l_ear = /obj/item/device/binoculars/wp
@@ -2080,13 +2006,6 @@
 	..()
 	uniform = pickweight(list(/obj/item/clothing/under/gce/nacional/fatigues/breeches/sgt = 2,
 	/obj/item/clothing/under/gce/nacional/fatigues/sgt ))
-
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 3,
-	/obj/item/clothing/shoes/gce/zapatos = 1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 2,
-	/obj/item/clothing/shoes/gce/alpargatas = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
-	/obj/item/clothing/shoes/gce/alpargatas/legion= 9 ))
 
 	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/sgt, /obj/item/clothing/suit/gce/jacket/nat/khaki/sgt))
 
@@ -2098,7 +2017,7 @@
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
-	l_pocket = /obj/item/weapon/masterkey/mensajero
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	r_pocket = null
 	l_hand = null
 	l_ear = null
@@ -2107,13 +2026,6 @@
 
 /decl/hierarchy/outfit/job/gce/republican/mensajero/pre_equip(mob/living/carbon/human/H)
 	..()
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 3,
-	/obj/item/clothing/shoes/gce/zapatos = 1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 2,
-	/obj/item/clothing/shoes/gce/alpargatas = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
-
 	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket, /obj/item/clothing/suit/gce/jacket/khaki))
 
 /decl/hierarchy/outfit/job/gce/republican/surgeon
@@ -2121,7 +2033,7 @@
 	uniform = /obj/item/clothing/under/gce/traje/black
 	shoes = /obj/item/clothing/shoes/gce/zapatos/negros
 	holster = null
-	back_2 = null
+	gun_slot = null
 	back = /obj/item/weapon/storage/backpack/gce/medical
 	head = null
 	left_pouch = null
@@ -2146,15 +2058,10 @@
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pvt
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/republican/camillero/pre_equip(mob/living/carbon/human/H)
 	..()
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 3,
-	/obj/item/clothing/shoes/gce/zapatos = 1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 2,
-	/obj/item/clothing/shoes/gce/alpargatas = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
 
 	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket, /obj/item/clothing/suit/gce/jacket/khaki))
 
@@ -2169,21 +2076,16 @@
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
-	l_pocket = /obj/item/weapon/masterkey/cabo
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	r_pocket = null
 	l_hand = null
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/cpl
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/republican/cabo/pre_equip(mob/living/carbon/human/H)
 	..()
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 3,
-	/obj/item/clothing/shoes/gce/zapatos = 1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 2,
-	/obj/item/clothing/shoes/gce/alpargatas = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
 
 	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/cpl, /obj/item/clothing/suit/gce/jacket/nat/khaki/cpl))
 
@@ -2195,7 +2097,7 @@
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	back = /obj/item/weapon/gun/projectile/rifle/gceboltaction/m1893
-	l_pocket = /obj/item/weapon/masterkey/primera
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 	r_pocket = null
 	l_hand = null
 	l_ear = null
@@ -2205,13 +2107,6 @@
 
 /decl/hierarchy/outfit/job/gce/republican/primera/pre_equip(mob/living/carbon/human/H)
 	..()
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 3,
-	/obj/item/clothing/shoes/gce/zapatos = 1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 2,
-	/obj/item/clothing/shoes/gce/alpargatas = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
-
 	head = pickweight(list(/obj/item/clothing/head/gce/panama, /obj/item/clothing/head/gce/garcap/nacional))
 
 	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/pfc, /obj/item/clothing/suit/gce/jacket/nat/khaki/pfc))
@@ -2230,15 +2125,10 @@
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pvt
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/republican/soldado/pre_equip(mob/living/carbon/human/H)
 	..()
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 3,
-	/obj/item/clothing/shoes/gce/zapatos = 1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 2,
-	/obj/item/clothing/shoes/gce/alpargatas = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
 
 	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket, /obj/item/clothing/suit/gce/jacket/khaki))
 
@@ -2247,7 +2137,7 @@
 /decl/hierarchy/outfit/job/gce/republican/ametrallador
 	name = OUTFIT_JOB_NAME("Spanishcivilwar - Ametrallador Republicano")
 	holster = /obj/item/weapon/storage/belt/holster/gce/astra400
-	back_2 = /obj/item/weapon/storage/backpack/gce/macuto
+	gun_slot = /obj/item/weapon/storage/backpack/gce/macuto
 	back = null
 	left_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
 	right_pouch = /obj/item/weapon/storage/backpack/gce/stripperpouch/brown
@@ -2258,16 +2148,10 @@
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pfc
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/republican/ametrallador/pre_equip(mob/living/carbon/human/H)
 	..()
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 3,
-	/obj/item/clothing/shoes/gce/zapatos = 1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 2,
-	/obj/item/clothing/shoes/gce/alpargatas = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
-
 	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket/nat/pfc, /obj/item/clothing/suit/gce/jacket/nat/khaki/pfc))
 
 	head = pickweight(list(/obj/item/clothing/head/gce/panama, /obj/item/clothing/head/gce/garcap/nacional))
@@ -2285,15 +2169,10 @@
 	l_ear = null
 	belt = /obj/item/weapon/storage/belt/harness/gce/brown
 	uniform = /obj/item/clothing/under/gce/nacional/fatigues/pvt
+	shoes = /obj/item/clothing/shoes/coldwar/soviet/marching
 
 /decl/hierarchy/outfit/job/gce/republican/asistenteametrallador/pre_equip(mob/living/carbon/human/H)
 	..()
-	shoes = pickweight(list(/obj/item/clothing/shoes/gce/zapatos/polainas = 3,
-	/obj/item/clothing/shoes/gce/zapatos = 1,
-	/obj/item/clothing/shoes/gce/alpargatas/tall = 2,
-	/obj/item/clothing/shoes/gce/alpargatas = 3,
-	/obj/item/clothing/shoes/gce/alpargatas/short = 5,
-	/obj/item/clothing/shoes/gce/alpargatas/legion = 9 ))
 
 	suit = pickweight(list(/obj/item/clothing/suit/gce/jacket, /obj/item/clothing/suit/gce/jacket/khaki))
 	head = pickweight(list(/obj/item/clothing/head/gce/panama, /obj/item/clothing/head/gce/garcap/nacional))

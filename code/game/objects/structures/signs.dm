@@ -154,6 +154,10 @@
 	name = "\improper MOVING PARTS"
 	icon_state = "movingparts"
 
+/obj/structure/sign/warning/nosmoking_1
+	name = "\improper NO SMOKING"
+	icon_state = "nosmoking"
+
 /obj/structure/sign/warning/nosmoking_2
 	name = "\improper NO SMOKING"
 	icon_state = "nosmoking2"
@@ -715,7 +719,7 @@ obj/structure/sign/noshitlers
 
 /obj/structure/sign/departments/morgue
 	name = "Morgue"
-	desc = "Morgue"
+	desc = "DEAD NIGGERS STORAGE"
 	icon_state = "Morgue"
 
 /obj/structure/sign/departments/emt
@@ -866,11 +870,12 @@ obj/structure/sign/noshitlers
 	icon = 'icons/obj/neondecor.dmi'
 	light_range  = 4
 	light_power = 1
+	icon = 'icons/obj/neondecor.dmi'
 	anchored = 1
 	opacity = 0
 	density = 0
 	layer = ABOVE_WINDOW_LAYER
-	var/neonsound = 'sound/machines/neon_sign_01.ogg'
+	var/neonsound = 'sound/machines/neon_sign_01.wav'
 	var/loudness = 15
 
 /obj/machinery/sign/neon/process()
@@ -1049,7 +1054,7 @@ obj/structure/sign/noshitlers
 	desc = "It looks like the buttons on it are stuck."
 	icon_state = "bbc"
 	light_color = "#CD5C5C"// dark red
-	neonsound = 'sound/machines/tv_loop1.ogg'
+	neonsound = 'sound/machines/tv_loop1.wav'
 	loudness = 50
 
 /*|	                                             */
@@ -1058,11 +1063,11 @@ obj/structure/sign/noshitlers
 
 /obj/structure/sign/decor
 	name = "Decoration"
-	icon = 'icons/obj/fancydecals.dmi'
+	icon = 'icons/obj/decor.dmi'
 
 /obj/structure/sign/decor/painting
 	name = "painting"
-	icon = 'icons/obj/fancydecals.dmi'
+	icon = 'icons/obj/decor.dmi'
 	icon_state = "0,0"
 	pixel_y = 32
 
@@ -1081,7 +1086,7 @@ obj/structure/sign/noshitlers
 
 /obj/structure/sign/rent
 	name = "Rent sign"
-	icon = 'icons/obj/fancydecals.dmi'
+	icon = 'icons/obj/decor.dmi'
 	icon_state = "rent"
 	desc = "A sign that says 'For Rent' on it. This house might be vacant."
 
@@ -1104,6 +1109,22 @@ obj/structure/sign/noshitlers
 	name = "\improper Brief Room"
 	desc = "A warning sign which reads 'Brief Room'."
 	icon_state = "briefroom"
+
+/obj/structure/sign/toilets
+	name = "unisex restroom"
+	desc = "Toilets ahead."
+	icon_state = "toilets"
+
+/obj/structure/clock
+	name = "clock"
+	icon = 'icons/obj/decor.dmi'
+	icon_state = "clock"
+	anchored = 1
+	density = 1
+	opacity = 1
+
+/obj/structure/clock/examine(mob/user)
+	to_chat(user, "The time [stationtime2text()] is displayed in the corner of the screen.")
 
 
 /obj/structure/sign/metromap
@@ -1148,42 +1169,319 @@ obj/structure/sign/noshitlers
 /obj/structure/sign/chinese/evacuation
 	icon_state = "CH_evacuation"
 
+/obj/structure/sign/russian
+	name = "incomprehensible sign"
+	desc = "A sign written in russian."
 
-/obj/structure/sign/floor/
-	name = "floor sign"
-	icon = 'icons/obj/decals.dmi'
-	icon_state = "white_1"
+/obj/structure/sign/russian/electrical_danger
+	icon_state = "RU_electrical_danger"
 
-/obj/structure/sign/floor/one
-	name = "floor sign"
-	icon_state = "white_1"
+/obj/structure/sign/russian/caution
+	icon_state = "RU_caution"
 
-/obj/structure/sign/floor/two
-	icon_state = "white_2"
+/obj/structure/sign/russian/staff_only
+	icon_state = "RU_staff_only"
 
-/obj/structure/sign/floor/a
-	icon_state = "white_a"
+/obj/structure/sign/double/leaving	//The sign is 64x32, so it needs two tiles. ;3
+	name = "warning message"
+	desc = "You can read on it: 'You are leaving controlled sector'"
 
-/obj/structure/sign/floor/b
-	icon_state = "white_b"
+/obj/structure/sign/double/leaving/left
+	icon_state = "leaving_left"
 
-/obj/structure/sign/floor/c
-	icon_state = "white_c"
+/obj/structure/sign/double/leaving/right
+	icon_state = "leaving_right"
 
-/obj/structure/sign/floor/d
-	icon_state = "white_d"
+/obj/structure/sign/double/leaving/leftalt
+	icon_state = "leaving_leftalt"
 
-/obj/structure/sign/floor/ex
-	icon_state = "white_ex"
+/obj/structure/sign/double/leaving/rightalt
+	icon_state = "leaving_rightalt"
 
-/obj/structure/sign/floor/m
-	icon_state = "white_m"
 
-/obj/structure/sign/floor/cmo
-	icon_state = "white_cmo"
+/obj/structure/sign/stop
+	name = "\improper STOP sign"
+	desc = "A warning sign which reads 'STOP'."
+	icon_state = "stop"
 
-/obj/structure/sign/floor/v
-	icon_state = "white_v"
+/obj/structure/sign/donotenter
+	name = "\improper warning sign"
+	desc = "A warning sign which means do not entering this area."
+	icon_state = "donotenter"
 
-/obj/structure/sign/floor/p
-	icon_state = "white_p"
+/obj/structure/sign/zebracrossing
+	name = "\improper zebra crossing sign"
+	desc = "That's a zebra crossing sign."
+	icon_state = "zebracrossing"
+
+/obj/structure/sign/parking
+	name = "\improper parking sign"
+	desc = "That's a parking sign."
+	icon_state = "parking"
+
+/obj/structure/sign/honeckerportrait
+	name = "\improper Honecker's portrait"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "honecker_portrait"
+
+/obj/structure/sign/andropovportrait
+	name = "\improper Andropov's portrait"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "andropov_portrait"
+
+/obj/structure/sign/stalinportrait
+	name = "\improper Stalin's portrait"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "stalin_portrait"
+
+/obj/structure/sign/leninportrait
+	name = "\improper Lenin's portrait"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "lenin_portrait"
+
+/obj/structure/sign/clock
+	name = "clock"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "clocks"
+	desc = "That's one looks like it doesn't work."
+
+/obj/structure/sign/rubin714
+	name = "TV"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "rubin714"
+	desc = "That's a Rubin-714, a Soviet-made TV. By the way, it doesn't seem to be working."
+
+/obj/structure/sign/rubin102
+	name = "TV"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "rubin102"
+	desc = "That's a Rubin-102, a Soviet-made TV. By the way, it doesn't seem to be working."
+
+/obj/structure/sign/rassvet307
+	name = "TV"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "rassvet307"
+	desc = "That's a Rassvet-307, a Soviet-made TV. By the way, it doesn't seem to be working."
+
+/obj/structure/sign/nes
+	name = "NES"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "nes"
+	desc = "That's the Nintendo Entertainment System."
+	anchored = 0
+
+/obj/structure/sign/powsock
+	name = "power socket"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "rozetka"
+	desc = "That's the power socket."
+	anchored = 1
+
+
+/obj/structure/sign/vhs
+	name = "VHS player"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "vhsplayer"
+	desc = "Does not have any cassette in it."
+	anchored = 0
+
+/obj/structure/sign/soviet_flag
+	name = "Soviet flag"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "soviet_flag"
+	desc = "That's the Soviet Union flag."
+
+/obj/structure/sign/usmc_flag
+	name = "USA flag"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "usa_flag"
+	desc = "That's the United States of America flag."
+
+/obj/structure/sign/trash
+	name = "trash bags"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "trash"
+	desc = "Nasty."
+	anchored = 0
+
+/obj/structure/sign/carpetleft
+	name = "carpet"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "carpet1"
+	desc = "That's a carpet"
+
+/obj/structure/sign/carpetright
+	name = "carpet"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "carpet2"
+	desc = "That's a carpet"
+
+/obj/structure/sign/alpha1
+	name = "ALPHA-1"
+	icon_state = "alpha1"
+
+/obj/structure/sign/alpha2
+	name = "ALPHA-2"
+	icon_state = "alpha2"
+
+/obj/structure/sign/bravo2
+	name = "BRAVO-2"
+	icon_state = "bravo2"
+
+/obj/structure/sign/bravo1
+	name = "BRAVO-1"
+	icon_state = "bravo1"
+
+/obj/structure/sign/charlie1
+	name = "CHARLIE-1"
+	icon_state = "charlie1"
+
+/obj/structure/sign/charlie2
+	name = "CHARLIE-2"
+	icon_state = "charlie2"
+
+/obj/structure/sign/hospital
+	name = "HOSPITAL"
+	icon_state = "hospital"
+
+/obj/structure/sign/command
+	name = "COMMAND"
+	icon_state = "command"
+
+/obj/structure/sign/raduzhnoe
+	name = "Raduzhnoe village"
+	icon = 'icons/obj/decals48.dmi'
+	icon_state = "raduzhnoe"
+
+/obj/structure/sign/stogovka
+	name = "Stogovka river"
+	icon = 'icons/obj/decals48.dmi'
+	icon_state = "stogovka"
+
+/obj/structure/sign/cafe
+	name = "cafe sign"
+	icon_state = "cafesign"
+
+/obj/structure/sign/gasoline
+	name = "gasoline sign"
+	icon_state = "gasolinesign"
+
+/obj/structure/sign/human
+	name = "'human on the road' sign"
+	icon_state = "humansign"
+
+/obj/structure/sign/way
+	name = "direction sign"
+	icon_state = "waysign"
+
+
+/obj/structure/sign/roadsign
+	icon = 'icons/obj/road_signs.dmi'
+	plane = -15
+	density = 1
+
+/obj/structure/sign/roadsign/medical
+	name = "medical sign"
+	icon_state = "medical"
+
+/obj/structure/sign/roadsign/stop
+	name = "stop sign"
+	icon_state = "stop"
+
+/obj/structure/sign/roadsign/warning
+	name = "warning sign"
+	icon_state = "warning"
+
+/obj/structure/sign/roadsign/forward
+	name = "forward sign"
+	icon_state = "forward"
+
+/obj/structure/sign/roadsign/bus
+	name = "bus stop sign"
+	icon_state = "busstop"
+
+/obj/structure/sign/flag
+	icon = 'icons/obj/flags.dmi'
+
+/obj/structure/sign/flag/ussr
+	name = "USSR flag"
+	icon_state = "sovietflag"
+
+/obj/structure/sign/flag/germanflag
+	name = "German flag"
+	icon_state = "germanflag"
+
+/obj/structure/sign/flag/ddrflag
+	name = "DDR flag"
+	icon_state = "ddrflag"
+
+/obj/structure/sign/flag/natoflag
+	name = "NATO flag"
+	icon_state = "natoflag"
+
+/obj/structure/sign/flag/usaflag
+	name = "USA flag"
+	icon_state = "usaflag"
+
+/obj/structure/sign/flag/usmcflag
+	name = "USMC flag"
+	icon_state = "usmcflag"
+
+//SCW
+
+/obj/structure/sign/alfrente
+	name = "direction sign"
+	icon_state = "alfrente"
+	desc = "'PELIGRO - AL FRENTE'"
+
+/obj/structure/sign/alfrente/north
+	name = "direction sign"
+	icon_state = "alfrente_north"
+	desc = "'PELIGRO - AL FRENTE'"
+
+/obj/structure/sign/republicano_flag
+	name = "Republican flag"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "republicano_flag"
+	desc = "That's the flag of the second Spanish republic."
+
+/obj/structure/sign/morocco_flag
+	name = "Moroccan flag"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "morocco_flag"
+	desc = "That's the flag of Morocco."
+
+/obj/structure/sign/nacional_flag
+	name = "Spanish flag"
+	icon = 'icons/obj/decorations.dmi'
+	icon_state = "nacional_flag"
+	desc = "That's the flag used by the Spanish nationalists."
+
+/obj/structure/sign/flag/spainflag
+	name = "Spanish flag"
+	icon_state = "spainflag"
+
+/obj/structure/sign/flag/republicflag
+	name = "Spanish Republic flag"
+	icon_state = "republicflag"
+
+/obj/structure/sign/ebromap/sw
+	name = "map of the front"
+	icon_state = "ebromapsw"
+
+/obj/structure/sign/ebromap/nw
+	name = "map of the front"
+	icon_state = "ebromapnw"
+
+/obj/structure/sign/ebromap/ne
+	name = "map of the front"
+	icon_state = "ebromapne"
+
+/obj/structure/sign/ebromap/se
+	name = "map of the front"
+	icon_state = "ebromapse"
+
+/obj/structure/sign/cross
+	name = "cross"
+	icon = 'icons/obj/housefurniture.dmi'
+	icon_state = "holycross"

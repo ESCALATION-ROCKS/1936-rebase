@@ -45,3 +45,20 @@
 	icon_state = "sapperhatchet"
 	item_state = "axe"
 	w_class = ITEM_SIZE_SMALL
+
+//SCW Axes
+
+/obj/item/weapon/carpentry/axe/legciaft
+	name = "banderin"
+	desc = "The standard of the 14th Company of the 6th flag of the 2nd Tercio of the Legion, mounted on the end of a halberd. A white skull sits atop a gold cross of burgundy upon a field of black. On the back side the skull is replaced by the symbol of the legion."
+	icon_state = "14cia"
+	item_state = "14cia"
+	sharp = 1
+	edge = 1
+	force = 20 //carpenters op plz nerf //this high because carpenters will need to defend themselves too
+	sharpness = 4
+	throwforce = 1
+	slot_flags = null
+	attack_verb = list("cleaved", "slashed", "stabbed", "hacked", "attacked")
+	w_class = 5
+	slowdown_general = 0.55

@@ -54,3 +54,25 @@
 /obj/item/weapon/key/natomed
 	key_data = "natomed"
 
+//SCW Keys
+
+/obj/item/weapon/key/office
+	key_data = "office"
+
+/obj/item/weapon/key/armory
+	key_data = "armory"
+
+/obj/item/weapon/key/telegram
+	key_data = "telegram"
+
+/obj/item/weapon/key/toolshed
+	key_data = "toolshed"
+
+/obj/item/weapon/key/headquarters
+	key_data = "headquarters"
+
+/obj/item/weapon/key/jail
+	key_data = "jail"
+
+/obj/item/weapon/key/gate
+	key_data = "gate"

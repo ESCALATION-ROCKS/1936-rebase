@@ -24,6 +24,7 @@
 #define SLOT_HOLSTER	0x16000
 #define SLOT_LPOUCH		0x32000 //16th bit - higher than this will overflow
 #define SLOT_RPOUCH		0x64000 //16th bit - higher than this will overflow
+#define SLOT_BPOUCH		0x32000 //16th bit - higher than this will overflow
 #define SLOT_ID			0x63000 ///unused so putting in some bullshit number. will stay unused
  //16th bit - higher than this will overflow
 

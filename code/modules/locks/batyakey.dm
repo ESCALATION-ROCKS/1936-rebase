@@ -87,3 +87,40 @@
 	new /obj/item/weapon/key/wpofficer (src)
 	new /obj/item/weapon/key/wpnco (src)
 	update_icon_state()
+
+//SCW Keys
+
+/obj/item/weapon/masterkey/lieutenant/New()
+	new /obj/item/weapon/key/office (src)
+	new /obj/item/weapon/key/armory (src)
+	new /obj/item/weapon/key/telegram (src)
+	new /obj/item/weapon/key/toolshed (src)
+	new /obj/item/weapon/key/headquarters (src)
+	new /obj/item/weapon/key/jail (src)
+	new /obj/item/weapon/key/gate (src)
+	update_icon_state()
+
+/obj/item/weapon/masterkey/sergeant/New()
+	new /obj/item/weapon/key/armory (src)
+	new /obj/item/weapon/key/telegram (src)
+	new /obj/item/weapon/key/toolshed (src)
+	new /obj/item/weapon/key/headquarters (src)
+	new /obj/item/weapon/key/jail (src)
+	new /obj/item/weapon/key/gate (src)
+	update_icon_state()
+
+/obj/item/weapon/masterkey/mensajero/New()
+	new /obj/item/weapon/key/telegram (src)
+	new /obj/item/weapon/key/headquarters (src)
+	update_icon_state()
+
+/obj/item/weapon/masterkey/cabo/New()
+	new /obj/item/weapon/key/toolshed (src)
+	new /obj/item/weapon/key/jail (src)
+	new /obj/item/weapon/key/gate (src)
+	update_icon_state()
+
+/obj/item/weapon/masterkey/primera/New()
+	new /obj/item/weapon/key/toolshed (src)
+	new /obj/item/weapon/key/gate (src)
+	update_icon_state()

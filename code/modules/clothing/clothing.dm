@@ -90,7 +90,7 @@
 			var/obj/item/clothing/accessory/tie = new T(src)
 			src.attach_accessory(null, tie)
 
-
+/*
 ////////escalation wearable clothing check
 /obj/item/clothing/mob_can_equip(M as mob)
 
@@ -105,6 +105,7 @@
 			to_chat(H, "<span class='danger'>You shouldn't be wearing [src].</span>")
 			return 0
 	return 1
+*/
 
 	/*if(species_restricted && istype(M,/mob/living/carbon/human)) ////////old species check code
 		var/exclusive = null

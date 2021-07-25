@@ -92,3 +92,6 @@ obj/structure/platform_decoration
 		if (SOUTHWEST)
 			layer = ABOVE_HUMAN_LAYER
 	.. ()
+
+/obj/structure/platform/alt
+	icon_state = "platformalt"

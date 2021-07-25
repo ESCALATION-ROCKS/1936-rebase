@@ -424,3 +424,6 @@ bdw_enlisted
 lol18 = {
 bdw_enlisted
 }
+emoats18 = {
+::ALL::
+}

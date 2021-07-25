@@ -42,12 +42,6 @@
 	icon_state = "red"
 	initial_flooring = /decl/flooring/carpet/red
 
-
-/turf/simulated/floor/carpet/arcade
-	name = "arcade carpet"
-	icon_state = "arcade"
-	initial_flooring = /decl/flooring/carpet/arcade
-
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -77,6 +71,34 @@
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
+
+/turf/simulated/floor/wood/alt
+	icon = 'icons/turf/flooring/decals.dmi'
+	icon_state = "woodalt"
+
+/turf/simulated/floor/wood/alt2
+	icon = 'icons/turf/flooring/decals.dmi'
+	icon_state = "woodalt2"
+
+/turf/simulated/floor/wood/alt3
+	icon = 'icons/turf/flooring/decals.dmi'
+	icon_state = "woodalt3"
+
+/turf/simulated/floor/wood/alt4
+	icon = 'icons/turf/flooring/decals.dmi'
+	icon_state = "woodalt4"
+
+/turf/simulated/floor/wood/alt5
+	icon = 'icons/turf/flooring/decals.dmi'
+	icon_state = "woodalt5"
+
+/turf/simulated/floor/wood/alt6
+	icon = 'icons/turf/flooring/decals.dmi'
+	icon_state = "woodalt6"
+
+/turf/simulated/floor/tled/lino
+	icon = 'icons/turf/flooring/decals.dmi'
+	icon_state = "linofull"
 
 /turf/simulated/floor/tiled/bunker/
 	name = "bunker floor"
@@ -237,17 +259,11 @@
 	icon_state = "freezer"
 	initial_flooring = /decl/flooring/tiling/freezer
 
-/turf/simulated/floor/tiled/lino
+/turf/simulated/floor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_state = "lino"
-	initial_flooring = /decl/flooring/tiling/linoleum
-
-/turf/simulated/floor/tiled/fancytiles
-	name = "tiles"
-	icon = 'icons/turf/flooring/fancytile.dmi'
-	icon_state = "greylam"
-	initial_flooring = /decl/flooring/tiling/fancytiles
+	initial_flooring = /decl/flooring/linoleum
 
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless
