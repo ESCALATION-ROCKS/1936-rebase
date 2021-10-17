@@ -71,7 +71,7 @@ mob/living/carbon/human/proc/handle_pain()
 		switch(round(maxdam, 1))
 			if(1 to 50)
 				msg =  "Your [damaged_organ.name] [burning ? "burns" : "hurts"]."
-				emote("groan")
+				emote("cry", "whimper")
 			if(51 to 75)
 				msg = "Your[damaged_organ.name] [burning ? "burns" : "hurts"] badly!"
 				if(prob(20))
